@@ -1,5 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 
+import {
+  loadingTemplate,
+  mythicLayersTemplate,
+  nonMythicLayersTemplate,
+  baseArtworkLayersTemplate,
+} from './templating';
+
 const qualities = [
   'plain',
   // @NOTE: there may be "0" quality items in future, for now, these items
@@ -123,266 +130,23 @@ class CompositedCard extends LitElement {
 
   render() {
     const isMythicCard = this.qualityName === 'mythic';
+    // const isMythicCard = true;
 
     return html`
-      <picture class="card__artwork">
-        <source
-          srcset="https://images.godsunchained.com/art/${this.useHiResAssets
-            ? '500'
-            : '375'}/${this.protoId}.webp"
-          media="(-webkit-min-device-pixel-ratio: 2)"
-          type="image/webp"
-        />
-        <source
-          srcset="https://images.godsunchained.com/art/${this.useHiResAssets
-            ? '500'
-            : '375'}/${this.protoId}.jpg"
-          media="(-webkit-min-device-pixel-ratio: 2)"
-          type="image/jpg"
-        />
-        <source
-          srcset="https://images.godsunchained.com/art/${this.useHiResAssets
-            ? '375'
-            : '250'}/${this.protoId}.webp"
-          type="image/webp"
-        />
-        <source
-          srcset="https://images.godsunchained.com/art/${this.useHiResAssets
-            ? '375'
-            : '250'}/${this.protoId}.jpg"
-          type="image/jpg"
-        />
-        <img
-          src="https://images.godsunchained.com/art/${this.useHiResAssets
-            ? '375'
-            : '250'}/${this.protoId}.jpg"
-          class="card__artwork__img"
-        />
-      </picture>
-
       ${this.loading
-        ? html`
-            loading ...
-          `
+        ? loadingTemplate()
         : html`
+            ${baseArtworkLayersTemplate({
+              useHiResAssets: this.useHiResAssets,
+              protoId: this.protoId,
+            })}
             ${isMythicCard
-              ? html`
-                  <picture class="card__baseLayer">
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/creature_hyperion.webp"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/creature_hyperion.png"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/png"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/creature_hyperion.webp"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/creature_hyperion.png"
-                      type="image/png"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/creature_hyperion.png"
-                      class="card__baseLayer__img"
-                    />
-                  </picture>
-
-                  <picture class="card__manaLayer">
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/mythic_hyperion.webp"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/mythic_hyperion.png"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/png"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/mythic_hyperion.webp"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/mythic_hyperion.png"
-                      type="image/png"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/creature_hyperion.png"
-                      class="card__manaLayer__img"
-                    />
-                  </picture>
-                `
-              : html`
-                  <picture class="card__baseLayer">
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/${this.protoCardData
-                        .type}_${this.qualityName}.webp"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/${this.protoCardData
-                        .type}_${this.qualityName}.png"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/png"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/${this.protoCardData
-                        .type}_${this.qualityName}.webp"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/${this.protoCardData
-                        .type}_${this.qualityName}.png"
-                      type="image/png"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/${this.protoCardData
-                        .type}_${this.qualityName}.png"
-                      class="card__baseLayer__img"
-                    />
-                  </picture>
-
-                  <picture class="card__manaLayer">
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/${this.protoCardData
-                        .god}_${this.qualityName}.webp"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/${this.protoCardData
-                        .god}_${this.qualityName}.png"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/png"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/${this.protoCardData
-                        .god}_${this.qualityName}.webp"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/${this.protoCardData
-                        .god}_${this.qualityName}.png"
-                      type="image/png"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/{{
-                      resolutionSettings.lowDpi
-                    }}/${this.protoCardData.god}_${this.qualityName}.png"
-                      class="card__manaLayer__img"
-                    />
-                  </picture>
-
-                  <picture class="card__rarityLayer">
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/rarity_${this.protoCardData
-                        .rarity}.webp"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/rarity_${this.protoCardData
-                        .rarity}.png"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/png"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/rarity_${this.protoCardData
-                        .rarity}.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/rarity_${this.protoCardData
-                        .rarity}.png"
-                      class="card__rarityLayer__img"
-                    />
-                  </picture>
-
-                  <picture
-                    class="card__wreathLayer"
-                    *ngIf="cardProtoData.rarity === 'legendary'"
-                  >
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/wreath_${this
-                        .qualityName}.webp"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.highDpi}/wreath_${this
-                        .qualityName}.png"
-                      media="(-webkit-min-device-pixel-ratio: 2)"
-                      type="image/png"
-                    />
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/wreath_${this
-                        .qualityName}.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/${this
-                        .resolutionSettings.lowDpi}/rarity_wreath_${this
-                        .qualityName}.png"
-                      class="card__wreathLayer__img"
-                    />
-                  </picture>
-
-                  <picture
-                    class="card__lockIconLayer"
-                    *ngIf="cardProtoData.set === 'core'"
-                  >
-                    <source
-                      srcset="https://images.godsunchained.com/card-layers/lock_${this
-                        .qualityName}.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="https://images.godsunchained.com/card-layers/lock_${this
-                        .qualityName}.png"
-                      class="card__lockIconLayer__img"
-                    />
-                  </picture>
-                `}
-
-            <div class="card__manaText">
-              ${this.protoCardData.mana}
-            </div>
-
-            <div class="card__nameText">
-              ${this.protoCardData.name}
-            </div>
+              ? mythicLayersTemplate({
+                  type: this.protoCardData.type,
+                  resultionSettings: this.resolutionSettings,
+                  qualityName: this.qualityName,
+                })
+              : nonMythicLayersTemplate({})}
           `}
     `;
   }
