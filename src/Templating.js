@@ -296,7 +296,7 @@ export const textLayersTemplate = ({
             class="card__healthText"
             style=${styleMap({
               fontSize: `${ch * 9.5}px`,
-              bottom: `${ch * 2.8}px`,
+              bottom: `${ch * 3}px`,
               width: `${cw * 15}px`,
               right: `${type === 'weapon' ? cw * 0.8 : cw * 4.5}px`,
             })}
