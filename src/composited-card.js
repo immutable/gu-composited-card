@@ -48,7 +48,7 @@ class CompositedCard extends LitElement {
       @TODO: instead make this setting 3 options:
       assetsQuality: "normal" | "high" | "best"
       "normal" === same as now (default)
-      "high" === same as useHiResAssets
+      "high" === same as useHiResAssets = true
       "best" === only use max-res assets
       */
       useHiResAssets: { type: Boolean },
