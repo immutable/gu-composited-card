@@ -7,9 +7,9 @@ import {
   nonMythicImageLayersTemplate,
   baseArtworkLayersTemplate,
   textLayersTemplate,
-} from './templating2';
+} from './templating';
 
-import { getStyles } from './styles2';
+import { getStyles } from './styles';
 
 // @TODO: these should really come from an endpoint call,
 // so that we can easily update them in the future...
