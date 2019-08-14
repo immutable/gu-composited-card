@@ -44,6 +44,13 @@ class CompositedCard extends LitElement {
     return {
       protoId: { type: Number },
       inputProtoData: { type: Object },
+      /*
+      @TODO: instead make this setting 3 options:
+      assetsQuality: "normal" | "high" | "best"
+      "normal" === same as now (default)
+      "high" === same as useHiResAssets
+      "best" === only use max-res assets
+      */
       useHiResAssets: { type: Boolean },
       resolutionSettings: {
         lowDpi: Number,
@@ -59,6 +66,10 @@ class CompositedCard extends LitElement {
 
   constructor() {
     super();
+    /*
+      @TODO: make these options based on the same assets qualities above:
+      "normal" | "high" | "best"
+    */
     this.resolutionSettings = {
       lowDpi: '256',
       highDpi: '512',
@@ -140,6 +151,7 @@ class CompositedCard extends LitElement {
         : html`
             ${baseArtworkLayersTemplate({
               useHiResAssets: this.useHiResAssets,
+              resolutionSettings: this.resolutionSettings,
               protoId: this.protoId,
             })}
             ${isMythicCard

@@ -2,11 +2,27 @@ import { html } from 'lit-element';
 import { styleMap } from 'lit-html/directives/style-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
+const artQualities = {
+  normal: 250,
+  high: 375,
+  best: 500,
+};
+
+const layerQualities = {
+  normal: 256,
+  high: 512,
+  best: 1024,
+};
+
 export const loadingTemplate = () => html`
   loading ...
 `;
 
-export const baseArtworkLayersTemplate = ({ useHiResAssets, protoId }) => {
+export const baseArtworkLayersTemplate = ({
+  resolutionSettings,
+  useHiResAssets,
+  protoId,
+}) => {
   return html`
     <picture class="card__artwork">
       <source
