@@ -2,7 +2,7 @@
   "entrypoint": "index.html",
   "fragments": [],
   "sources": [
-    "src/**/*",
+    "src/**",
     "index.html"
   ],
   "extraDependencies": [
@@ -10,7 +10,7 @@
   ],
   "builds": [
     {
-      "bundle": true,
+      "bundle": false,
       "js": {
         "minify": true
       },
@@ -19,9 +19,15 @@
       },
       "html": {
         "minify": true
-      }
+      },
+      "addPushManifest": true
     }
   ],
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  },
   "npm": true,
   "componentDir": "node_modules/",
   "moduleResolution": "node"
