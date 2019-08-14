@@ -1,5 +1,6 @@
 {
   "name": "composited-card",
+  "main": "./src/composited-card.js",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -8,9 +9,10 @@
     "lit-element": "2.2.1"
   },
   "scripts": {
-    "start": "polymer serve"
+    "start": "polymer serve --npm",
+    "build": "polymer build --npm"
   },
   "devDependencies": {
-    "polymer-cli": "^1.9.11"
+    "polymer-cli": "^1.9.0-pre.2"
   }
 }

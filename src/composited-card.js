@@ -7,9 +7,9 @@ import {
   nonMythicImageLayersTemplate,
   baseArtworkLayersTemplate,
   textLayersTemplate,
-} from './Templating';
+} from './templating2';
 
-import { getStyles } from './Styles';
+import { getStyles } from './styles2';
 
 // @TODO: these should really come from an endpoint call,
 // so that we can easily update them in the future...
@@ -35,7 +35,7 @@ const loadFonts = () => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.type = 'text/css';
-  link.href = 'src/assets/fonts.css';
+  link.href = '/src/assets/fonts.css';
   document.head.appendChild(link);
 };
 
