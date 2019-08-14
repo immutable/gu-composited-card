@@ -7,8 +7,6 @@ export const loadingTemplate = () => html`
 `;
 
 export const baseArtworkLayersTemplate = ({ useHiResAssets, protoId }) => {
-  // console.log('!!!!!!!!!!!', useHiResAssets);
-
   return html`
     <picture class="card__artwork">
       <source

@@ -1,4 +1,4 @@
-import { css, unsafeCSS } from 'lit-element';
+import { css } from 'lit-element';
 
 const headingText = css`
   font-family: 'Unchained', serif;

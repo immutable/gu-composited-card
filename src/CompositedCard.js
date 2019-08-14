@@ -120,6 +120,7 @@ class CompositedCard extends LitElement {
       };
       this.loading = false;
       this.requestUpdate();
+      return data;
     });
   }
 
