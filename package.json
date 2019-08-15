@@ -1,7 +1,7 @@
 {
   "name": "composited-card",
-  "main": "./src/composited-card.js",
-  "version": "0.0.1",
+  "main": "dist/composited-card.js",
+  "version": "0.0.2",
   "dependencies": {
     "@juggle/resize-observer": "^2.3.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
@@ -10,7 +10,8 @@
   "scripts": {
     "start": "parcel index.html --no-cache",
     "demo": "parcel demo/index.html --no-cache",
-    "build": "parcel build src/composited-card.js --no-cache"
+    "prebuild": "rm -rf dist/",
+    "build": "parcel build src/composited-card.ts --no-cache --out-file composited-card.js"
   },
   "browserslist": [
     "last 1 chrome versions"
