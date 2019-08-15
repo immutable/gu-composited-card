@@ -8,11 +8,15 @@
     "lit-element": "2.2.1"
   },
   "scripts": {
-    "start": "polymer serve",
-    "build": "parcel index.html"
+    "start": "parcel index.html --no-cache",
+    "demo": "parcel demo/index.html --no-cache",
+    "build": "parcel build src/composited-card.js --no-cache"
   },
+  "browserslist": [
+    "last 1 chrome versions"
+  ],
   "devDependencies": {
     "parcel-bundler": "^1.12.3",
-    "polymer-cli": "^1.9.0-pre.2"
+    "typescript": "^3.5.3"
   }
 }
