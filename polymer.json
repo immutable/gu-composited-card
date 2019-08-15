@@ -6,7 +6,7 @@
   "sources": ["src/**"],
   "builds": [
     {
-      "bundle": false,
+      "bundle": true,
       "js": {
         "minify": true
       },
@@ -15,8 +15,7 @@
       },
       "html": {
         "minify": true
-      },
-      "addPushManifest": true
+      }
     }
   ]
 }

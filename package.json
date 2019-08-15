@@ -9,8 +9,7 @@
     "lit-element": "2.2.1"
   },
   "scripts": {
-    "start": "polymer serve",
-    "build": "polymer build"
+    "start": "polymer serve"
   },
   "devDependencies": {
     "polymer-cli": "^1.9.0-pre.2"
