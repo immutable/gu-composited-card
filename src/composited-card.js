@@ -91,7 +91,6 @@ class CompositedCard extends LitElement {
     };
     this.ch = this.offsetHeight * 0.01;
     this.cw = this.offsetWidth * 0.01;
-    // loadFonts();
   }
 
   connectedCallback() {
