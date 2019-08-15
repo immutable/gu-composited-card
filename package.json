@@ -1,27 +1,26 @@
 {
   "name": "composited-card",
-  "main": "dist/composited-card.46f367f4.js",
+  "main": "dist/bundle.js",
   "version": "0.0.2",
   "dependencies": {
     "@juggle/resize-observer": "^2.3.0",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
     "lit-element": "2.2.1"
   },
   "scripts": {
     "clear-dist": "rm -rf dist/",
-    "prestart": "yarn run clear-dist",
-    "start": "parcel src/index.html",
-    "predemo": "yarn run clear-dist",
-    "demo": "parcel demo/index.html",
-    "prebuild": "yarn run clear-dist",
-    "build": "parcel build src/index.html --public-url ."
+    "prebuild": "yarn clear-dist",
+    "predemo": "yarn build",
+    "demo": "http-server",
+    "build": "webpack --config ./webpack.config.js"
   },
-  "browserslist": [
-    "last 1 chrome versions"
-  ],
   "devDependencies": {
-    "parcel-bundler": "^1.12.3",
-    "parcel-plugin-inliner": "^1.0.10",
-    "typescript": "^3.5.3"
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "http-server": "^0.11.1",
+    "style-loader": "^1.0.0",
+    "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
   }
 }

@@ -2,8 +2,12 @@
 
 @font-face {
   font-family: 'Unchained';
-  src: local('Unchained'), url('Unchained.woff2') format('woff2');
+  src: local('Unchained'), url('./unchained.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+body {
+  background: gold;
 }

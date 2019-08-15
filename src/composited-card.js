@@ -9,6 +9,7 @@ import {
   textLayersTemplate,
 } from './templating';
 
+import './assets/fonts.css';
 import { getStyles } from './styles';
 
 // @TODO: these should really come from an endpoint call,
@@ -31,13 +32,13 @@ const ro = new ResizeObserver(entries => {
   entries.forEach(entry => entry.target.handleResize(entry));
 });
 
-const loadFonts = () => {
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = '/src/assets/fonts.css';
-  document.head.appendChild(link);
-};
+// const loadFonts = () => {
+//   var css = fs.readFileSync('./assets/fonts.css');
+//   var style = document.createElement('style');
+//   style.type = 'text/css';
+//   style.appendChild(document.createTextNode(css));
+//   document.head.appendChild(style);
+// };
 
 /**
  * @TODO: document this web-component...
@@ -90,7 +91,7 @@ class CompositedCard extends LitElement {
     };
     this.ch = this.offsetHeight * 0.01;
     this.cw = this.offsetWidth * 0.01;
-    loadFonts();
+    // loadFonts();
   }
 
   connectedCallback() {
