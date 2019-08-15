@@ -281,7 +281,7 @@ export const textLayersTemplate = ({
     <div
       class="card__descriptionText"
       style=${styleMap({
-        fontSize: `${crammedTextMode ? ch * 3.8 : ch * 4}px`,
+        fontSize: `${crammedTextMode ? ch * 3.6 : ch * 3.8}px`,
         lineHeight: crammedTextMode ? 1.1 : 1.3,
         bottom: `${ch * 7.75}px`,
         height: `${ch * 22.5}px`,
