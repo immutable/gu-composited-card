@@ -1,0 +1,1235 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "",
+      "summary": "",
+      "path": "src/composited-card.js",
+      "properties": [
+        {
+          "name": "_hasConnected",
+          "type": "?",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 472,
+              "column": 4
+            },
+            "end": {
+              "line": 474,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_hasRequestedUpdate",
+          "type": "?",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 475,
+              "column": 4
+            },
+            "end": {
+              "line": 477,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "hasUpdated",
+          "type": "?",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 478,
+              "column": 4
+            },
+            "end": {
+              "line": 480,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "updateComplete",
+          "type": "Promise",
+          "description": "Returns a Promise that resolves when the element has completed updating.\nThe Promise value is a boolean that is `true` if the element completed the\nupdate without triggering another update. The Promise result is `false` if\na property was set inside `updated()`. If the Promise is rejected, an\nexception was thrown during the update.\n\nTo await additional asynchronous work, override the `_getUpdateComplete`\nmethod. For example, it is sometimes useful to await a rendered element\nbefore fulfilling this Promise. To do this, first await\n`super._getUpdateComplete()`, then any subsequent state.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 547,
+              "column": 4
+            },
+            "end": {
+              "line": 549,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "resolutionSettings",
+          "type": "?",
+          "description": "      ",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 4
+            },
+            "end": {
+              "line": 86,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{\n  lowDpi: '256',\n  highDpi: '512'\n}"
+        },
+        {
+          "name": "protoId",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "inputProtoData",
+          "type": "Object | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 38
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Object"
+            }
+          }
+        },
+        {
+          "name": "useHiResAssets",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 67,
+              "column": 39
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "quality",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 72,
+              "column": 6
+            },
+            "end": {
+              "line": 72,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "description": "Performs element initialization. By default this calls `createRenderRoot`\nto create the element `renderRoot` node and captures any pre-set values for\nregistered properties.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lit-element.js",
+            "start": {
+              "line": 93,
+              "column": 4
+            },
+            "end": {
+              "line": 103,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "LitElement"
+        },
+        {
+          "name": "_saveInstanceProperties",
+          "description": "Fixes any properties set on the instance before upgrade time.\nOtherwise these would shadow the accessor and break these properties.\nThe properties are stored in a Map which is played back after the\nconstructor runs. Note, on very old versions of Safari (<=9) or Chrome\n(<=41), properties created for native platform properties like (`id` or\n`name`) may not have default values set in the element constructor. On\nthese browsers native properties appear on instances and therefore their\ndefault value will overwrite any element default (e.g. if the element sets\nthis.id = 'id' in the constructor, the 'id' will become '' since this is\nthe native platform default).",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 281,
+              "column": 4
+            },
+            "end": {
+              "line": 295,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_applyInstanceProperties",
+          "description": "Applies previously saved instance properties.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 299,
+              "column": 4
+            },
+            "end": {
+              "line": 305,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "connectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 2
+            },
+            "end": {
+              "line": 99,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 2
+            },
+            "end": {
+              "line": 104,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "Synchronizes property values when attributes change.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 327,
+              "column": 4
+            },
+            "end": {
+              "line": 331,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_propertyToAttribute",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 332,
+              "column": 4
+            },
+            "end": {
+              "line": 359,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "options",
+              "defaultValue": "defaultPropertyDeclaration"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_attributeToProperty",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 360,
+              "column": 4
+            },
+            "end": {
+              "line": 378,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_requestUpdate",
+          "description": "This private version of `requestUpdate` does not access or return the\n`updateComplete` promise. This promise can be overridden and is therefore\nnot free to access.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 384,
+              "column": 4
+            },
+            "end": {
+              "line": 414,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "oldValue"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "requestUpdate",
+          "description": "Requests an update which is processed asynchronously. This should\nbe called when an element should update based on some state not triggered\nby setting a property. In this case, pass no arguments. It should also be\ncalled when manually implementing a property setter. In this case, pass the\nproperty `name` and `oldValue` to ensure that any configured property\noptions are honored. Returns the `updateComplete` Promise which is resolved\nwhen the update completes.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 428,
+              "column": 4
+            },
+            "end": {
+              "line": 431,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name",
+              "description": "{PropertyKey} (optional) name of requesting property"
+            },
+            {
+              "name": "oldValue",
+              "description": "{any} (optional) old value of requesting property"
+            }
+          ],
+          "return": {
+            "type": "Promise",
+            "desc": "A Promise that is resolved when the update completes."
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_enqueueUpdate",
+          "description": "Sets up the element to asynchronously update.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 435,
+              "column": 4
+            },
+            "end": {
+              "line": 471,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "performUpdate",
+          "description": "Performs an element update. Note, if an exception is thrown during the\nupdate, `firstUpdated` and `updated` will not be called.\n\nYou can override this method to change the timing of updates. If this\nmethod is overridden, `super.performUpdate()` must be called.\n\nFor instance, to schedule updates to occur just before the next frame:\n\n```\nprotected async performUpdate(): Promise<unknown> {\n  await new Promise((resolve) => requestAnimationFrame(() => resolve()));\n  super.performUpdate();\n}\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 497,
+              "column": 4
+            },
+            "end": {
+              "line": 527,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_markUpdated",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 528,
+              "column": 4
+            },
+            "end": {
+              "line": 531,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_getUpdateComplete",
+          "description": "Override point for the `updateComplete` promise.\n\nIt is not safe to override the `updateComplete` getter directly due to a\nlimitation in TypeScript which means it is not possible to call a\nsuperclass getter (e.g. `super.updateComplete.then(...)`) when the target\nlanguage is ES5 (https://github.com/microsoft/TypeScript/issues/338).\nThis method should be overridden instead. For example:\n\n  class MyElement extends LitElement {\n    async _getUpdateComplete() {\n      await super._getUpdateComplete();\n      await this._myChild.updateComplete;\n    }\n  }",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 566,
+              "column": 4
+            },
+            "end": {
+              "line": 568,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "shouldUpdate",
+          "description": "Controls whether or not `update` should be called when the element requests\nan update. By default, this method always returns `true`, but this can be\ncustomized to control when to update.\n\n* @param _changedProperties Map of changed properties with old values",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 576,
+              "column": 4
+            },
+            "end": {
+              "line": 578,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "_changedProperties"
+            }
+          ],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "update",
+          "description": "Updates the element. This method reflects property values to attributes\nand calls `render` to render DOM via lit-html. Setting properties inside\nthis method will *not* trigger another update.\n* @param _changedProperties Map of changed properties with old values",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lit-element.js",
+            "start": {
+              "line": 160,
+              "column": 4
+            },
+            "end": {
+              "line": 178,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "LitElement"
+        },
+        {
+          "name": "updated",
+          "description": "Invoked whenever the element is updated. Implement to perform\npost-updating tasks via DOM APIs, for example, focusing an element.\n\nSetting properties inside this method will trigger the element to update\nagain after this update cycle completes.\n\n* @param _changedProperties Map of changed properties with old values",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 605,
+              "column": 4
+            },
+            "end": {
+              "line": 606,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "_changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "firstUpdated",
+          "description": "Invoked when the element is first updated. Implement to perform one time\nwork on the element after update.\n\nSetting properties inside this method will trigger the element to update\nagain after this update cycle completes.\n\n* @param _changedProperties Map of changed properties with old values",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 616,
+              "column": 4
+            },
+            "end": {
+              "line": 617,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "_changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "createRenderRoot",
+          "description": "Returns the node into which the element should render and by default\ncreates and returns an open shadowRoot. Implement to customize where the\nelement's DOM is rendered. For example, to render into the element's\nchildNodes, return `this`.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lit-element.js",
+            "start": {
+              "line": 111,
+              "column": 4
+            },
+            "end": {
+              "line": 113,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(Element | DocumentFragment)",
+            "desc": "Returns a node into which to render."
+          },
+          "inheritedFrom": "LitElement"
+        },
+        {
+          "name": "adoptStyles",
+          "description": "Applies styling to the element shadowRoot using the `static get styles`\nproperty. Styling will apply using `shadowRoot.adoptedStyleSheets` where\navailable and will fallback otherwise. When Shadow DOM is polyfilled,\nShadyCSS scopes styles and adds them to the document. When Shadow DOM\nis available but `adoptedStyleSheets` is not, styles are appended to the\nend of the `shadowRoot` to [mimic spec\nbehavior](https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets).",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lit-element.js",
+            "start": {
+              "line": 123,
+              "column": 4
+            },
+            "end": {
+              "line": 145,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "LitElement"
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 159,
+              "column": 2
+            },
+            "end": {
+              "line": 188,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "fetchProtoData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 2
+            },
+            "end": {
+              "line": 111,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "handleResize",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 113,
+              "column": 2
+            },
+            "end": {
+              "line": 117,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "getViewProtoData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 119,
+              "column": 2
+            },
+            "end": {
+              "line": 132,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "getProtoDataFromApi",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 134,
+              "column": 2
+            },
+            "end": {
+              "line": 151,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "getProtoDataFromInput",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 153,
+              "column": 2
+            },
+            "end": {
+              "line": 157,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [
+        {
+          "name": "_ensureClassProperties",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 124,
+              "column": 4
+            },
+            "end": {
+              "line": 134,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "createProperty",
+          "description": "Creates a property accessor on the element prototype if one does not exist.\nThe property setter calls the property's `hasChanged` property option\nor uses a strict identity check to determine whether or not to request\nan update.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 142,
+              "column": 4
+            },
+            "end": {
+              "line": 170,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "options",
+              "defaultValue": "defaultPropertyDeclaration"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "finalize",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../lit-element/lit-element.js",
+            "start": {
+              "line": 47,
+              "column": 4
+            },
+            "end": {
+              "line": 57,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "LitElement"
+        },
+        {
+          "name": "_attributeNameForProperty",
+          "description": "Returns the property name for the given attribute `name`.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 212,
+              "column": 4
+            },
+            "end": {
+              "line": 219,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "options"
+            }
+          ],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_valueHasChanged",
+          "description": "Returns true if a property should request an update.\nCalled when a property value is set and uses the `hasChanged`\noption for the property if present or a strict identity check.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 226,
+              "column": 4
+            },
+            "end": {
+              "line": 228,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "old"
+            },
+            {
+              "name": "hasChanged",
+              "defaultValue": "notEqual"
+            }
+          ],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_propertyValueFromAttribute",
+          "description": "Returns the property value for the given attribute value.\nCalled via the `attributeChangedCallback` and uses the property's\n`converter` or `converter.fromAttribute` property option.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 235,
+              "column": 4
+            },
+            "end": {
+              "line": 240,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "options"
+            }
+          ],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_propertyValueToAttribute",
+          "description": "Returns the attribute value for the given property value. If this\nreturns undefined, the property will *not* be reflected to an attribute.\nIf this returns null, the attribute will be removed, otherwise the\nattribute will be set to the value.\nThis uses the property's `reflect` and `type.toAttribute` property options.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lib/updating-element.js",
+            "start": {
+              "line": 249,
+              "column": 4
+            },
+            "end": {
+              "line": 258,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
+            },
+            {
+              "name": "options"
+            }
+          ],
+          "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "_getUniqueStyles",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../lit-element/lit-element.js",
+            "start": {
+              "line": 59,
+              "column": 4
+            },
+            "end": {
+              "line": 87,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "LitElement"
+        }
+      ],
+      "demos": [
+        {
+          "url": "https://path/to/awesomeness/demo/",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 55,
+          "column": 0
+        },
+        "end": {
+          "line": 189,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "CompositedCard",
+      "attributes": [
+        {
+          "name": "resolution-settings",
+          "description": "      ",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 4
+            },
+            "end": {
+              "line": 86,
+              "column": 27
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "proto-id",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 31
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "input-proto-data",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 38
+            }
+          },
+          "metadata": {},
+          "type": "Object | null | undefined"
+        },
+        {
+          "name": "use-hi-res-assets",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 67,
+              "column": 39
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "quality",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 72,
+              "column": 6
+            },
+            "end": {
+              "line": 72,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "composited-card"
+    }
+  ],
+  "functions": [
+    {
+      "name": "loadingTemplate",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/templating.js",
+        "start": {
+          "line": 16,
+          "column": 31
+        },
+        "end": {
+          "line": 18,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
+    },
+    {
+      "name": "baseArtworkLayersTemplate",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/templating.js",
+        "start": {
+          "line": 20,
+          "column": 41
+        },
+        "end": {
+          "line": 61,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
+    },
+    {
+      "name": "mythicImageLayersTemplate",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/templating.js",
+        "start": {
+          "line": 63,
+          "column": 41
+        },
+        "end": {
+          "line": 119,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
+    },
+    {
+      "name": "nonMythicImageLayersTemplate",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/templating.js",
+        "start": {
+          "line": 121,
+          "column": 44
+        },
+        "end": {
+          "line": 242,
+          "column": 3
+        }
+      },
+      "privacy": "public",
+      "params": []
+    },
+    {
+      "name": "textLayersTemplate",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/templating.js",
+        "start": {
+          "line": 244,
+          "column": 34
+        },
+        "end": {
+          "line": 324,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
+    },
+    {
+      "name": "getStyles",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/styles.js",
+        "start": {
+          "line": 24,
+          "column": 25
+        },
+        "end": {
+          "line": 98,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
+    }
+  ]
+}

@@ -39,6 +39,20 @@ const loadFonts = () => {
   document.head.appendChild(link);
 };
 
+/**
+ * @TODO: document this web-component...
+ *
+ * `<awesome-sauce>` injects a healthy dose of awesome into your page.
+ * ## This is an h2 heading
+ * In typical use, just slap some `<awesome-sauce>` at the top of your body:
+ * <body>
+ *   <awesome-sauce></awesome-sauce>
+ * Wham! It's all awesome now!
+ * @customElement
+ * @polymer
+ * @demo https://path/to/awesomeness/demo/
+ *
+ */
 class CompositedCard extends LitElement {
   static get properties() {
     return {
