@@ -134,7 +134,17 @@ class CompositedCard extends LitElement {
 
   getProtoDataFromApi() {
     return this.fetchProtoData().then(data => {
-      const { id, type, attack, health, effect, name, rarity, god } = data;
+      const {
+        id,
+        type,
+        attack,
+        health,
+        effect,
+        name,
+        rarity,
+        god,
+        mana,
+      } = data;
       this.protoCardData = {
         id,
         type,
@@ -144,6 +154,7 @@ class CompositedCard extends LitElement {
         name,
         rarity,
         god,
+        mana,
       };
       this.loading = false;
       this.requestUpdate();
