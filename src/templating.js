@@ -253,7 +253,7 @@ export const textLayersTemplate = ({
   cw,
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
-  const crammedTextMode = effect.split(' ').length >= 14;
+  const crammedTextMode = effect && effect.split(' ').length >= 14;
   return html`
     <div
       class="card__manaText"
