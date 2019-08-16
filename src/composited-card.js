@@ -32,14 +32,6 @@ const ro = new ResizeObserver(entries => {
   entries.forEach(entry => entry.target.handleResize(entry));
 });
 
-// const loadFonts = () => {
-//   var css = fs.readFileSync('./assets/fonts.css');
-//   var style = document.createElement('style');
-//   style.type = 'text/css';
-//   style.appendChild(document.createTextNode(css));
-//   document.head.appendChild(style);
-// };
-
 /**
  * @TODO: document this web-component...
  *
@@ -89,6 +81,7 @@ class CompositedCard extends LitElement {
       lowDpi: '256',
       highDpi: '512',
     };
+    this.quality = 0;
     this.ch = this.offsetHeight * 0.01;
     this.cw = this.offsetWidth * 0.01;
   }
@@ -124,7 +117,6 @@ class CompositedCard extends LitElement {
         highDpi: '1024',
       };
     }
-    this.qualityName = qualities[this.quality];
     if (this.protoId) {
       this.getProtoDataFromApi();
     } else if (this.inputProtoData) {
@@ -169,7 +161,8 @@ class CompositedCard extends LitElement {
   }
 
   render() {
-    const isMythicCard = this.qualityName === 'mythic';
+    const qualityName = qualities[this.quality];
+    const isMythicCard = qualityName === 'mythic';
     return html`
       ${this.loading
         ? loadingTemplate()
@@ -183,11 +176,11 @@ class CompositedCard extends LitElement {
               ? mythicImageLayersTemplate({
                   type: this.protoCardData.type,
                   resolutionSettings: this.resolutionSettings,
-                  qualityName: this.qualityName,
+                  qualityName: qualityName,
                 })
               : nonMythicImageLayersTemplate({
                   resolutionSettings: this.resolutionSettings,
-                  qualityName: this.qualityName,
+                  qualityName: qualityName,
                   ...this.protoCardData,
                 })}
             ${textLayersTemplate({
