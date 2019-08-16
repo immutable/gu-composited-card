@@ -1,16 +1,27 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
-  entry: './src/composited-card.ts',
+  mode: 'development',
+  devServer: {
+    contentBase: path.join(__dirname, 'demo'),
+    compress: true,
+    port: 9000,
+  },
+  entry: './demo/demo.js',
   output: {
-    filename: 'composited-card.packed.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.ts', '.css'],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'demo/demo.html'),
+    }),
+  ],
   module: {
     rules: [
       {

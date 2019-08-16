@@ -10,7 +10,7 @@ const bodyText = css`
 `;
 
 const white = css`white`;
-const black = css`black`;
+export const black = css`black`;
 
 const boldOutlinedText = css`
   ${headingText}

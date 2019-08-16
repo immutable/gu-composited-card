@@ -2,6 +2,8 @@ import { html } from 'lit-element';
 import { styleMap } from 'lit-html/directives/style-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
+import { black } from './styles';
+
 const artQualities = {
   normal: 250,
   high: 375,
@@ -253,7 +255,16 @@ export const textLayersTemplate = ({
   cw,
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
-  const crammedTextMode = effect && effect.split(' ').length >= 14;
+  console.log(name, effect.split('').length, name.split('').length);
+  const nameCrammedTextMode = name.split('').length >= 20;
+  const effectCrammedTextMode = effect.split('').length >= 125;
+  const onePx = `${ch * 0.15}px`;
+  const textShadow = `
+    -${onePx} -${onePx} ${onePx} ${black}, 
+    ${onePx} -${onePx} ${onePx} ${black}, 
+    -${onePx} ${onePx} ${onePx} ${black}, 
+    ${onePx} ${onePx} ${onePx} ${black}`;
+
   return html`
     <div
       class="card__manaText"
@@ -262,17 +273,20 @@ export const textLayersTemplate = ({
         top: `${ch * 5.5}px`,
         left: `${cw * 9.5}px`,
         width: `${cw * 19}px`,
+        textShadow: textShadow,
       })}
     >
       ${mana}
     </div>
+
     <div
       class="card__nameText"
       style=${styleMap({
-        fontSize: `${ch * 4.93}px`,
+        fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
         bottom: `${ch * 35}px`,
         left: `${cw * 12}px`,
         right: `${cw * 5}px`,
+        textShadow: textShadow,
       })}
     >
       ${name}
@@ -281,12 +295,12 @@ export const textLayersTemplate = ({
     <div
       class="card__descriptionText"
       style=${styleMap({
-        fontSize: `${crammedTextMode ? ch * 3.6 : ch * 3.8}px`,
-        lineHeight: crammedTextMode ? 1.1 : 1.3,
+        fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
+        lineHeight: effectCrammedTextMode ? 1 : 1.3,
         bottom: `${ch * 7.75}px`,
         height: `${ch * 22.5}px`,
-        left: `${cw * 20}px`,
-        right: `${cw * 12}px`,
+        left: `${cw * 21}px`,
+        right: `${cw * 13}px`,
       })}
     >
       <div class="card__descriptionText__inner">
@@ -303,6 +317,7 @@ export const textLayersTemplate = ({
               bottom: `${ch * 3.5}px`,
               width: `${cw * 15}px`,
               left: `${cw * 10.5}px`,
+              textShadow: textShadow,
             })}
           >
             ${attack}
@@ -315,6 +330,7 @@ export const textLayersTemplate = ({
               bottom: `${ch * 3}px`,
               width: `${cw * 15}px`,
               right: `${type === 'weapon' ? cw * 0.8 : cw * 4.5}px`,
+              textShadow: textShadow,
             })}
           >
             ${health}
