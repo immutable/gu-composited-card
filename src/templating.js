@@ -255,10 +255,10 @@ export const textLayersTemplate = ({
   cw,
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
-  console.log(name, effect.split('').length, name.split('').length);
   const nameCrammedTextMode = name.split('').length >= 20;
   const effectCrammedTextMode = effect.split('').length >= 125;
-  const onePx = `${ch * 0.15}px`;
+  const shadowSize = Math.floor(ch * 0.2);
+  const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
   const textShadow = `
     -${onePx} -${onePx} ${onePx} ${black}, 
     ${onePx} -${onePx} ${onePx} ${black}, 
@@ -296,7 +296,7 @@ export const textLayersTemplate = ({
       class="card__descriptionText"
       style=${styleMap({
         fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
-        lineHeight: effectCrammedTextMode ? 1 : 1.3,
+        lineHeight: effectCrammedTextMode ? 1.05 : 1.3,
         bottom: `${ch * 7.75}px`,
         height: `${ch * 22.5}px`,
         left: `${cw * 21}px`,
