@@ -419,24 +419,24 @@ const We=new WeakMap,Je=n(e=>t=>{if(!(t instanceof k)||t instanceof B||"style"!=
             />
           </picture>
         `:null}
-  `,lt=({mana:e,name:t,effect:s,attack:i,health:n,type:r,ch:o,cw:a})=>{const c=RegExp(/creature|weapon/).test(r);console.log(t,s.split("").length,t.split("").length);const h=t.split("").length>=20,l=s.split("").length>=125,d=`${.15*o}px`,p=`\n    -${d} -${d} ${d} ${it}, \n    ${d} -${d} ${d} ${it}, \n    -${d} ${d} ${d} ${it}, \n    ${d} ${d} ${d} ${it}`;return M`
+  `,lt=({mana:e,name:t,effect:s,attack:i,health:n,type:r,ch:o,cw:a})=>{const c=RegExp(/creature|weapon/).test(r),h=t.split("").length>=20,l=s.split("").length>=125,d=Math.floor(.2*o),p=`${0===d?1:d}px`,u=`\n    -${p} -${p} ${p} ${it}, \n    ${p} -${p} ${p} ${it}, \n    -${p} ${p} ${p} ${it}, \n    ${p} ${p} ${p} ${it}`;return M`
     <div
       class="card__manaText"
-      style=${Je({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*a}px`,width:`${19*a}px`,textShadow:p})}
+      style=${Je({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*a}px`,width:`${19*a}px`,textShadow:u})}
     >
       ${e}
     </div>
 
     <div
       class="card__nameText"
-      style=${Je({fontSize:`${h?3.9*o:4.93*o}px`,bottom:`${35*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:p})}
+      style=${Je({fontSize:`${h?3.9*o:4.93*o}px`,bottom:`${35*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:u})}
     >
       ${t}
     </div>
 
     <div
       class="card__descriptionText"
-      style=${Je({fontSize:`${l?3.4*o:3.8*o}px`,lineHeight:l?1:1.3,bottom:`${7.75*o}px`,height:`${22.5*o}px`,left:`${21*a}px`,right:`${13*a}px`})}
+      style=${Je({fontSize:`${l?3.4*o:3.8*o}px`,lineHeight:l?1.05:1.3,bottom:`${7.75*o}px`,height:`${22.5*o}px`,left:`${21*a}px`,right:`${13*a}px`})}
     >
       <div class="card__descriptionText__inner">
         ${$e(s)}
@@ -446,14 +446,14 @@ const We=new WeakMap,Je=n(e=>t=>{if(!(t instanceof k)||t instanceof B||"style"!=
     ${c?M`
           <div
             class="card__attackText"
-            style=${Je({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*a}px`,left:`${10.5*a}px`,textShadow:p})}
+            style=${Je({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*a}px`,left:`${10.5*a}px`,textShadow:u})}
           >
             ${i}
           </div>
 
           <div
             class="card__healthText"
-            style=${Je({fontSize:`${9.5*o}px`,bottom:`${3*o}px`,width:`${15*a}px`,right:`${"weapon"===r?.8*a:4.5*a}px`,textShadow:p})}
+            style=${Je({fontSize:`${9.5*o}px`,bottom:`${3*o}px`,width:`${15*a}px`,right:`${"weapon"===r?.8*a:4.5*a}px`,textShadow:u})}
           >
             ${n}
           </div>
