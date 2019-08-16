@@ -419,7 +419,7 @@ const We=new WeakMap,Je=n(e=>t=>{if(!(t instanceof k)||t instanceof B||"style"!=
             />
           </picture>
         `:null}
-  `,lt=({mana:e,name:t,effect:s,attack:i,health:n,type:r,ch:o,cw:a})=>{const c=RegExp(/creature|weapon/).test(r),h=t.split("").length>=20,l=s.split("").length>=125,d=Math.floor(.2*o),p=`${0===d?1:d}px`,u=`\n    -${p} -${p} ${p} ${it}, \n    ${p} -${p} ${p} ${it}, \n    -${p} ${p} ${p} ${it}, \n    ${p} ${p} ${p} ${it}`;return M`
+  `,lt=({mana:e,name:t,effect:s,attack:i,health:n,type:r,ch:o,cw:a})=>{const c=RegExp(/creature|weapon/).test(r),h=t.split("").length>=20,l=s.split("").length>=95,d=Math.floor(.2*o),p=`${0===d?1:d}px`,u=`\n    -${p} -${p} ${p} ${it}, \n    ${p} -${p} ${p} ${it}, \n    -${p} ${p} ${p} ${it}, \n    ${p} ${p} ${p} ${it}`,g=s.replace(/ ([^ ]*)$/,"&nbsp;$1");return M`
     <div
       class="card__manaText"
       style=${Je({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*a}px`,width:`${19*a}px`,textShadow:u})}
@@ -428,18 +428,18 @@ const We=new WeakMap,Je=n(e=>t=>{if(!(t instanceof k)||t instanceof B||"style"!=
     </div>
 
     <div
-      class="card__nameText"
+      class="card__nameText ${h?"card__nameText--crammed":null}"
       style=${Je({fontSize:`${h?3.9*o:4.93*o}px`,bottom:`${35*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:u})}
     >
       ${t}
     </div>
 
     <div
-      class="card__descriptionText"
+      class="card__descriptionText ${l?"card__effectText--crammed":null}"
       style=${Je({fontSize:`${l?3.4*o:3.8*o}px`,lineHeight:l?1.05:1.3,bottom:`${7.75*o}px`,height:`${22.5*o}px`,left:`${21*a}px`,right:`${13*a}px`})}
     >
       <div class="card__descriptionText__inner">
-        ${$e(s)}
+        ${$e(g)}
       </div>
     </div>
 

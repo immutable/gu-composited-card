@@ -256,7 +256,7 @@ export const textLayersTemplate = ({
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
-  const effectCrammedTextMode = effect.split('').length >= 125;
+  const effectCrammedTextMode = effect.split('').length >= 95;
   const shadowSize = Math.floor(ch * 0.2);
   const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
   const textShadow = `
@@ -264,6 +264,7 @@ export const textLayersTemplate = ({
     ${onePx} -${onePx} ${onePx} ${black}, 
     -${onePx} ${onePx} ${onePx} ${black}, 
     ${onePx} ${onePx} ${onePx} ${black}`;
+  const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
 
   return html`
     <div
@@ -280,7 +281,9 @@ export const textLayersTemplate = ({
     </div>
 
     <div
-      class="card__nameText"
+      class="card__nameText ${nameCrammedTextMode
+        ? 'card__nameText--crammed'
+        : null}"
       style=${styleMap({
         fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
         bottom: `${ch * 35}px`,
@@ -293,7 +296,9 @@ export const textLayersTemplate = ({
     </div>
 
     <div
-      class="card__descriptionText"
+      class="card__descriptionText ${effectCrammedTextMode
+        ? 'card__effectText--crammed'
+        : null}"
       style=${styleMap({
         fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
         lineHeight: effectCrammedTextMode ? 1.05 : 1.3,
@@ -304,7 +309,7 @@ export const textLayersTemplate = ({
       })}
     >
       <div class="card__descriptionText__inner">
-        ${unsafeHTML(effect)}
+        ${unsafeHTML(widowProofEffect)}
       </div>
     </div>
 
