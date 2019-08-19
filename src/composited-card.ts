@@ -66,7 +66,17 @@ export class CompositedCard extends LitElement {
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveSrcsetSizes: string;
 
-  protoCardData: ICardProtoData;
+  protoCardData: ICardProtoData = {
+    type: '',
+    effect: '',
+    name: '',
+    rarity: '',
+    god: '',
+    mana: 0,
+    id: 0,
+    attack: 0,
+    health: 0,
+  };
   ch: number;
   cw: number;
   loading: boolean;
