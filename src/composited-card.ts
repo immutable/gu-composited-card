@@ -119,7 +119,7 @@ export class CompositedCard extends LitElement {
     ro.unobserve(this);
   }
 
-  fetchProtoData() {
+  async fetchProtoData() {
     this.loading = true;
     return fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(
       resp => resp.json(),
@@ -147,7 +147,7 @@ export class CompositedCard extends LitElement {
     }
   }
 
-  getProtoDataFromApi() {
+  async getProtoDataFromApi() {
     return this.fetchProtoData().then(data => {
       const {
         id,
