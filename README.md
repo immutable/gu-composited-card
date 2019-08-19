@@ -4,7 +4,9 @@ A simple web component to handle the rendering of a GodsUnchained card element(s
 
 ## Install dependencies
 
-`$ npm i` or `$ yarn install`.
+```
+$ yarn install
+```
 
 ## Viewing demo elements
 
