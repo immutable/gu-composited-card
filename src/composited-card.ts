@@ -55,15 +55,8 @@ const ro = new ResizeObserver(entries => {
 /**
  * @TODO: document this web-component...
  *
- * `<composited-card>` injects a healthy dose of awesome into your page.
- * ## This is an h2 heading
- * In typical use, just slap some `<composited-card>` at the top of your body:
- * <body>
- *   <composited-card></composited-card>
- * Wham! It's all awesome now!
  * @customElement
- * @polymer
- * @demo https://path/to/awesomeness/demo/
+ * @demo https://github.com/glomotion/composited-card-web-component
  *
  */
 @customElement('composited-card')
