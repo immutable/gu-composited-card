@@ -75,7 +75,6 @@ export class CompositedCard extends LitElement {
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveImageSizes: string;
 
-  resolutionSettings: IResolutionSettings;
   protoCardData: ICardProtoData;
   ch: number;
   cw: number;
