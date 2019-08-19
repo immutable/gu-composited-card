@@ -29,8 +29,6 @@ export interface ICardProtoData {
   health: number;
 }
 
-// @TODO: add type safety to this component
-
 // @TODO: these should really come from an endpoint call,
 // so that we can easily update them in the future...
 const qualities = [
