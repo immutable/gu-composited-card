@@ -47,10 +47,6 @@ const qualities = [
   'mythic',
 ];
 
-interface IResizeEvent {
-  target: CompositedCard;
-}
-
 const ro = new ResizeObserver(entries => {
   entries.forEach(entry => {
     const el = entry.target as CompositedCard;
