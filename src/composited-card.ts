@@ -57,11 +57,11 @@ const ro = new ResizeObserver(entries => {
 /**
  * @TODO: document this web-component...
  *
- * `<awesome-sauce>` injects a healthy dose of awesome into your page.
+ * `<composited-card>` injects a healthy dose of awesome into your page.
  * ## This is an h2 heading
- * In typical use, just slap some `<awesome-sauce>` at the top of your body:
+ * In typical use, just slap some `<composited-card>` at the top of your body:
  * <body>
- *   <awesome-sauce></awesome-sauce>
+ *   <composited-card></composited-card>
  * Wham! It's all awesome now!
  * @customElement
  * @polymer
