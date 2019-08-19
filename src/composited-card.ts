@@ -73,15 +73,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Number }) protoId: number;
   @property({ type: Number }) quality: number;
   @property({ type: Object }) inputProtoData: ICardProtoData;
-
-  /*
-    @TODO: instead make this setting 3 options:
-    assetsQuality: "normal" | "high" | "best"
-    "normal" === same as now (default)
-    "high" === same as useHiResAssets = true
-    "best" === only use max-res assets
-  */
-  @property({ type: Boolean }) useHiResAssets: boolean;
+  @property({ type: String }) responsiveImageSizes: string;
 
   resolutionSettings: IResolutionSettings;
   protoCardData: ICardProtoData;
@@ -95,14 +87,6 @@ export class CompositedCard extends LitElement {
 
   constructor() {
     super();
-    /*
-      @TODO: make these options based on the same assets qualities above:
-      "normal" | "high" | "best"
-    */
-    this.resolutionSettings = {
-      lowDpi: 256,
-      highDpi: 512,
-    };
     this.quality = 0;
     this.ch = this.offsetHeight * 0.01;
     this.cw = this.offsetWidth * 0.01;
@@ -133,13 +117,6 @@ export class CompositedCard extends LitElement {
   }
 
   getViewProtoData() {
-    if (this.useHiResAssets) {
-      this.resolutionSettings = {
-        lowDpi: 512,
-        highDpi: 1024,
-      };
-    }
-
     if (typeof this.protoId !== 'undefined') {
       this.getProtoDataFromApi();
     } else if (this.inputProtoData) {
@@ -191,19 +168,18 @@ export class CompositedCard extends LitElement {
         ? loadingTemplate()
         : html`
             ${baseArtworkLayersTemplate({
-              useHiResAssets: this.useHiResAssets,
-              resolutionSettings: this.resolutionSettings,
               protoId: this.protoId,
+              responsiveImageSizes: this.responsiveImageSizes,
             })}
             ${isMythicCard
               ? mythicImageLayersTemplate({
                   type: this.protoCardData.type,
-                  resolutionSettings: this.resolutionSettings,
                   qualityName: qualityName,
+                  responsiveImageSizes: this.responsiveImageSizes,
                 })
               : nonMythicImageLayersTemplate({
-                  resolutionSettings: this.resolutionSettings,
                   qualityName: qualityName,
+                  responsiveImageSizes: this.responsiveImageSizes,
                   ...this.protoCardData,
                 })}
             ${textLayersTemplate({

@@ -8,8 +8,16 @@
       this card uses hi-res asset imagery...
     </h2>
 
-    <composited-card protoId="5" quality="5"></composited-card>
-    <composited-card protoId="260" useHiResAssets quality="5"></composited-card>
+    <composited-card
+      protoId="5"
+      quality="5"
+      responsiveImageSizes="90vw"
+    ></composited-card>
+    <composited-card
+      protoId="260"
+      quality="5"
+      responsiveImageSizes="90vw"
+    ></composited-card>
 
     <div
       style="
@@ -23,8 +31,16 @@
       <h2 style="text-align: center; grid-column: 1 / span 2;">
         these cards have alot of text on them...
       </h2>
-      <composited-card protoId="260" quality="5"></composited-card>
-      <composited-card protoId="584" quality="7"></composited-card>
+      <composited-card
+        protoId="260"
+        quality="5"
+        responsiveImageSizes="40vw"
+      ></composited-card>
+      <composited-card
+        protoId="584"
+        quality="7"
+        responsiveImageSizes="40vw"
+      ></composited-card>
     </div>
 
     <div
@@ -39,13 +55,43 @@
       <h2 style="text-align: center; grid-column: 1 / span 5;">
         these cards do an API call to get their data...
       </h2>
-      <composited-card protoId="20" quality="2"></composited-card>
-      <composited-card protoId="10" quality="7"></composited-card>
-      <composited-card protoId="5" quality="5"></composited-card>
-      <composited-card protoId="4" quality="4"></composited-card>
-      <composited-card protoId="3" quality="3"></composited-card>
+      <composited-card
+        protoId="20"
+        quality="2"
+        responsiveImageSizes="20vw"
+      ></composited-card>
+      <composited-card
+        protoId="10"
+        quality="7"
+        responsiveImageSizes="20vw"
+      ></composited-card>
+      <composited-card
+        protoId="5"
+        quality="5"
+        responsiveImageSizes="20vw"
+      ></composited-card>
+      <composited-card
+        protoId="4"
+        quality="4"
+        responsiveImageSizes="20vw"
+      ></composited-card>
+      <composited-card
+        protoId="3"
+        quality="3"
+        responsiveImageSizes="20vw"
+      ></composited-card>
+    </div>
 
-      <h2 style="text-align: center; grid-column: 1 / span 5;">
+    <div
+      style="
+        display: grid;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: start;
+      "
+    >
+      <h2 style="text-align: center; grid-column: 1 / span 4;">
         these cards render data from input values...
       </h2>
       <composited-card
