@@ -9,7 +9,7 @@ const bodyText = css`
   font-family: 'Open Sans', sans-serif;
 `;
 
-const white = css`white`;
+export const white = css`white`;
 export const black = css`black`;
 
 const boldOutlinedText = css`
