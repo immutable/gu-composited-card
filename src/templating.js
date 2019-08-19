@@ -22,7 +22,7 @@ export const loadingTemplate = () => html`
 
 export const baseArtworkLayersTemplate = ({
   protoId,
-  responsiveImageSizes = `${artQualities.normal}px`,
+  responsiveSrcsetSizes = `${artQualities.normal}px`,
 }) => {
   return html`
     <picture class="card__artwork">
@@ -32,7 +32,7 @@ export const baseArtworkLayersTemplate = ({
           https://images.godsunchained.com/art/${artQualities.high}/${protoId}.webp 375w,
           https://images.godsunchained.com/art/${artQualities.best}/${protoId}.webp 500w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
@@ -41,7 +41,7 @@ export const baseArtworkLayersTemplate = ({
           https://images.godsunchained.com/art/${artQualities.high}/${protoId}.jpg  375w,
           https://images.godsunchained.com/art/${artQualities.best}/${protoId}.jpg 500w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/jpg"
       />
       <img
@@ -56,7 +56,7 @@ export const mythicImageLayersTemplate = ({
   type,
   resolutionSettings,
   qualityName,
-  responsiveImageSizes = `${layerQualities.normal}px`,
+  responsiveSrcsetSizes = `${layerQualities.normal}px`,
 }) => {
   return html`
     <picture class="card__baseLayer">
@@ -66,7 +66,7 @@ export const mythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/creature_hyperion.webp  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/creature_hyperion.webp 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
@@ -75,7 +75,7 @@ export const mythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/creature_hyperion.png  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/creature_hyperion.png 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
 
@@ -92,7 +92,7 @@ export const mythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/mythic_hyperion.webp  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/mythic_hyperion.webp 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
@@ -101,7 +101,7 @@ export const mythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/mythic_hyperion.png  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/mythic_hyperion.png 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
 
@@ -114,7 +114,7 @@ export const mythicImageLayersTemplate = ({
 };
 
 export const nonMythicImageLayersTemplate = ({
-  responsiveImageSizes = `${layerQualities.normal}px`,
+  responsiveSrcsetSizes = `${layerQualities.normal}px`,
   type,
   qualityName,
   rarity,
@@ -129,7 +129,7 @@ export const nonMythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/${type}_${qualityName}.webp  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/${type}_${qualityName}.webp 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
 
@@ -139,7 +139,7 @@ export const nonMythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/${type}_${qualityName}.png  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/${type}_${qualityName}.png 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
       <img
@@ -155,7 +155,7 @@ export const nonMythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/${god}_${qualityName}.webp  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/${god}_${qualityName}.webp 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
@@ -164,7 +164,7 @@ export const nonMythicImageLayersTemplate = ({
           https://images.godsunchained.com/card-layers/${layerQualities.high}/${god}_${qualityName}.png  512w,
           https://images.godsunchained.com/card-layers/${layerQualities.best}/${god}_${qualityName}.png 1024w
         "
-        sizes="${responsiveImageSizes}"
+        sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
       <img
@@ -182,7 +182,7 @@ export const nonMythicImageLayersTemplate = ({
                 https://images.godsunchained.com/card-layers/${layerQualities.high}/rarity_${rarity}.webp  512w,
                 https://images.godsunchained.com/card-layers/${layerQualities.best}/rarity_${rarity}.webp 1024w
               "
-              sizes="${responsiveImageSizes}"
+              sizes="${responsiveSrcsetSizes}"
               type="image/webp"
             />
             <source
@@ -191,7 +191,7 @@ export const nonMythicImageLayersTemplate = ({
                 https://images.godsunchained.com/card-layers/${layerQualities.high}/rarity_${rarity}.png   512w,
                 https://images.godsunchained.com/card-layers/${layerQualities.best}/rarity_${rarity}.png 1024w
               "
-              sizes="${responsiveImageSizes}"
+              sizes="${responsiveSrcsetSizes}"
               type="image/png"
             />
             <img
@@ -210,7 +210,7 @@ export const nonMythicImageLayersTemplate = ({
                 https://images.godsunchained.com/card-layers/${layerQualities.high}/wreath_${qualityName}.webp  512w,
                 https://images.godsunchained.com/card-layers/${layerQualities.best}/wreath_${qualityName}.webp 1024w
               "
-              sizes="${responsiveImageSizes}"
+              sizes="${responsiveSrcsetSizes}"
               type="image/webp"
             />
 
@@ -220,7 +220,7 @@ export const nonMythicImageLayersTemplate = ({
                 https://images.godsunchained.com/card-layers/${layerQualities.high}/wreath_${qualityName}.png   512w,
                 https://images.godsunchained.com/card-layers/${layerQualities.best}/wreath_${qualityName}.png 1024w
               "
-              sizes="${responsiveImageSizes}"
+              sizes="${responsiveSrcsetSizes}"
               type="image/png"
             />
             <img

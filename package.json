@@ -10,7 +10,8 @@
     "clear-dist": "rm -rf dist/",
     "prebuild": "yarn clear-dist",
     "demo": "webpack-dev-server --config ./webpack.demo.config.js",
-    "build": "webpack --config ./webpack.config.js"
+    "build": "webpack --config ./webpack.config.js",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",

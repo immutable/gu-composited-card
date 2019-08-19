@@ -73,7 +73,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Number }) protoId: number;
   @property({ type: Number }) quality: number;
   @property({ type: Object }) inputProtoData: ICardProtoData;
-  @property({ type: String }) responsiveImageSizes: string;
+  @property({ type: String }) responsiveSrcsetSizes: string;
 
   protoCardData: ICardProtoData;
   ch: number;
@@ -168,17 +168,17 @@ export class CompositedCard extends LitElement {
         : html`
             ${baseArtworkLayersTemplate({
               protoId: this.protoId,
-              responsiveImageSizes: this.responsiveImageSizes,
+              responsiveSrcsetSizes: this.responsiveSrcsetSizes,
             })}
             ${isMythicCard
               ? mythicImageLayersTemplate({
                   type: this.protoCardData.type,
                   qualityName: qualityName,
-                  responsiveImageSizes: this.responsiveImageSizes,
+                  responsiveSrcsetSizes: this.responsiveSrcsetSizes,
                 })
               : nonMythicImageLayersTemplate({
                   qualityName: qualityName,
-                  responsiveImageSizes: this.responsiveImageSizes,
+                  responsiveSrcsetSizes: this.responsiveSrcsetSizes,
                   ...this.protoCardData,
                 })}
             ${textLayersTemplate({
