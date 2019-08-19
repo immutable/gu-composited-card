@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, customElement, property } from 'lit-element';
 import ResizeObserver from '@juggle/resize-observer';
 
 import {
@@ -11,6 +11,25 @@ import {
 
 import './assets/fonts.css';
 import { getStyles } from './styles';
+
+export interface IResolutionSettings {
+  lowDpi: number;
+  highDpi: number;
+}
+
+export interface ICardProtoData {
+  type: string;
+  effect: string;
+  name: string;
+  rarity: string;
+  god: string;
+  mana: number;
+  id: number;
+  attack: number;
+  health: number;
+}
+
+// @TODO: add type safety to this component
 
 // @TODO: these should really come from an endpoint call,
 // so that we can easily update them in the future...
@@ -28,8 +47,15 @@ const qualities = [
   'mythic',
 ];
 
+interface IResizeEvent {
+  target: CompositedCard;
+}
+
 const ro = new ResizeObserver(entries => {
-  entries.forEach(entry => entry.target.handleResize(entry));
+  entries.forEach(entry => {
+    const el = entry.target as CompositedCard;
+    el.handleResize(entry);
+  });
 });
 
 /**
@@ -46,26 +72,26 @@ const ro = new ResizeObserver(entries => {
  * @demo https://path/to/awesomeness/demo/
  *
  */
-class CompositedCard extends LitElement {
-  static get properties() {
-    return {
-      protoId: { type: Number },
-      inputProtoData: { type: Object },
-      /*
-      @TODO: instead make this setting 3 options:
-      assetsQuality: "normal" | "high" | "best"
-      "normal" === same as now (default)
-      "high" === same as useHiResAssets = true
-      "best" === only use max-res assets
-      */
-      useHiResAssets: { type: Boolean },
-      resolutionSettings: {
-        lowDpi: Number,
-        highDpi: Number,
-      },
-      quality: Number,
-    };
-  }
+@customElement('composited-card')
+export class CompositedCard extends LitElement {
+  @property({ type: Number }) protoId: number;
+  @property({ type: Number }) quality: number;
+  @property({ type: Object }) inputProtoData: ICardProtoData;
+
+  /*
+    @TODO: instead make this setting 3 options:
+    assetsQuality: "normal" | "high" | "best"
+    "normal" === same as now (default)
+    "high" === same as useHiResAssets = true
+    "best" === only use max-res assets
+  */
+  @property({ type: Boolean }) useHiResAssets: boolean;
+
+  resolutionSettings: IResolutionSettings;
+  protoCardData: ICardProtoData;
+  ch: number;
+  cw: number;
+  loading: boolean;
 
   static get styles() {
     return getStyles();
@@ -78,8 +104,8 @@ class CompositedCard extends LitElement {
       "normal" | "high" | "best"
     */
     this.resolutionSettings = {
-      lowDpi: '256',
-      highDpi: '512',
+      lowDpi: 256,
+      highDpi: 512,
     };
     this.quality = 0;
     this.ch = this.offsetHeight * 0.01;
@@ -113,11 +139,12 @@ class CompositedCard extends LitElement {
   getViewProtoData() {
     if (this.useHiResAssets) {
       this.resolutionSettings = {
-        lowDpi: '512',
-        highDpi: '1024',
+        lowDpi: 512,
+        highDpi: 1024,
       };
     }
-    if (this.protoId) {
+
+    if (typeof this.protoId !== 'undefined') {
       this.getProtoDataFromApi();
     } else if (this.inputProtoData) {
       this.getProtoDataFromInput();
@@ -192,6 +219,3 @@ class CompositedCard extends LitElement {
     `;
   }
 }
-
-// Register the new element with the browser.
-customElements.define('composited-card', CompositedCard);
