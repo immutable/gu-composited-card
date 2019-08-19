@@ -6,7 +6,7 @@ A simple, framework agnostic [web component](https://developer.mozilla.org/en-US
 
 ### @property({ type: Number }) protoId
 
-A Cards id/proto number. Either a protoId or inputProtoData must be provided for a card to render.
+A card's id/proto number. Either a protoId or inputProtoData must be provided for a card to render.
 
 ### @property({ type: Object }) inputProtoData
 
