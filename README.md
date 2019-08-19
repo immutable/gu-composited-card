@@ -1,19 +1,19 @@
-# \<test-polymer-component\>
+# \<composited-card\>
 
-## Install the Polymer-CLI
+A simple web component to handle the rendering of a GodsUnchained card element(s).
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
+## Install dependencies
 
-## Viewing Your Element
+`$ npm i` or `$ yarn install`.
 
-```
-$ polymer serve
-```
-
-## Running Tests
+## Viewing demo elements
 
 ```
-$ polymer test
+$ yarn demo
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## Building for prod
+
+```
+$ yarn build
+```
