@@ -21,31 +21,31 @@ export const loadingTemplate = () => html`
 `;
 
 export const baseArtworkLayersTemplate = ({
-  protoId,
+  id,
   responsiveSrcsetSizes = `${artQualities.normal}px`,
 }) => {
   return html`
     <picture class="card__artwork">
       <source
         srcset="
-          https://images.godsunchained.com/art/${artQualities.normal}/${protoId}.webp 250w,
-          https://images.godsunchained.com/art/${artQualities.high}/${protoId}.webp 375w,
-          https://images.godsunchained.com/art/${artQualities.best}/${protoId}.webp 500w
+          https://images.godsunchained.com/art/${artQualities.normal}/${id}.webp 250w,
+          https://images.godsunchained.com/art/${artQualities.high}/${id}.webp 375w,
+          https://images.godsunchained.com/art/${artQualities.best}/${id}.webp 500w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/art/${artQualities.normal}/${protoId}.jpg   250w,
-          https://images.godsunchained.com/art/${artQualities.high}/${protoId}.jpg  375w,
-          https://images.godsunchained.com/art/${artQualities.best}/${protoId}.jpg 500w
+          https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg   250w,
+          https://images.godsunchained.com/art/${artQualities.high}/${id}.jpg  375w,
+          https://images.godsunchained.com/art/${artQualities.best}/${id}.jpg 500w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/jpg"
       />
       <img
-        src="https://images.godsunchained.com/art/${artQualities.normal}/${protoId}.jpg"
+        src="https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg"
         class="card__artwork__img"
       />
     </picture>
@@ -284,8 +284,8 @@ export const textLayersTemplate = ({
 
     <div
       class="card__nameText ${nameCrammedTextMode
-        ? 'card__nameText--crammed'
-        : null}"
+      ? 'card__nameText--crammed'
+      : null}"
       style=${styleMap({
         fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
         bottom: `${ch * 35}px`,
@@ -293,14 +293,12 @@ export const textLayersTemplate = ({
         right: `${cw * 5}px`,
         textShadow: textShadow,
       })}
-    >
-      ${name}
-    </div>
+    >${name}</div>
 
     <div
       class="card__descriptionText ${effectCrammedTextMode
-        ? 'card__effectText--crammed'
-        : null}"
+      ? 'card__effectText--crammed'
+      : null}"
       style=${styleMap({
         fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
         lineHeight: effectCrammedTextMode ? 1.05 : 1.3,

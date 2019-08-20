@@ -23,6 +23,7 @@ export interface ICardProtoData {
   name: string;
   rarity: string;
   god: string;
+  set: string;
   mana: number;
   id: number;
   attack: number;
@@ -72,10 +73,11 @@ export class CompositedCard extends LitElement {
     name: '',
     rarity: '',
     god: '',
-    mana: 0,
-    id: 0,
-    attack: 0,
-    health: 0,
+    set: '',
+    mana: null,
+    id: null,
+    attack: null,
+    health: null,
   };
   ch: number;
   cw: number;
@@ -87,6 +89,7 @@ export class CompositedCard extends LitElement {
 
   constructor() {
     super();
+    this.loading = true;
     this.quality = 0;
     this.ch = this.offsetHeight * 0.01;
     this.cw = this.offsetWidth * 0.01;
@@ -95,12 +98,21 @@ export class CompositedCard extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     ro.observe(this);
-    this.getViewProtoData();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     ro.unobserve(this);
+  }
+
+  updated(changedProps) {
+    changedProps.forEach((oldValue, propName) => {
+      if (propName === 'protoId') {
+        this.getProtoDataFromApi();
+      } else if (propName === 'inputProtoData') {
+        this.getProtoDataFromInput();
+      }
+    });
   }
 
   async fetchProtoData() {
@@ -116,15 +128,11 @@ export class CompositedCard extends LitElement {
     this.requestUpdate();
   }
 
-  getViewProtoData() {
-    if (typeof this.protoId !== 'undefined') {
-      this.getProtoDataFromApi();
-    } else if (this.inputProtoData) {
-      this.getProtoDataFromInput();
-    }
-  }
-
   async getProtoDataFromApi() {
+    console.log(
+      '############## loading proto from api ##############',
+      this.protoId,
+    );
     return this.fetchProtoData().then(data => {
       const {
         id,
@@ -136,6 +144,7 @@ export class CompositedCard extends LitElement {
         rarity,
         god,
         mana,
+        set,
       } = data;
       this.protoCardData = {
         id,
@@ -147,6 +156,7 @@ export class CompositedCard extends LitElement {
         rarity,
         god,
         mana,
+        set,
       };
       this.loading = false;
       this.requestUpdate();
@@ -155,8 +165,11 @@ export class CompositedCard extends LitElement {
   }
 
   getProtoDataFromInput() {
+    console.log(
+      '@@@@@@@@@@@@@@@ loading proto from input @@@@@@@@@@@@@@',
+      this.inputProtoData,
+    );
     this.protoCardData = { ...this.inputProtoData };
-    this.protoId = this.inputProtoData.id;
     this.loading = false;
   }
 
@@ -168,7 +181,7 @@ export class CompositedCard extends LitElement {
         ? loadingTemplate()
         : html`
             ${baseArtworkLayersTemplate({
-              protoId: this.protoId,
+              id: this.protoCardData.id,
               responsiveSrcsetSizes: this.responsiveSrcsetSizes,
             })}
             ${isMythicCard
