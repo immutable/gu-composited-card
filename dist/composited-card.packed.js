@@ -210,7 +210,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof k)||t instanceof E||"style"!=
 
   .card__lockIconLayer {
     position: absolute;
-    left: 53%;
+    left: 54%;
     top: 0%;
     width: 22%;
     transform: translate(-50%, 15%);
