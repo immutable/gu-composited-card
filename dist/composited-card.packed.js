@@ -460,9 +460,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof k)||t instanceof E||"style"!=
     <div
       class="card__nameText ${d?"card__nameText--crammed":null}"
       style=${et({fontSize:`${d?3.9*o:4.93*o}px`,bottom:`${35*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:u})}
-    >
-      ${t}
-    </div>
+    >${t}</div>
 
     <div
       class="card__descriptionText ${h?"card__effectText--crammed":null}"
