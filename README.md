@@ -19,15 +19,16 @@ effect: string;
 name: string;
 rarity: string;
 god: string;
+set: string;
 mana: number;
 id: number;
 attack: number;
 health: number;
 ```
 
-### @property({ type: Number }) quality
+### @property({ type: Number }) quality (0 - 8)
 
-OPTIONAL: a card's quality setting. When this input is missing, the a default quality setting of 0 will be used for all artwork/layers.
+OPTIONAL: a card's quality setting. When this input is missing, the a default quality setting of 0 will be used for all artwork/layers. 0 = bottom quality, 1 = plain quality, ... 8 = mythic/best quality
 
 ### @property({ type: String }) responsiveSrcsetSizes
 
