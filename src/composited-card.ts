@@ -63,7 +63,7 @@ const ro = new ResizeObserver(entries => {
 @customElement('composited-card')
 export class CompositedCard extends LitElement {
   @property({ type: Number }) protoId: number;
-  @property({ type: Number }) quality: number;
+  @property({ type: Number }) quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveSrcsetSizes: string;
 
@@ -129,10 +129,6 @@ export class CompositedCard extends LitElement {
   }
 
   async getProtoDataFromApi() {
-    console.log(
-      '############## loading proto from api ##############',
-      this.protoId,
-    );
     return this.fetchProtoData().then(data => {
       const {
         id,
@@ -165,10 +161,6 @@ export class CompositedCard extends LitElement {
   }
 
   getProtoDataFromInput() {
-    console.log(
-      '@@@@@@@@@@@@@@@ loading proto from input @@@@@@@@@@@@@@',
-      this.inputProtoData,
-    );
     this.protoCardData = { ...this.inputProtoData };
     this.loading = false;
   }
