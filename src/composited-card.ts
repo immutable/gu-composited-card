@@ -163,6 +163,7 @@ export class CompositedCard extends LitElement {
   getProtoDataFromInput() {
     this.protoCardData = { ...this.inputProtoData };
     this.loading = false;
+    this.requestUpdate();
   }
 
   render() {
