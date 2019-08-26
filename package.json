@@ -1,7 +1,7 @@
 {
   "name": "composited-card",
   "main": "dist/composited-card.packed.js",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "dependencies": {
     "@juggle/resize-observer": "^2.3.0",
     "lit-element": "2.2.1"
