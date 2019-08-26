@@ -189,90 +189,90 @@ export const nonMythicImageLayersTemplate = ({
 
     ${rarity !== 'common'
       ? html`
-          <picture class="card__rarityLayer">
-            <source
-              srcset="
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.webp ${layerQualities.normal}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.webp ${layerQualities.high}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.webp ${layerQualities.xHigh}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.webp ${layerQualities.best}w
-              "
-              sizes="${responsiveSrcsetSizes}"
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png ${layerQualities.normal}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.png ${layerQualities.high}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.png ${layerQualities.xHigh}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.png ${layerQualities.best}w
-              "
-              sizes="${responsiveSrcsetSizes}"
-              type="image/png"
-            />
-            <img
-              src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png"
-              class="card__rarityLayer__img"
-            />
-          </picture>
-        `
+        <picture class="card__rarityLayer">
+          <source
+            srcset="
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.webp ${layerQualities.normal}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.webp ${layerQualities.high}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.webp ${layerQualities.xHigh}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.webp ${layerQualities.best}w
+            "
+            sizes="${responsiveSrcsetSizes}"
+            type="image/webp"
+          />
+          <source
+            srcset="
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png ${layerQualities.normal}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.png ${layerQualities.high}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.png ${layerQualities.xHigh}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.png ${layerQualities.best}w
+            "
+            sizes="${responsiveSrcsetSizes}"
+            type="image/png"
+          />
+          <img
+            src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png"
+            class="card__rarityLayer__img"
+          />
+        </picture>
+      `
       : null}
     ${rarity === 'legendary'
       ? html`
-          <picture class="card__wreathLayer">
-            <source
-              srcset="
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.webp ${layerQualities.normal}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.webp ${layerQualities.high}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.webp ${layerQualities.xHigh}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.webp ${layerQualities.best}w
-              "
-              sizes="${responsiveSrcsetSizes}"
-              type="image/webp"
-            />
+        <picture class="card__wreathLayer">
+          <source
+            srcset="
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.webp ${layerQualities.normal}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.webp ${layerQualities.high}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.webp ${layerQualities.xHigh}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.webp ${layerQualities.best}w
+            "
+            sizes="${responsiveSrcsetSizes}"
+            type="image/webp"
+          />
 
-            <source
-              srcset="
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png ${layerQualities.normal}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.png ${layerQualities.high}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.png ${layerQualities.xHigh}w,
-                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.png ${layerQualities.best}w
-              "
-              sizes="${responsiveSrcsetSizes}"
-              type="image/png"
-            />
-            <img
-              src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png"
-              class="card__wreathLayer__img"
-            />
-          </picture>
+          <source
+            srcset="
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png ${layerQualities.normal}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.png ${layerQualities.high}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.png ${layerQualities.xHigh}w,
+              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.png ${layerQualities.best}w
+            "
+            sizes="${responsiveSrcsetSizes}"
+            type="image/png"
+          />
+          <img
+            src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png"
+            class="card__wreathLayer__img"
+          />
+        </picture>
         `
       : null}
     ${set === 'core'
       ? html`
-          <picture class="card__lockIconLayer">
-            <source
-              srcset="
-                https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.webp ${lockQualities.normal}w,
-                https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.webp ${lockQualities.high}w,
-              "
-              type="image/webp"
-            />
+        <picture class="card__lockIconLayer">
+          <source
+            srcset="
+              https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.webp ${lockQualities.normal}w,
+              https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.webp ${lockQualities.high}w,
+            "
+            type="image/webp"
+          />
 
-            <source
-              srcset="
-                https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.png ${lockQualities.normal}w,
-                https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.png ${lockQualities.high}w,
-              "
-              type="image/png"
-            />
-            
-            <img
-              src="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
-              class="card__lockIconLayer__img"
-            />
-          </picture>
-        `
+          <source
+            srcset="
+              https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.png ${lockQualities.normal}w,
+              https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.png ${lockQualities.high}w,
+            "
+            type="image/png"
+          />
+          
+          <img
+            src="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
+            class="card__lockIconLayer__img"
+          />
+        </picture>
+      `
       : null}
   `;
 
