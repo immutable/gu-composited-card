@@ -58,8 +58,8 @@ export const getStyles = () => css`
   .card__lockIconLayer {
     position: absolute;
     left: 54%;
-    top: 0%;
-    width: 22%;
+    top: 2%;
+    width: 18%;
     transform: translate(-50%, 15%);
   }
 
