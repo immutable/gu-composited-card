@@ -68,26 +68,27 @@ export const mythicImageLayersTemplate = ({
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/${layerQualities.normal}/creature_hyperion.webp ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.high}/creature_hyperion.webp ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.best}/creature_hyperion.webp ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/creature_C408.webp ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/creature_C408.webp ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/creature_C408.webp ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/creature_C408.webp ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/${layerQualities.normal}/creature_hyperion.png ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.high}/creature_hyperion.png ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.xHigh}/creature_hyperion.png ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.best}/creature_hyperion.png ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/creature_C408.png ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/creature_C408.png ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/creature_C408.png ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/creature_C408.png ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
 
       <img
-        src="https://images.godsunchained.com/card-layers/${layerQualities.normal}/${type}_${qualityName}.png"
+        src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -95,27 +96,27 @@ export const mythicImageLayersTemplate = ({
     <picture class="card__manaLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/${layerQualities.normal}/mythic_hyperion.webp ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.high}/mythic_hyperion.webp ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.xHigh}/mythic_hyperion.webp ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.best}/mythic_hyperion.webp ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/mythic_C408.webp ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/mythic_C408.webp ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/mythic_C408.webp ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/mythic_C408.webp ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/${layerQualities.normal}/mythic_hyperion.png ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.high}/mythic_hyperion.png ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.xHigh}/mythic_hyperion.png ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers/${layerQualities.best}/mythic_hyperion.png ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/mythic_C408.png ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/mythic_C408.png ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/mythic_C408.png ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/mythic_C408.png ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
 
       <img
-        src="https://images.godsunchained.com/card-layers/${layerQualities.normal}/mythic_hyperion.png"
+        src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/mythic_C408.png"
         class="card__manaLayer__img"
       />
     </picture>
@@ -267,7 +268,7 @@ export const nonMythicImageLayersTemplate = ({
             />
             
             <img
-              src="https://images.godsunchained.com/card-layers/lock_${qualityName}.png"
+              src="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
               class="card__lockIconLayer__img"
             />
           </picture>
