@@ -513,3 +513,4 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData))}
           `}
     `}};yt([ae({type:Number})],St.prototype,"protoId",void 0),yt([ae({type:Number})],St.prototype,"quality",void 0),yt([ae({type:Object})],St.prototype,"inputProtoData",void 0),yt([ae({type:String})],St.prototype,"responsiveSrcsetSizes",void 0),St=yt([(e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t))(e,t):((e,t)=>{const{kind:s,elements:r}=t;return{kind:s,elements:r,finisher(t){window.customElements.define(e,t)}}})(e,t))("composited-card")],St)}]);
+//# sourceMappingURL=composited-card.packed.js.map

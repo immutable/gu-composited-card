@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
+  devtool: 'source-map',
   entry: './src/composited-card.ts',
   output: {
     filename: 'composited-card.packed.js',
