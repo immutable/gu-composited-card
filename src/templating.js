@@ -310,15 +310,13 @@ export const textLayersTemplate = ({
     <div
       class="card__manaText"
       style=${styleMap({
-    fontSize: `${ch * 10.5}px`,
-    top: `${ch * 5.5}px`,
-    left: `${cw * 9.5}px`,
-    width: `${cw * 19}px`,
-    textShadow: textShadow,
-  })}
-    >
-    ${mana}
-    </div>
+        fontSize: `${ch * 10.5}px`,
+        top: `${ch * 5.5}px`,
+        left: `${cw * 9.5}px`,
+        width: `${cw * 19}px`,
+        textShadow: textShadow,
+      })}
+    >${mana}</div>
 
     <div
       class="card__nameText ${nameCrammedTextMode
