@@ -277,23 +277,15 @@ export const nonMythicImageLayersTemplate = ({
   `;
 
 export const textLayersTemplate = ({
+  name = '',
+  effect = '',
+  type = '',
   mana,
-  name,
-  effect,
   attack,
   health,
-  type,
   ch,
   cw,
 }) => {
-  if (!type || !name || !effect) {
-    throw new Error(
-      `Compposited-card is missing mandatory input data!
-      input: 'type': ${type},
-      input: 'name': ${name},
-      input: 'effect': ${effect},
-    `);
-  }
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
   const effectCrammedTextMode = effect.split('').length >= 95;
@@ -310,12 +302,12 @@ export const textLayersTemplate = ({
     <div
       class="card__manaText"
       style=${styleMap({
-        fontSize: `${ch * 10.5}px`,
-        top: `${ch * 5.5}px`,
-        left: `${cw * 9.5}px`,
-        width: `${cw * 19}px`,
-        textShadow: textShadow,
-      })}
+    fontSize: `${ch * 10.5}px`,
+    top: `${ch * 5.5}px`,
+    left: `${cw * 9.5}px`,
+    width: `${cw * 19}px`,
+    textShadow: textShadow,
+  })}
     >${mana}</div>
 
     <div
