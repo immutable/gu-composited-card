@@ -503,7 +503,7 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
 
           <div
             class="card__healthText"
-            style=${et({fontSize:`${9.5*o}px`,bottom:`${3*o}px`,width:`${15*a}px`,right:`${"weapon"===s?.8*a:4.5*a}px`,textShadow:u})}
+            style=${et({fontSize:`${9.5*o}px`,width:`${16*a}px`,bottom:`${3.7*o}px`,right:`${2.5*a}px`,textShadow:u})}
           >
           ${i}
           </div>
