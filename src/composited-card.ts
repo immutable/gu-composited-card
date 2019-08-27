@@ -161,6 +161,8 @@ export class CompositedCard extends LitElement {
   }
 
   getProtoDataFromInput() {
+    // @TODO: visually handle when some inputProtoData
+    // fields are missing:
     this.protoCardData = { ...this.inputProtoData };
     this.loading = false;
     this.requestUpdate();

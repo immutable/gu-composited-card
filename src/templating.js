@@ -286,6 +286,14 @@ export const textLayersTemplate = ({
   ch,
   cw,
 }) => {
+  if (!type || !name || !effect) {
+    throw new Error(
+      `Compposited-card is missing mandatory input data!
+      input: 'type': ${type},
+      input: 'name': ${name},
+      input: 'effect': ${effect},
+    `);
+  }
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
   const effectCrammedTextMode = effect.split('').length >= 95;
