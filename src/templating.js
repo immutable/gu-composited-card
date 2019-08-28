@@ -293,9 +293,9 @@ export const textLayersTemplate = ({
   const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
   const textShadow = `
     -${onePx} -${onePx} ${onePx} ${black}, 
-  ${onePx} -${onePx} ${onePx} ${black}, 
+    ${onePx} -${onePx} ${onePx} ${black}, 
     -${onePx} ${onePx} ${onePx} ${black}, 
-  ${onePx} ${onePx} ${onePx} ${black}`;
+    ${onePx} ${onePx} ${onePx} ${black}`;
   const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
 
   return html`
@@ -316,7 +316,7 @@ export const textLayersTemplate = ({
       : null}"
       style=${styleMap({
         fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
-        bottom: `${ch * 35}px`,
+        bottom: `${ch * 35.4}px`,
         left: `${cw * 12}px`,
         right: `${cw * 5}px`,
         textShadow: textShadow,

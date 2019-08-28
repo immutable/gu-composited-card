@@ -473,7 +473,7 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
         </picture>
       `:null}
   `)(Object.assign({qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData))}
-            ${(({name:e="",effect:t="",type:s="",mana:r,attack:n,health:i,ch:o,cw:a})=>{const c=RegExp(/creature|weapon/).test(s),l=e.split("").length>=20,d=t.split("").length>=95,h=Math.floor(.2*o),p=`${0===h?1:h}px`,u=`\n    -${p} -${p} ${p} ${ot}, \n  ${p} -${p} ${p} ${ot}, \n    -${p} ${p} ${p} ${ot}, \n  ${p} ${p} ${p} ${ot}`,g=t.replace(/ ([^ ]*)$/,"&nbsp;$1");return M`
+            ${(({name:e="",effect:t="",type:s="",mana:r,attack:n,health:i,ch:o,cw:a})=>{const c=RegExp(/creature|weapon/).test(s),l=e.split("").length>=20,d=t.split("").length>=95,h=Math.floor(.2*o),p=`${0===h?1:h}px`,u=`\n    -${p} -${p} ${p} ${ot}, \n    ${p} -${p} ${p} ${ot}, \n    -${p} ${p} ${p} ${ot}, \n    ${p} ${p} ${p} ${ot}`,g=t.replace(/ ([^ ]*)$/,"&nbsp;$1");return M`
     <div
       class="card__manaText"
       style=${et({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*a}px`,width:`${19*a}px`,textShadow:u})}
@@ -481,7 +481,7 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
 
     <div
       class="card__nameText ${l?"card__nameText--crammed":null}"
-      style=${et({fontSize:`${l?3.9*o:4.93*o}px`,bottom:`${35*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:u})}
+      style=${et({fontSize:`${l?3.9*o:4.93*o}px`,bottom:`${35.4*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:u})}
     >${e}</div>
 
     <div
