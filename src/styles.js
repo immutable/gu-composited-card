@@ -18,8 +18,6 @@ const boldOutlinedText = css`
   line-height: 1;
   text-align: center;
   color: ${white};
-  text-shadow: -1px -1px 1px ${black}, 1px -1px 1px ${black},
-    -1px 1px 1px ${black}, 1px 1px 1px ${black};
 `;
 
 export const getStyles = () => css`

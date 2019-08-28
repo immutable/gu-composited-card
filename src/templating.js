@@ -291,11 +291,7 @@ export const textLayersTemplate = ({
   const effectCrammedTextMode = effect.split('').length >= 95;
   const shadowSize = Math.floor(ch * 0.2);
   const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
-  const textShadow = `
-    -${onePx} -${onePx} ${onePx} ${black}, 
-    ${onePx} -${onePx} ${onePx} ${black}, 
-    -${onePx} ${onePx} ${onePx} ${black}, 
-    ${onePx} ${onePx} ${onePx} ${black}`;
+  const textShadow = `-${onePx} -${onePx} ${onePx} rgba(0,0,0,0.4), ${onePx} -${onePx} ${onePx} rgba(0,0,0,0.4), -${onePx} ${onePx} ${onePx} rgba(0,0,0,0.4), ${onePx} ${onePx} ${onePx} rgba(0,0,0,0.4)`;
   const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
 
   return html`
