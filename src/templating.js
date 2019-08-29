@@ -277,94 +277,93 @@ export const nonMythicImageLayersTemplate = ({
   `;
 
 export const textLayersTemplate = ({
-  name = '',
-  effect = '',
   type = '',
-  mana,
-  attack,
-  health,
-  ch,
-  cw,
+  name = '⃠',
+  effect = '⃠',
+  mana = '⃠',
+  attack = '⃠',
+  health = '⃠',
+  ch = 0,
+  cw = 0,
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
   const effectCrammedTextMode = effect.split('').length >= 95;
   const shadowSize = Math.floor(ch * 0.2);
   const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
-  const textShadow = `-${onePx} -${onePx} ${onePx} rgba(0,0,0,0.4), ${onePx} -${onePx} ${onePx} rgba(0,0,0,0.4), -${onePx} ${onePx} ${onePx} rgba(0,0,0,0.4), ${onePx} ${onePx} ${onePx} rgba(0,0,0,0.4)`;
+  const fadedBlack = 'rgba(0,0,0,0.35)';
+  const textShadow = `-${onePx} -${onePx} ${onePx} ${fadedBlack}, ${onePx} -${onePx} ${onePx} ${fadedBlack}, -${onePx} ${onePx} ${onePx} ${fadedBlack}, ${onePx} ${onePx} ${onePx} ${fadedBlack}`;
   const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
-
-  return html`
-    <div
-      class="card__manaText"
-      style=${styleMap({
+  const manaTextStyles = styleMap({
     fontSize: `${ch * 10.5}px`,
     top: `${ch * 5.5}px`,
     left: `${cw * 9.5}px`,
     width: `${cw * 19}px`,
-    textShadow: textShadow,
-  })}
-    >${mana}</div>
+    textShadow,
+  });
+  const nameTextStyles = styleMap({
+    fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
+    bottom: `${ch * 35.4}px`,
+    left: `${cw * 12}px`,
+    right: `${cw * 5}px`,
+    textShadow,
+  });
+  const descriptionTextStyles = styleMap({
+    fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
+    lineHeight: effectCrammedTextMode ? 1.05 : 1.3,
+    bottom: `${ch * 7.75}px`,
+    height: `${ch * 22.5}px`,
+    left: `${cw * 21}px`,
+    right: `${cw * 13}px`,
+  });
+  const attackTextStyles = styleMap({
+    fontSize: `${ch * 9.5}px`,
+    bottom: `${ch * 3.5}px`,
+    width: `${cw * 15}px`,
+    left: `${cw * 10.5}px`,
+    textShadow,
+  });
+  const healthTextStyles = styleMap({
+    fontSize: `${ch * 9.5}px`,
+    width: `${cw * 16}px`,
+    bottom: `${ch * 3.7}px`,
+    right: `${cw * 2.5}px`,
+    textShadow,
+  });
+
+  return html`
+    <div class="card__manaText" style=${manaTextStyles}>
+      ${mana}
+    </div>
 
     <div
       class="card__nameText ${nameCrammedTextMode
       ? 'card__nameText--crammed'
       : null}"
-      style=${styleMap({
-        fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
-        bottom: `${ch * 35.4}px`,
-        left: `${cw * 12}px`,
-        right: `${cw * 5}px`,
-        textShadow: textShadow,
-      })}
+      style=${nameTextStyles}
     >${name}</div>
 
     <div
       class="card__descriptionText ${effectCrammedTextMode
       ? 'card__effectText--crammed'
       : null}"
-      style=${styleMap({
-        fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
-        lineHeight: effectCrammedTextMode ? 1.05 : 1.3,
-        bottom: `${ch * 7.75}px`,
-        height: `${ch * 22.5}px`,
-        left: `${cw * 21}px`,
-        right: `${cw * 13}px`,
-      })}
+      style=${descriptionTextStyles}
     >
       <div class="card__descriptionText__inner">
-      ${unsafeHTML(widowProofEffect)}
+        ${unsafeHTML(widowProofEffect)}
       </div>
     </div>
 
-  ${isACreatureOrWeapon
+    ${isACreatureOrWeapon
       ? html`
-          <div
-            class="card__attackText"
-            style=${styleMap({
-        fontSize: `${ch * 9.5}px`,
-        bottom: `${ch * 3.5}px`,
-        width: `${cw * 15}px`,
-        left: `${cw * 10.5}px`,
-        textShadow: textShadow,
-      })}
-          >
+        <div class="card__attackText" style=${attackTextStyles}>
           ${attack}
-          </div>
+        </div>
 
-          <div
-            class="card__healthText"
-            style=${styleMap({
-        fontSize: `${ch * 9.5}px`,
-        width: `${cw * 16}px`,
-        bottom: `${ch * 3.7}px`,
-        right: `${cw * 2.5}px`,
-        textShadow: textShadow,
-      })}
-          >
+        <div class="card__healthText" style=${healthTextStyles}>
           ${health}
-          </div>
-        `
+        </div>
+      `
       : null}
   `;
 };
