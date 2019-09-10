@@ -10,9 +10,9 @@
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",
     "prebuild": "yarn clear:dist",
-    "demo": "webpack-dev-server --config ./webpack.demo.config.js",
     "build": "webpack --config ./webpack.config.js",
     "prepublish": "yarn build; yarn run build-ghpages",
+    "demo": "webpack-dev-server --config ./webpack.demo.config.js",
     "ghpages:dev": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
     "ghpages:build": "webpack --config ./webpack.ghpages.prod.config.js",
     "preghpages:build": "yarn clear:docs"

@@ -162,18 +162,18 @@ const ie=(e,t)=>"method"!==t.kind||!t.descriptor||"value"in t.descriptor?{kind:"
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!==t.committer.name||t.committer.parts.length>1)throw new Error("The `styleMap` directive must be used in the style attribute and must be the only part in the attribute.");const{committer:s}=t,{style:r}=s.element;Ge.has(t)||(r.cssText=s.strings.join(" "));const n=Ge.get(t);for(const t in n)t in e||(-1===t.indexOf("-")?r[t]=null:r.removeProperty(t));for(const t in e)-1===t.indexOf("-")?r[t]=e[t]:r.setProperty(t,e[t]);Ge.set(t,e)}),tt=new WeakMap,st=n(e=>t=>{if(!(t instanceof _))throw new Error("unsafeHTML can only be used in text bindings");const s=tt.get(t);if(void 0!==s&&x(e)&&e===s.value&&t.value===s.fragment)return;const r=document.createElement("template");r.innerHTML=e;const n=document.importNode(r.content,!0);t.setValue(n),tt.set(t,{value:e,fragment:n})}),rt=he`
+const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!==t.committer.name||t.committer.parts.length>1)throw new Error("The `styleMap` directive must be used in the style attribute and must be the only part in the attribute.");const{committer:s}=t,{style:r}=s.element;Ge.has(t)||(r.cssText=s.strings.join(" "));const n=Ge.get(t);for(const t in n)t in e||(-1===t.indexOf("-")?r[t]=null:r.removeProperty(t));for(const t in e)-1===t.indexOf("-")?r[t]=e[t]:r.setProperty(t,e[t]);Ge.set(t,e)}),tt=new WeakMap,st=n(e=>t=>{if(!(t instanceof _))throw new Error("unsafeHTML can only be used in text bindings");const s=tt.get(t);if(void 0!==s&&x(e)&&e===s.value&&t.value===s.fragment)return;const r=document.createElement("template");r.innerHTML=e;const n=document.importNode(r.content,!0);t.setValue(n),tt.set(t,{value:e,fragment:n})}),rt=250,nt=375,it=500,ot=256,at=512,ct=720,lt=1024,dt=256,ht=512;s(0);const pt=he`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,nt=he`
+`,ut=he`
   font-family: 'Open Sans', sans-serif;
-`,it=he`white`,ot=(he`black`,he`
-  ${rt}
+`,gt=he`white`,mt=(he`black`,he`
+  ${pt}
   font-weight: 700;
   line-height: 1;
   text-align: center;
-  color: ${it};
-`),at=250,ct=375,lt=500,dt=256,ht=512,pt=720,ut=1024,gt=256,mt=512;s(0);s.d(t,"CompositedCard",function(){return bt});var ft=function(e,t,s,r){var n,i=arguments.length,o=i<3?t:null===r?r=Object.getOwnPropertyDescriptor(t,s):r;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,t,s,r);else for(var a=e.length-1;a>=0;a--)(n=e[a])&&(o=(i<3?n(o):i>3?n(t,s,o):n(t,s))||o);return i>3&&o&&Object.defineProperty(t,s,o),o},yt=function(e,t,s,r){return new(s||(s=Promise))(function(n,i){function o(e){try{c(r.next(e))}catch(e){i(e)}}function a(e){try{c(r.throw(e))}catch(e){i(e)}}function c(e){e.done?n(e.value):new s(function(t){t(e.value)}).then(o,a)}c((r=r.apply(e,t||[])).next())})};const wt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],vt=new Je(e=>{e.forEach(e=>{e.target.handleResize(e)})});let bt=class extends ue{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>he`
+  color: ${gt};
+`);s.d(t,"CompositedCard",function(){return bt});var ft=function(e,t,s,r){var n,i=arguments.length,o=i<3?t:null===r?r=Object.getOwnPropertyDescriptor(t,s):r;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,t,s,r);else for(var a=e.length-1;a>=0;a--)(n=e[a])&&(o=(i<3?n(o):i>3?n(t,s,o):n(t,s))||o);return i>3&&o&&Object.defineProperty(t,s,o),o},yt=function(e,t,s,r){return new(s||(s=Promise))(function(n,i){function o(e){try{c(r.next(e))}catch(e){i(e)}}function a(e){try{c(r.throw(e))}catch(e){i(e)}}function c(e){e.done?n(e.value):new s(function(t){t(e.value)}).then(o,a)}c((r=r.apply(e,t||[])).next())})};const wt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],vt=new Je(e=>{e.forEach(e=>{e.target.handleResize(e)})});let bt=class extends ue{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>he`
   :host {
     display: flex;
     position: relative;
@@ -215,18 +215,18 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
   }
 
   .card__manaText {
-    ${ot}
+    ${mt}
     position: absolute;
   }
 
   .card__nameText {
     position: absolute;
     white-space: nowrap;
-    ${ot}
+    ${mt}
   }
 
   .card__descriptionText {
-    ${rt}
+    ${pt}
     position: absolute;
     text-align: center;
     color: black;
@@ -234,74 +234,74 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
   }
 
   .card__descriptionText__inner {
-    ${nt}
+    ${ut}
     margin: auto;
   }
 
   .card__attackText {
     position: absolute;
-    ${ot}
+    ${mt}
   }
 
   .card__healthText {
     position: absolute;
-    ${ot}
+    ${mt}
   }
-`)()}connectedCallback(){super.connectedCallback(),vt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),vt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"===t&&this.getProtoDataFromInput()})}fetchProtoData(){return yt(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}getProtoDataFromApi(){return yt(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:t,type:s,attack:r,health:n,effect:i,name:o,rarity:a,god:c,mana:l,set:d}=e;return this.protoCardData={id:t,type:s,attack:r.Int64,health:n.Int64,effect:i,name:o,rarity:a,god:c,mana:l,set:d},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=wt[this.quality],t="mythic"===e;return M`
+`)()}connectedCallback(){super.connectedCallback(),vt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),vt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"===t&&this.getProtoDataFromInput()})}fetchProtoData(){return yt(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}getProtoDataFromApi(){return yt(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:t,type:s,attack:r,health:n,effect:i,name:o,rarity:a,god:c,mana:l,set:d,tribe:h}=e;return this.protoCardData={id:t,type:s,attack:r.Int64,health:n.Int64,effect:i,name:o,rarity:a,god:c,mana:l,set:d,tribe:h},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=wt[this.quality],t="mythic"===e;return M`
       ${this.loading?(()=>M`
   loading ...
 `)():M`
-            ${(({id:e,responsiveSrcsetSizes:t=`${at}px`})=>M`
+            ${(({id:e,responsiveSrcsetSizes:t=`${rt}px`})=>M`
     <picture class="card__artwork">
       <source
         srcset="
-          https://images.godsunchained.com/art/${at}/${e}.webp 250w,
-          https://images.godsunchained.com/art/${ct}/${e}.webp 375w,
-          https://images.godsunchained.com/art/${lt}/${e}.webp 500w
+          https://images.godsunchained.com/art/${rt}/${e}.webp 250w,
+          https://images.godsunchained.com/art/${nt}/${e}.webp 375w,
+          https://images.godsunchained.com/art/${it}/${e}.webp 500w
         "
         sizes="${t}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/art/${at}/${e}.jpg   250w,
-          https://images.godsunchained.com/art/${ct}/${e}.jpg  375w,
-          https://images.godsunchained.com/art/${lt}/${e}.jpg 500w
+          https://images.godsunchained.com/art/${rt}/${e}.jpg   250w,
+          https://images.godsunchained.com/art/${nt}/${e}.jpg  375w,
+          https://images.godsunchained.com/art/${it}/${e}.jpg 500w
         "
         sizes="${t}"
         type="image/jpg"
       />
       <img
-        src="https://images.godsunchained.com/art/${at}/${e}.jpg"
+        src="https://images.godsunchained.com/art/${rt}/${e}.jpg"
         class="card__artwork__img"
       />
     </picture>
   `)({id:this.protoCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
-            ${t?(({type:e,resolutionSettings:t,qualityName:s,responsiveSrcsetSizes:r=`${dt}px`})=>M`
+            ${t?(({type:e,resolutionSettings:t,qualityName:s,responsiveSrcsetSizes:r=`${ot}px`})=>M`
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/creature_C408.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/creature_C408.webp ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/creature_C408.webp ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/creature_C408.webp ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/creature_C408.webp ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/creature_C408.webp ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/creature_C408.webp ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/creature_C408.webp ${lt}w
         "
         sizes="${r}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/creature_C408.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/creature_C408.png ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/creature_C408.png ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/creature_C408.png ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/creature_C408.png ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/creature_C408.png ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/creature_C408.png ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/creature_C408.png ${lt}w
         "
         sizes="${r}"
         type="image/png"
       />
 
       <img
-        src="https://images.godsunchained.com/card-layers/layers/${dt}/${e}_${s}.png"
+        src="https://images.godsunchained.com/card-layers/layers/${ot}/${e}_${s}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -309,38 +309,38 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
     <picture class="card__manaLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/mythic_C408.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/mythic_C408.webp ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/mythic_C408.webp ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/mythic_C408.webp ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/mythic_C408.webp ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/mythic_C408.webp ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/mythic_C408.webp ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/mythic_C408.webp ${lt}w
         "
         sizes="${r}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/mythic_C408.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/mythic_C408.png ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/mythic_C408.png ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/mythic_C408.png ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/mythic_C408.png ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/mythic_C408.png ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/mythic_C408.png ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/mythic_C408.png ${lt}w
         "
         sizes="${r}"
         type="image/png"
       />
 
       <img
-        src="https://images.godsunchained.com/card-layers/layers/${dt}/mythic_C408.png"
+        src="https://images.godsunchained.com/card-layers/layers/${ot}/mythic_C408.png"
         class="card__manaLayer__img"
       />
     </picture>
-  `)({type:this.protoCardData.type,qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes}):(({responsiveSrcsetSizes:e=`${dt}px`,type:t,qualityName:s,rarity:r,god:n,set:i})=>M`
+  `)({type:this.protoCardData.type,qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes}):(({responsiveSrcsetSizes:e=`${ot}px`,type:t,qualityName:s,rarity:r,god:n,set:i})=>M`
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/${t}_${s}.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/${t}_${s}.webp ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/${t}_${s}.webp ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/${t}_${s}.webp ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/${t}_${s}.webp ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/${t}_${s}.webp ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/${t}_${s}.webp ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/${t}_${s}.webp ${lt}w
         "
         sizes="${e}"
         type="image/webp"
@@ -348,16 +348,16 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
 
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/${t}_${s}.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/${t}_${s}.png ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/${t}_${s}.png ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/${t}_${s}.png ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/${t}_${s}.png ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/${t}_${s}.png ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/${t}_${s}.png ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/${t}_${s}.png ${lt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
-        src="https://images.godsunchained.com/card-layers/layers/${dt}/${t}_${s}.png"
+        src="https://images.godsunchained.com/card-layers/layers/${ot}/${t}_${s}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -365,26 +365,26 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
     <picture class="card__manaLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/${n}_${s}.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/${n}_${s}.webp ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/${n}_${s}.webp ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/${n}_${s}.webp ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/${n}_${s}.webp ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/${n}_${s}.webp ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/${n}_${s}.webp ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/${n}_${s}.webp ${lt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${dt}/${n}_${s}.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${ht}/${n}_${s}.png ${ht}w,
-          https://images.godsunchained.com/card-layers/layers/${pt}/${n}_${s}.png ${pt}w,
-          https://images.godsunchained.com/card-layers/layers/${ut}/${n}_${s}.png ${ut}w
+          https://images.godsunchained.com/card-layers/layers/${ot}/${n}_${s}.png ${ot}w,
+          https://images.godsunchained.com/card-layers/layers/${at}/${n}_${s}.png ${at}w,
+          https://images.godsunchained.com/card-layers/layers/${ct}/${n}_${s}.png ${ct}w,
+          https://images.godsunchained.com/card-layers/layers/${lt}/${n}_${s}.png ${lt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
-        src="https://images.godsunchained.com/card-layers/layers/${dt}/${n}_${s}.png"
+        src="https://images.godsunchained.com/card-layers/layers/${ot}/${n}_${s}.png"
         class="card__manaLayer__img"
       />
     </picture>
@@ -393,26 +393,26 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
         <picture class="card__rarityLayer">
           <source
             srcset="
-              https://images.godsunchained.com/card-layers/layers/${dt}/rarity_${r}.webp ${dt}w,
-              https://images.godsunchained.com/card-layers/layers/${ht}/rarity_${r}.webp ${ht}w,
-              https://images.godsunchained.com/card-layers/layers/${pt}/rarity_${r}.webp ${pt}w,
-              https://images.godsunchained.com/card-layers/layers/${ut}/rarity_${r}.webp ${ut}w
+              https://images.godsunchained.com/card-layers/layers/${ot}/rarity_${r}.webp ${ot}w,
+              https://images.godsunchained.com/card-layers/layers/${at}/rarity_${r}.webp ${at}w,
+              https://images.godsunchained.com/card-layers/layers/${ct}/rarity_${r}.webp ${ct}w,
+              https://images.godsunchained.com/card-layers/layers/${lt}/rarity_${r}.webp ${lt}w
             "
             sizes="${e}"
             type="image/webp"
           />
           <source
             srcset="
-              https://images.godsunchained.com/card-layers/layers/${dt}/rarity_${r}.png ${dt}w,
-              https://images.godsunchained.com/card-layers/layers/${ht}/rarity_${r}.png ${ht}w,
-              https://images.godsunchained.com/card-layers/layers/${pt}/rarity_${r}.png ${pt}w,
-              https://images.godsunchained.com/card-layers/layers/${ut}/rarity_${r}.png ${ut}w
+              https://images.godsunchained.com/card-layers/layers/${ot}/rarity_${r}.png ${ot}w,
+              https://images.godsunchained.com/card-layers/layers/${at}/rarity_${r}.png ${at}w,
+              https://images.godsunchained.com/card-layers/layers/${ct}/rarity_${r}.png ${ct}w,
+              https://images.godsunchained.com/card-layers/layers/${lt}/rarity_${r}.png ${lt}w
             "
             sizes="${e}"
             type="image/png"
           />
           <img
-            src="https://images.godsunchained.com/card-layers/layers/${dt}/rarity_${r}.png"
+            src="https://images.godsunchained.com/card-layers/layers/${ot}/rarity_${r}.png"
             class="card__rarityLayer__img"
           />
         </picture>
@@ -421,10 +421,10 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
         <picture class="card__wreathLayer">
           <source
             srcset="
-              https://images.godsunchained.com/card-layers/layers/${dt}/wreath_${s}.webp ${dt}w,
-              https://images.godsunchained.com/card-layers/layers/${ht}/wreath_${s}.webp ${ht}w,
-              https://images.godsunchained.com/card-layers/layers/${pt}/wreath_${s}.webp ${pt}w,
-              https://images.godsunchained.com/card-layers/layers/${ut}/wreath_${s}.webp ${ut}w
+              https://images.godsunchained.com/card-layers/layers/${ot}/wreath_${s}.webp ${ot}w,
+              https://images.godsunchained.com/card-layers/layers/${at}/wreath_${s}.webp ${at}w,
+              https://images.godsunchained.com/card-layers/layers/${ct}/wreath_${s}.webp ${ct}w,
+              https://images.godsunchained.com/card-layers/layers/${lt}/wreath_${s}.webp ${lt}w
             "
             sizes="${e}"
             type="image/webp"
@@ -432,16 +432,16 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
 
           <source
             srcset="
-              https://images.godsunchained.com/card-layers/layers/${dt}/wreath_${s}.png ${dt}w,
-              https://images.godsunchained.com/card-layers/layers/${ht}/wreath_${s}.png ${ht}w,
-              https://images.godsunchained.com/card-layers/layers/${pt}/wreath_${s}.png ${pt}w,
-              https://images.godsunchained.com/card-layers/layers/${ut}/wreath_${s}.png ${ut}w
+              https://images.godsunchained.com/card-layers/layers/${ot}/wreath_${s}.png ${ot}w,
+              https://images.godsunchained.com/card-layers/layers/${at}/wreath_${s}.png ${at}w,
+              https://images.godsunchained.com/card-layers/layers/${ct}/wreath_${s}.png ${ct}w,
+              https://images.godsunchained.com/card-layers/layers/${lt}/wreath_${s}.png ${lt}w
             "
             sizes="${e}"
             type="image/png"
           />
           <img
-            src="https://images.godsunchained.com/card-layers/layers/${dt}/wreath_${s}.png"
+            src="https://images.godsunchained.com/card-layers/layers/${ot}/wreath_${s}.png"
             class="card__wreathLayer__img"
           />
         </picture>
@@ -450,16 +450,16 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
         <picture class="card__lockIconLayer">
           <source
             srcset="
-              https://images.godsunchained.com/card-layers/locks/${gt}/lock_${s}.webp ${gt}w,
-              https://images.godsunchained.com/card-layers/locks/${mt}/lock_${s}.webp ${mt}w,
+              https://images.godsunchained.com/card-layers/locks/${dt}/lock_${s}.webp ${dt}w,
+              https://images.godsunchained.com/card-layers/locks/${ht}/lock_${s}.webp ${ht}w,
             "
             type="image/webp"
           />
 
           <source
             srcset="
-              https://images.godsunchained.com/card-layers/locks/${gt}/lock_${s}.png ${gt}w,
-              https://images.godsunchained.com/card-layers/locks/${mt}/lock_${s}.png ${mt}w,
+              https://images.godsunchained.com/card-layers/locks/${dt}/lock_${s}.png ${dt}w,
+              https://images.godsunchained.com/card-layers/locks/${ht}/lock_${s}.png ${ht}w,
             "
             type="image/png"
           />
@@ -471,7 +471,7 @@ const Ge=new WeakMap,et=n(e=>t=>{if(!(t instanceof k)||t instanceof z||"style"!=
         </picture>
       `:null}
   `)(Object.assign({qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData))}
-            ${(({type:e="",name:t="⃠",effect:s="⃠",mana:r="⃠",attack:n="⃠",health:i="⃠",ch:o=0,cw:a=0})=>{const c=RegExp(/creature|weapon/).test(e),l=t.split("").length>=20,d=s.split("").length>=95,h=Math.floor(.2*o),p=`${0===h?1:h}px`,u="rgba(0,0,0,0.35)",g=`-${p} -${p} ${p} ${u}, ${p} -${p} ${p} ${u}, -${p} ${p} ${p} ${u}, ${p} ${p} ${p} ${u}`,m=s.replace(/ ([^ ]*)$/,"&nbsp;$1"),f=et({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*a}px`,width:`${19*a}px`,textShadow:g}),y=et({fontSize:`${l?3.9*o:4.93*o}px`,bottom:`${35.4*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:g}),w=et({fontSize:`${d?3.4*o:3.8*o}px`,lineHeight:d?1.05:1.3,bottom:`${7.75*o}px`,height:`${22.5*o}px`,left:`${21*a}px`,right:`${13*a}px`}),v=et({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*a}px`,left:`${10.5*a}px`,textShadow:g}),b=et({fontSize:`${9.5*o}px`,width:`${16*a}px`,bottom:`${3.7*o}px`,right:`${2.5*a}px`,textShadow:g});return M`
+            ${(({type:e="",name:t="⃠",effect:s="⃠",mana:r="⃠",attack:n="⃠",health:i="⃠",ch:o=0,cw:a=0})=>{const c=RegExp(/creature|weapon/).test(e),l=t.split("").length>=20,d=s.split("").length>=95,h=Math.floor(.2*o),p=`${0===h?1:h}px`,u="rgba(0,0,0,0.35)",g=`-${p} -${p} ${p} ${u}, ${p} -${p} ${p} ${u}, -${p} ${p} ${p} ${u}, ${p} ${p} ${p} ${u}`,m=s.replace(/ ([^ ]*)$/,"&nbsp;$1"),f=et({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*a}px`,width:`${19*a}px`,textShadow:g}),y=et({fontSize:`${l?3.9*o:4.93*o}px`,bottom:`${35.4*o}px`,left:`${12*a}px`,right:`${5*a}px`,textShadow:g}),w=et({fontSize:`${d?3.4*o:3.8*o}px`,lineHeight:d?1.05:1.3,bottom:`${7.8*o}px`,height:`${22*o}px`,left:`${21*a}px`,right:`${13*a}px`}),v=et({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*a}px`,left:`${10.5*a}px`,textShadow:g}),b=et({fontSize:`${9.5*o}px`,width:`${16*a}px`,bottom:`${3.7*o}px`,right:`${2.5*a}px`,textShadow:g});return M`
     <div class="card__manaText" style=${f}>
       ${r}
     </div>
