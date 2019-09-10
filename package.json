@@ -7,11 +7,15 @@
     "lit-element": "2.2.1"
   },
   "scripts": {
-    "clear-dist": "rm -rf dist/",
-    "prebuild": "yarn clear-dist",
+    "clear:dist": "rm -rf dist/",
+    "clear:docs": "rm -rf docs/",
+    "prebuild": "yarn clear:dist",
     "demo": "webpack-dev-server --config ./webpack.demo.config.js",
     "build": "webpack --config ./webpack.config.js",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build; yarn run build-ghpages",
+    "ghpages:dev": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
+    "ghpages:build": "webpack --config ./webpack.ghpages.prod.config.js",
+    "preghpages:build": "yarn clear:docs"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",
