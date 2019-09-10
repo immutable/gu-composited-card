@@ -20,6 +20,7 @@ name: string;
 rarity: string;
 god: string;
 set: string;
+tribe: string;
 mana: number;
 id: number;
 attack: number;

@@ -2,8 +2,6 @@ import { html } from 'lit-element';
 import { styleMap } from 'lit-html/directives/style-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
-import { black } from './styles';
-
 const artQualities = {
   normal: 250,
   high: 375,

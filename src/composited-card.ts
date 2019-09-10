@@ -24,6 +24,7 @@ export interface ICardProtoData {
   rarity: string;
   god: string;
   set: string;
+  tribe: string;
   mana: number;
   id: number;
   attack: number;
@@ -78,6 +79,7 @@ export class CompositedCard extends LitElement {
     id: null,
     attack: null,
     health: null,
+    tribe: '',
   };
   ch: number;
   cw: number;
@@ -141,6 +143,7 @@ export class CompositedCard extends LitElement {
         god,
         mana,
         set,
+        tribe,
       } = data;
       this.protoCardData = {
         id,
@@ -153,6 +156,7 @@ export class CompositedCard extends LitElement {
         god,
         mana,
         set,
+        tribe,
       };
       this.loading = false;
       this.requestUpdate();
