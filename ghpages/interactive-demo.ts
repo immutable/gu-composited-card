@@ -24,17 +24,7 @@ export class InteractiveDemo extends LitElement {
       />
 
       <composited-card
-        inputProtoData='{ 
-          "effect": "<strong>Roar:</strong> Obliterate a card in your hand. <strong>Afterlife:</strong> Draw a card.",
-          "god": "death",
-          "id": ${this.currentProtoId},
-          "name": "Aaaaaaa aaaaaaaaa aaaaaaa",
-          "rarity": "rare",
-          "type": "weapon",
-          "set": "core",
-          "attack": 2,
-          "tribe": "Amazon"
-        }'
+        protoId=${this.currentProtoId}
         quality=${this.currentQuality}
         responsiveSrcsetSizes="90vw"
       ></composited-card>
