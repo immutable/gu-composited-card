@@ -309,8 +309,8 @@ export const textLayersTemplate = ({
   const descriptionTextStyles = styleMap({
     fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
     lineHeight: effectCrammedTextMode ? 1.05 : 1.3,
-    bottom: `${ch * 7.75}px`,
-    height: `${ch * 22.5}px`,
+    bottom: `${ch * 7.8}px`,
+    height: `${ch * 22}px`,
     left: `${cw * 21}px`,
     right: `${cw * 13}px`,
   });
