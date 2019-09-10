@@ -2,19 +2,10 @@ import { LitElement, html, customElement, property } from 'lit-element';
 
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
-  /**
-   * Create an observed property. Triggers update on change.
-   */
   @property() currentProtoId = 1;
+  @property() currentQuality = 0;
 
-  /**
-   * Implement `render` to define a template for your element.
-   */
   render() {
-    /**
-     * Use JavaScript expressions to include property values in
-     * the element template.
-     */
     return html`
       <h1>app !!!</h1>
 
@@ -22,6 +13,14 @@ export class InteractiveDemo extends LitElement {
         type="text"
         value=${this.currentProtoId}
         @keyup=${e => (this.currentProtoId = e.target.value)}
+      />
+
+      <input
+        type="range"
+        min="0"
+        max="8"
+        value=${this.currentQuality}
+        @change=${e => (this.currentQuality = e.target.value)}
       />
 
       <composited-card
@@ -36,7 +35,7 @@ export class InteractiveDemo extends LitElement {
           "attack": 2,
           "tribe": "Amazon"
         }'
-        quality="8"
+        quality=${this.currentQuality}
         responsiveSrcsetSizes="90vw"
       ></composited-card>
     `;
