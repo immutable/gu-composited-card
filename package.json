@@ -14,13 +14,15 @@
     "prepublish": "yarn build; yarn run build-ghpages",
     "demo": "webpack-dev-server --config ./webpack.demo.config.js",
     "ghpages:dev": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
-    "ghpages:build": "webpack --config ./webpack.ghpages.prod.config.js",
-    "preghpages:build": "yarn clear:docs"
+    "preghpages:build": "yarn clear:docs",
+    "ghpages:build": "webpack --config ./webpack.ghpages.prod.config.js"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",
     "css-loader": "^3.2.0",
+    "file-saver": "^2.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "html2canvas": "1.0.0-rc.2",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
