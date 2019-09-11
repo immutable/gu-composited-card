@@ -37,7 +37,8 @@ export class InteractiveDemo extends LitElement {
     const compositedCard = this.shadowRoot.querySelector('composited-card');
     renderContainer.appendChild(cloneShadow(compositedCard.shadowRoot));
     html2canvas(renderContainer, {
-      backgroundColor: null,
+      // tslint:disable-next-line
+      backgroundColor: 'transparent',
       useCORS: true,
       allowTaint: true,
     }).then(canvas => {

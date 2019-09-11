@@ -49,6 +49,7 @@ export const baseArtworkLayersTemplate = ({
         type="image/jpg"
       />
       <img
+        crossorigin="Anonymous"
         src="https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg"
         class="card__artwork__img"
       />
@@ -86,6 +87,7 @@ export const mythicImageLayersTemplate = ({
       />
 
       <img
+        crossorigin="Anonymous"
         src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
         class="card__baseLayer__img"
       />
@@ -114,6 +116,7 @@ export const mythicImageLayersTemplate = ({
       />
 
       <img
+        crossorigin="Anonymous"
         src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/mythic_C408.png"
         class="card__manaLayer__img"
       />
@@ -153,6 +156,7 @@ export const nonMythicImageLayersTemplate = ({
         type="image/png"
       />
       <img
+        crossorigin="Anonymous"
         src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
         class="card__baseLayer__img"
       />
@@ -180,6 +184,7 @@ export const nonMythicImageLayersTemplate = ({
         type="image/png"
       />
       <img
+        crossorigin="Anonymous"
         src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${god}_${qualityName}.png"
         class="card__manaLayer__img"
       />
@@ -187,90 +192,93 @@ export const nonMythicImageLayersTemplate = ({
 
     ${rarity !== 'common'
       ? html`
-        <picture class="card__rarityLayer">
-          <source
-            srcset="
+          <picture class="card__rarityLayer">
+            <source
+              srcset="
               https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.webp ${layerQualities.normal}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.webp ${layerQualities.high}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.webp ${layerQualities.xHigh}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.webp ${layerQualities.best}w
             "
-            sizes="${responsiveSrcsetSizes}"
-            type="image/webp"
-          />
-          <source
-            srcset="
+              sizes="${responsiveSrcsetSizes}"
+              type="image/webp"
+            />
+            <source
+              srcset="
               https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png ${layerQualities.normal}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.png ${layerQualities.high}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.png ${layerQualities.xHigh}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.png ${layerQualities.best}w
             "
-            sizes="${responsiveSrcsetSizes}"
-            type="image/png"
-          />
-          <img
-            src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png"
-            class="card__rarityLayer__img"
-          />
-        </picture>
-      `
+              sizes="${responsiveSrcsetSizes}"
+              type="image/png"
+            />
+            <img
+              crossorigin="Anonymous"
+              src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png"
+              class="card__rarityLayer__img"
+            />
+          </picture>
+        `
       : null}
     ${rarity === 'legendary'
       ? html`
-        <picture class="card__wreathLayer">
-          <source
-            srcset="
+          <picture class="card__wreathLayer">
+            <source
+              srcset="
               https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.webp ${layerQualities.normal}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.webp ${layerQualities.high}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.webp ${layerQualities.xHigh}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.webp ${layerQualities.best}w
             "
-            sizes="${responsiveSrcsetSizes}"
-            type="image/webp"
-          />
+              sizes="${responsiveSrcsetSizes}"
+              type="image/webp"
+            />
 
-          <source
-            srcset="
+            <source
+              srcset="
               https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png ${layerQualities.normal}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.png ${layerQualities.high}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.png ${layerQualities.xHigh}w,
               https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.png ${layerQualities.best}w
             "
-            sizes="${responsiveSrcsetSizes}"
-            type="image/png"
-          />
-          <img
-            src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png"
-            class="card__wreathLayer__img"
-          />
-        </picture>
+              sizes="${responsiveSrcsetSizes}"
+              type="image/png"
+            />
+            <img
+              crossorigin="Anonymous"
+              src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png"
+              class="card__wreathLayer__img"
+            />
+          </picture>
         `
       : null}
     ${set === 'core'
       ? html`
-        <picture class="card__lockIconLayer">
-          <source
-            srcset="
+          <picture class="card__lockIconLayer">
+            <source
+              srcset="
               https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.webp ${lockQualities.normal}w,
               https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.webp ${lockQualities.high}w,
             "
-            type="image/webp"
-          />
+              type="image/webp"
+            />
 
-          <source
-            srcset="
+            <source
+              srcset="
               https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.png ${lockQualities.normal}w,
               https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.png ${lockQualities.high}w,
             "
-            type="image/png"
-          />
-          
-          <img
-            src="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
-            class="card__lockIconLayer__img"
-          />
-        </picture>
-      `
+              type="image/png"
+            />
+
+            <img
+              crossorigin="Anonymous"
+              src="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
+              class="card__lockIconLayer__img"
+            />
+          </picture>
+        `
       : null}
   `;
 
@@ -336,15 +344,17 @@ export const textLayersTemplate = ({
 
     <div
       class="card__nameText ${nameCrammedTextMode
-      ? 'card__nameText--crammed'
-      : null}"
+        ? 'card__nameText--crammed'
+        : null}"
       style=${nameTextStyles}
-    >${name}</div>
+    >
+      ${name}
+    </div>
 
     <div
       class="card__descriptionText ${effectCrammedTextMode
-      ? 'card__effectText--crammed'
-      : null}"
+        ? 'card__effectText--crammed'
+        : null}"
       style=${descriptionTextStyles}
     >
       <div class="card__descriptionText__inner">
@@ -354,14 +364,14 @@ export const textLayersTemplate = ({
 
     ${isACreatureOrWeapon
       ? html`
-        <div class="card__attackText" style=${attackTextStyles}>
-          ${attack}
-        </div>
+          <div class="card__attackText" style=${attackTextStyles}>
+            ${attack}
+          </div>
 
-        <div class="card__healthText" style=${healthTextStyles}>
-          ${health}
-        </div>
-      `
+          <div class="card__healthText" style=${healthTextStyles}>
+            ${health}
+          </div>
+        `
       : null}
   `;
 };
