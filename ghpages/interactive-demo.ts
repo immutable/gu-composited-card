@@ -1,5 +1,5 @@
 import { LitElement, html, customElement, property } from 'lit-element';
-import html2canvas from 'html2canvas';
+import html2canvas, { Options } from 'html2canvas';
 
 import { getStyles } from './styles';
 
@@ -28,7 +28,7 @@ export class InteractiveDemo extends LitElement {
   screenshot($ev) {
     $ev.preventDefault();
 
-    // @NOTE: Html2canvas doesnt currently support shadow-dom capturing.
+    // @NOTE: Html2canvas doesnt currently support piercing the shadowdom.
     // Thus, we have to temporarily re-render the web component into the dom,
     // so that it can be screen-captured
     const renderContainer = document.querySelector(
@@ -37,7 +37,6 @@ export class InteractiveDemo extends LitElement {
     const compositedCard = this.shadowRoot.querySelector('composited-card');
     renderContainer.appendChild(cloneShadow(compositedCard.shadowRoot));
     html2canvas(renderContainer, {
-      // tslint:disable-next-line
       backgroundColor: 'transparent',
       useCORS: true,
       allowTaint: true,
