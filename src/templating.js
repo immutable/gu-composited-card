@@ -32,25 +32,25 @@ export const baseArtworkLayersTemplate = ({
     <picture class="card__artwork">
       <source
         srcset="
-          https://images.godsunchained.com/art/${artQualities.normal}/${id}.webp 250w,
-          https://images.godsunchained.com/art/${artQualities.high}/${id}.webp 375w,
-          https://images.godsunchained.com/art/${artQualities.best}/${id}.webp 500w
+          https://images.godsunchained.com/art/${artQualities.normal}/${id}.webp ${artQualities.normal}w,
+          https://images.godsunchained.com/art/${artQualities.high}/${id}.webp ${artQualities.high}w,
+          https://images.godsunchained.com/art/${artQualities.best}/${id}.webp ${artQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg   250w,
-          https://images.godsunchained.com/art/${artQualities.high}/${id}.jpg  375w,
-          https://images.godsunchained.com/art/${artQualities.best}/${id}.jpg 500w
+          https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg ${artQualities.normal}w,
+          https://images.godsunchained.com/art/${artQualities.high}/${id}.jpg ${artQualities.high}w,
+          https://images.godsunchained.com/art/${artQualities.best}/${id}.jpg ${artQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/jpg"
       />
       <img
         crossorigin="Anonymous"
-        src="https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg"
+        srcset="https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg"
         class="card__artwork__img"
       />
     </picture>
@@ -59,7 +59,6 @@ export const baseArtworkLayersTemplate = ({
 
 export const mythicImageLayersTemplate = ({
   type,
-  resolutionSettings,
   qualityName,
   responsiveSrcsetSizes = `${layerQualities.normal}px`,
 }) => {
@@ -88,7 +87,7 @@ export const mythicImageLayersTemplate = ({
 
       <img
         crossorigin="Anonymous"
-        src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
+        srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -117,7 +116,7 @@ export const mythicImageLayersTemplate = ({
 
       <img
         crossorigin="Anonymous"
-        src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/mythic_C408.png"
+        srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/mythic_C408.png"
         class="card__manaLayer__img"
       />
     </picture>
@@ -157,7 +156,7 @@ export const nonMythicImageLayersTemplate = ({
       />
       <img
         crossorigin="Anonymous"
-        src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
+        srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${type}_${qualityName}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -185,7 +184,7 @@ export const nonMythicImageLayersTemplate = ({
       />
       <img
         crossorigin="Anonymous"
-        src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${god}_${qualityName}.png"
+        srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/${god}_${qualityName}.png"
         class="card__manaLayer__img"
       />
     </picture>
@@ -215,7 +214,7 @@ export const nonMythicImageLayersTemplate = ({
             />
             <img
               crossorigin="Anonymous"
-              src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png"
+              srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png"
               class="card__rarityLayer__img"
             />
           </picture>
@@ -247,7 +246,7 @@ export const nonMythicImageLayersTemplate = ({
             />
             <img
               crossorigin="Anonymous"
-              src="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png"
+              srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png"
               class="card__wreathLayer__img"
             />
           </picture>
@@ -274,7 +273,7 @@ export const nonMythicImageLayersTemplate = ({
 
             <img
               crossorigin="Anonymous"
-              src="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
+              srcset="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
               class="card__lockIconLayer__img"
             />
           </picture>
@@ -344,8 +343,8 @@ export const textLayersTemplate = ({
 
     <div
       class="card__nameText ${nameCrammedTextMode
-        ? 'card__nameText--crammed'
-        : null}"
+      ? 'card__nameText--crammed'
+      : null}"
       style=${nameTextStyles}
     >
       ${name}
@@ -353,8 +352,8 @@ export const textLayersTemplate = ({
 
     <div
       class="card__descriptionText ${effectCrammedTextMode
-        ? 'card__effectText--crammed'
-        : null}"
+      ? 'card__effectText--crammed'
+      : null}"
       style=${descriptionTextStyles}
     >
       <div class="card__descriptionText__inner">

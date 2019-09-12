@@ -33,7 +33,7 @@ export interface ICardProtoData {
 
 // @TODO: these should really come from an endpoint call,
 // so that we can easily update them in the future...
-const qualities = [
+export const qualities = [
   'plain',
   // @NOTE: there may be "0" quality items in future, for now, these items
   // can use the plain layer imagery assets

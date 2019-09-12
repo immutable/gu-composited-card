@@ -5,30 +5,47 @@ const headingText = css`
   line-height: 1.1;
 `;
 
-const bodyText = css`
-  font-family: 'Open Sans', sans-serif;
-`;
-
-export const white = css`white`;
-export const black = css`black`;
-
-const boldOutlinedText = css`
-  ${headingText}
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  color: ${white};
-`;
+const black = css`black`;
 
 export const getStyles = () => css`
   :host {
     display: block;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
   }
 
   h1 {
-    ${boldOutlinedText}
+    ${headingText}
     color: ${black};
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .appHeader {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 65px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    text-align: center;
+    line-height: 62px;
+  }
+
+  .appContainer {
+    padding-top: 65px;
+    min-height: 100vh;
+    background: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardVisualisation {
+    width: 90vw;
+    margin: 0 auto;
   }
 `;
