@@ -3,9 +3,11 @@ import { styleMap } from 'lit-html/directives/style-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 const artQualities = {
-  normal: 250,
-  high: 375,
-  best: 500,
+  small: 250,
+  normal: 375,
+  high: 500,
+  xHigh: 720,
+  best: 1024,
 };
 
 const layerQualities = {
@@ -26,14 +28,16 @@ export const loadingTemplate = () => html`
 
 export const baseArtworkLayersTemplate = ({
   id,
-  responsiveSrcsetSizes = `${artQualities.normal}px`,
+  responsiveSrcsetSizes = `${artQualities.small}px`,
 }) => {
   return html`
     <picture class="card__artwork">
       <source
         srcset="
+          https://images.godsunchained.com/art/${artQualities.small}/${id}.webp ${artQualities.small}w,
           https://images.godsunchained.com/art/${artQualities.normal}/${id}.webp ${artQualities.normal}w,
           https://images.godsunchained.com/art/${artQualities.high}/${id}.webp ${artQualities.high}w,
+          https://images.godsunchained.com/art/${artQualities.xHigh}/${id}.webp ${artQualities.xHigh}w,
           https://images.godsunchained.com/art/${artQualities.best}/${id}.webp ${artQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
@@ -41,8 +45,10 @@ export const baseArtworkLayersTemplate = ({
       />
       <source
         srcset="
+          https://images.godsunchained.com/art/${artQualities.small}/${id}.jpg ${artQualities.small}w,
           https://images.godsunchained.com/art/${artQualities.normal}/${id}.jpg ${artQualities.normal}w,
           https://images.godsunchained.com/art/${artQualities.high}/${id}.jpg ${artQualities.high}w,
+          https://images.godsunchained.com/art/${artQualities.xHigh}/${id}.jpg ${artQualities.xHigh}w,
           https://images.godsunchained.com/art/${artQualities.best}/${id}.jpg ${artQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
