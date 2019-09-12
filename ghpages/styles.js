@@ -37,14 +37,20 @@ export const getStyles = () => css`
   }
 
   .appContainer {
-    padding-top: 65px;
     min-height: 100vh;
     background: #f1f1f1;
     display: flex;
     flex-direction: column;
+    padding-top: 65px;
   }
 
-  .cardVisualisation {
+  .appContainer__controls {
+    position: absolute;
+    top: 65px; left: 0;
+    z-index: 1;
+  }
+
+  .appContainer__cardVisualisation {
     width: 90vw;
     margin: 0 auto;
   }

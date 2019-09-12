@@ -28,7 +28,12 @@ export class InteractiveDemo extends LitElement {
 
   screenshot($ev) {
     $ev.preventDefault();
+    const shadowDomCard = this.shadowRoot.querySelector(
+      'composited-card',
+    ) as HTMLElement;
     const tempRenderHolder = document.querySelector('.tempRenderHolder');
+    const currentWidth = shadowDomCard.offsetWidth;
+    const currentHeight = shadowDomCard.offsetHeight;
 
     // @NOTE: Html2canvas doesnt currently support piercing the shadowdom.
     // Thus, we have to temporarily re-render the web component into the dom,
@@ -36,8 +41,9 @@ export class InteractiveDemo extends LitElement {
     const cardRenderContainer = document.querySelector(
       '.compositedCardDomRender',
     ) as HTMLElement;
-    const compositedCard = this.shadowRoot.querySelector('composited-card');
-    cardRenderContainer.appendChild(cloneShadow(compositedCard.shadowRoot));
+    cardRenderContainer.appendChild(cloneShadow(shadowDomCard.shadowRoot));
+    cardRenderContainer.style.width = `${currentWidth}px`;
+    cardRenderContainer.style.height = `${currentHeight}px`;
     html2canvas(cardRenderContainer, {
       backgroundColor: 'transparent',
       useCORS: true,
@@ -53,6 +59,8 @@ export class InteractiveDemo extends LitElement {
           `${this.currentProtoId}-${qualities[this.currentQuality]}.png`,
         );
       }, 'image/png');
+
+      // @TODO: cleanup elements:
     });
   }
 
@@ -61,23 +69,24 @@ export class InteractiveDemo extends LitElement {
       <header class="appHeader">moo cow</header>
 
       <main class="appContainer">
-        <input
-          type="text"
-          value=${this.currentProtoId}
-          @keyup=${e => (this.currentProtoId = e.target.value)}
-        />
+        <div class="appContainer__controls">
+          <input
+            type="text"
+            value=${this.currentProtoId}
+            @keyup=${e => (this.currentProtoId = e.target.value)}
+          />
 
-        <input
-          type="range"
-          min="0"
-          max="8"
-          value=${this.currentQuality}
-          @change=${e => (this.currentQuality = e.target.value)}
-        />
+          <input
+            type="range"
+            min="0"
+            max="8"
+            value=${this.currentQuality}
+            @change=${e => (this.currentQuality = e.target.value)}
+          />
 
-        <button @click="${this.screenshot}">screenshot</button>
-
-        <div class="cardVisualisation">
+          <button @click="${this.screenshot}">screenshot</button>
+        </div>
+        <div class="appContainer__cardVisualisation">
           <composited-card
             protoId=${this.currentProtoId}
             quality=${this.currentQuality}
