@@ -1,5 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+}
+
+.githubButtonContainer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
 }
 
 .tempRenderHolder {
@@ -31,6 +44,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  width: 1000px;
+  height: 1400px;
 }
 
 img {

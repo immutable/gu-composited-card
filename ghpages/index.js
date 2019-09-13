@@ -1,3 +1,3 @@
 import '../src/composited-card';
 import './interactive-demo';
-import './global.css';
+import './assets/styles/global.css';

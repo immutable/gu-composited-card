@@ -21,6 +21,7 @@ function cloneShadow(shadow) {
 export class InteractiveDemo extends LitElement {
   @property() currentProtoId = 101;
   @property() currentQuality = 0;
+  @property() currentQualityInWords: string = qualities[0];
 
   static get styles() {
     return getStyles();
@@ -29,11 +30,9 @@ export class InteractiveDemo extends LitElement {
   screenshot($ev) {
     $ev.preventDefault();
     const shadowDomCard = this.shadowRoot.querySelector(
-      'composited-card',
+      '.appContainer__dummyCardContainer__dummyCard',
     ) as HTMLElement;
     const tempRenderHolder = document.querySelector('.tempRenderHolder');
-    const currentWidth = shadowDomCard.offsetWidth;
-    const currentHeight = shadowDomCard.offsetHeight;
 
     // @NOTE: Html2canvas doesnt currently support piercing the shadowdom.
     // Thus, we have to temporarily re-render the web component into the dom,
@@ -42,8 +41,6 @@ export class InteractiveDemo extends LitElement {
       '.compositedCardDomRender',
     ) as HTMLElement;
     cardRenderContainer.appendChild(cloneShadow(shadowDomCard.shadowRoot));
-    cardRenderContainer.style.width = `${currentWidth}px`;
-    cardRenderContainer.style.height = `${currentHeight}px`;
     html2canvas(cardRenderContainer, {
       backgroundColor: 'transparent',
       useCORS: true,
@@ -66,31 +63,75 @@ export class InteractiveDemo extends LitElement {
 
   render() {
     return html`
-      <header class="appHeader">moo cow</header>
+      <header class="appHeader">
+        <img
+          class="appHeader__logo"
+          src="./assets/img/logo--imco.svg"
+          alt="imco logo"
+        />
+        <h3 class="appHeader__title">
+          Composited Card Demo <sup class="appHeader__title__sup">BETA</sup>
+        </h3>
+      </header>
 
       <main class="appContainer">
-        <div class="appContainer__controls">
-          <input
-            type="text"
-            value=${this.currentProtoId}
-            @keyup=${e => (this.currentProtoId = e.target.value)}
-          />
-
-          <input
-            type="range"
-            min="0"
-            max="8"
-            value=${this.currentQuality}
-            @change=${e => (this.currentQuality = e.target.value)}
-          />
-
-          <button @click="${this.screenshot}">screenshot</button>
-        </div>
-        <div class="appContainer__cardVisualisation">
+        <div class="appContainer__dummyCardContainer">
           <composited-card
             protoId=${this.currentProtoId}
             quality=${this.currentQuality}
             responsiveSrcsetSizes="90vw"
+            class="appContainer__dummyCardContainer__dummyCard"
+          ></composited-card>
+        </div>
+
+        <div class="appContainer__intro">
+          A simple, framework agnostic web component to facilitate the display
+          of <a href="https://godsuncained.com">Gods Unchained</a> card
+          element(s).
+        </div>
+
+        <footer class="appContainer__controls">
+          <h3 class="appContainer__controls__title">Display Controls</h3>
+          <div class="appContainer__controls__panel">
+            <label for="#protoId" class="appContainer__controls__panel__label">
+              Card ID
+            </label>
+            <input
+              id="#protoId"
+              type="text"
+              class="appContainer__controls__panel__input"
+              value=${this.currentProtoId}
+              @keyup=${e => (this.currentProtoId = e.target.value)}
+            />
+          </div>
+
+          <div
+            class="appContainer__controls__panel appContainer__controls__panel--quality"
+          >
+            <label for="#protoId" class="appContainer__controls__panel__label">
+              Quality (${this.currentQualityInWords})
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="8"
+              value=${this.currentQuality}
+              @change=${e => {
+                this.currentQuality = e.target.value;
+                this.currentQualityInWords = qualities[this.currentQuality];
+              }}
+            />
+          </div>
+        </footer>
+
+        <button class="appContainer__fab" @click="${this.screenshot}"></button>
+        <div class="appContainer__cardVisualisation">
+          <i class="appContainer__cardVisualisation__shadow"></i>
+          <composited-card
+            protoId=${this.currentProtoId}
+            quality=${this.currentQuality}
+            responsiveSrcsetSizes="90vw"
+            class="appContainer__cardVisualisation__card"
           ></composited-card>
         </div>
       </main>
