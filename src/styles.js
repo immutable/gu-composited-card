@@ -11,6 +11,8 @@ const bodyText = css`
 
 export const white = css`white`;
 export const black = css`black`;
+const offWhiteLight = css`#f9f9f9`;
+const offWhiteDark = css`#f1f1f1`;
 
 const boldOutlinedText = css`
   ${headingText}
@@ -42,11 +44,24 @@ export const getStyles = () => css`
     display: flex;
   }
 
+  .loading::before {
+    content: "";
+    background: ${offWhiteLight};
+    width: 60%;
+    padding-bottom: 60%;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
   .loading__img {
     margin: auto;
-    width: 60%;
-    max-width: 150px;
+    width: 55%;
+    max-width: 120px;
     min-width: 50px;
+    position: relative;
   }
 
   .card__artwork {
