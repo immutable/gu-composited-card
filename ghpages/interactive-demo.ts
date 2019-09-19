@@ -115,7 +115,12 @@ export class InteractiveDemo extends LitElement {
             class="appContainer__controls__panel appContainer__controls__panel--quality"
           >
             <label for="#protoId" class="appContainer__controls__panel__label">
-              Quality (${this.currentQualityInWords})
+              Quality
+              <span
+                class="appContainer__controls__panel__label__quality quality--${this
+                  .currentQualityInWords}"
+                >(${this.currentQualityInWords})</span
+              >
             </label>
             <input
               type="range"

@@ -35,12 +35,12 @@ const sliderTrack = (quality = 0) => css`
   cursor: pointer;
   background: ${offBlackDark};
   border: 2px solid rgba(255,255,255,0.15);
-  padding: 3px;
+  padding: 6px;
 `;
 
 const sliderThumb = (quality = 0) => css`
-  height: 25px;
-  width: 35px;
+  height: 20px;
+  width: 38px;
   border-radius: 28px;
   background: ${qualityColors[quality]};
   cursor: pointer;
@@ -286,16 +286,54 @@ export const getStyles = () => css`
     font-size: 12px;
     font-weight: 700;
     color: white;
+    width: 15vw;
   }
 
   .appContainer__controls__panel--quality {
     margin-left: 20px;
-    width: 25vw;
+    width: 30vw;
   }
 
   .appContainer__controls__panel__label { 
     font-size: 14px;
+    line-height: 1.1;
     margin-bottom: 8px;
+  }
+
+  .appContainer__controls__panel__label__quality {
+    font-weight: 700;
+  }
+
+  .quality--plain { 
+    color: ${qualityColors[1]}
+  }
+
+  .quality--bronze {
+    color: ${qualityColors[2]}
+  }
+
+  .quality--iron {
+    color: ${qualityColors[3]}
+  }
+
+  .quality--meteorite {
+    color: ${qualityColors[4]}
+  }
+
+  .quality--shadow {
+    color: ${qualityColors[5]}
+  }
+
+  .quality--gold {
+    color: ${qualityColors[6]}
+  }
+
+  .quality--diamond {
+    color: ${qualityColors[7]}
+  }
+
+  .quality--mythic {
+    color: ${qualityColors[8]}
   }
 
   .appContainer__controls__panel__rangeSlider {
