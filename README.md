@@ -40,8 +40,15 @@ OPTIONAL: a sizes string to indicate to the browser, roughly how big images will
 ```
 $ yarn add composited-card
 ```
-
-and then embed it inside any markup by using the following tag:
+then import it in your app's entry point eg:
+```
+import 'composited-card';
+```
+or you can also simply embed the bundled web component script in any HTML page eg:
+```
+<script src="https://unpkg.com/composited-card@latest/dist/composited-card.packed.js"></script>
+```
+and then finally, simply embed it inside any markup file by using the following tag:
 
 ```
 <composited-card
