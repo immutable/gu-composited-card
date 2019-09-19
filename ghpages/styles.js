@@ -21,14 +21,11 @@ const offBlackLight = css`#333`;
 
 export const getStyles = () => css`
   @keyframes floatCard {
-    0% {
-      transform: translateY(0%);
+    from {
+      transform: translateY(2%);
     }
-    50% {
-      transform: translateY(2.5%);
-    }
-    100% {
-      transform: translateY(0%);
+    to {
+      transform: translateY(-2%);
     }
   }
 
@@ -41,9 +38,10 @@ export const getStyles = () => css`
   :host {
     display: block;
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
+    width: 100%;
+    min-width: 640px;
+    height: 100%;
+    min-height: 760px;
     ${baseText}
   }
 
@@ -72,6 +70,7 @@ export const getStyles = () => css`
     ${baseText}
     font-weight: 300;
     font-size: 20px;
+    line-height: 1;
     text-align: center;
     flex: 1;
   }
@@ -84,25 +83,25 @@ export const getStyles = () => css`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-top: ${headerHeight};
   }
 
   .appContainer::before {
     content: "";
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0; 
+    left: 0; right: 0;
     height: 50vh;
     background: ${offBlackLight};
   }
 
   .appContainer__intro {
-    position: absolute;
     width: 50%;
-    top: calc(${headerHeight} + 30px);
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
     color: #b8b8b8;
+    flex-grow: 0;
+    margin: 30px 15px 0;
   }
 
   .appContainer__intro a {
@@ -112,20 +111,6 @@ export const getStyles = () => css`
 
   .appContainer__intro a:hover {
     text-decoration: underline;
-  }
-
-  .appContainer__controls {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: ${footerHeight};
-    z-index: 1;
-    background: ${offBlackDark};
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 20px;
   }
 
   .appContainer__controls__title {
@@ -140,29 +125,6 @@ export const getStyles = () => css`
     margin: 0;
   }
 
-  .appContainer__controls__panel {
-    display: flex;
-    flex-direction: column;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .appContainer__controls__panel--quality {
-    margin-left: 20px;
-  }
-
-  .appContainer__controls__panel__label { 
-    font-size: 14px;
-  }
-
-  .appContainer__controls__panel__input { 
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.15);
-    padding: 10px;
-    font-size: 12px;
-    font-weight: 700;
-    color: white;
-  }
-
   .appContainer__fab {
     position: absolute;
     bottom: ${footerHeight};
@@ -175,22 +137,50 @@ export const getStyles = () => css`
     border: none;
     transform: translate(0, 50%);
     z-index: 1;
+    display: flex;
+  }
+
+  .appContainer__fab:hover {
+    background: #6ce4ff;
+  }
+
+  .appContainer__fab:active {
+    background: ${white};
+  }
+
+  .appContainer__fab:active .appContainer__fab__img {
+    filter: brightness(0);
+  }
+
+  .appContainer__fab__img {
+    display: block;
+    width: 60%;
+    margin: auto;
   }
 
   .appContainer__cardVisualisation {
-    width: 50vw;
-    margin: auto;
+    width: 55vmin;
+    min-width: 360px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     position: relative;
+    margin-bottom: calc(${footerHeight} + 30px);
+  }
+
+  @media screen and (min-aspect-ratio: 1/1) {
+    .appContainer__cardVisualisation {
+      width: 50vmin;
+    }
   }
 
   .appContainer__cardVisualisation__shadow {
     width: 120%;
     height: 40px;
     left: -5%;
-    bottom: 0;
+    bottom: calc(50% - 50vmin * 1.4 / 2);
     position: absolute;
     display: flex;
-    animation: 3s floatCard infinite ease-in-out;
   }
 
   .appContainer__cardVisualisation__shadow::before {
@@ -214,9 +204,10 @@ export const getStyles = () => css`
   }
 
   .appContainer__cardVisualisation__card {
-    animation: 3s floatCard infinite ease-in-out;
+    animation: 3s floatCard infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
+    margin: auto;
   }
 
   .appContainer__dummyCardContainer {
@@ -234,4 +225,130 @@ export const getStyles = () => css`
     height: 1400px;
     padding: 0;
   }
+
+  .appContainer__controls {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: ${footerHeight};
+    z-index: 1;
+    background: ${offBlackDark};
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .appContainer__controls__panel {
+    display: flex;
+    flex-direction: column;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .appContainer__controls__panel__input { 
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.15);
+    padding: 7px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .appContainer__controls__panel--quality {
+    margin-left: 20px;
+    width: 25vw;
+  }
+
+  .appContainer__controls__panel__label { 
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .appContainer__controls__panel__rangeSlider {
+    -webkit-appearance: none;
+    width: 100%;
+  }
+
+  .appContainer__controls__panel__rangeSlider:focus {
+    outline: none;
+  }
+  .appContainer__controls__panel__rangeSlider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 31.2px;
+    cursor: pointer;
+    background: #46262c;
+    border: 0px solid #010101;
+  }
+  .appContainer__controls__panel__rangeSlider::-webkit-slider-thumb {
+    box-shadow: 1.8px 1.8px 5.9px rgba(255, 0, 0, 0.49),
+      0px 0px 1.8px rgba(255, 26, 26, 0.49);
+    border: 2.9px solid #941e00;
+    height: 25px;
+    width: 34px;
+    border-radius: 28px;
+    background: rgba(255, 55, 56, 0.93);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: 3.1px;
+  }
+  .appContainer__controls__panel__rangeSlider:focus::-webkit-slider-runnable-track {
+    background: #49282e;
+  }
+  .appContainer__controls__panel__rangeSlider::-moz-range-track {
+    width: 100%;
+    height: 31.2px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #46262c;
+    border-radius: 0px;
+    border: 0px solid #010101;
+  }
+  .appContainer__controls__panel__rangeSlider::-moz-range-thumb {
+    box-shadow: 1.8px 1.8px 5.9px rgba(255, 0, 0, 0.49),
+      0px 0px 1.8px rgba(255, 26, 26, 0.49);
+    border: 2.9px solid #941e00;
+    height: 25px;
+    width: 34px;
+    border-radius: 28px;
+    background: rgba(255, 55, 56, 0.93);
+    cursor: pointer;
+  }
+  .appContainer__controls__panel__rangeSlider::-ms-track {
+    width: 100%;
+    height: 31.2px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  .appContainer__controls__panel__rangeSlider::-ms-fill-lower {
+    background: #43242a;
+    border: 0px solid #010101;
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  .appContainer__controls__panel__rangeSlider::-ms-fill-upper {
+    background: #46262c;
+    border: 0px solid #010101;
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  .appContainer__controls__panel__rangeSlider::-ms-thumb {
+    box-shadow: 1.8px 1.8px 5.9px rgba(255, 0, 0, 0.49),
+      0px 0px 1.8px rgba(255, 26, 26, 0.49);
+    border: 2.9px solid #941e00;
+    width: 34px;
+    border-radius: 28px;
+    background: rgba(255, 55, 56, 0.93);
+    cursor: pointer;
+    height: 25px;
+  }
+  .appContainer__controls__panel__rangeSlider:focus::-ms-fill-lower {
+    background: #46262c;
+  }
+  .appContainer__controls__panel__rangeSlider:focus::-ms-fill-upper {
+    background: #49282e;
+  }
 `;
+

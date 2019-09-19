@@ -19,7 +19,7 @@ function cloneShadow(shadow) {
 
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
-  @property() currentProtoId = 101;
+  @property() currentProtoId = 98;
   @property() currentQuality = 0;
   @property() currentQualityInWords: string = qualities[0];
 
@@ -49,15 +49,13 @@ export class InteractiveDemo extends LitElement {
         cardRender.style.opacity = 1;
       },
     }).then(canvas => {
-      tempRenderHolder.appendChild(canvas);
       canvas.toBlob(blob => {
         saveAs(
           blob,
           `${this.currentProtoId}-${qualities[this.currentQuality]}.png`,
         );
       }, 'image/png');
-
-      // @TODO: cleanup elements:
+      cardRenderContainer.innerHTML = null;
     });
   }
 
@@ -70,7 +68,12 @@ export class InteractiveDemo extends LitElement {
           alt="imco logo"
         />
         <h3 class="appHeader__title">
-          Composited Card Demo <sup class="appHeader__title__sup">BETA</sup>
+          Composited Card Demo
+          <sup
+            class="appHeader__title__sup"
+            title="*The experience in Safari might have some slight speed-bumps"
+            >BETA</sup
+          >
         </h3>
       </header>
 
@@ -86,8 +89,9 @@ export class InteractiveDemo extends LitElement {
 
         <div class="appContainer__intro">
           A simple, framework agnostic web component to facilitate the display
-          of <a href="https://godsuncained.com">Gods Unchained</a> card
-          element(s).
+          of
+          <a href="https://godsunchained.com" target="_blank">Gods Unchained</a>
+          card element(s).
         </div>
 
         <footer class="appContainer__controls">
@@ -98,7 +102,7 @@ export class InteractiveDemo extends LitElement {
             </label>
             <input
               id="#protoId"
-              type="text"
+              type="number"
               class="appContainer__controls__panel__input"
               value=${this.currentProtoId}
               @keyup=${e => (this.currentProtoId = e.target.value)}
@@ -115,6 +119,7 @@ export class InteractiveDemo extends LitElement {
               type="range"
               min="0"
               max="8"
+              class="appContainer__controls__panel__rangeSlider"
               value=${this.currentQuality}
               @change=${e => {
                 this.currentQuality = e.target.value;
@@ -124,7 +129,12 @@ export class InteractiveDemo extends LitElement {
           </div>
         </footer>
 
-        <button class="appContainer__fab" @click="${this.screenshot}"></button>
+        <button class="appContainer__fab" @click="${this.screenshot}">
+          <img
+            class="appContainer__fab__img"
+            src="./assets/img/icon--download.svg"
+          />
+        </button>
         <div class="appContainer__cardVisualisation">
           <i class="appContainer__cardVisualisation__shadow"></i>
           <composited-card
