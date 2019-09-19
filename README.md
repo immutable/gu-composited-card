@@ -41,10 +41,16 @@ OPTIONAL: a sizes string to indicate to the browser, roughly how big images will
 $ yarn install
 ```
 
-## Viewing demo elements
+## Viewing/Developing demo page
 
 ```
-$ yarn demo
+$ yarn dev:demo
+```
+
+## Viewing/Developing docs
+
+```
+$ yarn dev:docs
 ```
 
 ## Building for prod
