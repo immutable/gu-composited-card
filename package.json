@@ -9,13 +9,15 @@
   "scripts": {
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",
-    "prebuild": "yarn clear:dist",
-    "build": "webpack --config ./webpack.config.js",
+    "prebuild": "yarn clear:dist; yarn clear:docs;",
+    "build": "yarn build:src; yarn build:docs",
+    "prebuild:docs": "yarn clear:docs",
+    "prebuild:src": "yarn clear:dist",
+    "build:src": "webpack --config ./webpack.config.js",
+    "build:docs": "webpack --config ./webpack.ghpages.prod.config.js",
     "prepublish": "yarn build; yarn run ghpages:build",
-    "demo": "webpack-dev-server --config ./webpack.demo.config.js",
-    "ghpages:dev": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
-    "preghpages:build": "yarn clear:docs",
-    "ghpages:build": "webpack --config ./webpack.ghpages.prod.config.js"
+    "dev:docs": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
+    "dev:demo": "webpack-dev-server --config ./webpack.demo.config.js"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",
