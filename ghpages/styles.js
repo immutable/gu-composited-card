@@ -80,11 +80,16 @@ export const getStyles = () => css`
     padding: 0 15px 0 5px;
   }
 
-  .appHeader__logo {
+  .appHeader__link {
     width: 180px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  .appHeader__link__img {
+    display: block;
+    width: 100%;
   }
 
   .appHeader__title {

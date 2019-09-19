@@ -62,11 +62,13 @@ export class InteractiveDemo extends LitElement {
   render() {
     return html`
       <header class="appHeader">
-        <img
-          class="appHeader__logo"
-          src="${require('./assets/img/logo--imco.svg')}"
-          alt="imco logo"
-        />
+        <a href="https://immutable.com" class="appHeader__link" target="_blank">
+          <img
+            class="appHeader__link__img"
+            src="${require('./assets/img/logo--imco.svg')}"
+            alt="imco logo"
+          />
+        </a>
         <h3 class="appHeader__title">
           Composited Card Demo
           <sup
