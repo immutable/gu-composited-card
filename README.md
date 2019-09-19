@@ -51,7 +51,7 @@ and then embed it inside any markup by using the following tag:
 ></composited-card>
 ```
 
-### View a demo page
+## View a demo page
 
 load up a test page, with many different card types and sizes
 
