@@ -34,7 +34,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.woff2$/i,
+        test: /\.(woff2|png)$/i,
         use: [
           {
             loader: 'url-loader',
