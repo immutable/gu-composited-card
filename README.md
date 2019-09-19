@@ -48,7 +48,7 @@ or you can also simply embed the bundled web component script in any HTML page e
 ```
 <script src="https://unpkg.com/composited-card@latest/dist/composited-card.packed.js"></script>
 ```
-and then finally, simply embed it inside any markup file by using the following tag:
+and then simply embed it inside any markup file by using the following web-component tag:
 
 ```
 <composited-card
@@ -57,6 +57,7 @@ and then finally, simply embed it inside any markup file by using the following 
   responsiveSrcsetSizes="(min-width: 600px) 160px, 320px"
 ></composited-card>
 ```
+*Note: just about all modern javascript frameworks can support and work with WebComponents, however some will need varying amounts of configuration to do so. To read more about implementing a web component into a specific framerwork, go [here](https://custom-elements-everywhere.com).
 
 ## View a demo page
 
