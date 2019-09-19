@@ -18,6 +18,7 @@ const headerHeight = css`65px`;
 const footerHeight = css`100px`;
 const offBlackDark = css`#282828`;
 const offBlackLight = css`#333`;
+const offWhiteTransparent = css`rgba(255,255,255,0.15)`;
 const qualityColors = [
   css`#8295A2`,
   css`#8295A2`,
@@ -34,7 +35,7 @@ const sliderTrack = (quality = 0) => css`
   width: 100%;
   cursor: pointer;
   background: ${offBlackDark};
-  border: 2px solid rgba(255,255,255,0.15);
+  border: 2px solid ${offWhiteTransparent};
   padding: 6px;
 `;
 
@@ -281,7 +282,7 @@ export const getStyles = () => css`
 
   .appContainer__controls__panel__input { 
     background: transparent;
-    border: 2px solid rgba(255,255,255,0.15);
+    border: 2px solid ${offWhiteTransparent};
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 700;
