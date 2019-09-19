@@ -59,7 +59,7 @@ load up a test page, with many different card types and sizes
 $ yarn dev:demo
 ```
 
-## For component contributers:
+## For component contributers
 
 ### Install dependencies (for component development)
 
