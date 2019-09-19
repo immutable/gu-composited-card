@@ -48,7 +48,7 @@ or you can also simply embed the bundled web component script in any HTML page e
 ```
 <script src="https://unpkg.com/composited-card@latest/dist/composited-card.packed.js"></script>
 ```
-and then simply embed it inside any markup file by using the following web-component tag:
+and then use it inside any markup file by inserting the following web-component tag:
 
 ```
 <composited-card
