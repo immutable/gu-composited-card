@@ -6,6 +6,7 @@
     "@juggle/resize-observer": "^2.3.0",
     "lit-element": "2.2.1"
   },
+  "homepage": "https://immutable.github.io/gu-composited-card",
   "repository": {
     "type": "git",
     "url": "https://github.com/immutable/gu-composited-card.git"
@@ -18,6 +19,9 @@
     }
   ],
   "license": "MIT",
+  "bugs": {
+    "email": "tim.paul@immutable.com"
+  },
   "scripts": {
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",
