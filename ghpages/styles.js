@@ -18,8 +18,19 @@ const headerHeight = css`65px`;
 const footerHeight = css`100px`;
 const offBlackDark = css`#282828`;
 const offBlackLight = css`#333`;
+const qualityColors = [
+  css`#8295A2`,
+  css`#8295A2`,
+  css`#6A8B35`,
+  css`#3D91B9`,
+  css`#84343E`,
+  css`#B461C5`,
+  css`#E5D93C`,
+  css`#94E6FB`,
+  css`gold`,
+];
 
-const sliderTrack = css`
+const sliderTrack = (quality = 0) => css`
   width: 100%;
   cursor: pointer;
   background: ${offBlackDark};
@@ -27,15 +38,11 @@ const sliderTrack = css`
   padding: 3px;
 `;
 
-const sliderThumb = css`
-  box-shadow: 
-    2px 2px 6px rgba(255, 0, 0, 0.49),
-    0px 0px 2px rgba(255, 26, 26, 0.49);
-  border: 2px solid #941e00;
+const sliderThumb = (quality = 0) => css`
   height: 25px;
   width: 35px;
   border-radius: 28px;
-  background: rgba(255, 55, 56, 0.93);
+  background: ${qualityColors[quality]};
   cursor: pointer;
   -webkit-appearance: none;
 `;
@@ -301,19 +308,106 @@ export const getStyles = () => css`
   }
 
   /* WEBKIT: */
-  .appContainer__controls__panel__rangeSlider::-webkit-slider-runnable-track {
-    ${sliderTrack}
+  .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-runnable-track {
+    ${sliderTrack(0)}
   }
-  .appContainer__controls__panel__rangeSlider::-webkit-slider-thumb {
-    ${sliderThumb}
+  .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-runnable-track {
+    ${sliderTrack(2)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-runnable-track {
+    ${sliderTrack(3)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-runnable-track {
+    ${sliderTrack(4)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-runnable-track {
+    ${sliderTrack(5)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-runnable-track {
+    ${sliderTrack(6)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-runnable-track {
+    ${sliderTrack(7)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-runnable-track {
+    ${sliderTrack(8)}
+  }
+
+  .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-thumb {
+    ${sliderThumb(0)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-thumb {
+    ${sliderThumb(2)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-thumb {
+    ${sliderThumb(3)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-thumb {
+    ${sliderThumb(4)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-thumb {
+    ${sliderThumb(5)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-thumb {
+    ${sliderThumb(6)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-thumb {
+    ${sliderThumb(7)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-thumb {
+    ${sliderThumb(8)}
   }
 
   /* FIREFOX: */
-  .appContainer__controls__panel__rangeSlider::-moz-range-track {
-    ${sliderTrack}
+
+  .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-track {
+    ${sliderTrack(0)}
   }
-  .appContainer__controls__panel__rangeSlider::-moz-range-thumb {
-    ${sliderThumb}
+  .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-track {
+    ${sliderTrack(2)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-track {
+    ${sliderTrack(3)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-track {
+    ${sliderTrack(4)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-track {
+    ${sliderTrack(5)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-track {
+    ${sliderTrack(6)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-track {
+    ${sliderTrack(7)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-track {
+    ${sliderTrack(8)}
+  }
+
+  .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-thumb {
+    ${sliderThumb(0)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-thumb {
+    ${sliderThumb(2)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-thumb {
+    ${sliderThumb(3)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-thumb {
+    ${sliderThumb(4)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-thumb {
+    ${sliderThumb(5)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-thumb {
+    ${sliderThumb(6)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-thumb {
+    ${sliderThumb(7)}
+  }
+  .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
+    ${sliderThumb(8)}
   }
 `;
 

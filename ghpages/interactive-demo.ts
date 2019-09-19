@@ -19,7 +19,7 @@ function cloneShadow(shadow) {
 
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
-  @property() currentProtoId = 103;
+  @property() currentProtoId = Math.floor(Math.random() * 100);
   @property() currentQuality = 0;
   @property() currentQualityInWords: string = qualities[0];
 
@@ -119,9 +119,9 @@ export class InteractiveDemo extends LitElement {
             </label>
             <input
               type="range"
-              min="0"
+              min="1"
               max="8"
-              class="appContainer__controls__panel__rangeSlider quality-${this
+              class="appContainer__controls__panel__rangeSlider quality--${this
                 .currentQualityInWords}"
               value=${this.currentQuality}
               @change=${e => {
