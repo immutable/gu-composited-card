@@ -47,6 +47,7 @@ export const qualities = [
   'mythic',
 ];
 
+// Deploy a native ResizeOberver for this component instance:
 const ro = new ResizeObserver(entries => {
   entries.forEach(entry => {
     const el = entry.target as CompositedCard;
@@ -55,10 +56,22 @@ const ro = new ResizeObserver(entries => {
 });
 
 /**
- * @TODO: document this web-component...
+ *
+ * GU Composited Card Web Component
+ * -----------------------------------------------------------------
+ *
+ * A simple, framework agnostic web component to facilitate the
+ * display of Gods Unchained card element(s).
  *
  * @customElement
- * @demo https://github.com/glomotion/composited-card-web-component
+ * @demo https://immutable.github.io/gu-composited-card/
+ *
+ * @input protoId
+ * @input quality
+ * @input inputProtoData
+ * @input responsiveSrcsetSizes
+ *
+ * @author Tim Paul <tim.paul@immutable.com> <@glomotion>
  *
  */
 @customElement('composited-card')
@@ -68,7 +81,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveSrcsetSizes: string;
 
-  protoCardData: ICardProtoData = {
+  public protoCardData: ICardProtoData = {
     type: '',
     effect: '',
     name: '',
@@ -81,9 +94,9 @@ export class CompositedCard extends LitElement {
     health: null,
     tribe: '',
   };
-  ch: number;
-  cw: number;
-  loading: boolean;
+  public ch: number;
+  public cw: number;
+  public loading: boolean;
 
   static get styles() {
     return getStyles();
@@ -97,16 +110,17 @@ export class CompositedCard extends LitElement {
     this.cw = this.offsetWidth * 0.01;
   }
 
+  /**
+   * Generic LitElement component life-cycle events
+   */
   connectedCallback() {
     super.connectedCallback();
     ro.observe(this);
   }
-
   disconnectedCallback() {
     super.disconnectedCallback();
     ro.unobserve(this);
   }
-
   updated(changedProps) {
     changedProps.forEach((oldValue, propName) => {
       if (propName === 'protoId') {
@@ -117,20 +131,30 @@ export class CompositedCard extends LitElement {
     });
   }
 
-  async fetchProtoData() {
+  /**
+   * Generic resize handling
+   */
+  public handleResize(event) {
+    this.ch = event.borderBoxSize.blockSize * 0.01;
+    this.cw = event.borderBoxSize.inlineSize * 0.01;
+    this.requestUpdate();
+  }
+
+  /**
+   * A method to fetch a protoId's card info data
+   */
+  private async fetchProtoData() {
     this.loading = true;
     return fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(
       resp => resp.json(),
     );
   }
 
-  handleResize(event) {
-    this.ch = event.borderBoxSize.blockSize * 0.01;
-    this.cw = event.borderBoxSize.inlineSize * 0.01;
-    this.requestUpdate();
-  }
-
-  async getProtoDataFromApi() {
+  /**
+   * A method to handle the fetching, and then processing
+   * of proto card data
+   */
+  private async getProtoDataFromApi() {
     return this.fetchProtoData().then(data => {
       const {
         id,
@@ -164,14 +188,19 @@ export class CompositedCard extends LitElement {
     });
   }
 
-  getProtoDataFromInput() {
-    // @TODO: visually handle when some inputProtoData
-    // fields are missing:
+  /**
+   * A method for Injesting of proto card data that is manually
+   * input into the component
+   */
+  private getProtoDataFromInput() {
     this.protoCardData = { ...this.inputProtoData };
     this.loading = false;
     this.requestUpdate();
   }
 
+  /**
+   * A `render` method to define the DOM structure of the component
+   */
   render() {
     const qualityName = qualities[this.quality];
     const isMythicCard = qualityName === 'mythic';

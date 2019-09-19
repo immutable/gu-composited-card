@@ -17,6 +17,7 @@
       "url": "https://glo.id.au"
     }
   ],
+  "license": "MIT",
   "scripts": {
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",

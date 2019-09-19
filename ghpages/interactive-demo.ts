@@ -32,7 +32,7 @@ export class InteractiveDemo extends LitElement {
     const shadowDomCard = this.shadowRoot.querySelector(
       '.appContainer__dummyCardContainer__dummyCard',
     ) as HTMLElement;
-    const tempRenderHolder = document.querySelector('.tempRenderHolder');
+    // const tempRenderHolder = document.querySelector('.tempRenderHolder');
 
     // @NOTE: Html2canvas doesnt currently support piercing the shadowdom.
     // Thus, we have to temporarily re-render the web component into the dom,
