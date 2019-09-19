@@ -508,7 +508,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     position: absolute;
     ${fn}
   }
-`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return x`
+`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return x`
       ${this.loading?(()=>x`
   <div class="loading">
     <img 
@@ -1201,7 +1201,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
     ${Nn(8)}
   }
-`)()}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=(document.querySelector(".tempRenderHolder"),document.querySelector(".compositedCardDomRender"));A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return x`
+`)()}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return x`
       <header class="appHeader">
         <a href="https://immutable.com" class="appHeader__link" target="_blank">
           <img
@@ -1295,4 +1295,4 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         </div>
       </main>
     `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
-//# sourceMappingURL=bundle.c2f4a4efea960cef3d47.js.map
+//# sourceMappingURL=bundle.82a6cf78e5cfe025f4fa.js.map
