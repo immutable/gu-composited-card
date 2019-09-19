@@ -90,10 +90,15 @@ export class InteractiveDemo extends LitElement {
         </div>
 
         <div class="appContainer__intro">
-          A simple, framework agnostic web component to facilitate the display
-          of
+          A simple, framework agnostic
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
+            target="_blank"
+            >web component</a
+          >
+          to facilitate the display of
           <a href="https://godsunchained.com" target="_blank">Gods Unchained</a>
-          card element(s).
+          card&nbsp;element(s).
         </div>
 
         <footer class="appContainer__controls">
