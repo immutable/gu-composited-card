@@ -71,7 +71,7 @@ export class InteractiveDemo extends LitElement {
           Composited Card Demo
           <sup
             class="appHeader__title__sup"
-            title="*The experience in Safari might have some slight speed-bumps"
+            title="*UX and functionality in Safari/Edge might have some slight speed-bumps"
             >BETA</sup
           >
         </h3>

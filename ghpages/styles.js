@@ -19,6 +19,27 @@ const footerHeight = css`100px`;
 const offBlackDark = css`#282828`;
 const offBlackLight = css`#333`;
 
+const sliderTrack = css`
+  width: 100%;
+  cursor: pointer;
+  background: ${offBlackDark};
+  border: 2px solid rgba(255,255,255,0.15);
+  padding: 3px;
+`;
+
+const sliderThumb = css`
+  box-shadow: 
+    2px 2px 6px rgba(255, 0, 0, 0.49),
+    0px 0px 2px rgba(255, 26, 26, 0.49);
+  border: 2px solid #941e00;
+  height: 25px;
+  width: 35px;
+  border-radius: 28px;
+  background: rgba(255, 55, 56, 0.93);
+  cursor: pointer;
+  -webkit-appearance: none;
+`;
+
 export const getStyles = () => css`
   @keyframes floatCard {
     from {
@@ -273,82 +294,21 @@ export const getStyles = () => css`
   .appContainer__controls__panel__rangeSlider:focus {
     outline: none;
   }
+
+  /* WEBKIT: */
   .appContainer__controls__panel__rangeSlider::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 31.2px;
-    cursor: pointer;
-    background: #46262c;
-    border: 0px solid #010101;
+    ${sliderTrack}
   }
   .appContainer__controls__panel__rangeSlider::-webkit-slider-thumb {
-    box-shadow: 1.8px 1.8px 5.9px rgba(255, 0, 0, 0.49),
-      0px 0px 1.8px rgba(255, 26, 26, 0.49);
-    border: 2.9px solid #941e00;
-    height: 25px;
-    width: 34px;
-    border-radius: 28px;
-    background: rgba(255, 55, 56, 0.93);
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: 3.1px;
+    ${sliderThumb}
   }
-  .appContainer__controls__panel__rangeSlider:focus::-webkit-slider-runnable-track {
-    background: #49282e;
-  }
+
+  /* FIREFOX: */
   .appContainer__controls__panel__rangeSlider::-moz-range-track {
-    width: 100%;
-    height: 31.2px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #46262c;
-    border-radius: 0px;
-    border: 0px solid #010101;
+    ${sliderTrack}
   }
   .appContainer__controls__panel__rangeSlider::-moz-range-thumb {
-    box-shadow: 1.8px 1.8px 5.9px rgba(255, 0, 0, 0.49),
-      0px 0px 1.8px rgba(255, 26, 26, 0.49);
-    border: 2.9px solid #941e00;
-    height: 25px;
-    width: 34px;
-    border-radius: 28px;
-    background: rgba(255, 55, 56, 0.93);
-    cursor: pointer;
-  }
-  .appContainer__controls__panel__rangeSlider::-ms-track {
-    width: 100%;
-    height: 31.2px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  .appContainer__controls__panel__rangeSlider::-ms-fill-lower {
-    background: #43242a;
-    border: 0px solid #010101;
-    border-radius: 0px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
-  .appContainer__controls__panel__rangeSlider::-ms-fill-upper {
-    background: #46262c;
-    border: 0px solid #010101;
-    border-radius: 0px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  }
-  .appContainer__controls__panel__rangeSlider::-ms-thumb {
-    box-shadow: 1.8px 1.8px 5.9px rgba(255, 0, 0, 0.49),
-      0px 0px 1.8px rgba(255, 26, 26, 0.49);
-    border: 2.9px solid #941e00;
-    width: 34px;
-    border-radius: 28px;
-    background: rgba(255, 55, 56, 0.93);
-    cursor: pointer;
-    height: 25px;
-  }
-  .appContainer__controls__panel__rangeSlider:focus::-ms-fill-lower {
-    background: #46262c;
-  }
-  .appContainer__controls__panel__rangeSlider:focus::-ms-fill-upper {
-    background: #49282e;
+    ${sliderThumb}
   }
 `;
 
