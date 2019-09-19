@@ -788,20 +788,20 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
 `,yn=ue`
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
-`,On=ue`black`,Pn=ue`white`,Dn=ue`#f9f9f9`,Ln=(ue`#f1f1f1`,ue`65px`),Rn=ue`100px`,Sn=ue`#282828`,xn=ue`#333`,Hn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],kn=(e=0)=>ue`
+`,On=ue`black`,Pn=ue`white`,Dn=ue`#f9f9f9`,Ln=(ue`#f1f1f1`,ue`65px`),Rn=ue`100px`,Sn=ue`#282828`,xn=ue`#333`,Hn=ue`rgba(255,255,255,0.15)`,kn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Mn=(e=0)=>ue`
   width: 100%;
   cursor: pointer;
   background: ${Sn};
-  border: 2px solid rgba(255,255,255,0.15);
-  padding: 3px;
-`,Mn=(e=0)=>ue`
-  height: 25px;
-  width: 35px;
+  border: 2px solid ${Hn};
+  padding: 6px;
+`,Nn=(e=0)=>ue`
+  height: 20px;
+  width: 38px;
   border-radius: 28px;
-  background: ${Hn[e]};
+  background: ${kn[e]};
   cursor: pointer;
   -webkit-appearance: none;
-`;var Nn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Kn=class extends Be{constructor(){super(...arguments),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=0,this.currentQualityInWords=bn[0]}static get styles(){return(()=>ue`
+`;var Kn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Wn=class extends Be{constructor(){super(...arguments),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=0,this.currentQualityInWords=bn[0]}static get styles(){return(()=>ue`
   @keyframes floatCard {
     from {
       transform: translateY(2%);
@@ -1035,21 +1035,59 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
 
   .appContainer__controls__panel__input { 
     background: transparent;
-    border: 2px solid rgba(255,255,255,0.15);
+    border: 2px solid ${Hn};
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 700;
     color: white;
+    width: 15vw;
   }
 
   .appContainer__controls__panel--quality {
     margin-left: 20px;
-    width: 25vw;
+    width: 30vw;
   }
 
   .appContainer__controls__panel__label { 
     font-size: 14px;
+    line-height: 1.1;
     margin-bottom: 8px;
+  }
+
+  .appContainer__controls__panel__label__quality {
+    font-weight: 700;
+  }
+
+  .quality--plain { 
+    color: ${kn[1]}
+  }
+
+  .quality--bronze {
+    color: ${kn[2]}
+  }
+
+  .quality--iron {
+    color: ${kn[3]}
+  }
+
+  .quality--meteorite {
+    color: ${kn[4]}
+  }
+
+  .quality--shadow {
+    color: ${kn[5]}
+  }
+
+  .quality--gold {
+    color: ${kn[6]}
+  }
+
+  .quality--diamond {
+    color: ${kn[7]}
+  }
+
+  .quality--mythic {
+    color: ${kn[8]}
   }
 
   .appContainer__controls__panel__rangeSlider {
@@ -1063,105 +1101,105 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
 
   /* WEBKIT: */
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-runnable-track {
-    ${kn(0)}
+    ${Mn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-runnable-track {
-    ${kn(2)}
+    ${Mn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-runnable-track {
-    ${kn(3)}
+    ${Mn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-runnable-track {
-    ${kn(4)}
+    ${Mn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-runnable-track {
-    ${kn(5)}
+    ${Mn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-runnable-track {
-    ${kn(6)}
+    ${Mn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-runnable-track {
-    ${kn(7)}
+    ${Mn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-runnable-track {
-    ${kn(8)}
+    ${Mn(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-thumb {
-    ${Mn(0)}
+    ${Nn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-thumb {
-    ${Mn(2)}
+    ${Nn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-thumb {
-    ${Mn(3)}
+    ${Nn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-thumb {
-    ${Mn(4)}
+    ${Nn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-thumb {
-    ${Mn(5)}
+    ${Nn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-thumb {
-    ${Mn(6)}
+    ${Nn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-thumb {
-    ${Mn(7)}
+    ${Nn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-thumb {
-    ${Mn(8)}
+    ${Nn(8)}
   }
 
   /* FIREFOX: */
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-track {
-    ${kn(0)}
+    ${Mn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-track {
-    ${kn(2)}
+    ${Mn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-track {
-    ${kn(3)}
+    ${Mn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-track {
-    ${kn(4)}
+    ${Mn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-track {
-    ${kn(5)}
+    ${Mn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-track {
-    ${kn(6)}
+    ${Mn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-track {
-    ${kn(7)}
+    ${Mn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-track {
-    ${kn(8)}
+    ${Mn(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-thumb {
-    ${Mn(0)}
+    ${Nn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-thumb {
-    ${Mn(2)}
+    ${Nn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-thumb {
-    ${Mn(3)}
+    ${Nn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-thumb {
-    ${Mn(4)}
+    ${Nn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-thumb {
-    ${Mn(5)}
+    ${Nn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-thumb {
-    ${Mn(6)}
+    ${Nn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-thumb {
-    ${Mn(7)}
+    ${Nn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
-    ${Mn(8)}
+    ${Nn(8)}
   }
 `)()}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=(document.querySelector(".tempRenderHolder"),document.querySelector(".compositedCardDomRender"));A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return x`
       <header class="appHeader">
@@ -1193,10 +1231,15 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         </div>
 
         <div class="appContainer__intro">
-          A simple, framework agnostic web component to facilitate the display
-          of
+          A simple, framework agnostic
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
+            target="_blank"
+            >web component</a
+          >
+          to facilitate the display of
           <a href="https://godsunchained.com" target="_blank">Gods Unchained</a>
-          card element(s).
+          card&nbsp;element(s).
         </div>
 
         <footer class="appContainer__controls">
@@ -1218,7 +1261,11 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
             class="appContainer__controls__panel appContainer__controls__panel--quality"
           >
             <label for="#protoId" class="appContainer__controls__panel__label">
-              Quality (${this.currentQualityInWords})
+              Quality
+              <span
+                class="appContainer__controls__panel__label__quality quality--${this.currentQualityInWords}"
+                >(${this.currentQualityInWords})</span
+              >
             </label>
             <input
               type="range"
@@ -1247,5 +1294,5 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           ></composited-card>
         </div>
       </main>
-    `}};Nn([se()],Kn.prototype,"currentProtoId",void 0),Nn([se()],Kn.prototype,"currentQuality",void 0),Nn([se()],Kn.prototype,"currentQualityInWords",void 0),Kn=Nn([ae("demo-app")],Kn);A(12)}]);
-//# sourceMappingURL=bundle.988dd4d2a1155c03ed60.js.map
+    `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
+//# sourceMappingURL=bundle.c2f4a4efea960cef3d47.js.map
