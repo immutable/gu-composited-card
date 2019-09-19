@@ -121,7 +121,8 @@ export class InteractiveDemo extends LitElement {
               type="range"
               min="0"
               max="8"
-              class="appContainer__controls__panel__rangeSlider"
+              class="appContainer__controls__panel__rangeSlider quality-${this
+                .currentQualityInWords}"
               value=${this.currentQuality}
               @change=${e => {
                 this.currentQuality = e.target.value;
