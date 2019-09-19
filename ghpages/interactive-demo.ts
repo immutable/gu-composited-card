@@ -64,7 +64,7 @@ export class InteractiveDemo extends LitElement {
       <header class="appHeader">
         <img
           class="appHeader__logo"
-          src="./assets/img/logo--imco.svg"
+          src="${require('./assets/img/logo--imco.svg')}"
           alt="imco logo"
         />
         <h3 class="appHeader__title">
@@ -132,7 +132,7 @@ export class InteractiveDemo extends LitElement {
         <button class="appContainer__fab" @click="${this.screenshot}">
           <img
             class="appContainer__fab__img"
-            src="./assets/img/icon--download.svg"
+            src="${require('./assets/img/icon--download.svg')}"
           />
         </button>
         <div class="appContainer__cardVisualisation">
