@@ -270,7 +270,7 @@ export const getStyles = () => css`
   .appContainer__controls__panel__input { 
     background: transparent;
     border: 2px solid rgba(255,255,255,0.15);
-    padding: 7px 10px;
+    padding: 8px 10px;
     font-size: 12px;
     font-weight: 700;
     color: white;

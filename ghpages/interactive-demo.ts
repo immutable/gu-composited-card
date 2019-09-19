@@ -19,7 +19,7 @@ function cloneShadow(shadow) {
 
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
-  @property() currentProtoId = 98;
+  @property() currentProtoId = 103;
   @property() currentQuality = 0;
   @property() currentQualityInWords: string = qualities[0];
 
