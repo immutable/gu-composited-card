@@ -26,7 +26,7 @@ export const loadingTemplate = () => html`
   <div class="loading">
     <img 
       class="loading__img" 
-      src="${require('./assets/loading.gif')}" 
+      src="${require('./assets/loading.png')}" 
       alt="immutable loading spinner" 
     />
   </div>

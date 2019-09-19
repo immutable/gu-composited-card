@@ -46,6 +46,7 @@ export const getStyles = () => css`
     margin: auto;
     width: 60%;
     max-width: 150px;
+    min-width: 50px;
   }
 
   .card__artwork {
