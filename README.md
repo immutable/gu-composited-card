@@ -67,7 +67,7 @@ $ yarn dev:demo
 $ yarn install
 ```
 
-### Viewing/Developing docs
+### Viewing/developing docs
 
 ```
 $ yarn dev:docs

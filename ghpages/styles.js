@@ -27,7 +27,7 @@ const qualityColors = [
   css`#B461C5`,
   css`#E5D93C`,
   css`#94E6FB`,
-  css`gold`,
+  css`white`,
 ];
 
 const sliderTrack = (quality = 0) => css`

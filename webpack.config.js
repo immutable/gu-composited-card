@@ -24,7 +24,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.woff2$/i,
+        test: /\.(woff2|apng|gif)$/i,
         use: [
           {
             loader: 'url-loader',

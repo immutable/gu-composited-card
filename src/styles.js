@@ -35,6 +35,19 @@ export const getStyles = () => css`
     width: 100%;
   }
 
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  .loading__img {
+    margin: auto;
+    width: 60%;
+    max-width: 150px;
+  }
+
   .card__artwork {
     position: absolute;
     width: 64%;

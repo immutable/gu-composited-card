@@ -23,7 +23,13 @@ const lockQualities = {
 };
 
 export const loadingTemplate = () => html`
-  loading ...
+  <div class="loading">
+    <img 
+      class="loading__img" 
+      src="${require('./assets/loading.gif')}" 
+      alt="immutable loading spinner" 
+    />
+  </div>
 `;
 
 export const baseArtworkLayersTemplate = ({
