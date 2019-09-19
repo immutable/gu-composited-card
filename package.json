@@ -2,11 +2,8 @@
   "name": "composited-card",
   "main": "dist/composited-card.packed.js",
   "description": "A simple, framework agnostic web component to facilitate the display of Gods Unchained card element(s).",
+  "license": "MIT",
   "version": "0.0.36",
-  "dependencies": {
-    "@juggle/resize-observer": "^2.3.0",
-    "lit-element": "2.2.1"
-  },
   "homepage": "https://immutable.github.io/gu-composited-card",
   "repository": {
     "type": "git",
@@ -19,7 +16,6 @@
       "url": "https://glo.id.au"
     }
   ],
-  "license": "MIT",
   "bugs": {
     "email": "tim.paul@immutable.com"
   },
@@ -35,6 +31,10 @@
     "build:docs": "webpack --config ./webpack.ghpages.prod.config.js",
     "dev:docs": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
     "dev:demo": "webpack-dev-server --config ./webpack.demo.config.js"
+  },
+  "dependencies": {
+    "@juggle/resize-observer": "^2.3.0",
+    "lit-element": "2.2.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",
