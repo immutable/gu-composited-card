@@ -69,7 +69,7 @@ $ yarn dev:demo
 
 ## For component contributers
 
-### Install dependencies (for component development)
+### Install dependencies
 
 ```
 $ yarn install
