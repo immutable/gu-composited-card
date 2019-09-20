@@ -32,10 +32,10 @@ export class InteractiveDemo extends LitElement {
     const params = this.getUrlParams();
     const protoId = params.get('protoid');
     const quality = params.get('quality');
-    if (protoId !== undefined) {
+    if (protoId !== null) {
       this.currentProtoId = parseInt(protoId, 10);
     }
-    if (quality !== undefined) {
+    if (quality !== null) {
       this.currentQuality = parseInt(quality, 10);
       this.currentQualityInWords = qualities[this.currentQuality];
     }
