@@ -157,10 +157,17 @@ export const getStyles = () => css`
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
+    text-shadow: 
+      0 1px 0 ${offBlackLight}, 
+      1px 0 0 ${offBlackLight}, 
+      1px 1px 0 ${offBlackLight}, 
+      -1px 0 0 ${offBlackLight},
+      -1px -1px 0${offBlackLight},  
+      0 -1px 0 ${offBlackLight};
   }
 
   .appContainer__fab {
-    position: absolute;
+    position: fixed;
     bottom: ${footerHeight};
     right: 25px;
     width: 80px;
@@ -170,7 +177,7 @@ export const getStyles = () => css`
     box-shadow: none;
     border: none;
     transform: translate(0, 50%);
-    z-index: 1;
+    z-index: 2;
     display: flex;
   }
 
@@ -193,13 +200,20 @@ export const getStyles = () => css`
   }
 
   .appContainer__cardVisualisation {
-    width: 55vmin;
+    width: 54vmin;
     min-width: 360px;
     display: flex;
     flex: 1;
-    flex-direction: column;
     position: relative;
     margin-bottom: calc(${footerHeight} + 30px);
+  }
+
+  .appContainer__cardVisualisation__inner {
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   @media screen and (min-aspect-ratio: 1/1) {
@@ -212,8 +226,7 @@ export const getStyles = () => css`
     width: 120%;
     height: 40px;
     left: -5%;
-    bottom: calc(50% - 50vmin * 1.4 / 2);
-    transform: translateY(40%);
+    bottom: 0;
     position: absolute;
     display: flex;
   }
@@ -242,7 +255,6 @@ export const getStyles = () => css`
     animation: 3s floatCard infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
-    margin: auto;
   }
 
   .appContainer__dummyCardContainer {
@@ -267,7 +279,7 @@ export const getStyles = () => css`
     bottom: 0;
     width: 100%;
     height: ${footerHeight};
-    z-index: 1;
+    z-index: 2;
     background: ${offBlackDark};
     display: flex;
     justify-content: flex-start;

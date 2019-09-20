@@ -313,7 +313,7 @@ const U=e=>null===e||!("object"==typeof e||"function"==typeof e),b=e=>Array.isAr
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */function L(e){let n=R.get(e.type);void 0===n&&(n={stringsArray:new WeakMap,keyString:new Map},R.set(e.type,n));let A=n.stringsArray.get(e.strings);if(void 0!==A)return A;const t=e.strings.join(c);return void 0===(A=n.keyString.get(t))&&(A=new B(e,e.getTemplateElement()),n.keyString.set(t,A)),n.stringsArray.set(e.strings,A),A}const R=new Map,S=new WeakMap;
+ */function L(e){let n=R.get(e.type);void 0===n&&(n={stringsArray:new WeakMap,keyString:new Map},R.set(e.type,n));let A=n.stringsArray.get(e.strings);if(void 0!==A)return A;const t=e.strings.join(c);return void 0===(A=n.keyString.get(t))&&(A=new B(e,e.getTemplateElement()),n.keyString.set(t,A)),n.stringsArray.set(e.strings,A),A}const R=new Map,x=new WeakMap;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -340,7 +340,7 @@ const U=e=>null===e||!("object"==typeof e||"function"==typeof e),b=e=>Array.isAr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.1.2");const x=(e,...n)=>new C(e,n,"html",D),H=133;function k(e,n){const{element:{content:A},parts:t}=e,r=document.createTreeWalker(A,H,null,!1);let a=N(t),o=t[a],i=-1,s=0;const _=[];let c=null;for(;r.nextNode();){i++;const e=r.currentNode;for(e.previousSibling===c&&(c=null),n.has(e)&&(_.push(e),null===c&&(c=e)),null!==c&&s++;void 0!==o&&o.index===i;)o.index=null!==c?-1:o.index-s,o=t[a=N(t,a)]}_.forEach(e=>e.parentNode.removeChild(e))}const M=e=>{let n=11===e.nodeType?0:1;const A=document.createTreeWalker(e,H,null,!1);for(;A.nextNode();)n++;return n},N=(e,n=-1)=>{for(let A=n+1;A<e.length;A++){const n=e[A];if(g(n))return A}return-1};
+(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.1.2");const S=(e,...n)=>new C(e,n,"html",D),H=133;function k(e,n){const{element:{content:A},parts:t}=e,r=document.createTreeWalker(A,H,null,!1);let a=N(t),o=t[a],i=-1,s=0;const _=[];let c=null;for(;r.nextNode();){i++;const e=r.currentNode;for(e.previousSibling===c&&(c=null),n.has(e)&&(_.push(e),null===c&&(c=e)),null!==c&&s++;void 0!==o&&o.index===i;)o.index=null!==c?-1:o.index-s,o=t[a=N(t,a)]}_.forEach(e=>e.parentNode.removeChild(e))}const M=e=>{let n=11===e.nodeType?0:1;const A=document.createTreeWalker(e,H,null,!1);for(;A.nextNode();)n++;return n},N=(e,n=-1)=>{for(let A=n+1;A<e.length;A++){const n=e[A];if(g(n))return A}return-1};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -382,7 +382,7 @@ const ae=e=>n=>"function"==typeof n?((e,n)=>(window.customElements.define(e,n),n
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.2.1");const de=e=>e.flat?e.flat(1/0):function e(n,A=[]){for(let t=0,r=n.length;t<r;t++){const r=n[t];Array.isArray(r)?e(r,A):A.push(r)}return A}(e);class Be extends re{static finalize(){super.finalize.call(this),this._styles=this.hasOwnProperty(JSCompiler_renameProperty("styles",this))?this._getUniqueStyles():this._styles||[]}static _getUniqueStyles(){const e=this.styles,n=[];if(Array.isArray(e)){de(e).reduceRight((e,n)=>(e.add(n),e),new Set).forEach(e=>n.unshift(e))}else e&&n.push(e);return n}initialize(){super.initialize(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?_e?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){super.update(e);const n=this.render();n instanceof C&&this.constructor.render(n,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const n=document.createElement("style");n.textContent=e.cssText,this.renderRoot.appendChild(n)}))}render(){}}Be.finalized=!0,Be.render=(e,n,A)=>{if(!A||"object"!=typeof A||!A.scopeName)throw new Error("The `scopeName` option is required.");const t=A.scopeName,r=S.has(n),a=W&&11===n.nodeType&&!!n.host,o=a&&!X.has(t),s=o?document.createDocumentFragment():n;if(((e,n,A)=>{let t=S.get(n);void 0===t&&(i(n,n.firstChild),S.set(n,t=new T(Object.assign({templateFactory:L},A))),t.appendInto(n)),t.setValue(e),t.commit()})(e,s,Object.assign({templateFactory:z(t)},A)),o){const e=S.get(s);S.delete(s);const A=e.value instanceof w?e.value.template:void 0;Y(t,s,A),i(n,n.firstChild),n.appendChild(s),S.set(n,e)}!r&&a&&window.ShadyCSS.styleElement(n.host)};var pe,ge,Ee=function(e){return Object.defineProperty(e,"toString",{value:function(){return"function ResizeObserver () { [polyfill code] }"}}),e},he="undefined"==typeof window?{}:window,we=he.requestAnimationFrame,fe={attributes:!0,characterData:!0,childList:!0,subtree:!0},Ce=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Ue=new Map,be=new Map,me=function(){pe||(pe=!0,we(function(e){pe=!1;var n=[],A=[];Ue.forEach(function(e){return n.push(e)}),be.forEach(function(e){return A.push(e)}),Ue.clear(),be.clear();try{for(var t=0,r=n;t<r.length;t++){(0,r[t])(e)}}finally{for(var a=0,o=A;a<o.length;a++){(0,o[a])(e)}}}))},Qe=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var n=this;be.set(this,function(){var A=!1;try{A=Je()}finally{A?n.run(60):e?n.run(e-1):n.start()}}),me()},e.prototype.schedule=function(){this.stop(),this.run(12)},e.prototype.observe=function(){var e=this,n=function(){return e.observer&&e.observer.observe(document.body,fe)};document.body?n():he.addEventListener("DOMContentLoaded",n)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,"MutationObserver"in he&&(this.observer=new MutationObserver(this.listener),this.observe()),Ce.forEach(function(n){return he.addEventListener(n,e.listener,!0)}))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),Ce.forEach(function(n){return he.removeEventListener(n,e.listener,!0)}),this.stopped=!0)},e}()),Te=0;he.requestAnimationFrame=function(e){if("function"!=typeof e)throw new Error("requestAnimationFrame expects 1 callback argument of type function.");var n=Te+=1;return Ue.set(n,function(n){return e(n)}),me(),n},he.cancelAnimationFrame=function(e){Ue.delete(e)},Ee(he.requestAnimationFrame),Ee(he.cancelAnimationFrame),function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box"}(ge||(ge={}));var ve=function(){function e(e,n,A,t){return this.x=e,this.y=n,this.width=A,this.height=t,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,Object.freeze(this)}return e.fromRect=function(n){return new e(n.x,n.y,n.width,n.height)},e}(),Fe=function(e){return e instanceof SVGElement&&"getBBox"in e},Ie=function(e){if(Fe(e)){var n=e.getBBox(),A=n.width,t=n.height;return!A&&!t}var r=e,a=r.offsetWidth,o=r.offsetHeight;return!(a||o||e.getClientRects().length)},ye=new Map,Oe=/auto|scroll/,Pe=/^tb|vertical/,De=/msie|trident/i.test(he.navigator&&he.navigator.userAgent),Le=function(e){return parseFloat(e||"0")},Re=function(e,n,A){return void 0===e&&(e=0),void 0===n&&(n=0),void 0===A&&(A=!1),Object.freeze({inlineSize:(A?n:e)||0,blockSize:(A?e:n)||0})},Se=Object.freeze({borderBoxSize:Re(),contentBoxSize:Re(),contentRect:new ve(0,0,0,0)}),xe=function(e){if(ye.has(e))return ye.get(e);if(Ie(e))return ye.set(e,Se),Se;var n=getComputedStyle(e),A=Fe(e)&&e.getBBox(),t=!De&&"border-box"===n.boxSizing,r=Pe.test(n.writingMode||""),a=!A&&Oe.test(n.overflowY||""),o=!A&&Oe.test(n.overflowX||""),i=A?0:Le(n.paddingTop),s=A?0:Le(n.paddingRight),_=A?0:Le(n.paddingBottom),c=A?0:Le(n.paddingLeft),l=A?0:Le(n.borderTopWidth),u=A?0:Le(n.borderRightWidth),d=A?0:Le(n.borderBottomWidth),B=c+s,p=i+_,g=(A?0:Le(n.borderLeftWidth))+u,E=l+d,h=o?e.offsetHeight-E-e.clientHeight:0,w=a?e.offsetWidth-g-e.clientWidth:0,f=t?B+g:0,C=t?p+E:0,U=A?A.width:Le(n.width)-f-w,b=A?A.height:Le(n.height)-C-h,m=U+B+w+g,Q=b+p+h+E,T=Object.freeze({borderBoxSize:Re(m,Q,r),contentBoxSize:Re(U,b,r),contentRect:new ve(c,i,U,b)});return ye.set(e,T),T},He=function(e,n){var A=xe(e),t=A.borderBoxSize,r=A.contentBoxSize;return n===ge.BORDER_BOX?t:r},ke=function(){function e(e,n){this.target=e,this.observedBox=n||ge.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,n=He(this.target,this.observedBox);return e=this.target,Fe(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=n),this.lastReportedSize.inlineSize!==n.inlineSize||this.lastReportedSize.blockSize!==n.blockSize},e}(),Me=function(e,n){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=n},Ne="ResizeObserver loop completed with undelivered notifications.",Ke=function(e){var n=xe(e);this.target=e,this.contentRect=n.contentRect,this.borderBoxSize=n.borderBoxSize,this.contentBoxSize=n.contentBoxSize},We=function(e){if(Ie(e))return 1/0;for(var n=0,A=e.parentNode;A;)n+=1,A=A.parentNode;return n},ze=function(){var e=1/0,n=[];Xe.forEach(function(A){if(0!==A.activeTargets.length){var t=[];A.activeTargets.forEach(function(n){var A=new Ke(n.target),r=We(n.target);t.push(A),n.lastReportedSize=He(n.target,n.observedBox),r<e&&(e=r)}),n.push(function(){A.callback.call(A.observer,t,A.observer)}),A.activeTargets.splice(0,A.activeTargets.length)}});for(var A=0,t=n;A<t.length;A++){(0,t[A])()}return e},Ve=function(e){ye.clear(),Xe.forEach(function(n){n.activeTargets.splice(0,n.activeTargets.length),n.skippedTargets.splice(0,n.skippedTargets.length),n.observationTargets.forEach(function(A){A.isActive()&&(We(A.target)>e?n.activeTargets.push(A):n.skippedTargets.push(A))})})},Xe=[],Ye=new Map,Ge=0,je=function(e){!Ge&&e>0&&Qe.start(),!(Ge+=e)&&Qe.stop()},qe=function(e,n){for(var A=0;A<e.length;A+=1)if(e[A].target===n)return A;return-1},Je=function(){var e,n=0;for(Ve(n);Xe.some(function(e){return e.activeTargets.length>0});)n=ze(),Ve(n);return Xe.some(function(e){return e.skippedTargets.length>0})&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:Ne}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=Ne),window.dispatchEvent(e)),n>0},$e=function(){function e(){}return e.connect=function(e,n){var A=new Me(e,n);Xe.push(A),Ye.set(e,A)},e.observe=function(e,n,A){if(Ye.has(e)){var t=Ye.get(e);qe(t.observationTargets,n)<0&&(t.observationTargets.push(new ke(n,A&&A.box)),je(1),Qe.schedule())}},e.unobserve=function(e,n){if(Ye.has(e)){var A=Ye.get(e),t=qe(A.observationTargets,n);t>=0&&(A.observationTargets.splice(t,1),je(-1))}},e.disconnect=function(e){if(Ye.has(e)){var n=Ye.get(e);Xe.splice(Xe.indexOf(n),1),Ye.delete(e),je(-n.observationTargets.length)}},e}(),Ze=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");$e.connect(this,e)}return e.prototype.observe=function(e,n){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.observe(this,e,n)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.unobserve(this,e)},e.prototype.disconnect=function(){$e.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
+(window.litElementVersions||(window.litElementVersions=[])).push("2.2.1");const de=e=>e.flat?e.flat(1/0):function e(n,A=[]){for(let t=0,r=n.length;t<r;t++){const r=n[t];Array.isArray(r)?e(r,A):A.push(r)}return A}(e);class Be extends re{static finalize(){super.finalize.call(this),this._styles=this.hasOwnProperty(JSCompiler_renameProperty("styles",this))?this._getUniqueStyles():this._styles||[]}static _getUniqueStyles(){const e=this.styles,n=[];if(Array.isArray(e)){de(e).reduceRight((e,n)=>(e.add(n),e),new Set).forEach(e=>n.unshift(e))}else e&&n.push(e);return n}initialize(){super.initialize(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?_e?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){super.update(e);const n=this.render();n instanceof C&&this.constructor.render(n,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const n=document.createElement("style");n.textContent=e.cssText,this.renderRoot.appendChild(n)}))}render(){}}Be.finalized=!0,Be.render=(e,n,A)=>{if(!A||"object"!=typeof A||!A.scopeName)throw new Error("The `scopeName` option is required.");const t=A.scopeName,r=x.has(n),a=W&&11===n.nodeType&&!!n.host,o=a&&!X.has(t),s=o?document.createDocumentFragment():n;if(((e,n,A)=>{let t=x.get(n);void 0===t&&(i(n,n.firstChild),x.set(n,t=new T(Object.assign({templateFactory:L},A))),t.appendInto(n)),t.setValue(e),t.commit()})(e,s,Object.assign({templateFactory:z(t)},A)),o){const e=x.get(s);x.delete(s);const A=e.value instanceof w?e.value.template:void 0;Y(t,s,A),i(n,n.firstChild),n.appendChild(s),x.set(n,e)}!r&&a&&window.ShadyCSS.styleElement(n.host)};var pe,ge,Ee=function(e){return Object.defineProperty(e,"toString",{value:function(){return"function ResizeObserver () { [polyfill code] }"}}),e},he="undefined"==typeof window?{}:window,we=he.requestAnimationFrame,fe={attributes:!0,characterData:!0,childList:!0,subtree:!0},Ce=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Ue=new Map,be=new Map,me=function(){pe||(pe=!0,we(function(e){pe=!1;var n=[],A=[];Ue.forEach(function(e){return n.push(e)}),be.forEach(function(e){return A.push(e)}),Ue.clear(),be.clear();try{for(var t=0,r=n;t<r.length;t++){(0,r[t])(e)}}finally{for(var a=0,o=A;a<o.length;a++){(0,o[a])(e)}}}))},Qe=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var n=this;be.set(this,function(){var A=!1;try{A=Je()}finally{A?n.run(60):e?n.run(e-1):n.start()}}),me()},e.prototype.schedule=function(){this.stop(),this.run(12)},e.prototype.observe=function(){var e=this,n=function(){return e.observer&&e.observer.observe(document.body,fe)};document.body?n():he.addEventListener("DOMContentLoaded",n)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,"MutationObserver"in he&&(this.observer=new MutationObserver(this.listener),this.observe()),Ce.forEach(function(n){return he.addEventListener(n,e.listener,!0)}))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),Ce.forEach(function(n){return he.removeEventListener(n,e.listener,!0)}),this.stopped=!0)},e}()),Te=0;he.requestAnimationFrame=function(e){if("function"!=typeof e)throw new Error("requestAnimationFrame expects 1 callback argument of type function.");var n=Te+=1;return Ue.set(n,function(n){return e(n)}),me(),n},he.cancelAnimationFrame=function(e){Ue.delete(e)},Ee(he.requestAnimationFrame),Ee(he.cancelAnimationFrame),function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box"}(ge||(ge={}));var ve=function(){function e(e,n,A,t){return this.x=e,this.y=n,this.width=A,this.height=t,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,Object.freeze(this)}return e.fromRect=function(n){return new e(n.x,n.y,n.width,n.height)},e}(),Fe=function(e){return e instanceof SVGElement&&"getBBox"in e},Ie=function(e){if(Fe(e)){var n=e.getBBox(),A=n.width,t=n.height;return!A&&!t}var r=e,a=r.offsetWidth,o=r.offsetHeight;return!(a||o||e.getClientRects().length)},ye=new Map,Oe=/auto|scroll/,Pe=/^tb|vertical/,De=/msie|trident/i.test(he.navigator&&he.navigator.userAgent),Le=function(e){return parseFloat(e||"0")},Re=function(e,n,A){return void 0===e&&(e=0),void 0===n&&(n=0),void 0===A&&(A=!1),Object.freeze({inlineSize:(A?n:e)||0,blockSize:(A?e:n)||0})},xe=Object.freeze({borderBoxSize:Re(),contentBoxSize:Re(),contentRect:new ve(0,0,0,0)}),Se=function(e){if(ye.has(e))return ye.get(e);if(Ie(e))return ye.set(e,xe),xe;var n=getComputedStyle(e),A=Fe(e)&&e.getBBox(),t=!De&&"border-box"===n.boxSizing,r=Pe.test(n.writingMode||""),a=!A&&Oe.test(n.overflowY||""),o=!A&&Oe.test(n.overflowX||""),i=A?0:Le(n.paddingTop),s=A?0:Le(n.paddingRight),_=A?0:Le(n.paddingBottom),c=A?0:Le(n.paddingLeft),l=A?0:Le(n.borderTopWidth),u=A?0:Le(n.borderRightWidth),d=A?0:Le(n.borderBottomWidth),B=c+s,p=i+_,g=(A?0:Le(n.borderLeftWidth))+u,E=l+d,h=o?e.offsetHeight-E-e.clientHeight:0,w=a?e.offsetWidth-g-e.clientWidth:0,f=t?B+g:0,C=t?p+E:0,U=A?A.width:Le(n.width)-f-w,b=A?A.height:Le(n.height)-C-h,m=U+B+w+g,Q=b+p+h+E,T=Object.freeze({borderBoxSize:Re(m,Q,r),contentBoxSize:Re(U,b,r),contentRect:new ve(c,i,U,b)});return ye.set(e,T),T},He=function(e,n){var A=Se(e),t=A.borderBoxSize,r=A.contentBoxSize;return n===ge.BORDER_BOX?t:r},ke=function(){function e(e,n){this.target=e,this.observedBox=n||ge.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,n=He(this.target,this.observedBox);return e=this.target,Fe(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=n),this.lastReportedSize.inlineSize!==n.inlineSize||this.lastReportedSize.blockSize!==n.blockSize},e}(),Me=function(e,n){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=n},Ne="ResizeObserver loop completed with undelivered notifications.",Ke=function(e){var n=Se(e);this.target=e,this.contentRect=n.contentRect,this.borderBoxSize=n.borderBoxSize,this.contentBoxSize=n.contentBoxSize},We=function(e){if(Ie(e))return 1/0;for(var n=0,A=e.parentNode;A;)n+=1,A=A.parentNode;return n},ze=function(){var e=1/0,n=[];Xe.forEach(function(A){if(0!==A.activeTargets.length){var t=[];A.activeTargets.forEach(function(n){var A=new Ke(n.target),r=We(n.target);t.push(A),n.lastReportedSize=He(n.target,n.observedBox),r<e&&(e=r)}),n.push(function(){A.callback.call(A.observer,t,A.observer)}),A.activeTargets.splice(0,A.activeTargets.length)}});for(var A=0,t=n;A<t.length;A++){(0,t[A])()}return e},Ve=function(e){ye.clear(),Xe.forEach(function(n){n.activeTargets.splice(0,n.activeTargets.length),n.skippedTargets.splice(0,n.skippedTargets.length),n.observationTargets.forEach(function(A){A.isActive()&&(We(A.target)>e?n.activeTargets.push(A):n.skippedTargets.push(A))})})},Xe=[],Ye=new Map,Ge=0,je=function(e){!Ge&&e>0&&Qe.start(),!(Ge+=e)&&Qe.stop()},qe=function(e,n){for(var A=0;A<e.length;A+=1)if(e[A].target===n)return A;return-1},Je=function(){var e,n=0;for(Ve(n);Xe.some(function(e){return e.activeTargets.length>0});)n=ze(),Ve(n);return Xe.some(function(e){return e.skippedTargets.length>0})&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:Ne}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=Ne),window.dispatchEvent(e)),n>0},$e=function(){function e(){}return e.connect=function(e,n){var A=new Me(e,n);Xe.push(A),Ye.set(e,A)},e.observe=function(e,n,A){if(Ye.has(e)){var t=Ye.get(e);qe(t.observationTargets,n)<0&&(t.observationTargets.push(new ke(n,A&&A.box)),je(1),Qe.schedule())}},e.unobserve=function(e,n){if(Ye.has(e)){var A=Ye.get(e),t=qe(A.observationTargets,n);t>=0&&(A.observationTargets.splice(t,1),je(-1))}},e.disconnect=function(e){if(Ye.has(e)){var n=Ye.get(e);Xe.splice(Xe.indexOf(n),1),Ye.delete(e),je(-n.observationTargets.length)}},e}(),Ze=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");$e.connect(this,e)}return e.prototype.observe=function(e,n){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.observe(this,e,n)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.unobserve(this,e)},e.prototype.disconnect=function(){$e.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
 /**
  * @license
  * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
@@ -508,8 +508,8 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     position: absolute;
     ${fn}
   }
-`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return x`
-      ${this.loading?(()=>x`
+`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return S`
+      ${this.loading?(()=>S`
   <div class="loading">
     <img 
       class="loading__img" 
@@ -517,8 +517,8 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
       alt="immutable loading spinner" 
     />
   </div>
-`)():x`
-            ${(({id:e,responsiveSrcsetSizes:n=`${rn}px`})=>x`
+`)():S`
+            ${(({id:e,responsiveSrcsetSizes:n=`${rn}px`})=>S`
     <picture class="card__artwork">
       <source
         srcset="
@@ -549,7 +549,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
       />
     </picture>
   `)({id:this.protoCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
-            ${n?(({type:e,qualityName:n,responsiveSrcsetSizes:A=`${cn}px`})=>x`
+            ${n?(({type:e,qualityName:n,responsiveSrcsetSizes:A=`${cn}px`})=>S`
     <picture class="card__baseLayer">
       <source
         srcset="
@@ -607,7 +607,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         class="card__manaLayer__img"
       />
     </picture>
-  `)({type:this.protoCardData.type,qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes}):(({responsiveSrcsetSizes:e=`${cn}px`,type:n,qualityName:A,rarity:t,god:r,set:a})=>x`
+  `)({type:this.protoCardData.type,qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes}):(({responsiveSrcsetSizes:e=`${cn}px`,type:n,qualityName:A,rarity:t,god:r,set:a})=>S`
     <picture class="card__baseLayer">
       <source
         srcset="
@@ -665,7 +665,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
       />
     </picture>
 
-    ${"common"!==t?x`
+    ${"common"!==t?S`
           <picture class="card__rarityLayer">
             <source
               srcset="
@@ -694,7 +694,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
             />
           </picture>
         `:null}
-    ${"legendary"===t?x`
+    ${"legendary"===t?S`
           <picture class="card__wreathLayer">
             <source
               srcset="
@@ -724,7 +724,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
             />
           </picture>
         `:null}
-    ${"core"===a?x`
+    ${"core"===a?S`
           <picture class="card__lockIconLayer">
             <source
               srcset="
@@ -750,7 +750,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           </picture>
         `:null}
   `)(Object.assign({qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData))}
-            ${(({type:e="",name:n="⃠",effect:A="⃠",mana:t="⃠",attack:r="⃠",health:a="⃠",ch:o=0,cw:i=0})=>{const s=RegExp(/creature|weapon/).test(e),_=n.split("").length>=20,c=A.split("").length>=95,l=Math.floor(.2*o),u=`${0===l?1:l}px`,d="rgba(0,0,0,0.35)",B=`-${u} -${u} ${u} ${d}, ${u} -${u} ${u} ${d}, -${u} ${u} ${u} ${d}, ${u} ${u} ${u} ${d}`,p=A.replace(/ ([^ ]*)$/,"&nbsp;$1"),g=nn({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*i}px`,width:`${19*i}px`,textShadow:B}),E=nn({fontSize:`${_?3.9*o:4.93*o}px`,bottom:`${35.4*o}px`,left:`${12*i}px`,right:`${5*i}px`,textShadow:B}),h=nn({fontSize:`${c?3.4*o:3.8*o}px`,lineHeight:c?1.05:1.3,bottom:`${7.8*o}px`,height:`${22*o}px`,left:`${21*i}px`,right:`${13*i}px`}),w=nn({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*i}px`,left:`${10.5*i}px`,textShadow:B}),f=nn({fontSize:`${9.5*o}px`,width:`${16*i}px`,bottom:`${3.7*o}px`,right:`${2.5*i}px`,textShadow:B});return x`
+            ${(({type:e="",name:n="⃠",effect:A="⃠",mana:t="⃠",attack:r="⃠",health:a="⃠",ch:o=0,cw:i=0})=>{const s=RegExp(/creature|weapon/).test(e),_=n.split("").length>=20,c=A.split("").length>=95,l=Math.floor(.2*o),u=`${0===l?1:l}px`,d="rgba(0,0,0,0.35)",B=`-${u} -${u} ${u} ${d}, ${u} -${u} ${u} ${d}, -${u} ${u} ${u} ${d}, ${u} ${u} ${u} ${d}`,p=A.replace(/ ([^ ]*)$/,"&nbsp;$1"),g=nn({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*i}px`,width:`${19*i}px`,textShadow:B}),E=nn({fontSize:`${_?3.9*o:4.93*o}px`,bottom:`${35.4*o}px`,left:`${12*i}px`,right:`${5*i}px`,textShadow:B}),h=nn({fontSize:`${c?3.4*o:3.8*o}px`,lineHeight:c?1.05:1.3,bottom:`${7.8*o}px`,height:`${22*o}px`,left:`${21*i}px`,right:`${13*i}px`}),w=nn({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*i}px`,left:`${10.5*i}px`,textShadow:B}),f=nn({fontSize:`${9.5*o}px`,width:`${16*i}px`,bottom:`${3.7*o}px`,right:`${2.5*i}px`,textShadow:B});return S`
     <div class="card__manaText" style=${g}>
       ${t}
     </div>
@@ -771,7 +771,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
       </div>
     </div>
 
-    ${s?x`
+    ${s?S`
           <div class="card__attackText" style=${w}>
             ${r}
           </div>
@@ -788,10 +788,10 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
 `,yn=ue`
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
-`,On=ue`black`,Pn=ue`white`,Dn=ue`#f9f9f9`,Ln=(ue`#f1f1f1`,ue`65px`),Rn=ue`100px`,Sn=ue`#282828`,xn=ue`#333`,Hn=ue`rgba(255,255,255,0.15)`,kn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Mn=(e=0)=>ue`
+`,On=ue`black`,Pn=ue`white`,Dn=ue`#f9f9f9`,Ln=(ue`#f1f1f1`,ue`65px`),Rn=ue`100px`,xn=ue`#282828`,Sn=ue`#333`,Hn=ue`rgba(255,255,255,0.15)`,kn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Mn=(e=0)=>ue`
   width: 100%;
   cursor: pointer;
-  background: ${Sn};
+  background: ${xn};
   border: 2px solid ${Hn};
   padding: 6px;
 `,Nn=(e=0)=>ue`
@@ -880,7 +880,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     bottom: 0; 
     left: 0; right: 0;
     height: 50vh;
-    background: ${xn};
+    background: ${Sn};
   }
 
   .appContainer__intro {
@@ -910,10 +910,17 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
+    text-shadow: 
+      0 1px 0 ${Sn}, 
+      1px 0 0 ${Sn}, 
+      1px 1px 0 ${Sn}, 
+      -1px 0 0 ${Sn},
+      -1px -1px 0${Sn},  
+      0 -1px 0 ${Sn};
   }
 
   .appContainer__fab {
-    position: absolute;
+    position: fixed;
     bottom: ${Rn};
     right: 25px;
     width: 80px;
@@ -923,7 +930,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     box-shadow: none;
     border: none;
     transform: translate(0, 50%);
-    z-index: 1;
+    z-index: 2;
     display: flex;
   }
 
@@ -946,13 +953,20 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .appContainer__cardVisualisation {
-    width: 55vmin;
+    width: 54vmin;
     min-width: 360px;
     display: flex;
     flex: 1;
-    flex-direction: column;
     position: relative;
     margin-bottom: calc(${Rn} + 30px);
+  }
+
+  .appContainer__cardVisualisation__inner {
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   @media screen and (min-aspect-ratio: 1/1) {
@@ -965,8 +979,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     width: 120%;
     height: 40px;
     left: -5%;
-    bottom: calc(50% - 50vmin * 1.4 / 2);
-    transform: translateY(40%);
+    bottom: 0;
     position: absolute;
     display: flex;
   }
@@ -995,7 +1008,6 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     animation: 3s floatCard infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
-    margin: auto;
   }
 
   .appContainer__dummyCardContainer {
@@ -1020,8 +1032,8 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     bottom: 0;
     width: 100%;
     height: ${Rn};
-    z-index: 1;
-    background: ${Sn};
+    z-index: 2;
+    background: ${xn};
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1202,7 +1214,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
     ${Nn(8)}
   }
-`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||this.updateUrlParams()}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.replaceState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return x`
+`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||this.updateUrlParams()}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.replaceState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return S`
       <header class="appHeader">
         <a href="https://immutable.com" class="appHeader__link" target="_blank">
           <img
@@ -1286,14 +1298,16 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           />
         </button>
         <div class="appContainer__cardVisualisation">
-          <i class="appContainer__cardVisualisation__shadow"></i>
-          <composited-card
-            protoId=${this.currentProtoId}
-            quality=${this.currentQuality}
-            responsiveSrcsetSizes="90vw"
-            class="appContainer__cardVisualisation__card"
-          ></composited-card>
+          <div class="appContainer__cardVisualisation__inner">
+            <i class="appContainer__cardVisualisation__shadow"></i>
+            <composited-card
+              protoId=${this.currentProtoId}
+              quality=${this.currentQuality}
+              responsiveSrcsetSizes="90vw"
+              class="appContainer__cardVisualisation__card"
+            ></composited-card>
+          </div>
         </div>
       </main>
     `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
-//# sourceMappingURL=bundle.77629bc02acae862ee13.js.map
+//# sourceMappingURL=bundle.bbca2918024da64cf456.js.map

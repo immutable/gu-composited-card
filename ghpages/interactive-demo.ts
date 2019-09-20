@@ -187,13 +187,15 @@ export class InteractiveDemo extends LitElement {
           />
         </button>
         <div class="appContainer__cardVisualisation">
-          <i class="appContainer__cardVisualisation__shadow"></i>
-          <composited-card
-            protoId=${this.currentProtoId}
-            quality=${this.currentQuality}
-            responsiveSrcsetSizes="90vw"
-            class="appContainer__cardVisualisation__card"
-          ></composited-card>
+          <div class="appContainer__cardVisualisation__inner">
+            <i class="appContainer__cardVisualisation__shadow"></i>
+            <composited-card
+              protoId=${this.currentProtoId}
+              quality=${this.currentQuality}
+              responsiveSrcsetSizes="90vw"
+              class="appContainer__cardVisualisation__card"
+            ></composited-card>
+          </div>
         </div>
       </main>
     `;
