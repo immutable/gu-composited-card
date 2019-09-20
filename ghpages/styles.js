@@ -135,7 +135,7 @@ export const getStyles = () => css`
     text-align: center;
     color: #b8b8b8;
     flex-grow: 0;
-    margin: 30px 15px 0;
+    margin: 20px 15px 0;
   }
 
   .appContainer__intro a {
@@ -213,7 +213,7 @@ export const getStyles = () => css`
     height: 40px;
     left: -5%;
     bottom: calc(50% - 50vmin * 1.4 / 2);
-    transform: translateY(50%);
+    transform: translateY(40%);
     position: absolute;
     display: flex;
   }
@@ -223,7 +223,7 @@ export const getStyles = () => css`
     width: 100%;
     height: 100%;
     position: absolute;
-    background: ${black};
+    background: rgba(0,0,0,0.6);
     border-radius: 50%;
     filter: blur(30px);
   }
@@ -233,7 +233,7 @@ export const getStyles = () => css`
     width: 80%;
     height: 30px;
     margin: auto;
-    background: ${black};
+    background: rgba(0,0,0,0.6);
     border-radius: 50%;
     filter: blur(7px);
   }
