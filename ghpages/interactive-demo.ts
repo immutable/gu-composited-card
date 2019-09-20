@@ -20,8 +20,8 @@ function cloneShadow(shadow) {
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
   @property() currentProtoId = Math.floor(Math.random() * 100);
-  @property() currentQuality = 0;
-  @property() currentQualityInWords: string = qualities[0];
+  @property() currentQuality = 1;
+  @property() currentQualityInWords: string = qualities[1];
 
   static get styles() {
     return getStyles();
