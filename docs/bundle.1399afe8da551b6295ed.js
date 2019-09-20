@@ -801,7 +801,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   background: ${kn[e]};
   cursor: pointer;
   -webkit-appearance: none;
-`;var Kn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Wn=class extends Be{constructor(){super(...arguments),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=0,this.currentQualityInWords=bn[0]}static get styles(){return(()=>ue`
+`;var Kn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Wn=class extends Be{constructor(){super(),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=0,this.currentQualityInWords=bn[0];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");void 0!==n&&(this.currentProtoId=parseInt(n,10)),void 0!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=bn[this.currentQuality])}static get styles(){return(()=>ue`
   @keyframes floatCard {
     from {
       transform: translateY(2%);
@@ -966,6 +966,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     height: 40px;
     left: -5%;
     bottom: calc(50% - 50vmin * 1.4 / 2);
+    transform: translateY(50%);
     position: absolute;
     display: flex;
   }
@@ -1201,7 +1202,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
     ${Nn(8)}
   }
-`)()}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return x`
+`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||this.updateUrlParams()}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.replaceState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),vn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{Fn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return x`
       <header class="appHeader">
         <a href="https://immutable.com" class="appHeader__link" target="_blank">
           <img
@@ -1295,4 +1296,4 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         </div>
       </main>
     `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
-//# sourceMappingURL=bundle.82a6cf78e5cfe025f4fa.js.map
+//# sourceMappingURL=bundle.1399afe8da551b6295ed.js.map

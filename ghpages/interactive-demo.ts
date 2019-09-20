@@ -27,7 +27,45 @@ export class InteractiveDemo extends LitElement {
     return getStyles();
   }
 
-  screenshot($ev) {
+  constructor() {
+    super();
+    const params = this.getUrlParams();
+    const protoId = params.get('protoid');
+    const quality = params.get('quality');
+    if (protoId !== undefined) {
+      this.currentProtoId = parseInt(protoId, 10);
+    }
+    if (quality !== undefined) {
+      this.currentQuality = parseInt(quality, 10);
+      this.currentQualityInWords = qualities[this.currentQuality];
+    }
+  }
+
+  updated(changes) {
+    if (
+      changes.get('currentProtoId') !== undefined ||
+      changes.get('currentQuality') !== undefined
+    ) {
+      this.updateUrlParams();
+    }
+  }
+
+  private getUrlParams() {
+    return new URLSearchParams(window.location.search);
+  }
+
+  private updateUrlParams() {
+    const params = this.getUrlParams();
+    params.set('protoid', `${this.currentProtoId}`);
+    params.set('quality', `${this.currentQuality}`);
+    window.history.replaceState(
+      {},
+      '',
+      decodeURIComponent(`${location.pathname}?${params}`),
+    );
+  }
+
+  private screenshot($ev) {
     $ev.preventDefault();
     const shadowDomCard = this.shadowRoot.querySelector(
       '.appContainer__dummyCardContainer__dummyCard',

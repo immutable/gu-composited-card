@@ -213,6 +213,7 @@ export const getStyles = () => css`
     height: 40px;
     left: -5%;
     bottom: calc(50% - 50vmin * 1.4 / 2);
+    transform: translateY(50%);
     position: absolute;
     display: flex;
   }
