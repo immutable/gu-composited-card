@@ -59,19 +59,18 @@
         grid-row-gap: 20px;
         grid-column-gap: 20px;
         grid-template-columns: repeat(5, 1fr);
-        align-items: start;
       "
     >
       <h2 style="text-align: center; grid-column: 1 / span 5;">
         these cards do an API call to get their data...
       </h2>
-      <div class="moo">
-        <composited-card
-          protoId="20"
-          quality="2"
-          responsiveSrcsetSizes="20vw"
-        ></composited-card>
-      </div>
+
+      <composited-card
+        protoId="20"
+        quality="2"
+        responsiveSrcsetSizes="20vw"
+        class="moo"
+      ></composited-card>
       <composited-card
         protoId="10"
         quality="7"

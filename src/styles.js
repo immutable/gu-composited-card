@@ -25,6 +25,11 @@ const boldOutlinedText = css`
 export const getStyles = () => css`
   :host {
     display: flex;
+  }
+
+  .card__innerRatioConstrainer {
+    margin: auto;
+    display: flex;
     position: relative;
     padding-bottom: 140%;
     /* @NOTE: 140% === 717 / 512 = 1.400 * 100
@@ -37,14 +42,14 @@ export const getStyles = () => css`
     width: 100%;
   }
 
-  .loading {
+  .card__loading {
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
   }
 
-  .loading::before {
+  .card__loading::before {
     content: "";
     background: ${offWhiteLight};
     width: 60%;
@@ -56,7 +61,7 @@ export const getStyles = () => css`
     transform: translate(-50%,-50%);
   }
 
-  .loading__img {
+  .card__loading__img {
     margin: auto;
     width: 55%;
     max-width: 120px;
@@ -98,7 +103,13 @@ export const getStyles = () => css`
   .card__nameText {
     position: absolute;
     white-space: nowrap;
+    display: flex;
     ${boldOutlinedText}
+    line-height: 0.78;
+  }
+
+  .card__nameText__inner {
+    margin: auto;
   }
 
   .card__descriptionText {

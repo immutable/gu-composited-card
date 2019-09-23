@@ -23,9 +23,9 @@ const lockQualities = {
 };
 
 export const loadingTemplate = () => html`
-  <div class="loading">
+  <div class="card__loading">
     <img 
-      class="loading__img" 
+      class="card__loading__img" 
       src="${require('./assets/loading.png')}" 
       alt="immutable loading spinner" 
     />
@@ -305,7 +305,20 @@ export const textLayersTemplate = ({
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
-  const effectCrammedTextMode = effect.split('').length >= 95;
+  const effectTextLength = effect.split('').length;
+  let effectTextSize = ch * 3.8;
+  let effectLineHeight = 1.3;
+  let effectTextMode = 'normal';
+  if (effectTextLength >= 150) {
+    effectTextSize = ch * 3.1;
+    effectLineHeight = 1.05;
+    effectTextMode = 'extraSquishy';
+  } else if (effectTextLength >= 95) {
+    effectTextSize = ch * 3.4;
+    effectLineHeight = 1.1;
+    effectTextMode = 'squishy';
+  }
+
   const shadowSize = Math.floor(ch * 0.2);
   const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
   const fadedBlack = 'rgba(0,0,0,0.35)';
@@ -320,16 +333,17 @@ export const textLayersTemplate = ({
   });
   const nameTextStyles = styleMap({
     fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
-    bottom: `${ch * 35.4}px`,
-    left: `${cw * 12}px`,
-    right: `${cw * 5}px`,
+    bottom: `${ch * 32.85}px`,
+    height: `${ch * 8.65}px`,
+    left: `${cw * 13.25}px`,
+    right: `${cw * 5.3}px`,
     textShadow,
   });
   const descriptionTextStyles = styleMap({
-    fontSize: `${effectCrammedTextMode ? ch * 3.4 : ch * 3.8}px`,
-    lineHeight: effectCrammedTextMode ? 1.05 : 1.3,
+    fontSize: `${effectTextSize}px`,
+    lineHeight: effectLineHeight,
     bottom: `${ch * 7.8}px`,
-    height: `${ch * 22}px`,
+    height: `${ch * 23}px`,
     left: `${cw * 21}px`,
     right: `${cw * 13}px`,
   });
@@ -356,16 +370,16 @@ export const textLayersTemplate = ({
     <div
       class="card__nameText ${nameCrammedTextMode
       ? 'card__nameText--crammed'
-      : null}"
+      : ''}"
       style=${nameTextStyles}
     >
-      ${name}
+      <div class="card__nameText__inner">
+        ${name}
+      </div>
     </div>
 
     <div
-      class="card__descriptionText ${effectCrammedTextMode
-      ? 'card__effectText--crammed'
-      : null}"
+      class="card__descriptionText ${effectTextMode}"
       style=${descriptionTextStyles}
     >
       <div class="card__descriptionText__inner">
@@ -375,14 +389,14 @@ export const textLayersTemplate = ({
 
     ${isACreatureOrWeapon
       ? html`
-          <div class="card__attackText" style=${attackTextStyles}>
-            ${attack}
-          </div>
+        <div class="card__attackText" style=${attackTextStyles}>
+          ${attack}
+        </div>
 
-          <div class="card__healthText" style=${healthTextStyles}>
-            ${health}
-          </div>
-        `
+        <div class="card__healthText" style=${healthTextStyles}>
+          ${health}
+        </div>
+      `
       : null}
   `;
 };

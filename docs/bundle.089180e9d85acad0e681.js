@@ -410,6 +410,11 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
 `);var Cn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},Un=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const bn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],mn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Qn=class extends Be{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>ue`
   :host {
     display: flex;
+  }
+
+  .card__innerRatioConstrainer {
+    margin: auto;
+    display: flex;
     position: relative;
     padding-bottom: 140%;
     /* @NOTE: 140% === 717 / 512 = 1.400 * 100
@@ -422,14 +427,14 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     width: 100%;
   }
 
-  .loading {
+  .card__loading {
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
   }
 
-  .loading::before {
+  .card__loading::before {
     content: "";
     background: ${wn};
     width: 60%;
@@ -441,7 +446,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     transform: translate(-50%,-50%);
   }
 
-  .loading__img {
+  .card__loading__img {
     margin: auto;
     width: 55%;
     max-width: 120px;
@@ -483,7 +488,13 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   .card__nameText {
     position: absolute;
     white-space: nowrap;
+    display: flex;
     ${fn}
+    line-height: 0.78;
+  }
+
+  .card__nameText__inner {
+    margin: auto;
   }
 
   .card__descriptionText {
@@ -508,17 +519,18 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     position: absolute;
     ${fn}
   }
-`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){this.ch=.01*e.borderBoxSize.blockSize,this.cw=.01*e.borderBoxSize.inlineSize,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return S`
-      ${this.loading?(()=>S`
-  <div class="loading">
+`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return S`
+      <div class="card__innerRatioConstrainer">
+        ${this.loading?(()=>S`
+  <div class="card__loading">
     <img 
-      class="loading__img" 
+      class="card__loading__img" 
       src="${A(4)}" 
       alt="immutable loading spinner" 
     />
   </div>
 `)():S`
-            ${(({id:e,responsiveSrcsetSizes:n=`${rn}px`})=>S`
+              ${(({id:e,responsiveSrcsetSizes:n=`${rn}px`})=>S`
     <picture class="card__artwork">
       <source
         srcset="
@@ -549,7 +561,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
       />
     </picture>
   `)({id:this.protoCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
-            ${n?(({type:e,qualityName:n,responsiveSrcsetSizes:A=`${cn}px`})=>S`
+              ${n?(({type:e,qualityName:n,responsiveSrcsetSizes:A=`${cn}px`})=>S`
     <picture class="card__baseLayer">
       <source
         srcset="
@@ -750,38 +762,41 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           </picture>
         `:null}
   `)(Object.assign({qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData))}
-            ${(({type:e="",name:n="⃠",effect:A="⃠",mana:t="⃠",attack:r="⃠",health:a="⃠",ch:o=0,cw:i=0})=>{const s=RegExp(/creature|weapon/).test(e),_=n.split("").length>=20,c=A.split("").length>=95,l=Math.floor(.2*o),u=`${0===l?1:l}px`,d="rgba(0,0,0,0.35)",B=`-${u} -${u} ${u} ${d}, ${u} -${u} ${u} ${d}, -${u} ${u} ${u} ${d}, ${u} ${u} ${u} ${d}`,p=A.replace(/ ([^ ]*)$/,"&nbsp;$1"),g=nn({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*i}px`,width:`${19*i}px`,textShadow:B}),E=nn({fontSize:`${_?3.9*o:4.93*o}px`,bottom:`${35.4*o}px`,left:`${12*i}px`,right:`${5*i}px`,textShadow:B}),h=nn({fontSize:`${c?3.4*o:3.8*o}px`,lineHeight:c?1.05:1.3,bottom:`${7.8*o}px`,height:`${22*o}px`,left:`${21*i}px`,right:`${13*i}px`}),w=nn({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*i}px`,left:`${10.5*i}px`,textShadow:B}),f=nn({fontSize:`${9.5*o}px`,width:`${16*i}px`,bottom:`${3.7*o}px`,right:`${2.5*i}px`,textShadow:B});return S`
-    <div class="card__manaText" style=${g}>
+              ${(({type:e="",name:n="⃠",effect:A="⃠",mana:t="⃠",attack:r="⃠",health:a="⃠",ch:o=0,cw:i=0})=>{const s=RegExp(/creature|weapon/).test(e),_=n.split("").length>=20,c=A.split("").length;let l=3.8*o,u=1.3,d="normal";c>=150?(l=3.1*o,u=1.05,d="extraSquishy"):c>=95&&(l=3.4*o,u=1.1,d="squishy");const B=Math.floor(.2*o),p=`${0===B?1:B}px`,g="rgba(0,0,0,0.35)",E=`-${p} -${p} ${p} ${g}, ${p} -${p} ${p} ${g}, -${p} ${p} ${p} ${g}, ${p} ${p} ${p} ${g}`,h=A.replace(/ ([^ ]*)$/,"&nbsp;$1"),w=nn({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*i}px`,width:`${19*i}px`,textShadow:E}),f=nn({fontSize:`${_?3.9*o:4.93*o}px`,bottom:`${32.85*o}px`,height:`${8.65*o}px`,left:`${13.25*i}px`,right:`${5.3*i}px`,textShadow:E}),C=nn({fontSize:`${l}px`,lineHeight:u,bottom:`${7.8*o}px`,height:`${23*o}px`,left:`${21*i}px`,right:`${13*i}px`}),U=nn({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*i}px`,left:`${10.5*i}px`,textShadow:E}),b=nn({fontSize:`${9.5*o}px`,width:`${16*i}px`,bottom:`${3.7*o}px`,right:`${2.5*i}px`,textShadow:E});return S`
+    <div class="card__manaText" style=${w}>
       ${t}
     </div>
 
     <div
-      class="card__nameText ${_?"card__nameText--crammed":null}"
-      style=${E}
+      class="card__nameText ${_?"card__nameText--crammed":""}"
+      style=${f}
     >
-      ${n}
+      <div class="card__nameText__inner">
+        ${n}
+      </div>
     </div>
 
     <div
-      class="card__descriptionText ${c?"card__effectText--crammed":null}"
-      style=${h}
+      class="card__descriptionText ${d}"
+      style=${C}
     >
       <div class="card__descriptionText__inner">
-        ${tn(p)}
+        ${tn(h)}
       </div>
     </div>
 
     ${s?S`
-          <div class="card__attackText" style=${w}>
-            ${r}
-          </div>
+        <div class="card__attackText" style=${U}>
+          ${r}
+        </div>
 
-          <div class="card__healthText" style=${f}>
-            ${a}
-          </div>
-        `:null}
+        <div class="card__healthText" style=${b}>
+          ${a}
+        </div>
+      `:null}
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData))}
-          `}
+            `}
+      </div>
     `}};Cn([se({type:Number})],Qn.prototype,"protoId",void 0),Cn([se({type:Number})],Qn.prototype,"quality",void 0),Cn([se({type:Object})],Qn.prototype,"inputProtoData",void 0),Cn([se({type:String})],Qn.prototype,"responsiveSrcsetSizes",void 0),Qn=Cn([ae("composited-card")],Qn);var Tn=A(2),vn=A.n(Tn),Fn=A(3);const In=ue`
   font-family: 'Unchained', serif;
   line-height: 1.1;
@@ -1310,4 +1325,4 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         </div>
       </main>
     `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
-//# sourceMappingURL=bundle.bbca2918024da64cf456.js.map
+//# sourceMappingURL=bundle.089180e9d85acad0e681.js.map

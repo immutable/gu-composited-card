@@ -135,8 +135,9 @@ export class CompositedCard extends LitElement {
    * Generic resize handling
    */
   public handleResize(event) {
-    this.ch = event.borderBoxSize.blockSize * 0.01;
-    this.cw = event.borderBoxSize.inlineSize * 0.01;
+    const container = event.target.shadowRoot.children[0];
+    this.ch = container.offsetHeight * 0.01;
+    this.cw = container.offsetWidth * 0.01;
     this.requestUpdate();
   }
 
@@ -205,30 +206,32 @@ export class CompositedCard extends LitElement {
     const qualityName = qualities[this.quality];
     const isMythicCard = qualityName === 'mythic';
     return html`
-      ${this.loading
-        ? loadingTemplate()
-        : html`
-            ${baseArtworkLayersTemplate({
-              id: this.protoCardData.id,
-              responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-            })}
-            ${isMythicCard
-              ? mythicImageLayersTemplate({
-                  type: this.protoCardData.type,
-                  qualityName: qualityName,
-                  responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                })
-              : nonMythicImageLayersTemplate({
-                  qualityName: qualityName,
-                  responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                  ...this.protoCardData,
-                })}
-            ${textLayersTemplate({
-              ch: this.ch,
-              cw: this.cw,
-              ...this.protoCardData,
-            })}
-          `}
+      <div class="card__innerRatioConstrainer">
+        ${this.loading
+          ? loadingTemplate()
+          : html`
+              ${baseArtworkLayersTemplate({
+                id: this.protoCardData.id,
+                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+              })}
+              ${isMythicCard
+                ? mythicImageLayersTemplate({
+                    type: this.protoCardData.type,
+                    qualityName: qualityName,
+                    responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                  })
+                : nonMythicImageLayersTemplate({
+                    qualityName: qualityName,
+                    responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                    ...this.protoCardData,
+                  })}
+              ${textLayersTemplate({
+                ch: this.ch,
+                cw: this.cw,
+                ...this.protoCardData,
+              })}
+            `}
+      </div>
     `;
   }
 }
