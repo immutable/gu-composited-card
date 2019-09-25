@@ -24,10 +24,10 @@ const lockQualities = {
 
 export const loadingTemplate = () => html`
   <div class="card__loading">
-    <img 
-      class="card__loading__img" 
-      src="${require('./assets/loading.png')}" 
-      alt="immutable loading spinner" 
+    <img
+      class="card__loading__img"
+      src="${require('./assets/loading.png')}"
+      alt="immutable loading spinner"
     />
   </div>
 `;
@@ -142,6 +142,7 @@ export const nonMythicImageLayersTemplate = ({
   rarity,
   god,
   set,
+  tribe,
 }) =>
   html`
     <picture class="card__baseLayer">
@@ -206,21 +207,21 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__rarityLayer">
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.webp ${layerQualities.normal}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.webp ${layerQualities.high}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.webp ${layerQualities.xHigh}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.webp ${layerQualities.best}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.webp ${layerQualities.normal}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.webp ${layerQualities.high}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.webp ${layerQualities.xHigh}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.webp ${layerQualities.best}w
+              "
               sizes="${responsiveSrcsetSizes}"
               type="image/webp"
             />
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png ${layerQualities.normal}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.png ${layerQualities.high}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.png ${layerQualities.xHigh}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.png ${layerQualities.best}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/rarity_${rarity}.png ${layerQualities.normal}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/rarity_${rarity}.png ${layerQualities.high}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/rarity_${rarity}.png ${layerQualities.xHigh}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/rarity_${rarity}.png ${layerQualities.best}w
+              "
               sizes="${responsiveSrcsetSizes}"
               type="image/png"
             />
@@ -237,22 +238,22 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__wreathLayer">
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.webp ${layerQualities.normal}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.webp ${layerQualities.high}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.webp ${layerQualities.xHigh}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.webp ${layerQualities.best}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.webp ${layerQualities.normal}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.webp ${layerQualities.high}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.webp ${layerQualities.xHigh}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.webp ${layerQualities.best}w
+              "
               sizes="${responsiveSrcsetSizes}"
               type="image/webp"
             />
 
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png ${layerQualities.normal}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.png ${layerQualities.high}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.png ${layerQualities.xHigh}w,
-              https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.png ${layerQualities.best}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/wreath_${qualityName}.png ${layerQualities.normal}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/wreath_${qualityName}.png ${layerQualities.high}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/wreath_${qualityName}.png ${layerQualities.xHigh}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/wreath_${qualityName}.png ${layerQualities.best}w
+              "
               sizes="${responsiveSrcsetSizes}"
               type="image/png"
             />
@@ -269,17 +270,17 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__lockIconLayer">
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.webp ${lockQualities.normal}w,
-              https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.webp ${lockQualities.high}w,
-            "
+                https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.webp ${lockQualities.normal}w,
+                https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.webp ${lockQualities.high}w,
+              "
               type="image/webp"
             />
 
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.png ${lockQualities.normal}w,
-              https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.png ${lockQualities.high}w,
-            "
+                https://images.godsunchained.com/card-layers/locks/${lockQualities.normal}/lock_${qualityName}.png ${lockQualities.normal}w,
+                https://images.godsunchained.com/card-layers/locks/${lockQualities.high}/lock_${qualityName}.png ${lockQualities.high}w,
+              "
               type="image/png"
             />
 
@@ -287,6 +288,38 @@ export const nonMythicImageLayersTemplate = ({
               crossorigin="Anonymous"
               srcset="https://images.godsunchained.com/card-layers/locks/lock_${qualityName}.png"
               class="card__lockIconLayer__img"
+            />
+          </picture>
+        `
+      : null}
+    ${!!tribe
+      ? html`
+          <picture class="card__tribeBarLayer">
+            <source
+              srcset="
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/tribebar_${qualityName}.webp ${layerQualities.normal}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/tribebar_${qualityName}.webp ${layerQualities.high}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/tribebar_${qualityName}.webp ${layerQualities.xHigh}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/tribebar_${qualityName}.webp ${layerQualities.best}w
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/webp"
+            />
+            <source
+              srcset="
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.normal}/tribebar_${qualityName}.png ${layerQualities.normal}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.high}/tribebar_${qualityName}.png ${layerQualities.high}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.xHigh}/tribebar_${qualityName}.png ${layerQualities.xHigh}w,
+                https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/tribebar_${qualityName}.png ${layerQualities.best}w
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/png"
+            />
+
+            <img
+              crossorigin="Anonymous"
+              srcset="https://images.godsunchained.com/card-layers/layers/${layerQualities.best}/tribebar_${rarity}.png"
+              class="card__tribeBarLayer__img"
             />
           </picture>
         `
@@ -300,6 +333,7 @@ export const textLayersTemplate = ({
   mana = '⃠',
   attack = '⃠',
   health = '⃠',
+  tribe = '',
   ch = 0,
   cw = 0,
 }) => {
@@ -326,7 +360,7 @@ export const textLayersTemplate = ({
   const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
   const manaTextStyles = styleMap({
     fontSize: `${ch * 10.5}px`,
-    top: `${ch * 5.5}px`,
+    top: `${ch * 6.85}px`,
     left: `${cw * 9.5}px`,
     width: `${cw * 19}px`,
     textShadow,
@@ -334,22 +368,31 @@ export const textLayersTemplate = ({
   const nameTextStyles = styleMap({
     fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
     bottom: `${ch * 32.85}px`,
-    height: `${ch * 8.65}px`,
+    height: `${ch * 9.15}px`,
     left: `${cw * 13.25}px`,
     right: `${cw * 5.3}px`,
     textShadow,
   });
-  const descriptionTextStyles = styleMap({
-    fontSize: `${effectTextSize}px`,
-    lineHeight: effectLineHeight,
-    bottom: `${ch * 7.8}px`,
-    height: `${ch * 23}px`,
-    left: `${cw * 21}px`,
-    right: `${cw * 13}px`,
-  });
+  const descriptionTextStyles = !!tribe
+    ? styleMap({
+        fontSize: `${effectTextSize}px`,
+        lineHeight: effectLineHeight,
+        bottom: `${ch * 8.6}px`,
+        height: `${ch * 22.2}px`,
+        left: `${cw * 21}px`,
+        right: `${cw * 13}px`,
+      })
+    : styleMap({
+        fontSize: `${effectTextSize}px`,
+        lineHeight: effectLineHeight,
+        bottom: `${ch * 7.3}px`,
+        height: `${ch * 23}px`,
+        left: `${cw * 21}px`,
+        right: `${cw * 13}px`,
+      });
   const attackTextStyles = styleMap({
     fontSize: `${ch * 9.5}px`,
-    bottom: `${ch * 3.5}px`,
+    bottom: `${ch * 4.5}px`,
     width: `${cw * 15}px`,
     left: `${cw * 10.5}px`,
     textShadow,
@@ -357,8 +400,16 @@ export const textLayersTemplate = ({
   const healthTextStyles = styleMap({
     fontSize: `${ch * 9.5}px`,
     width: `${cw * 16}px`,
-    bottom: `${ch * 3.7}px`,
+    bottom: `${ch * 4.6}px`,
     right: `${cw * 2.5}px`,
+    textShadow,
+  });
+  const tribeTextStyles = styleMap({
+    fontSize: `${ch * 3.2}px`,
+    bottom: `${ch * 3.1}px`,
+    height: `${ch * 4.75}px`,
+    left: `${cw * 30.5}px`,
+    right: `${cw * 23}px`,
     textShadow,
   });
 
@@ -369,8 +420,8 @@ export const textLayersTemplate = ({
 
     <div
       class="card__nameText ${nameCrammedTextMode
-      ? 'card__nameText--crammed'
-      : ''}"
+        ? 'card__nameText--crammed'
+        : ''}"
       style=${nameTextStyles}
     >
       <div class="card__nameText__inner">
@@ -389,14 +440,23 @@ export const textLayersTemplate = ({
 
     ${isACreatureOrWeapon
       ? html`
-        <div class="card__attackText" style=${attackTextStyles}>
-          ${attack}
-        </div>
+          <div class="card__attackText" style=${attackTextStyles}>
+            ${attack}
+          </div>
 
-        <div class="card__healthText" style=${healthTextStyles}>
-          ${health}
-        </div>
-      `
+          <div class="card__healthText" style=${healthTextStyles}>
+            ${health}
+          </div>
+        `
+      : null}
+    ${tribe
+      ? html`
+          <div class="card__tribeText" style=${tribeTextStyles}>
+            <div class="card__tribeText__inner">
+              ${tribe}
+            </div>
+          </div>
+        `
       : null}
   `;
 };

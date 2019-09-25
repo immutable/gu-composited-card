@@ -1,4 +1,4 @@
-!function(e){var n={};function A(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,A),r.l=!0,r.exports}A.m=e,A.c=n,A.d=function(e,n,t){A.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:t})},A.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},A.t=function(e,n){if(1&n&&(e=A(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(A.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var r in e)A.d(t,r,function(n){return e[n]}.bind(null,r));return t},A.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return A.d(n,"a",n),n},A.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},A.p="",A(A.s=14)}([function(e,n,A){"use strict";e.exports=function(e){var n=[];return n.toString=function(){return this.map(function(n){var A=function(e,n){var A=e[1]||"",t=e[3];if(!t)return A;if(n&&"function"==typeof btoa){var r=(o=t,i=btoa(unescape(encodeURIComponent(JSON.stringify(o)))),s="sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(i),"/*# ".concat(s," */")),a=t.sources.map(function(e){return"/*# sourceURL=".concat(t.sourceRoot).concat(e," */")});return[A].concat(a).concat([r]).join("\n")}var o,i,s;return[A].join("\n")}(n,e);return n[2]?"@media ".concat(n[2],"{").concat(A,"}"):A}).join("")},n.i=function(e,A){"string"==typeof e&&(e=[[null,e,""]]);for(var t={},r=0;r<this.length;r++){var a=this[r][0];null!=a&&(t[a]=!0)}for(var o=0;o<e.length;o++){var i=e[o];null!=i[0]&&t[i[0]]||(A&&!i[2]?i[2]=A:A&&(i[2]="(".concat(i[2],") and (").concat(A,")")),n.push(i))}},n}},function(e,n,A){"use strict";var t,r={},a=function(){return void 0===t&&(t=Boolean(window&&document&&document.all&&!window.atob)),t},o=function(){var e={};return function(n){if(void 0===e[n]){var A=document.querySelector(n);if(window.HTMLIFrameElement&&A instanceof window.HTMLIFrameElement)try{A=A.contentDocument.head}catch(e){A=null}e[n]=A}return e[n]}}();function i(e,n){for(var A=[],t={},r=0;r<e.length;r++){var a=e[r],o=n.base?a[0]+n.base:a[0],i={css:a[1],media:a[2],sourceMap:a[3]};t[o]?t[o].parts.push(i):A.push(t[o]={id:o,parts:[i]})}return A}function s(e,n){for(var A=0;A<e.length;A++){var t=e[A],a=r[t.id],o=0;if(a){for(a.refs++;o<a.parts.length;o++)a.parts[o](t.parts[o]);for(;o<t.parts.length;o++)a.parts.push(p(t.parts[o],n))}else{for(var i=[];o<t.parts.length;o++)i.push(p(t.parts[o],n));r[t.id]={id:t.id,refs:1,parts:i}}}}function _(e){var n=document.createElement("style");if(void 0===e.attributes.nonce){var t=A.nc;t&&(e.attributes.nonce=t)}if(Object.keys(e.attributes).forEach(function(A){n.setAttribute(A,e.attributes[A])}),"function"==typeof e.insert)e.insert(n);else{var r=o(e.insert||"head");if(!r)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");r.appendChild(n)}return n}var c,l=(c=[],function(e,n){return c[e]=n,c.filter(Boolean).join("\n")});function u(e,n,A,t){var r=A?"":t.css;if(e.styleSheet)e.styleSheet.cssText=l(n,r);else{var a=document.createTextNode(r),o=e.childNodes;o[n]&&e.removeChild(o[n]),o.length?e.insertBefore(a,o[n]):e.appendChild(a)}}var d=null,B=0;function p(e,n){var A,t,r;if(n.singleton){var a=B++;A=d||(d=_(n)),t=u.bind(null,A,a,!1),r=u.bind(null,A,a,!0)}else A=_(n),t=function(e,n,A){var t=A.css,r=A.media,a=A.sourceMap;if(r&&e.setAttribute("media",r),a&&btoa&&(t+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a))))," */")),e.styleSheet)e.styleSheet.cssText=t;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(t))}}.bind(null,A,n),r=function(){!function(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(A)};return t(e),function(n){if(n){if(n.css===e.css&&n.media===e.media&&n.sourceMap===e.sourceMap)return;t(e=n)}else r()}}e.exports=function(e,n){(n=n||{}).attributes="object"==typeof n.attributes?n.attributes:{},n.singleton||"boolean"==typeof n.singleton||(n.singleton=a());var A=i(e,n);return s(A,n),function(e){for(var t=[],a=0;a<A.length;a++){var o=A[a],_=r[o.id];_&&(_.refs--,t.push(_))}e&&s(i(e,n),n);for(var c=0;c<t.length;c++){var l=t[c];if(0===l.refs){for(var u=0;u<l.parts.length;u++)l.parts[u]();delete r[l.id]}}}}},function(module,exports,__webpack_require__){
+!function(e){var n={};function A(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,A),r.l=!0,r.exports}A.m=e,A.c=n,A.d=function(e,n,t){A.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:t})},A.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},A.t=function(e,n){if(1&n&&(e=A(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(A.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var r in e)A.d(t,r,function(n){return e[n]}.bind(null,r));return t},A.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return A.d(n,"a",n),n},A.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},A.p="",A(A.s=14)}([function(e,n,A){"use strict";e.exports=function(e){var n=[];return n.toString=function(){return this.map(function(n){var A=function(e,n){var A=e[1]||"",t=e[3];if(!t)return A;if(n&&"function"==typeof btoa){var r=(o=t,i=btoa(unescape(encodeURIComponent(JSON.stringify(o)))),s="sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(i),"/*# ".concat(s," */")),a=t.sources.map(function(e){return"/*# sourceURL=".concat(t.sourceRoot).concat(e," */")});return[A].concat(a).concat([r]).join("\n")}var o,i,s;return[A].join("\n")}(n,e);return n[2]?"@media ".concat(n[2],"{").concat(A,"}"):A}).join("")},n.i=function(e,A){"string"==typeof e&&(e=[[null,e,""]]);for(var t={},r=0;r<this.length;r++){var a=this[r][0];null!=a&&(t[a]=!0)}for(var o=0;o<e.length;o++){var i=e[o];null!=i[0]&&t[i[0]]||(A&&!i[2]?i[2]=A:A&&(i[2]="(".concat(i[2],") and (").concat(A,")")),n.push(i))}},n}},function(e,n,A){"use strict";var t,r={},a=function(){return void 0===t&&(t=Boolean(window&&document&&document.all&&!window.atob)),t},o=function(){var e={};return function(n){if(void 0===e[n]){var A=document.querySelector(n);if(window.HTMLIFrameElement&&A instanceof window.HTMLIFrameElement)try{A=A.contentDocument.head}catch(e){A=null}e[n]=A}return e[n]}}();function i(e,n){for(var A=[],t={},r=0;r<e.length;r++){var a=e[r],o=n.base?a[0]+n.base:a[0],i={css:a[1],media:a[2],sourceMap:a[3]};t[o]?t[o].parts.push(i):A.push(t[o]={id:o,parts:[i]})}return A}function s(e,n){for(var A=0;A<e.length;A++){var t=e[A],a=r[t.id],o=0;if(a){for(a.refs++;o<a.parts.length;o++)a.parts[o](t.parts[o]);for(;o<t.parts.length;o++)a.parts.push(B(t.parts[o],n))}else{for(var i=[];o<t.parts.length;o++)i.push(B(t.parts[o],n));r[t.id]={id:t.id,refs:1,parts:i}}}}function _(e){var n=document.createElement("style");if(void 0===e.attributes.nonce){var t=A.nc;t&&(e.attributes.nonce=t)}if(Object.keys(e.attributes).forEach(function(A){n.setAttribute(A,e.attributes[A])}),"function"==typeof e.insert)e.insert(n);else{var r=o(e.insert||"head");if(!r)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");r.appendChild(n)}return n}var c,l=(c=[],function(e,n){return c[e]=n,c.filter(Boolean).join("\n")});function u(e,n,A,t){var r=A?"":t.css;if(e.styleSheet)e.styleSheet.cssText=l(n,r);else{var a=document.createTextNode(r),o=e.childNodes;o[n]&&e.removeChild(o[n]),o.length?e.insertBefore(a,o[n]):e.appendChild(a)}}var d=null,p=0;function B(e,n){var A,t,r;if(n.singleton){var a=p++;A=d||(d=_(n)),t=u.bind(null,A,a,!1),r=u.bind(null,A,a,!0)}else A=_(n),t=function(e,n,A){var t=A.css,r=A.media,a=A.sourceMap;if(r&&e.setAttribute("media",r),a&&btoa&&(t+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a))))," */")),e.styleSheet)e.styleSheet.cssText=t;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(t))}}.bind(null,A,n),r=function(){!function(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(A)};return t(e),function(n){if(n){if(n.css===e.css&&n.media===e.media&&n.sourceMap===e.sourceMap)return;t(e=n)}else r()}}e.exports=function(e,n){(n=n||{}).attributes="object"==typeof n.attributes?n.attributes:{},n.singleton||"boolean"==typeof n.singleton||(n.singleton=a());var A=i(e,n);return s(A,n),function(e){for(var t=[],a=0;a<A.length;a++){var o=A[a],_=r[o.id];_&&(_.refs--,t.push(_))}e&&s(i(e,n),n);for(var c=0;c<t.length;c++){var l=t[c];if(0===l.refs){for(var u=0;u<l.parts.length;u++)l.parts[u]();delete r[l.id]}}}}},function(module,exports,__webpack_require__){
 /*!
  * html2canvas 1.0.0-rc.1 <https://html2canvas.hertzen.com>
  * Copyright (c) 2019 Niklas von Hertzen <https://hertzen.com>
@@ -246,7 +246,7 @@ var factory;window,factory=function(){return function(e){var n={};function A(t){
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const t=new WeakMap,r=e=>(...n)=>{const A=e(...n);return t.set(A,!0),A},a=e=>"function"==typeof e&&t.has(e),o=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,i=(e,n,A=null)=>{for(;n!==A;){const A=n.nextSibling;e.removeChild(n),n=A}},s={},_={},c=`{{lit-${String(Math.random()).slice(2)}}}`,l=`\x3c!--${c}--\x3e`,u=new RegExp(`${c}|${l}`),d="$lit$";class B{constructor(e,n){this.parts=[],this.element=n;const A=[],t=[],r=document.createTreeWalker(n.content,133,null,!1);let a=0,o=-1,i=0;const{strings:s,values:{length:_}}=e;for(;i<_;){const e=r.nextNode();if(null!==e){if(o++,1===e.nodeType){if(e.hasAttributes()){const n=e.attributes,{length:A}=n;let t=0;for(let e=0;e<A;e++)p(n[e].name,d)&&t++;for(;t-- >0;){const n=s[i],A=h.exec(n)[2],t=A.toLowerCase()+d,r=e.getAttribute(t);e.removeAttribute(t);const a=r.split(u);this.parts.push({type:"attribute",index:o,name:A,strings:a}),i+=a.length-1}}"TEMPLATE"===e.tagName&&(t.push(e),r.currentNode=e.content)}else if(3===e.nodeType){const n=e.data;if(n.indexOf(c)>=0){const t=e.parentNode,r=n.split(u),a=r.length-1;for(let n=0;n<a;n++){let A,a=r[n];if(""===a)A=E();else{const e=h.exec(a);null!==e&&p(e[2],d)&&(a=a.slice(0,e.index)+e[1]+e[2].slice(0,-d.length)+e[3]),A=document.createTextNode(a)}t.insertBefore(A,e),this.parts.push({type:"node",index:++o})}""===r[a]?(t.insertBefore(E(),e),A.push(e)):e.data=r[a],i+=a}}else if(8===e.nodeType)if(e.data===c){const n=e.parentNode;null!==e.previousSibling&&o!==a||(o++,n.insertBefore(E(),e)),a=o,this.parts.push({type:"node",index:o}),null===e.nextSibling?e.data="":(A.push(e),o--),i++}else{let n=-1;for(;-1!==(n=e.data.indexOf(c,n+1));)this.parts.push({type:"node",index:-1}),i++}}else r.currentNode=t.pop()}for(const e of A)e.parentNode.removeChild(e)}}const p=(e,n)=>{const A=e.length-n.length;return A>=0&&e.slice(A)===n},g=e=>-1!==e.index,E=()=>document.createComment(""),h=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=\/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;
+const t=new WeakMap,r=e=>(...n)=>{const A=e(...n);return t.set(A,!0),A},a=e=>"function"==typeof e&&t.has(e),o=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,i=(e,n,A=null)=>{for(;n!==A;){const A=n.nextSibling;e.removeChild(n),n=A}},s={},_={},c=`{{lit-${String(Math.random()).slice(2)}}}`,l=`\x3c!--${c}--\x3e`,u=new RegExp(`${c}|${l}`),d="$lit$";class p{constructor(e,n){this.parts=[],this.element=n;const A=[],t=[],r=document.createTreeWalker(n.content,133,null,!1);let a=0,o=-1,i=0;const{strings:s,values:{length:_}}=e;for(;i<_;){const e=r.nextNode();if(null!==e){if(o++,1===e.nodeType){if(e.hasAttributes()){const n=e.attributes,{length:A}=n;let t=0;for(let e=0;e<A;e++)B(n[e].name,d)&&t++;for(;t-- >0;){const n=s[i],A=E.exec(n)[2],t=A.toLowerCase()+d,r=e.getAttribute(t);e.removeAttribute(t);const a=r.split(u);this.parts.push({type:"attribute",index:o,name:A,strings:a}),i+=a.length-1}}"TEMPLATE"===e.tagName&&(t.push(e),r.currentNode=e.content)}else if(3===e.nodeType){const n=e.data;if(n.indexOf(c)>=0){const t=e.parentNode,r=n.split(u),a=r.length-1;for(let n=0;n<a;n++){let A,a=r[n];if(""===a)A=h();else{const e=E.exec(a);null!==e&&B(e[2],d)&&(a=a.slice(0,e.index)+e[1]+e[2].slice(0,-d.length)+e[3]),A=document.createTextNode(a)}t.insertBefore(A,e),this.parts.push({type:"node",index:++o})}""===r[a]?(t.insertBefore(h(),e),A.push(e)):e.data=r[a],i+=a}}else if(8===e.nodeType)if(e.data===c){const n=e.parentNode;null!==e.previousSibling&&o!==a||(o++,n.insertBefore(h(),e)),a=o,this.parts.push({type:"node",index:o}),null===e.nextSibling?e.data="":(A.push(e),o--),i++}else{let n=-1;for(;-1!==(n=e.data.indexOf(c,n+1));)this.parts.push({type:"node",index:-1}),i++}}else r.currentNode=t.pop()}for(const e of A)e.parentNode.removeChild(e)}}const B=(e,n)=>{const A=e.length-n.length;return A>=0&&e.slice(A)===n},g=e=>-1!==e.index,h=()=>document.createComment(""),E=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=\/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -273,7 +273,7 @@ class w{constructor(e,n,A){this.__parts=[],this.template=e,this.processor=n,this
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */const f=` ${c} `;class C{constructor(e,n,A,t){this.strings=e,this.values=n,this.type=A,this.processor=t}getHTML(){const e=this.strings.length-1;let n="",A=!1;for(let t=0;t<e;t++){const e=this.strings[t],r=e.lastIndexOf("\x3c!--");A=(r>-1||A)&&-1===e.indexOf("--\x3e",r+1);const a=h.exec(e);n+=null===a?e+(A?f:l):e.substr(0,a.index)+a[1]+a[2]+d+a[3]+c}return n+=this.strings[e]}getTemplateElement(){const e=document.createElement("template");return e.innerHTML=this.getHTML(),e}}
+ */const f=` ${c} `;class C{constructor(e,n,A,t){this.strings=e,this.values=n,this.type=A,this.processor=t}getHTML(){const e=this.strings.length-1;let n="",A=!1;for(let t=0;t<e;t++){const e=this.strings[t],r=e.lastIndexOf("\x3c!--");A=(r>-1||A)&&-1===e.indexOf("--\x3e",r+1);const a=E.exec(e);n+=null===a?e+(A?f:l):e.substr(0,a.index)+a[1]+a[2]+d+a[3]+c}return n+=this.strings[e]}getTemplateElement(){const e=document.createElement("template");return e.innerHTML=this.getHTML(),e}}
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -287,7 +287,7 @@ class w{constructor(e,n,A){this.__parts=[],this.template=e,this.processor=n,this
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const U=e=>null===e||!("object"==typeof e||"function"==typeof e),b=e=>Array.isArray(e)||!(!e||!e[Symbol.iterator]);class m{constructor(e,n,A){this.dirty=!0,this.element=e,this.name=n,this.strings=A,this.parts=[];for(let e=0;e<A.length-1;e++)this.parts[e]=this._createPart()}_createPart(){return new Q(this)}_getValue(){const e=this.strings,n=e.length-1;let A="";for(let t=0;t<n;t++){A+=e[t];const n=this.parts[t];if(void 0!==n){const e=n.value;if(U(e)||!b(e))A+="string"==typeof e?e:String(e);else for(const n of e)A+="string"==typeof n?n:String(n)}}return A+=e[n]}commit(){this.dirty&&(this.dirty=!1,this.element.setAttribute(this.name,this._getValue()))}}class Q{constructor(e){this.value=void 0,this.committer=e}setValue(e){e===s||U(e)&&e===this.value||(this.value=e,a(e)||(this.committer.dirty=!0))}commit(){for(;a(this.value);){const e=this.value;this.value=s,e(this)}this.value!==s&&this.committer.commit()}}class T{constructor(e){this.value=void 0,this.__pendingValue=void 0,this.options=e}appendInto(e){this.startNode=e.appendChild(E()),this.endNode=e.appendChild(E())}insertAfterNode(e){this.startNode=e,this.endNode=e.nextSibling}appendIntoPart(e){e.__insert(this.startNode=E()),e.__insert(this.endNode=E())}insertAfterPart(e){e.__insert(this.startNode=E()),this.endNode=e.endNode,e.endNode=this.startNode}setValue(e){this.__pendingValue=e}commit(){for(;a(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=s,e(this)}const e=this.__pendingValue;e!==s&&(U(e)?e!==this.value&&this.__commitText(e):e instanceof C?this.__commitTemplateResult(e):e instanceof Node?this.__commitNode(e):b(e)?this.__commitIterable(e):e===_?(this.value=_,this.clear()):this.__commitText(e))}__insert(e){this.endNode.parentNode.insertBefore(e,this.endNode)}__commitNode(e){this.value!==e&&(this.clear(),this.__insert(e),this.value=e)}__commitText(e){const n=this.startNode.nextSibling,A="string"==typeof(e=null==e?"":e)?e:String(e);n===this.endNode.previousSibling&&3===n.nodeType?n.data=A:this.__commitNode(document.createTextNode(A)),this.value=e}__commitTemplateResult(e){const n=this.options.templateFactory(e);if(this.value instanceof w&&this.value.template===n)this.value.update(e.values);else{const A=new w(n,e.processor,this.options),t=A._clone();A.update(e.values),this.__commitNode(t),this.value=A}}__commitIterable(e){Array.isArray(this.value)||(this.value=[],this.clear());const n=this.value;let A,t=0;for(const r of e)void 0===(A=n[t])&&(A=new T(this.options),n.push(A),0===t?A.appendIntoPart(this):A.insertAfterPart(n[t-1])),A.setValue(r),A.commit(),t++;t<n.length&&(n.length=t,this.clear(A&&A.endNode))}clear(e=this.startNode){i(this.startNode.parentNode,e.nextSibling,this.endNode)}}class v{constructor(e,n,A){if(this.value=void 0,this.__pendingValue=void 0,2!==A.length||""!==A[0]||""!==A[1])throw new Error("Boolean attributes can only contain a single expression");this.element=e,this.name=n,this.strings=A}setValue(e){this.__pendingValue=e}commit(){for(;a(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=s,e(this)}if(this.__pendingValue===s)return;const e=!!this.__pendingValue;this.value!==e&&(e?this.element.setAttribute(this.name,""):this.element.removeAttribute(this.name),this.value=e),this.__pendingValue=s}}class F extends m{constructor(e,n,A){super(e,n,A),this.single=2===A.length&&""===A[0]&&""===A[1]}_createPart(){return new I(this)}_getValue(){return this.single?this.parts[0].value:super._getValue()}commit(){this.dirty&&(this.dirty=!1,this.element[this.name]=this._getValue())}}class I extends Q{}let y=!1;try{const e={get capture(){return y=!0,!1}};window.addEventListener("test",e,e),window.removeEventListener("test",e,e)}catch(e){}class O{constructor(e,n,A){this.value=void 0,this.__pendingValue=void 0,this.element=e,this.eventName=n,this.eventContext=A,this.__boundHandleEvent=e=>this.handleEvent(e)}setValue(e){this.__pendingValue=e}commit(){for(;a(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=s,e(this)}if(this.__pendingValue===s)return;const e=this.__pendingValue,n=this.value,A=null==e||null!=n&&(e.capture!==n.capture||e.once!==n.once||e.passive!==n.passive),t=null!=e&&(null==n||A);A&&this.element.removeEventListener(this.eventName,this.__boundHandleEvent,this.__options),t&&(this.__options=P(e),this.element.addEventListener(this.eventName,this.__boundHandleEvent,this.__options)),this.value=e,this.__pendingValue=s}handleEvent(e){"function"==typeof this.value?this.value.call(this.eventContext||this.element,e):this.value.handleEvent(e)}}const P=e=>e&&(y?{capture:e.capture,passive:e.passive,once:e.once}:e.capture);
+const U=e=>null===e||!("object"==typeof e||"function"==typeof e),b=e=>Array.isArray(e)||!(!e||!e[Symbol.iterator]);class m{constructor(e,n,A){this.dirty=!0,this.element=e,this.name=n,this.strings=A,this.parts=[];for(let e=0;e<A.length-1;e++)this.parts[e]=this._createPart()}_createPart(){return new Q(this)}_getValue(){const e=this.strings,n=e.length-1;let A="";for(let t=0;t<n;t++){A+=e[t];const n=this.parts[t];if(void 0!==n){const e=n.value;if(U(e)||!b(e))A+="string"==typeof e?e:String(e);else for(const n of e)A+="string"==typeof n?n:String(n)}}return A+=e[n]}commit(){this.dirty&&(this.dirty=!1,this.element.setAttribute(this.name,this._getValue()))}}class Q{constructor(e){this.value=void 0,this.committer=e}setValue(e){e===s||U(e)&&e===this.value||(this.value=e,a(e)||(this.committer.dirty=!0))}commit(){for(;a(this.value);){const e=this.value;this.value=s,e(this)}this.value!==s&&this.committer.commit()}}class T{constructor(e){this.value=void 0,this.__pendingValue=void 0,this.options=e}appendInto(e){this.startNode=e.appendChild(h()),this.endNode=e.appendChild(h())}insertAfterNode(e){this.startNode=e,this.endNode=e.nextSibling}appendIntoPart(e){e.__insert(this.startNode=h()),e.__insert(this.endNode=h())}insertAfterPart(e){e.__insert(this.startNode=h()),this.endNode=e.endNode,e.endNode=this.startNode}setValue(e){this.__pendingValue=e}commit(){for(;a(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=s,e(this)}const e=this.__pendingValue;e!==s&&(U(e)?e!==this.value&&this.__commitText(e):e instanceof C?this.__commitTemplateResult(e):e instanceof Node?this.__commitNode(e):b(e)?this.__commitIterable(e):e===_?(this.value=_,this.clear()):this.__commitText(e))}__insert(e){this.endNode.parentNode.insertBefore(e,this.endNode)}__commitNode(e){this.value!==e&&(this.clear(),this.__insert(e),this.value=e)}__commitText(e){const n=this.startNode.nextSibling,A="string"==typeof(e=null==e?"":e)?e:String(e);n===this.endNode.previousSibling&&3===n.nodeType?n.data=A:this.__commitNode(document.createTextNode(A)),this.value=e}__commitTemplateResult(e){const n=this.options.templateFactory(e);if(this.value instanceof w&&this.value.template===n)this.value.update(e.values);else{const A=new w(n,e.processor,this.options),t=A._clone();A.update(e.values),this.__commitNode(t),this.value=A}}__commitIterable(e){Array.isArray(this.value)||(this.value=[],this.clear());const n=this.value;let A,t=0;for(const r of e)void 0===(A=n[t])&&(A=new T(this.options),n.push(A),0===t?A.appendIntoPart(this):A.insertAfterPart(n[t-1])),A.setValue(r),A.commit(),t++;t<n.length&&(n.length=t,this.clear(A&&A.endNode))}clear(e=this.startNode){i(this.startNode.parentNode,e.nextSibling,this.endNode)}}class v{constructor(e,n,A){if(this.value=void 0,this.__pendingValue=void 0,2!==A.length||""!==A[0]||""!==A[1])throw new Error("Boolean attributes can only contain a single expression");this.element=e,this.name=n,this.strings=A}setValue(e){this.__pendingValue=e}commit(){for(;a(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=s,e(this)}if(this.__pendingValue===s)return;const e=!!this.__pendingValue;this.value!==e&&(e?this.element.setAttribute(this.name,""):this.element.removeAttribute(this.name),this.value=e),this.__pendingValue=s}}class F extends m{constructor(e,n,A){super(e,n,A),this.single=2===A.length&&""===A[0]&&""===A[1]}_createPart(){return new y(this)}_getValue(){return this.single?this.parts[0].value:super._getValue()}commit(){this.dirty&&(this.dirty=!1,this.element[this.name]=this._getValue())}}class y extends Q{}let I=!1;try{const e={get capture(){return I=!0,!1}};window.addEventListener("test",e,e),window.removeEventListener("test",e,e)}catch(e){}class O{constructor(e,n,A){this.value=void 0,this.__pendingValue=void 0,this.element=e,this.eventName=n,this.eventContext=A,this.__boundHandleEvent=e=>this.handleEvent(e)}setValue(e){this.__pendingValue=e}commit(){for(;a(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=s,e(this)}if(this.__pendingValue===s)return;const e=this.__pendingValue,n=this.value,A=null==e||null!=n&&(e.capture!==n.capture||e.once!==n.once||e.passive!==n.passive),t=null!=e&&(null==n||A);A&&this.element.removeEventListener(this.eventName,this.__boundHandleEvent,this.__options),t&&(this.__options=P(e),this.element.addEventListener(this.eventName,this.__boundHandleEvent,this.__options)),this.value=e,this.__pendingValue=s}handleEvent(e){"function"==typeof this.value?this.value.call(this.eventContext||this.element,e):this.value.handleEvent(e)}}const P=e=>e&&(I?{capture:e.capture,passive:e.passive,once:e.once}:e.capture);
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -313,7 +313,7 @@ const U=e=>null===e||!("object"==typeof e||"function"==typeof e),b=e=>Array.isAr
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */function L(e){let n=R.get(e.type);void 0===n&&(n={stringsArray:new WeakMap,keyString:new Map},R.set(e.type,n));let A=n.stringsArray.get(e.strings);if(void 0!==A)return A;const t=e.strings.join(c);return void 0===(A=n.keyString.get(t))&&(A=new B(e,e.getTemplateElement()),n.keyString.set(t,A)),n.stringsArray.set(e.strings,A),A}const R=new Map,x=new WeakMap;
+ */function L(e){let n=R.get(e.type);void 0===n&&(n={stringsArray:new WeakMap,keyString:new Map},R.set(e.type,n));let A=n.stringsArray.get(e.strings);if(void 0!==A)return A;const t=e.strings.join(c);return void 0===(A=n.keyString.get(t))&&(A=new p(e,e.getTemplateElement()),n.keyString.set(t,A)),n.stringsArray.set(e.strings,A),A}const R=new Map,x=new WeakMap;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -354,7 +354,7 @@ const U=e=>null===e||!("object"==typeof e||"function"==typeof e),b=e=>Array.isAr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const K=(e,n)=>`${e}--${n}`;let W=!0;void 0===window.ShadyCSS?W=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),W=!1);const z=e=>n=>{const A=K(n.type,e);let t=R.get(A);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},R.set(A,t));let r=t.stringsArray.get(n.strings);if(void 0!==r)return r;const a=n.strings.join(c);if(void 0===(r=t.keyString.get(a))){const A=n.getTemplateElement();W&&window.ShadyCSS.prepareTemplateDom(A,e),r=new B(n,A),t.keyString.set(a,r)}return t.stringsArray.set(n.strings,r),r},V=["html","svg"],X=new Set,Y=(e,n,A)=>{X.add(e);const t=A?A.element:document.createElement("template"),r=n.querySelectorAll("style"),{length:a}=r;if(0===a)return void window.ShadyCSS.prepareTemplateStyles(t,e);const o=document.createElement("style");for(let e=0;e<a;e++){const n=r[e];n.parentNode.removeChild(n),o.textContent+=n.textContent}(e=>{V.forEach(n=>{const A=R.get(K(n,e));void 0!==A&&A.keyString.forEach(e=>{const{element:{content:n}}=e,A=new Set;Array.from(n.querySelectorAll("style")).forEach(e=>{A.add(e)}),k(e,A)})})})(e);const i=t.content;A?function(e,n,A=null){const{element:{content:t},parts:r}=e;if(null==A)return void t.appendChild(n);const a=document.createTreeWalker(t,H,null,!1);let o=N(r),i=0,s=-1;for(;a.nextNode();){for(s++,a.currentNode===A&&(i=M(n),A.parentNode.insertBefore(n,A));-1!==o&&r[o].index===s;){if(i>0){for(;-1!==o;)r[o].index+=i,o=N(r,o);return}o=N(r,o)}}}(A,o,i.firstChild):i.insertBefore(o,i.firstChild),window.ShadyCSS.prepareTemplateStyles(t,e);const s=i.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==s)n.insertBefore(s.cloneNode(!0),n.firstChild);else if(A){i.insertBefore(o,i.firstChild);const e=new Set;e.add(o),k(A,e)}};window.JSCompiler_renameProperty=(e,n)=>e;const G={toAttribute(e,n){switch(n){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,n){switch(n){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},j=(e,n)=>n!==e&&(n==n||e==e),q={attribute:!0,type:String,converter:G,reflect:!1,hasChanged:j},J=Promise.resolve(!0),$=1,Z=4,ee=8,ne=16,Ae=32,te="finalized";class re extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=J,this._hasConnectedResolver=void 0,this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((n,A)=>{const t=this._attributeNameForProperty(A,n);void 0!==t&&(this._attributeToPropertyMap.set(t,A),e.push(t))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,n)=>this._classProperties.set(n,e))}}static createProperty(e,n=q){if(this._ensureClassProperties(),this._classProperties.set(e,n),n.noAccessor||this.prototype.hasOwnProperty(e))return;const A="symbol"==typeof e?Symbol():`__${e}`;Object.defineProperty(this.prototype,e,{get(){return this[A]},set(n){const t=this[e];this[A]=n,this._requestUpdate(e,t)},configurable:!0,enumerable:!0})}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty(te)||e.finalize(),this[te]=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,n=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const A of n)this.createProperty(A,e[A])}}static _attributeNameForProperty(e,n){const A=n.attribute;return!1===A?void 0:"string"==typeof A?A:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,n,A=j){return A(e,n)}static _propertyValueFromAttribute(e,n){const A=n.type,t=n.converter||G,r="function"==typeof t?t:t.fromAttribute;return r?r(e,A):e}static _propertyValueToAttribute(e,n){if(void 0===n.reflect)return;const A=n.type,t=n.converter;return(t&&t.toAttribute||G.toAttribute)(e,A)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,n)=>{if(this.hasOwnProperty(n)){const e=this[n];delete this[n],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(n,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,n)=>this[n]=e),this._instanceProperties=void 0}connectedCallback(){this._updateState=this._updateState|Ae,this._hasConnectedResolver&&(this._hasConnectedResolver(),this._hasConnectedResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,n,A){n!==A&&this._attributeToProperty(e,A)}_propertyToAttribute(e,n,A=q){const t=this.constructor,r=t._attributeNameForProperty(e,A);if(void 0!==r){const e=t._propertyValueToAttribute(n,A);if(void 0===e)return;this._updateState=this._updateState|ee,null==e?this.removeAttribute(r):this.setAttribute(r,e),this._updateState=this._updateState&~ee}}_attributeToProperty(e,n){if(this._updateState&ee)return;const A=this.constructor,t=A._attributeToPropertyMap.get(e);if(void 0!==t){const e=A._classProperties.get(t)||q;this._updateState=this._updateState|ne,this[t]=A._propertyValueFromAttribute(n,e),this._updateState=this._updateState&~ne}}_requestUpdate(e,n){let A=!0;if(void 0!==e){const t=this.constructor,r=t._classProperties.get(e)||q;t._valueHasChanged(this[e],n,r.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,n),!0!==r.reflect||this._updateState&ne||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,r))):A=!1}!this._hasRequestedUpdate&&A&&this._enqueueUpdate()}requestUpdate(e,n){return this._requestUpdate(e,n),this.updateComplete}async _enqueueUpdate(){let e,n;this._updateState=this._updateState|Z;const A=this._updatePromise;this._updatePromise=new Promise((A,t)=>{e=A,n=t});try{await A}catch(e){}this._hasConnected||await new Promise(e=>this._hasConnectedResolver=e);try{const e=this.performUpdate();null!=e&&await e}catch(e){n(e)}e(!this._hasRequestedUpdate)}get _hasConnected(){return this._updateState&Ae}get _hasRequestedUpdate(){return this._updateState&Z}get hasUpdated(){return this._updateState&$}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const n=this._changedProperties;try{(e=this.shouldUpdate(n))&&this.update(n)}catch(n){throw e=!1,n}finally{this._markUpdated()}e&&(this._updateState&$||(this._updateState=this._updateState|$,this.firstUpdated(n)),this.updated(n))}_markUpdated(){this._changedProperties=new Map,this._updateState=this._updateState&~Z}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,n)=>this._propertyToAttribute(n,this[n],e)),this._reflectingProperties=void 0)}updated(e){}firstUpdated(e){}}re[te]=!0;
+const K=(e,n)=>`${e}--${n}`;let W=!0;void 0===window.ShadyCSS?W=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),W=!1);const z=e=>n=>{const A=K(n.type,e);let t=R.get(A);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},R.set(A,t));let r=t.stringsArray.get(n.strings);if(void 0!==r)return r;const a=n.strings.join(c);if(void 0===(r=t.keyString.get(a))){const A=n.getTemplateElement();W&&window.ShadyCSS.prepareTemplateDom(A,e),r=new p(n,A),t.keyString.set(a,r)}return t.stringsArray.set(n.strings,r),r},V=["html","svg"],X=new Set,Y=(e,n,A)=>{X.add(e);const t=A?A.element:document.createElement("template"),r=n.querySelectorAll("style"),{length:a}=r;if(0===a)return void window.ShadyCSS.prepareTemplateStyles(t,e);const o=document.createElement("style");for(let e=0;e<a;e++){const n=r[e];n.parentNode.removeChild(n),o.textContent+=n.textContent}(e=>{V.forEach(n=>{const A=R.get(K(n,e));void 0!==A&&A.keyString.forEach(e=>{const{element:{content:n}}=e,A=new Set;Array.from(n.querySelectorAll("style")).forEach(e=>{A.add(e)}),k(e,A)})})})(e);const i=t.content;A?function(e,n,A=null){const{element:{content:t},parts:r}=e;if(null==A)return void t.appendChild(n);const a=document.createTreeWalker(t,H,null,!1);let o=N(r),i=0,s=-1;for(;a.nextNode();){for(s++,a.currentNode===A&&(i=M(n),A.parentNode.insertBefore(n,A));-1!==o&&r[o].index===s;){if(i>0){for(;-1!==o;)r[o].index+=i,o=N(r,o);return}o=N(r,o)}}}(A,o,i.firstChild):i.insertBefore(o,i.firstChild),window.ShadyCSS.prepareTemplateStyles(t,e);const s=i.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==s)n.insertBefore(s.cloneNode(!0),n.firstChild);else if(A){i.insertBefore(o,i.firstChild);const e=new Set;e.add(o),k(A,e)}};window.JSCompiler_renameProperty=(e,n)=>e;const G={toAttribute(e,n){switch(n){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,n){switch(n){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},j=(e,n)=>n!==e&&(n==n||e==e),q={attribute:!0,type:String,converter:G,reflect:!1,hasChanged:j},J=Promise.resolve(!0),$=1,Z=4,ee=8,ne=16,Ae=32,te="finalized";class re extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=J,this._hasConnectedResolver=void 0,this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((n,A)=>{const t=this._attributeNameForProperty(A,n);void 0!==t&&(this._attributeToPropertyMap.set(t,A),e.push(t))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,n)=>this._classProperties.set(n,e))}}static createProperty(e,n=q){if(this._ensureClassProperties(),this._classProperties.set(e,n),n.noAccessor||this.prototype.hasOwnProperty(e))return;const A="symbol"==typeof e?Symbol():`__${e}`;Object.defineProperty(this.prototype,e,{get(){return this[A]},set(n){const t=this[e];this[A]=n,this._requestUpdate(e,t)},configurable:!0,enumerable:!0})}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty(te)||e.finalize(),this[te]=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,n=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const A of n)this.createProperty(A,e[A])}}static _attributeNameForProperty(e,n){const A=n.attribute;return!1===A?void 0:"string"==typeof A?A:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,n,A=j){return A(e,n)}static _propertyValueFromAttribute(e,n){const A=n.type,t=n.converter||G,r="function"==typeof t?t:t.fromAttribute;return r?r(e,A):e}static _propertyValueToAttribute(e,n){if(void 0===n.reflect)return;const A=n.type,t=n.converter;return(t&&t.toAttribute||G.toAttribute)(e,A)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,n)=>{if(this.hasOwnProperty(n)){const e=this[n];delete this[n],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(n,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,n)=>this[n]=e),this._instanceProperties=void 0}connectedCallback(){this._updateState=this._updateState|Ae,this._hasConnectedResolver&&(this._hasConnectedResolver(),this._hasConnectedResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,n,A){n!==A&&this._attributeToProperty(e,A)}_propertyToAttribute(e,n,A=q){const t=this.constructor,r=t._attributeNameForProperty(e,A);if(void 0!==r){const e=t._propertyValueToAttribute(n,A);if(void 0===e)return;this._updateState=this._updateState|ee,null==e?this.removeAttribute(r):this.setAttribute(r,e),this._updateState=this._updateState&~ee}}_attributeToProperty(e,n){if(this._updateState&ee)return;const A=this.constructor,t=A._attributeToPropertyMap.get(e);if(void 0!==t){const e=A._classProperties.get(t)||q;this._updateState=this._updateState|ne,this[t]=A._propertyValueFromAttribute(n,e),this._updateState=this._updateState&~ne}}_requestUpdate(e,n){let A=!0;if(void 0!==e){const t=this.constructor,r=t._classProperties.get(e)||q;t._valueHasChanged(this[e],n,r.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,n),!0!==r.reflect||this._updateState&ne||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,r))):A=!1}!this._hasRequestedUpdate&&A&&this._enqueueUpdate()}requestUpdate(e,n){return this._requestUpdate(e,n),this.updateComplete}async _enqueueUpdate(){let e,n;this._updateState=this._updateState|Z;const A=this._updatePromise;this._updatePromise=new Promise((A,t)=>{e=A,n=t});try{await A}catch(e){}this._hasConnected||await new Promise(e=>this._hasConnectedResolver=e);try{const e=this.performUpdate();null!=e&&await e}catch(e){n(e)}e(!this._hasRequestedUpdate)}get _hasConnected(){return this._updateState&Ae}get _hasRequestedUpdate(){return this._updateState&Z}get hasUpdated(){return this._updateState&$}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const n=this._changedProperties;try{(e=this.shouldUpdate(n))&&this.update(n)}catch(n){throw e=!1,n}finally{this._markUpdated()}e&&(this._updateState&$||(this._updateState=this._updateState|$,this.firstUpdated(n)),this.updated(n))}_markUpdated(){this._changedProperties=new Map,this._updateState=this._updateState&~Z}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,n)=>this._propertyToAttribute(n,this[n],e)),this._reflectingProperties=void 0)}updated(e){}firstUpdated(e){}}re[te]=!0;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -382,7 +382,7 @@ const ae=e=>n=>"function"==typeof n?((e,n)=>(window.customElements.define(e,n),n
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.2.1");const de=e=>e.flat?e.flat(1/0):function e(n,A=[]){for(let t=0,r=n.length;t<r;t++){const r=n[t];Array.isArray(r)?e(r,A):A.push(r)}return A}(e);class Be extends re{static finalize(){super.finalize.call(this),this._styles=this.hasOwnProperty(JSCompiler_renameProperty("styles",this))?this._getUniqueStyles():this._styles||[]}static _getUniqueStyles(){const e=this.styles,n=[];if(Array.isArray(e)){de(e).reduceRight((e,n)=>(e.add(n),e),new Set).forEach(e=>n.unshift(e))}else e&&n.push(e);return n}initialize(){super.initialize(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?_e?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){super.update(e);const n=this.render();n instanceof C&&this.constructor.render(n,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const n=document.createElement("style");n.textContent=e.cssText,this.renderRoot.appendChild(n)}))}render(){}}Be.finalized=!0,Be.render=(e,n,A)=>{if(!A||"object"!=typeof A||!A.scopeName)throw new Error("The `scopeName` option is required.");const t=A.scopeName,r=x.has(n),a=W&&11===n.nodeType&&!!n.host,o=a&&!X.has(t),s=o?document.createDocumentFragment():n;if(((e,n,A)=>{let t=x.get(n);void 0===t&&(i(n,n.firstChild),x.set(n,t=new T(Object.assign({templateFactory:L},A))),t.appendInto(n)),t.setValue(e),t.commit()})(e,s,Object.assign({templateFactory:z(t)},A)),o){const e=x.get(s);x.delete(s);const A=e.value instanceof w?e.value.template:void 0;Y(t,s,A),i(n,n.firstChild),n.appendChild(s),x.set(n,e)}!r&&a&&window.ShadyCSS.styleElement(n.host)};var pe,ge,Ee=function(e){return Object.defineProperty(e,"toString",{value:function(){return"function ResizeObserver () { [polyfill code] }"}}),e},he="undefined"==typeof window?{}:window,we=he.requestAnimationFrame,fe={attributes:!0,characterData:!0,childList:!0,subtree:!0},Ce=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Ue=new Map,be=new Map,me=function(){pe||(pe=!0,we(function(e){pe=!1;var n=[],A=[];Ue.forEach(function(e){return n.push(e)}),be.forEach(function(e){return A.push(e)}),Ue.clear(),be.clear();try{for(var t=0,r=n;t<r.length;t++){(0,r[t])(e)}}finally{for(var a=0,o=A;a<o.length;a++){(0,o[a])(e)}}}))},Qe=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var n=this;be.set(this,function(){var A=!1;try{A=Je()}finally{A?n.run(60):e?n.run(e-1):n.start()}}),me()},e.prototype.schedule=function(){this.stop(),this.run(12)},e.prototype.observe=function(){var e=this,n=function(){return e.observer&&e.observer.observe(document.body,fe)};document.body?n():he.addEventListener("DOMContentLoaded",n)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,"MutationObserver"in he&&(this.observer=new MutationObserver(this.listener),this.observe()),Ce.forEach(function(n){return he.addEventListener(n,e.listener,!0)}))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),Ce.forEach(function(n){return he.removeEventListener(n,e.listener,!0)}),this.stopped=!0)},e}()),Te=0;he.requestAnimationFrame=function(e){if("function"!=typeof e)throw new Error("requestAnimationFrame expects 1 callback argument of type function.");var n=Te+=1;return Ue.set(n,function(n){return e(n)}),me(),n},he.cancelAnimationFrame=function(e){Ue.delete(e)},Ee(he.requestAnimationFrame),Ee(he.cancelAnimationFrame),function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box"}(ge||(ge={}));var ve=function(){function e(e,n,A,t){return this.x=e,this.y=n,this.width=A,this.height=t,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,Object.freeze(this)}return e.fromRect=function(n){return new e(n.x,n.y,n.width,n.height)},e}(),Fe=function(e){return e instanceof SVGElement&&"getBBox"in e},Ie=function(e){if(Fe(e)){var n=e.getBBox(),A=n.width,t=n.height;return!A&&!t}var r=e,a=r.offsetWidth,o=r.offsetHeight;return!(a||o||e.getClientRects().length)},ye=new Map,Oe=/auto|scroll/,Pe=/^tb|vertical/,De=/msie|trident/i.test(he.navigator&&he.navigator.userAgent),Le=function(e){return parseFloat(e||"0")},Re=function(e,n,A){return void 0===e&&(e=0),void 0===n&&(n=0),void 0===A&&(A=!1),Object.freeze({inlineSize:(A?n:e)||0,blockSize:(A?e:n)||0})},xe=Object.freeze({borderBoxSize:Re(),contentBoxSize:Re(),contentRect:new ve(0,0,0,0)}),Se=function(e){if(ye.has(e))return ye.get(e);if(Ie(e))return ye.set(e,xe),xe;var n=getComputedStyle(e),A=Fe(e)&&e.getBBox(),t=!De&&"border-box"===n.boxSizing,r=Pe.test(n.writingMode||""),a=!A&&Oe.test(n.overflowY||""),o=!A&&Oe.test(n.overflowX||""),i=A?0:Le(n.paddingTop),s=A?0:Le(n.paddingRight),_=A?0:Le(n.paddingBottom),c=A?0:Le(n.paddingLeft),l=A?0:Le(n.borderTopWidth),u=A?0:Le(n.borderRightWidth),d=A?0:Le(n.borderBottomWidth),B=c+s,p=i+_,g=(A?0:Le(n.borderLeftWidth))+u,E=l+d,h=o?e.offsetHeight-E-e.clientHeight:0,w=a?e.offsetWidth-g-e.clientWidth:0,f=t?B+g:0,C=t?p+E:0,U=A?A.width:Le(n.width)-f-w,b=A?A.height:Le(n.height)-C-h,m=U+B+w+g,Q=b+p+h+E,T=Object.freeze({borderBoxSize:Re(m,Q,r),contentBoxSize:Re(U,b,r),contentRect:new ve(c,i,U,b)});return ye.set(e,T),T},He=function(e,n){var A=Se(e),t=A.borderBoxSize,r=A.contentBoxSize;return n===ge.BORDER_BOX?t:r},ke=function(){function e(e,n){this.target=e,this.observedBox=n||ge.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,n=He(this.target,this.observedBox);return e=this.target,Fe(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=n),this.lastReportedSize.inlineSize!==n.inlineSize||this.lastReportedSize.blockSize!==n.blockSize},e}(),Me=function(e,n){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=n},Ne="ResizeObserver loop completed with undelivered notifications.",Ke=function(e){var n=Se(e);this.target=e,this.contentRect=n.contentRect,this.borderBoxSize=n.borderBoxSize,this.contentBoxSize=n.contentBoxSize},We=function(e){if(Ie(e))return 1/0;for(var n=0,A=e.parentNode;A;)n+=1,A=A.parentNode;return n},ze=function(){var e=1/0,n=[];Xe.forEach(function(A){if(0!==A.activeTargets.length){var t=[];A.activeTargets.forEach(function(n){var A=new Ke(n.target),r=We(n.target);t.push(A),n.lastReportedSize=He(n.target,n.observedBox),r<e&&(e=r)}),n.push(function(){A.callback.call(A.observer,t,A.observer)}),A.activeTargets.splice(0,A.activeTargets.length)}});for(var A=0,t=n;A<t.length;A++){(0,t[A])()}return e},Ve=function(e){ye.clear(),Xe.forEach(function(n){n.activeTargets.splice(0,n.activeTargets.length),n.skippedTargets.splice(0,n.skippedTargets.length),n.observationTargets.forEach(function(A){A.isActive()&&(We(A.target)>e?n.activeTargets.push(A):n.skippedTargets.push(A))})})},Xe=[],Ye=new Map,Ge=0,je=function(e){!Ge&&e>0&&Qe.start(),!(Ge+=e)&&Qe.stop()},qe=function(e,n){for(var A=0;A<e.length;A+=1)if(e[A].target===n)return A;return-1},Je=function(){var e,n=0;for(Ve(n);Xe.some(function(e){return e.activeTargets.length>0});)n=ze(),Ve(n);return Xe.some(function(e){return e.skippedTargets.length>0})&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:Ne}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=Ne),window.dispatchEvent(e)),n>0},$e=function(){function e(){}return e.connect=function(e,n){var A=new Me(e,n);Xe.push(A),Ye.set(e,A)},e.observe=function(e,n,A){if(Ye.has(e)){var t=Ye.get(e);qe(t.observationTargets,n)<0&&(t.observationTargets.push(new ke(n,A&&A.box)),je(1),Qe.schedule())}},e.unobserve=function(e,n){if(Ye.has(e)){var A=Ye.get(e),t=qe(A.observationTargets,n);t>=0&&(A.observationTargets.splice(t,1),je(-1))}},e.disconnect=function(e){if(Ye.has(e)){var n=Ye.get(e);Xe.splice(Xe.indexOf(n),1),Ye.delete(e),je(-n.observationTargets.length)}},e}(),Ze=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");$e.connect(this,e)}return e.prototype.observe=function(e,n){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.observe(this,e,n)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.unobserve(this,e)},e.prototype.disconnect=function(){$e.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
+(window.litElementVersions||(window.litElementVersions=[])).push("2.2.1");const de=e=>e.flat?e.flat(1/0):function e(n,A=[]){for(let t=0,r=n.length;t<r;t++){const r=n[t];Array.isArray(r)?e(r,A):A.push(r)}return A}(e);class pe extends re{static finalize(){super.finalize.call(this),this._styles=this.hasOwnProperty(JSCompiler_renameProperty("styles",this))?this._getUniqueStyles():this._styles||[]}static _getUniqueStyles(){const e=this.styles,n=[];if(Array.isArray(e)){de(e).reduceRight((e,n)=>(e.add(n),e),new Set).forEach(e=>n.unshift(e))}else e&&n.push(e);return n}initialize(){super.initialize(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?_e?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){super.update(e);const n=this.render();n instanceof C&&this.constructor.render(n,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const n=document.createElement("style");n.textContent=e.cssText,this.renderRoot.appendChild(n)}))}render(){}}pe.finalized=!0,pe.render=(e,n,A)=>{if(!A||"object"!=typeof A||!A.scopeName)throw new Error("The `scopeName` option is required.");const t=A.scopeName,r=x.has(n),a=W&&11===n.nodeType&&!!n.host,o=a&&!X.has(t),s=o?document.createDocumentFragment():n;if(((e,n,A)=>{let t=x.get(n);void 0===t&&(i(n,n.firstChild),x.set(n,t=new T(Object.assign({templateFactory:L},A))),t.appendInto(n)),t.setValue(e),t.commit()})(e,s,Object.assign({templateFactory:z(t)},A)),o){const e=x.get(s);x.delete(s);const A=e.value instanceof w?e.value.template:void 0;Y(t,s,A),i(n,n.firstChild),n.appendChild(s),x.set(n,e)}!r&&a&&window.ShadyCSS.styleElement(n.host)};var Be,ge,he=function(e){return Object.defineProperty(e,"toString",{value:function(){return"function ResizeObserver () { [polyfill code] }"}}),e},Ee="undefined"==typeof window?{}:window,we=Ee.requestAnimationFrame,fe={attributes:!0,characterData:!0,childList:!0,subtree:!0},Ce=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Ue=new Map,be=new Map,me=function(){Be||(Be=!0,we(function(e){Be=!1;var n=[],A=[];Ue.forEach(function(e){return n.push(e)}),be.forEach(function(e){return A.push(e)}),Ue.clear(),be.clear();try{for(var t=0,r=n;t<r.length;t++){(0,r[t])(e)}}finally{for(var a=0,o=A;a<o.length;a++){(0,o[a])(e)}}}))},Qe=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var n=this;be.set(this,function(){var A=!1;try{A=Je()}finally{A?n.run(60):e?n.run(e-1):n.start()}}),me()},e.prototype.schedule=function(){this.stop(),this.run(12)},e.prototype.observe=function(){var e=this,n=function(){return e.observer&&e.observer.observe(document.body,fe)};document.body?n():Ee.addEventListener("DOMContentLoaded",n)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,"MutationObserver"in Ee&&(this.observer=new MutationObserver(this.listener),this.observe()),Ce.forEach(function(n){return Ee.addEventListener(n,e.listener,!0)}))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),Ce.forEach(function(n){return Ee.removeEventListener(n,e.listener,!0)}),this.stopped=!0)},e}()),Te=0;Ee.requestAnimationFrame=function(e){if("function"!=typeof e)throw new Error("requestAnimationFrame expects 1 callback argument of type function.");var n=Te+=1;return Ue.set(n,function(n){return e(n)}),me(),n},Ee.cancelAnimationFrame=function(e){Ue.delete(e)},he(Ee.requestAnimationFrame),he(Ee.cancelAnimationFrame),function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box"}(ge||(ge={}));var ve=function(){function e(e,n,A,t){return this.x=e,this.y=n,this.width=A,this.height=t,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,Object.freeze(this)}return e.fromRect=function(n){return new e(n.x,n.y,n.width,n.height)},e}(),Fe=function(e){return e instanceof SVGElement&&"getBBox"in e},ye=function(e){if(Fe(e)){var n=e.getBBox(),A=n.width,t=n.height;return!A&&!t}var r=e,a=r.offsetWidth,o=r.offsetHeight;return!(a||o||e.getClientRects().length)},Ie=new Map,Oe=/auto|scroll/,Pe=/^tb|vertical/,De=/msie|trident/i.test(Ee.navigator&&Ee.navigator.userAgent),Le=function(e){return parseFloat(e||"0")},Re=function(e,n,A){return void 0===e&&(e=0),void 0===n&&(n=0),void 0===A&&(A=!1),Object.freeze({inlineSize:(A?n:e)||0,blockSize:(A?e:n)||0})},xe=Object.freeze({borderBoxSize:Re(),contentBoxSize:Re(),contentRect:new ve(0,0,0,0)}),Se=function(e){if(Ie.has(e))return Ie.get(e);if(ye(e))return Ie.set(e,xe),xe;var n=getComputedStyle(e),A=Fe(e)&&e.getBBox(),t=!De&&"border-box"===n.boxSizing,r=Pe.test(n.writingMode||""),a=!A&&Oe.test(n.overflowY||""),o=!A&&Oe.test(n.overflowX||""),i=A?0:Le(n.paddingTop),s=A?0:Le(n.paddingRight),_=A?0:Le(n.paddingBottom),c=A?0:Le(n.paddingLeft),l=A?0:Le(n.borderTopWidth),u=A?0:Le(n.borderRightWidth),d=A?0:Le(n.borderBottomWidth),p=c+s,B=i+_,g=(A?0:Le(n.borderLeftWidth))+u,h=l+d,E=o?e.offsetHeight-h-e.clientHeight:0,w=a?e.offsetWidth-g-e.clientWidth:0,f=t?p+g:0,C=t?B+h:0,U=A?A.width:Le(n.width)-f-w,b=A?A.height:Le(n.height)-C-E,m=U+p+w+g,Q=b+B+E+h,T=Object.freeze({borderBoxSize:Re(m,Q,r),contentBoxSize:Re(U,b,r),contentRect:new ve(c,i,U,b)});return Ie.set(e,T),T},He=function(e,n){var A=Se(e),t=A.borderBoxSize,r=A.contentBoxSize;return n===ge.BORDER_BOX?t:r},ke=function(){function e(e,n){this.target=e,this.observedBox=n||ge.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,n=He(this.target,this.observedBox);return e=this.target,Fe(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=n),this.lastReportedSize.inlineSize!==n.inlineSize||this.lastReportedSize.blockSize!==n.blockSize},e}(),Me=function(e,n){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=n},Ne="ResizeObserver loop completed with undelivered notifications.",Ke=function(e){var n=Se(e);this.target=e,this.contentRect=n.contentRect,this.borderBoxSize=n.borderBoxSize,this.contentBoxSize=n.contentBoxSize},We=function(e){if(ye(e))return 1/0;for(var n=0,A=e.parentNode;A;)n+=1,A=A.parentNode;return n},ze=function(){var e=1/0,n=[];Xe.forEach(function(A){if(0!==A.activeTargets.length){var t=[];A.activeTargets.forEach(function(n){var A=new Ke(n.target),r=We(n.target);t.push(A),n.lastReportedSize=He(n.target,n.observedBox),r<e&&(e=r)}),n.push(function(){A.callback.call(A.observer,t,A.observer)}),A.activeTargets.splice(0,A.activeTargets.length)}});for(var A=0,t=n;A<t.length;A++){(0,t[A])()}return e},Ve=function(e){Ie.clear(),Xe.forEach(function(n){n.activeTargets.splice(0,n.activeTargets.length),n.skippedTargets.splice(0,n.skippedTargets.length),n.observationTargets.forEach(function(A){A.isActive()&&(We(A.target)>e?n.activeTargets.push(A):n.skippedTargets.push(A))})})},Xe=[],Ye=new Map,Ge=0,je=function(e){!Ge&&e>0&&Qe.start(),!(Ge+=e)&&Qe.stop()},qe=function(e,n){for(var A=0;A<e.length;A+=1)if(e[A].target===n)return A;return-1},Je=function(){var e,n=0;for(Ve(n);Xe.some(function(e){return e.activeTargets.length>0});)n=ze(),Ve(n);return Xe.some(function(e){return e.skippedTargets.length>0})&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:Ne}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=Ne),window.dispatchEvent(e)),n>0},$e=function(){function e(){}return e.connect=function(e,n){var A=new Me(e,n);Xe.push(A),Ye.set(e,A)},e.observe=function(e,n,A){if(Ye.has(e)){var t=Ye.get(e);qe(t.observationTargets,n)<0&&(t.observationTargets.push(new ke(n,A&&A.box)),je(1),Qe.schedule())}},e.unobserve=function(e,n){if(Ye.has(e)){var A=Ye.get(e),t=qe(A.observationTargets,n);t>=0&&(A.observationTargets.splice(t,1),je(-1))}},e.disconnect=function(e){if(Ye.has(e)){var n=Ye.get(e);Xe.splice(Xe.indexOf(n),1),Ye.delete(e),je(-n.observationTargets.length)}},e}(),Ze=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");$e.connect(this,e)}return e.prototype.observe=function(e,n){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.observe(this,e,n)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(e instanceof Element==!1)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");$e.unobserve(this,e)},e.prototype.disconnect=function(){$e.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
 /**
  * @license
  * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
@@ -396,18 +396,18 @@ const ae=e=>n=>"function"==typeof n?((e,n)=>(window.customElements.define(e,n),n
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!==n.committer.name||n.committer.parts.length>1)throw new Error("The `styleMap` directive must be used in the style attribute and must be the only part in the attribute.");const{committer:A}=n,{style:t}=A.element;en.has(n)||(t.cssText=A.strings.join(" "));const r=en.get(n);for(const n in r)n in e||(-1===n.indexOf("-")?t[n]=null:t.removeProperty(n));for(const n in e)-1===n.indexOf("-")?t[n]=e[n]:t.setProperty(n,e[n]);en.set(n,e)}),An=new WeakMap,tn=r(e=>n=>{if(!(n instanceof T))throw new Error("unsafeHTML can only be used in text bindings");const A=An.get(n);if(void 0!==A&&U(e)&&e===A.value&&n.value===A.fragment)return;const t=document.createElement("template");t.innerHTML=e;const r=document.importNode(t.content,!0);n.setValue(r),An.set(n,{value:e,fragment:r})}),rn=250,an=375,on=500,sn=720,_n=1024,cn=256,ln=512,un=720,dn=1024,Bn=256,pn=512;A(5);const gn=ue`
+const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!==n.committer.name||n.committer.parts.length>1)throw new Error("The `styleMap` directive must be used in the style attribute and must be the only part in the attribute.");const{committer:A}=n,{style:t}=A.element;en.has(n)||(t.cssText=A.strings.join(" "));const r=en.get(n);for(const n in r)n in e||(-1===n.indexOf("-")?t[n]=null:t.removeProperty(n));for(const n in e)-1===n.indexOf("-")?t[n]=e[n]:t.setProperty(n,e[n]);en.set(n,e)}),An=new WeakMap,tn=r(e=>n=>{if(!(n instanceof T))throw new Error("unsafeHTML can only be used in text bindings");const A=An.get(n);if(void 0!==A&&U(e)&&e===A.value&&n.value===A.fragment)return;const t=document.createElement("template");t.innerHTML=e;const r=document.importNode(t.content,!0);n.setValue(r),An.set(n,{value:e,fragment:r})}),rn=250,an=375,on=500,sn=720,_n=1024,cn=256,ln=512,un=720,dn=1024,pn=256,Bn=512;A(5);const gn=ue`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,En=ue`
+`,hn=ue`
   font-family: 'Open Sans', sans-serif;
-`,hn=ue`white`,wn=(ue`black`,ue`#f9f9f9`),fn=(ue`#f1f1f1`,ue`
+`,En=ue`white`,wn=(ue`black`,ue`#f9f9f9`),fn=(ue`#f1f1f1`,ue`
   ${gn}
   font-weight: 700;
-  line-height: 1;
+  line-height: 0.8;
   text-align: center;
-  color: ${hn};
-`);var Cn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},Un=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const bn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],mn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Qn=class extends Be{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>ue`
+  color: ${En};
+`);var Cn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},Un=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const bn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],mn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Qn=class extends pe{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>ue`
   :host {
     display: flex;
   }
@@ -435,7 +435,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .card__loading::before {
-    content: "";
+    content: '';
     background: ${wn};
     width: 60%;
     padding-bottom: 60%;
@@ -443,7 +443,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 
   .card__loading__img {
@@ -480,6 +480,15 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     transform: translate(-50%, 15%);
   }
 
+  .card__tribeBarLayer {
+    position: absolute;
+    bottom: 1%;
+    left: 29.5%;
+    width: 48.5%;
+  }
+
+  /* Text layers */
+
   .card__manaText {
     ${fn}
     position: absolute;
@@ -490,7 +499,6 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     white-space: nowrap;
     display: flex;
     ${fn}
-    line-height: 0.78;
   }
 
   .card__nameText__inner {
@@ -506,7 +514,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .card__descriptionText__inner {
-    ${En}
+    ${hn}
     margin: auto;
   }
 
@@ -519,14 +527,25 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     position: absolute;
     ${fn}
   }
-`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return S`
+
+  .card__tribeText {
+    position: absolute;
+    text-transform: capitalize;
+    display: flex;
+    ${fn}
+  }
+
+  .card__tribeText__inner {
+    margin: auto;
+  }
+`)()}connectedCallback(){super.connectedCallback(),mn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),mn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return S`
       <div class="card__innerRatioConstrainer">
         ${this.loading?(()=>S`
   <div class="card__loading">
-    <img 
-      class="card__loading__img" 
-      src="${A(4)}" 
-      alt="immutable loading spinner" 
+    <img
+      class="card__loading__img"
+      src="${A(4)}"
+      alt="immutable loading spinner"
     />
   </div>
 `)():S`
@@ -619,7 +638,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         class="card__manaLayer__img"
       />
     </picture>
-  `)({type:this.protoCardData.type,qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes}):(({responsiveSrcsetSizes:e=`${cn}px`,type:n,qualityName:A,rarity:t,god:r,set:a})=>S`
+  `)({type:this.protoCardData.type,qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes}):(({responsiveSrcsetSizes:e=`${cn}px`,type:n,qualityName:A,rarity:t,god:r,set:a,tribe:o})=>S`
     <picture class="card__baseLayer">
       <source
         srcset="
@@ -681,21 +700,21 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           <picture class="card__rarityLayer">
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${cn}/rarity_${t}.webp ${cn}w,
-              https://images.godsunchained.com/card-layers/layers/${ln}/rarity_${t}.webp ${ln}w,
-              https://images.godsunchained.com/card-layers/layers/${un}/rarity_${t}.webp ${un}w,
-              https://images.godsunchained.com/card-layers/layers/${dn}/rarity_${t}.webp ${dn}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${cn}/rarity_${t}.webp ${cn}w,
+                https://images.godsunchained.com/card-layers/layers/${ln}/rarity_${t}.webp ${ln}w,
+                https://images.godsunchained.com/card-layers/layers/${un}/rarity_${t}.webp ${un}w,
+                https://images.godsunchained.com/card-layers/layers/${dn}/rarity_${t}.webp ${dn}w
+              "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${cn}/rarity_${t}.png ${cn}w,
-              https://images.godsunchained.com/card-layers/layers/${ln}/rarity_${t}.png ${ln}w,
-              https://images.godsunchained.com/card-layers/layers/${un}/rarity_${t}.png ${un}w,
-              https://images.godsunchained.com/card-layers/layers/${dn}/rarity_${t}.png ${dn}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${cn}/rarity_${t}.png ${cn}w,
+                https://images.godsunchained.com/card-layers/layers/${ln}/rarity_${t}.png ${ln}w,
+                https://images.godsunchained.com/card-layers/layers/${un}/rarity_${t}.png ${un}w,
+                https://images.godsunchained.com/card-layers/layers/${dn}/rarity_${t}.png ${dn}w
+              "
               sizes="${e}"
               type="image/png"
             />
@@ -710,22 +729,22 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           <picture class="card__wreathLayer">
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${cn}/wreath_${A}.webp ${cn}w,
-              https://images.godsunchained.com/card-layers/layers/${ln}/wreath_${A}.webp ${ln}w,
-              https://images.godsunchained.com/card-layers/layers/${un}/wreath_${A}.webp ${un}w,
-              https://images.godsunchained.com/card-layers/layers/${dn}/wreath_${A}.webp ${dn}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${cn}/wreath_${A}.webp ${cn}w,
+                https://images.godsunchained.com/card-layers/layers/${ln}/wreath_${A}.webp ${ln}w,
+                https://images.godsunchained.com/card-layers/layers/${un}/wreath_${A}.webp ${un}w,
+                https://images.godsunchained.com/card-layers/layers/${dn}/wreath_${A}.webp ${dn}w
+              "
               sizes="${e}"
               type="image/webp"
             />
 
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/layers/${cn}/wreath_${A}.png ${cn}w,
-              https://images.godsunchained.com/card-layers/layers/${ln}/wreath_${A}.png ${ln}w,
-              https://images.godsunchained.com/card-layers/layers/${un}/wreath_${A}.png ${un}w,
-              https://images.godsunchained.com/card-layers/layers/${dn}/wreath_${A}.png ${dn}w
-            "
+                https://images.godsunchained.com/card-layers/layers/${cn}/wreath_${A}.png ${cn}w,
+                https://images.godsunchained.com/card-layers/layers/${ln}/wreath_${A}.png ${ln}w,
+                https://images.godsunchained.com/card-layers/layers/${un}/wreath_${A}.png ${un}w,
+                https://images.godsunchained.com/card-layers/layers/${dn}/wreath_${A}.png ${dn}w
+              "
               sizes="${e}"
               type="image/png"
             />
@@ -740,17 +759,17 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
           <picture class="card__lockIconLayer">
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/locks/${Bn}/lock_${A}.webp ${Bn}w,
-              https://images.godsunchained.com/card-layers/locks/${pn}/lock_${A}.webp ${pn}w,
-            "
+                https://images.godsunchained.com/card-layers/locks/${pn}/lock_${A}.webp ${pn}w,
+                https://images.godsunchained.com/card-layers/locks/${Bn}/lock_${A}.webp ${Bn}w,
+              "
               type="image/webp"
             />
 
             <source
               srcset="
-              https://images.godsunchained.com/card-layers/locks/${Bn}/lock_${A}.png ${Bn}w,
-              https://images.godsunchained.com/card-layers/locks/${pn}/lock_${A}.png ${pn}w,
-            "
+                https://images.godsunchained.com/card-layers/locks/${pn}/lock_${A}.png ${pn}w,
+                https://images.godsunchained.com/card-layers/locks/${Bn}/lock_${A}.png ${Bn}w,
+              "
               type="image/png"
             />
 
@@ -761,15 +780,45 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
             />
           </picture>
         `:null}
+    ${o?S`
+          <picture class="card__tribeBarLayer">
+            <source
+              srcset="
+                https://images.godsunchained.com/card-layers/layers/${cn}/tribebar_${A}.webp ${cn}w,
+                https://images.godsunchained.com/card-layers/layers/${ln}/tribebar_${A}.webp ${ln}w,
+                https://images.godsunchained.com/card-layers/layers/${un}/tribebar_${A}.webp ${un}w,
+                https://images.godsunchained.com/card-layers/layers/${dn}/tribebar_${A}.webp ${dn}w
+              "
+              sizes="${e}"
+              type="image/webp"
+            />
+            <source
+              srcset="
+                https://images.godsunchained.com/card-layers/layers/${cn}/tribebar_${A}.png ${cn}w,
+                https://images.godsunchained.com/card-layers/layers/${ln}/tribebar_${A}.png ${ln}w,
+                https://images.godsunchained.com/card-layers/layers/${un}/tribebar_${A}.png ${un}w,
+                https://images.godsunchained.com/card-layers/layers/${dn}/tribebar_${A}.png ${dn}w
+              "
+              sizes="${e}"
+              type="image/png"
+            />
+
+            <img
+              crossorigin="Anonymous"
+              srcset="https://images.godsunchained.com/card-layers/layers/${dn}/tribebar_${t}.png"
+              class="card__tribeBarLayer__img"
+            />
+          </picture>
+        `:null}
   `)(Object.assign({qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData))}
-              ${(({type:e="",name:n="⃠",effect:A="⃠",mana:t="⃠",attack:r="⃠",health:a="⃠",ch:o=0,cw:i=0})=>{const s=RegExp(/creature|weapon/).test(e),_=n.split("").length>=20,c=A.split("").length;let l=3.8*o,u=1.3,d="normal";c>=150?(l=3.1*o,u=1.05,d="extraSquishy"):c>=95&&(l=3.4*o,u=1.1,d="squishy");const B=Math.floor(.2*o),p=`${0===B?1:B}px`,g="rgba(0,0,0,0.35)",E=`-${p} -${p} ${p} ${g}, ${p} -${p} ${p} ${g}, -${p} ${p} ${p} ${g}, ${p} ${p} ${p} ${g}`,h=A.replace(/ ([^ ]*)$/,"&nbsp;$1"),w=nn({fontSize:`${10.5*o}px`,top:`${5.5*o}px`,left:`${9.5*i}px`,width:`${19*i}px`,textShadow:E}),f=nn({fontSize:`${_?3.9*o:4.93*o}px`,bottom:`${32.85*o}px`,height:`${8.65*o}px`,left:`${13.25*i}px`,right:`${5.3*i}px`,textShadow:E}),C=nn({fontSize:`${l}px`,lineHeight:u,bottom:`${7.8*o}px`,height:`${23*o}px`,left:`${21*i}px`,right:`${13*i}px`}),U=nn({fontSize:`${9.5*o}px`,bottom:`${3.5*o}px`,width:`${15*i}px`,left:`${10.5*i}px`,textShadow:E}),b=nn({fontSize:`${9.5*o}px`,width:`${16*i}px`,bottom:`${3.7*o}px`,right:`${2.5*i}px`,textShadow:E});return S`
-    <div class="card__manaText" style=${w}>
+              ${(({type:e="",name:n="⃠",effect:A="⃠",mana:t="⃠",attack:r="⃠",health:a="⃠",tribe:o="",ch:i=0,cw:s=0})=>{const _=RegExp(/creature|weapon/).test(e),c=n.split("").length>=20,l=A.split("").length;let u=3.8*i,d=1.3,p="normal";l>=150?(u=3.1*i,d=1.05,p="extraSquishy"):l>=95&&(u=3.4*i,d=1.1,p="squishy");const B=Math.floor(.2*i),g=`${0===B?1:B}px`,h="rgba(0,0,0,0.35)",E=`-${g} -${g} ${g} ${h}, ${g} -${g} ${g} ${h}, -${g} ${g} ${g} ${h}, ${g} ${g} ${g} ${h}`,w=A.replace(/ ([^ ]*)$/,"&nbsp;$1"),f=nn({fontSize:`${10.5*i}px`,top:`${6.85*i}px`,left:`${9.5*s}px`,width:`${19*s}px`,textShadow:E}),C=nn({fontSize:`${c?3.9*i:4.93*i}px`,bottom:`${32.85*i}px`,height:`${9.15*i}px`,left:`${13.25*s}px`,right:`${5.3*s}px`,textShadow:E}),U=nn(o?{fontSize:`${u}px`,lineHeight:d,bottom:`${8.6*i}px`,height:`${22.2*i}px`,left:`${21*s}px`,right:`${13*s}px`}:{fontSize:`${u}px`,lineHeight:d,bottom:`${7.3*i}px`,height:`${23*i}px`,left:`${21*s}px`,right:`${13*s}px`}),b=nn({fontSize:`${9.5*i}px`,bottom:`${4.5*i}px`,width:`${15*s}px`,left:`${10.5*s}px`,textShadow:E}),m=nn({fontSize:`${9.5*i}px`,width:`${16*s}px`,bottom:`${4.6*i}px`,right:`${2.5*s}px`,textShadow:E}),Q=nn({fontSize:`${3.2*i}px`,bottom:`${3.1*i}px`,height:`${4.75*i}px`,left:`${30.5*s}px`,right:`${23*s}px`,textShadow:E});return S`
+    <div class="card__manaText" style=${f}>
       ${t}
     </div>
 
     <div
-      class="card__nameText ${_?"card__nameText--crammed":""}"
-      style=${f}
+      class="card__nameText ${c?"card__nameText--crammed":""}"
+      style=${C}
     >
       <div class="card__nameText__inner">
         ${n}
@@ -777,30 +826,37 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     </div>
 
     <div
-      class="card__descriptionText ${d}"
-      style=${C}
+      class="card__descriptionText ${p}"
+      style=${U}
     >
       <div class="card__descriptionText__inner">
-        ${tn(h)}
+        ${tn(w)}
       </div>
     </div>
 
-    ${s?S`
-        <div class="card__attackText" style=${U}>
-          ${r}
-        </div>
+    ${_?S`
+          <div class="card__attackText" style=${b}>
+            ${r}
+          </div>
 
-        <div class="card__healthText" style=${b}>
-          ${a}
-        </div>
-      `:null}
+          <div class="card__healthText" style=${m}>
+            ${a}
+          </div>
+        `:null}
+    ${o?S`
+          <div class="card__tribeText" style=${Q}>
+            <div class="card__tribeText__inner">
+              ${o}
+            </div>
+          </div>
+        `:null}
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData))}
             `}
       </div>
-    `}};Cn([se({type:Number})],Qn.prototype,"protoId",void 0),Cn([se({type:Number})],Qn.prototype,"quality",void 0),Cn([se({type:Object})],Qn.prototype,"inputProtoData",void 0),Cn([se({type:String})],Qn.prototype,"responsiveSrcsetSizes",void 0),Qn=Cn([ae("composited-card")],Qn);var Tn=A(2),vn=A.n(Tn),Fn=A(3);const In=ue`
+    `}};Cn([se({type:Number})],Qn.prototype,"protoId",void 0),Cn([se({type:Number})],Qn.prototype,"quality",void 0),Cn([se({type:Object})],Qn.prototype,"inputProtoData",void 0),Cn([se({type:String})],Qn.prototype,"responsiveSrcsetSizes",void 0),Qn=Cn([ae("composited-card")],Qn);var Tn=A(2),vn=A.n(Tn),Fn=A(3);const yn=ue`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,yn=ue`
+`,In=ue`
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
 `,On=ue`black`,Pn=ue`white`,Dn=ue`#f9f9f9`,Ln=(ue`#f1f1f1`,ue`65px`),Rn=ue`100px`,xn=ue`#282828`,Sn=ue`#333`,Hn=ue`rgba(255,255,255,0.15)`,kn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Mn=(e=0)=>ue`
@@ -816,7 +872,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   background: ${kn[e]};
   cursor: pointer;
   -webkit-appearance: none;
-`;var Kn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Wn=class extends Be{constructor(){super(),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=1,this.currentQualityInWords=bn[1];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");null!==n&&(this.currentProtoId=parseInt(n,10)),null!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=bn[this.currentQuality])}static get styles(){return(()=>ue`
+`;var Kn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Wn=class extends pe{constructor(){super(),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=1,this.currentQualityInWords=bn[1];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");null!==n&&(this.currentProtoId=parseInt(n,10)),null!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=bn[this.currentQuality])}static get styles(){return(()=>ue`
   @keyframes floatCard {
     from {
       transform: translateY(2%);
@@ -827,7 +883,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   *,
-  *:before, 
+  *:before,
   *:after {
     box-sizing: border-box;
   }
@@ -839,12 +895,13 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     min-width: 640px;
     height: 100%;
     min-height: 760px;
-    ${yn}
+    ${In}
   }
 
   .appHeader {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     z-index: 1;
     width: 100%;
     height: ${Ln};
@@ -869,7 +926,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .appHeader__title {
-    ${yn}
+    ${In}
     font-weight: 300;
     font-size: 20px;
     line-height: 1;
@@ -890,10 +947,11 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .appContainer::before {
-    content: "";
+    content: '';
     position: absolute;
-    bottom: 0; 
-    left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 50vh;
     background: ${Sn};
   }
@@ -916,7 +974,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .appContainer__controls__title {
-    ${In}
+    ${yn}
     font-size: 18px;
     text-transform: uppercase;
     color: ${Pn};
@@ -925,13 +983,9 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
-    text-shadow: 
-      0 1px 0 ${Sn}, 
-      1px 0 0 ${Sn}, 
-      1px 1px 0 ${Sn}, 
-      -1px 0 0 ${Sn},
-      -1px -1px 0${Sn},  
-      0 -1px 0 ${Sn};
+    text-shadow: 0 1px 0 ${Sn}, 1px 0 0 ${Sn},
+      1px 1px 0 ${Sn}, -1px 0 0 ${Sn},
+      -1px -1px 0 ${Sn}, 0 -1px 0 ${Sn};
   }
 
   .appContainer__fab {
@@ -1000,34 +1054,35 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   }
 
   .appContainer__cardVisualisation__shadow::before {
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
     filter: blur(30px);
   }
 
   .appContainer__cardVisualisation__shadow::after {
-    content: "";
+    content: '';
     width: 80%;
     height: 30px;
     margin: auto;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
     filter: blur(7px);
   }
 
   .appContainer__cardVisualisation__card {
-    animation: 3s floatCard infinite alternate ease-in-out;
+    animation: 3s floatCard2 infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
   }
 
   .appContainer__dummyCardContainer {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -1058,10 +1113,10 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
   .appContainer__controls__panel {
     display: flex;
     flex-direction: column;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
   }
 
-  .appContainer__controls__panel__input { 
+  .appContainer__controls__panel__input {
     background: transparent;
     border: 2px solid ${Hn};
     padding: 8px 10px;
@@ -1076,7 +1131,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     width: 30vw;
   }
 
-  .appContainer__controls__panel__label { 
+  .appContainer__controls__panel__label {
     font-size: 14px;
     line-height: 1.1;
     margin-bottom: 8px;
@@ -1086,36 +1141,36 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
     font-weight: 700;
   }
 
-  .quality--plain { 
-    color: ${kn[1]}
+  .quality--plain {
+    color: ${kn[1]};
   }
 
   .quality--bronze {
-    color: ${kn[2]}
+    color: ${kn[2]};
   }
 
   .quality--iron {
-    color: ${kn[3]}
+    color: ${kn[3]};
   }
 
   .quality--meteorite {
-    color: ${kn[4]}
+    color: ${kn[4]};
   }
 
   .quality--shadow {
-    color: ${kn[5]}
+    color: ${kn[5]};
   }
 
   .quality--gold {
-    color: ${kn[6]}
+    color: ${kn[6]};
   }
 
   .quality--diamond {
-    color: ${kn[7]}
+    color: ${kn[7]};
   }
 
   .quality--mythic {
-    color: ${kn[8]}
+    color: ${kn[8]};
   }
 
   .appContainer__controls__panel__rangeSlider {
@@ -1325,4 +1380,4 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof I||"style"!=
         </div>
       </main>
     `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
-//# sourceMappingURL=bundle.089180e9d85acad0e681.js.map
+//# sourceMappingURL=bundle.68445d2b2a7eae5a1dda.js.map
