@@ -17,7 +17,7 @@ const offWhiteDark = css`#f1f1f1`;
 const boldOutlinedText = css`
   ${headingText}
   font-weight: 700;
-  line-height: 1;
+  line-height: 0.8;
   text-align: center;
   color: ${white};
 `;
@@ -95,6 +95,15 @@ export const getStyles = () => css`
     transform: translate(-50%, 15%);
   }
 
+  .card__tribeBarLayer {
+    position: absolute;
+    bottom: 1%;
+    left: 29.5%;
+    width: 48.5%;
+  }
+
+  /* Text layers */
+
   .card__manaText {
     ${boldOutlinedText}
     position: absolute;
@@ -105,7 +114,6 @@ export const getStyles = () => css`
     white-space: nowrap;
     display: flex;
     ${boldOutlinedText}
-    line-height: 0.8;
   }
 
   .card__nameText__inner {
@@ -138,8 +146,8 @@ export const getStyles = () => css`
   .card__tribeText {
     position: absolute;
     text-transform: capitalize;
-    ${boldOutlinedText}
     display: flex;
+    ${boldOutlinedText}
   }
 
   .card__tribeText__inner {
