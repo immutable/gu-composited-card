@@ -181,7 +181,7 @@ export class CompositedCard extends LitElement {
         god,
         mana,
         set,
-        tribe,
+        tribe: tribe.String,
       };
       this.loading = false;
       this.requestUpdate();

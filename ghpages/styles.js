@@ -59,7 +59,7 @@ export const getStyles = () => css`
   }
 
   *,
-  *:before, 
+  *:before,
   *:after {
     box-sizing: border-box;
   }
@@ -76,7 +76,8 @@ export const getStyles = () => css`
 
   .appHeader {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     z-index: 1;
     width: 100%;
     height: ${headerHeight};
@@ -122,10 +123,11 @@ export const getStyles = () => css`
   }
 
   .appContainer::before {
-    content: "";
+    content: '';
     position: absolute;
-    bottom: 0; 
-    left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 50vh;
     background: ${offBlackLight};
   }
@@ -157,13 +159,9 @@ export const getStyles = () => css`
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
-    text-shadow: 
-      0 1px 0 ${offBlackLight}, 
-      1px 0 0 ${offBlackLight}, 
-      1px 1px 0 ${offBlackLight}, 
-      -1px 0 0 ${offBlackLight},
-      -1px -1px 0${offBlackLight},  
-      0 -1px 0 ${offBlackLight};
+    text-shadow: 0 1px 0 ${offBlackLight}, 1px 0 0 ${offBlackLight},
+      1px 1px 0 ${offBlackLight}, -1px 0 0 ${offBlackLight},
+      -1px -1px 0 ${offBlackLight}, 0 -1px 0 ${offBlackLight};
   }
 
   .appContainer__fab {
@@ -232,34 +230,35 @@ export const getStyles = () => css`
   }
 
   .appContainer__cardVisualisation__shadow::before {
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
     filter: blur(30px);
   }
 
   .appContainer__cardVisualisation__shadow::after {
-    content: "";
+    content: '';
     width: 80%;
     height: 30px;
     margin: auto;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
     filter: blur(7px);
   }
 
   .appContainer__cardVisualisation__card {
-    animation: 3s floatCard infinite alternate ease-in-out;
+    animation: 3s floatCard2 infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
   }
 
   .appContainer__dummyCardContainer {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -290,10 +289,10 @@ export const getStyles = () => css`
   .appContainer__controls__panel {
     display: flex;
     flex-direction: column;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
   }
 
-  .appContainer__controls__panel__input { 
+  .appContainer__controls__panel__input {
     background: transparent;
     border: 2px solid ${offWhiteTransparent};
     padding: 8px 10px;
@@ -308,7 +307,7 @@ export const getStyles = () => css`
     width: 30vw;
   }
 
-  .appContainer__controls__panel__label { 
+  .appContainer__controls__panel__label {
     font-size: 14px;
     line-height: 1.1;
     margin-bottom: 8px;
@@ -318,36 +317,36 @@ export const getStyles = () => css`
     font-weight: 700;
   }
 
-  .quality--plain { 
-    color: ${qualityColors[1]}
+  .quality--plain {
+    color: ${qualityColors[1]};
   }
 
   .quality--bronze {
-    color: ${qualityColors[2]}
+    color: ${qualityColors[2]};
   }
 
   .quality--iron {
-    color: ${qualityColors[3]}
+    color: ${qualityColors[3]};
   }
 
   .quality--meteorite {
-    color: ${qualityColors[4]}
+    color: ${qualityColors[4]};
   }
 
   .quality--shadow {
-    color: ${qualityColors[5]}
+    color: ${qualityColors[5]};
   }
 
   .quality--gold {
-    color: ${qualityColors[6]}
+    color: ${qualityColors[6]};
   }
 
   .quality--diamond {
-    color: ${qualityColors[7]}
+    color: ${qualityColors[7]};
   }
 
   .quality--mythic {
-    color: ${qualityColors[8]}
+    color: ${qualityColors[8]};
   }
 
   .appContainer__controls__panel__rangeSlider {
@@ -462,4 +461,3 @@ export const getStyles = () => css`
     ${sliderThumb(8)}
   }
 `;
-

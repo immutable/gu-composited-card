@@ -50,7 +50,7 @@ export const getStyles = () => css`
   }
 
   .card__loading::before {
-    content: "";
+    content: '';
     background: ${offWhiteLight};
     width: 60%;
     padding-bottom: 60%;
@@ -58,7 +58,7 @@ export const getStyles = () => css`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 
   .card__loading__img {
@@ -105,7 +105,7 @@ export const getStyles = () => css`
     white-space: nowrap;
     display: flex;
     ${boldOutlinedText}
-    line-height: 0.78;
+    line-height: 0.8;
   }
 
   .card__nameText__inner {
@@ -133,5 +133,16 @@ export const getStyles = () => css`
   .card__healthText {
     position: absolute;
     ${boldOutlinedText}
+  }
+
+  .card__tribeText {
+    position: absolute;
+    text-transform: capitalize;
+    ${boldOutlinedText}
+    display: flex;
+  }
+
+  .card__tribeText__inner {
+    margin: auto;
   }
 `;

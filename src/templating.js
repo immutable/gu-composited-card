@@ -24,10 +24,10 @@ const lockQualities = {
 
 export const loadingTemplate = () => html`
   <div class="card__loading">
-    <img 
-      class="card__loading__img" 
-      src="${require('./assets/loading.png')}" 
-      alt="immutable loading spinner" 
+    <img
+      class="card__loading__img"
+      src="${require('./assets/loading.png')}"
+      alt="immutable loading spinner"
     />
   </div>
 `;
@@ -300,6 +300,7 @@ export const textLayersTemplate = ({
   mana = '⃠',
   attack = '⃠',
   health = '⃠',
+  tribe = '',
   ch = 0,
   cw = 0,
 }) => {
@@ -334,7 +335,7 @@ export const textLayersTemplate = ({
   const nameTextStyles = styleMap({
     fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
     bottom: `${ch * 32.85}px`,
-    height: `${ch * 8.65}px`,
+    height: `${ch * 9.15}px`,
     left: `${cw * 13.25}px`,
     right: `${cw * 5.3}px`,
     textShadow,
@@ -361,6 +362,14 @@ export const textLayersTemplate = ({
     right: `${cw * 2.5}px`,
     textShadow,
   });
+  const tribeTextStyles = styleMap({
+    fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
+    bottom: `${ch * 2}px`,
+    height: `${ch * 8}px`,
+    left: `${cw * 14}px`,
+    right: `${cw * 6}px`,
+    textShadow,
+  });
 
   return html`
     <div class="card__manaText" style=${manaTextStyles}>
@@ -369,8 +378,8 @@ export const textLayersTemplate = ({
 
     <div
       class="card__nameText ${nameCrammedTextMode
-      ? 'card__nameText--crammed'
-      : ''}"
+        ? 'card__nameText--crammed'
+        : ''}"
       style=${nameTextStyles}
     >
       <div class="card__nameText__inner">
@@ -389,14 +398,20 @@ export const textLayersTemplate = ({
 
     ${isACreatureOrWeapon
       ? html`
-        <div class="card__attackText" style=${attackTextStyles}>
-          ${attack}
-        </div>
+          <div class="card__attackText" style=${attackTextStyles}>
+            ${attack}
+          </div>
 
-        <div class="card__healthText" style=${healthTextStyles}>
-          ${health}
-        </div>
-      `
+          <div class="card__healthText" style=${healthTextStyles}>
+            ${health}
+          </div>
+        `
       : null}
+
+    <div class="card__tribeText" style=${tribeTextStyles}>
+      <div class="card__tribeText__inner">
+        ${tribe}
+      </div>
+    </div>
   `;
 };
