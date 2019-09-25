@@ -1074,7 +1074,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   }
 
   .appContainer__cardVisualisation__card {
-    animation: 3s floatCard2 infinite alternate ease-in-out;
+    animation: 3s floatCard infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
   }
@@ -1380,4 +1380,4 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
         </div>
       </main>
     `}};Kn([se()],Wn.prototype,"currentProtoId",void 0),Kn([se()],Wn.prototype,"currentQuality",void 0),Kn([se()],Wn.prototype,"currentQualityInWords",void 0),Wn=Kn([ae("demo-app")],Wn);A(12)}]);
-//# sourceMappingURL=bundle.68445d2b2a7eae5a1dda.js.map
+//# sourceMappingURL=bundle.b58eca83a6160fb29c5d.js.map
