@@ -386,7 +386,7 @@ export const textLayersTemplate = ({
         fontSize: `${effectTextSize}px`,
         lineHeight: effectLineHeight,
         bottom: `${ch * 7.3}px`,
-        height: `${ch * 23}px`,
+        height: `${ch * 23.4}px`,
         left: `${cw * 21}px`,
         right: `${cw * 13}px`,
       });
