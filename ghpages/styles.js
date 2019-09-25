@@ -250,7 +250,7 @@ export const getStyles = () => css`
   }
 
   .appContainer__cardVisualisation__card {
-    animation: 3s floatCard2 infinite alternate ease-in-out;
+    animation: 3s floatCard infinite alternate ease-in-out;
     position: relative;
     z-index: 1;
   }
