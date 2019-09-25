@@ -360,7 +360,7 @@ export const textLayersTemplate = ({
   const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
   const manaTextStyles = styleMap({
     fontSize: `${ch * 10.5}px`,
-    top: `${ch * 6.5}px`,
+    top: `${ch * 6.85}px`,
     left: `${cw * 9.5}px`,
     width: `${cw * 19}px`,
     textShadow,
