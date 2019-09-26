@@ -375,21 +375,21 @@ export const textLayersTemplate = ({
   });
   const descriptionTextStyles = !!tribe
     ? styleMap({
-        fontSize: `${effectTextSize}px`,
-        lineHeight: effectLineHeight,
-        bottom: `${ch * 8.6}px`,
-        height: `${ch * 22.2}px`,
-        left: `${cw * 21}px`,
-        right: `${cw * 13}px`,
-      })
+      fontSize: `${effectTextSize}px`,
+      lineHeight: effectLineHeight,
+      bottom: `${ch * 8.6}px`,
+      height: `${ch * 22.2}px`,
+      left: `${cw * 21}px`,
+      right: `${cw * 13}px`,
+    })
     : styleMap({
-        fontSize: `${effectTextSize}px`,
-        lineHeight: effectLineHeight,
-        bottom: `${ch * 7.3}px`,
-        height: `${ch * 23.4}px`,
-        left: `${cw * 21}px`,
-        right: `${cw * 13}px`,
-      });
+      fontSize: `${effectTextSize}px`,
+      lineHeight: effectLineHeight,
+      bottom: `${ch * 7.3}px`,
+      height: `${ch * 23.4}px`,
+      left: `${cw * 21}px`,
+      right: `${cw * 13}px`,
+    });
   const attackTextStyles = styleMap({
     fontSize: `${ch * 9.5}px`,
     bottom: `${ch * 4.5}px`,
@@ -407,7 +407,7 @@ export const textLayersTemplate = ({
   const tribeTextStyles = styleMap({
     fontSize: `${ch * 3.2}px`,
     bottom: `${ch * 3.1}px`,
-    height: `${ch * 4.75}px`,
+    height: `${ch * 4.82}px`,
     left: `${cw * 30.5}px`,
     right: `${cw * 23}px`,
     textShadow,
@@ -420,8 +420,8 @@ export const textLayersTemplate = ({
 
     <div
       class="card__nameText ${nameCrammedTextMode
-        ? 'card__nameText--crammed'
-        : ''}"
+      ? 'card__nameText--crammed'
+      : ''}"
       style=${nameTextStyles}
     >
       <div class="card__nameText__inner">
