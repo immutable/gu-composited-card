@@ -7,6 +7,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'demo'),
     compress: true,
     port: 9000,
+    open: true,
   },
   entry: './demo/demo.js',
   output: {

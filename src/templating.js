@@ -368,7 +368,7 @@ export const textLayersTemplate = ({
   const nameTextStyles = styleMap({
     fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
     bottom: `${ch * 32.85}px`,
-    height: `${ch * 9.15}px`,
+    height: `${ch * 9}px`,
     left: `${cw * 13.25}px`,
     right: `${cw * 5.3}px`,
     textShadow,
