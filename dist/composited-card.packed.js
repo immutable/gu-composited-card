@@ -319,29 +319,29 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
     <picture class="card__artwork">
       <source
         srcset="
-          https://images.godsunchained.com/art/${At}/${e}.webp ${At}w,
-          https://images.godsunchained.com/art/${rt}/${e}.webp ${rt}w,
-          https://images.godsunchained.com/art/${nt}/${e}.webp ${nt}w,
-          https://images.godsunchained.com/art/${it}/${e}.webp ${it}w,
-          https://images.godsunchained.com/art/${ot}/${e}.webp ${ot}w
+          https://images.godsunchained.com/art2/${At}/${e}.webp ${At}w,
+          https://images.godsunchained.com/art2/${rt}/${e}.webp ${rt}w,
+          https://images.godsunchained.com/art2/${nt}/${e}.webp ${nt}w,
+          https://images.godsunchained.com/art2/${it}/${e}.webp ${it}w,
+          https://images.godsunchained.com/art2/${ot}/${e}.webp ${ot}w
         "
         sizes="${t}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/art/${At}/${e}.jpg ${At}w,
-          https://images.godsunchained.com/art/${rt}/${e}.jpg ${rt}w,
-          https://images.godsunchained.com/art/${nt}/${e}.jpg ${nt}w,
-          https://images.godsunchained.com/art/${it}/${e}.jpg ${it}w,
-          https://images.godsunchained.com/art/${ot}/${e}.jpg ${ot}w
+          https://images.godsunchained.com/art2/${At}/${e}.jpg ${At}w,
+          https://images.godsunchained.com/art2/${rt}/${e}.jpg ${rt}w,
+          https://images.godsunchained.com/art2/${nt}/${e}.jpg ${nt}w,
+          https://images.godsunchained.com/art2/${it}/${e}.jpg ${it}w,
+          https://images.godsunchained.com/art2/${ot}/${e}.jpg ${ot}w
         "
         sizes="${t}"
         type="image/jpg"
       />
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/art/${rt}/${e}.jpg"
+        srcset="https://images.godsunchained.com/art2/${rt}/${e}.jpg"
         class="card__artwork__img"
       />
     </picture>
@@ -350,20 +350,20 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/creature_C408.webp ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/creature_C408.webp ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/creature_C408.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/creature_C408.webp ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/creature_C408.webp ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/creature_C408.webp ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/creature_C408.webp ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/creature_C408.webp ${lt}w
         "
         sizes="${s}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/creature_C408.png ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/creature_C408.png ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/creature_C408.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/creature_C408.png ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/creature_C408.png ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/creature_C408.png ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/creature_C408.png ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/creature_C408.png ${lt}w
         "
         sizes="${s}"
         type="image/png"
@@ -371,7 +371,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers/layers/${at}/${e}_${t}.png"
+        srcset="https://images.godsunchained.com/card-layers2/layers/${at}/${e}_${t}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -379,20 +379,20 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
     <picture class="card__manaLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/mythic_C408.webp ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/mythic_C408.webp ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/mythic_C408.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/mythic_C408.webp ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/mythic_C408.webp ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/mythic_C408.webp ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/mythic_C408.webp ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/mythic_C408.webp ${lt}w
         "
         sizes="${s}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/mythic_C408.png ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/mythic_C408.png ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/mythic_C408.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/mythic_C408.png ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/mythic_C408.png ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/mythic_C408.png ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/mythic_C408.png ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/mythic_C408.png ${lt}w
         "
         sizes="${s}"
         type="image/png"
@@ -400,7 +400,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers/layers/${at}/mythic_C408.png"
+        srcset="https://images.godsunchained.com/card-layers2/layers/${at}/mythic_C408.png"
         class="card__manaLayer__img"
       />
     </picture>
@@ -408,10 +408,10 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/${t}_${s}.webp ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/${t}_${s}.webp ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/${t}_${s}.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/${t}_${s}.webp ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/${t}_${s}.webp ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/${t}_${s}.webp ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/${t}_${s}.webp ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/${t}_${s}.webp ${lt}w
         "
         sizes="${e}"
         type="image/webp"
@@ -419,17 +419,17 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/${t}_${s}.png ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/${t}_${s}.png ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/${t}_${s}.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/${t}_${s}.png ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/${t}_${s}.png ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/${t}_${s}.png ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/${t}_${s}.png ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/${t}_${s}.png ${lt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers/layers/${at}/${t}_${s}.png"
+        srcset="https://images.godsunchained.com/card-layers2/layers/${at}/${t}_${s}.png"
         class="card__baseLayer__img"
       />
     </picture>
@@ -437,27 +437,27 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
     <picture class="card__manaLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/${r}_${s}.webp ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/${r}_${s}.webp ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/${r}_${s}.webp ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/${r}_${s}.webp ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/${r}_${s}.webp ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/${r}_${s}.webp ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/${r}_${s}.webp ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/${r}_${s}.webp ${lt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers/layers/${at}/${r}_${s}.png ${at}w,
-          https://images.godsunchained.com/card-layers/layers/${ct}/${r}_${s}.png ${ct}w,
-          https://images.godsunchained.com/card-layers/layers/${dt}/${r}_${s}.png ${dt}w,
-          https://images.godsunchained.com/card-layers/layers/${lt}/${r}_${s}.png ${lt}w
+          https://images.godsunchained.com/card-layers2/layers/${at}/${r}_${s}.png ${at}w,
+          https://images.godsunchained.com/card-layers2/layers/${ct}/${r}_${s}.png ${ct}w,
+          https://images.godsunchained.com/card-layers2/layers/${dt}/${r}_${s}.png ${dt}w,
+          https://images.godsunchained.com/card-layers2/layers/${lt}/${r}_${s}.png ${lt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers/layers/${at}/${r}_${s}.png"
+        srcset="https://images.godsunchained.com/card-layers2/layers/${at}/${r}_${s}.png"
         class="card__manaLayer__img"
       />
     </picture>
@@ -466,27 +466,27 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
           <picture class="card__rarityLayer">
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/layers/${at}/rarity_${A}.webp ${at}w,
-                https://images.godsunchained.com/card-layers/layers/${ct}/rarity_${A}.webp ${ct}w,
-                https://images.godsunchained.com/card-layers/layers/${dt}/rarity_${A}.webp ${dt}w,
-                https://images.godsunchained.com/card-layers/layers/${lt}/rarity_${A}.webp ${lt}w
+                https://images.godsunchained.com/card-layers2/layers/${at}/rarity_${A}.webp ${at}w,
+                https://images.godsunchained.com/card-layers2/layers/${ct}/rarity_${A}.webp ${ct}w,
+                https://images.godsunchained.com/card-layers2/layers/${dt}/rarity_${A}.webp ${dt}w,
+                https://images.godsunchained.com/card-layers2/layers/${lt}/rarity_${A}.webp ${lt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/layers/${at}/rarity_${A}.png ${at}w,
-                https://images.godsunchained.com/card-layers/layers/${ct}/rarity_${A}.png ${ct}w,
-                https://images.godsunchained.com/card-layers/layers/${dt}/rarity_${A}.png ${dt}w,
-                https://images.godsunchained.com/card-layers/layers/${lt}/rarity_${A}.png ${lt}w
+                https://images.godsunchained.com/card-layers2/layers/${at}/rarity_${A}.png ${at}w,
+                https://images.godsunchained.com/card-layers2/layers/${ct}/rarity_${A}.png ${ct}w,
+                https://images.godsunchained.com/card-layers2/layers/${dt}/rarity_${A}.png ${dt}w,
+                https://images.godsunchained.com/card-layers2/layers/${lt}/rarity_${A}.png ${lt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers/layers/${at}/rarity_${A}.png"
+              srcset="https://images.godsunchained.com/card-layers2/layers/${at}/rarity_${A}.png"
               class="card__rarityLayer__img"
             />
           </picture>
@@ -495,10 +495,10 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
           <picture class="card__wreathLayer">
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/layers/${at}/wreath_${s}.webp ${at}w,
-                https://images.godsunchained.com/card-layers/layers/${ct}/wreath_${s}.webp ${ct}w,
-                https://images.godsunchained.com/card-layers/layers/${dt}/wreath_${s}.webp ${dt}w,
-                https://images.godsunchained.com/card-layers/layers/${lt}/wreath_${s}.webp ${lt}w
+                https://images.godsunchained.com/card-layers2/layers/${at}/wreath_${s}.webp ${at}w,
+                https://images.godsunchained.com/card-layers2/layers/${ct}/wreath_${s}.webp ${ct}w,
+                https://images.godsunchained.com/card-layers2/layers/${dt}/wreath_${s}.webp ${dt}w,
+                https://images.godsunchained.com/card-layers2/layers/${lt}/wreath_${s}.webp ${lt}w
               "
               sizes="${e}"
               type="image/webp"
@@ -506,17 +506,17 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/layers/${at}/wreath_${s}.png ${at}w,
-                https://images.godsunchained.com/card-layers/layers/${ct}/wreath_${s}.png ${ct}w,
-                https://images.godsunchained.com/card-layers/layers/${dt}/wreath_${s}.png ${dt}w,
-                https://images.godsunchained.com/card-layers/layers/${lt}/wreath_${s}.png ${lt}w
+                https://images.godsunchained.com/card-layers2/layers/${at}/wreath_${s}.png ${at}w,
+                https://images.godsunchained.com/card-layers2/layers/${ct}/wreath_${s}.png ${ct}w,
+                https://images.godsunchained.com/card-layers2/layers/${dt}/wreath_${s}.png ${dt}w,
+                https://images.godsunchained.com/card-layers2/layers/${lt}/wreath_${s}.png ${lt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers/layers/${at}/wreath_${s}.png"
+              srcset="https://images.godsunchained.com/card-layers2/layers/${at}/wreath_${s}.png"
               class="card__wreathLayer__img"
             />
           </picture>
@@ -525,23 +525,23 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
           <picture class="card__lockIconLayer">
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/locks/${ht}/lock_${s}.webp ${ht}w,
-                https://images.godsunchained.com/card-layers/locks/${pt}/lock_${s}.webp ${pt}w,
+                https://images.godsunchained.com/card-layers2/locks/${ht}/lock_${s}.webp ${ht}w,
+                https://images.godsunchained.com/card-layers2/locks/${pt}/lock_${s}.webp ${pt}w,
               "
               type="image/webp"
             />
 
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/locks/${ht}/lock_${s}.png ${ht}w,
-                https://images.godsunchained.com/card-layers/locks/${pt}/lock_${s}.png ${pt}w,
+                https://images.godsunchained.com/card-layers2/locks/${ht}/lock_${s}.png ${ht}w,
+                https://images.godsunchained.com/card-layers2/locks/${pt}/lock_${s}.png ${pt}w,
               "
               type="image/png"
             />
 
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers/locks/lock_${s}.png"
+              srcset="https://images.godsunchained.com/card-layers2/locks/lock_${s}.png"
               class="card__lockIconLayer__img"
             />
           </picture>
@@ -550,20 +550,20 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
           <picture class="card__tribeBarLayer">
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/layers/${at}/tribebar_${s}.webp ${at}w,
-                https://images.godsunchained.com/card-layers/layers/${ct}/tribebar_${s}.webp ${ct}w,
-                https://images.godsunchained.com/card-layers/layers/${dt}/tribebar_${s}.webp ${dt}w,
-                https://images.godsunchained.com/card-layers/layers/${lt}/tribebar_${s}.webp ${lt}w
+                https://images.godsunchained.com/card-layers2/layers/${at}/tribebar_${s}.webp ${at}w,
+                https://images.godsunchained.com/card-layers2/layers/${ct}/tribebar_${s}.webp ${ct}w,
+                https://images.godsunchained.com/card-layers2/layers/${dt}/tribebar_${s}.webp ${dt}w,
+                https://images.godsunchained.com/card-layers2/layers/${lt}/tribebar_${s}.webp ${lt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-                https://images.godsunchained.com/card-layers/layers/${at}/tribebar_${s}.png ${at}w,
-                https://images.godsunchained.com/card-layers/layers/${ct}/tribebar_${s}.png ${ct}w,
-                https://images.godsunchained.com/card-layers/layers/${dt}/tribebar_${s}.png ${dt}w,
-                https://images.godsunchained.com/card-layers/layers/${lt}/tribebar_${s}.png ${lt}w
+                https://images.godsunchained.com/card-layers2/layers/${at}/tribebar_${s}.png ${at}w,
+                https://images.godsunchained.com/card-layers2/layers/${ct}/tribebar_${s}.png ${ct}w,
+                https://images.godsunchained.com/card-layers2/layers/${dt}/tribebar_${s}.png ${dt}w,
+                https://images.godsunchained.com/card-layers2/layers/${lt}/tribebar_${s}.png ${lt}w
               "
               sizes="${e}"
               type="image/png"
@@ -571,7 +571,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers/layers/${lt}/tribebar_${A}.png"
+              srcset="https://images.godsunchained.com/card-layers2/layers/${lt}/tribebar_${A}.png"
               class="card__tribeBarLayer__img"
             />
           </picture>
