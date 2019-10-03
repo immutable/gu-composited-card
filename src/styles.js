@@ -11,6 +11,7 @@ const bodyText = css`
 
 export const white = css`white`;
 export const black = css`black`;
+export const offBlack = css`rgb(51, 51, 51)`;
 const offWhiteLight = css`#f9f9f9`;
 const offWhiteDark = css`#f1f1f1`;
 
@@ -72,8 +73,18 @@ export const getStyles = () => css`
   .card__artwork {
     position: absolute;
     width: 64%;
+    padding-bottom: 64%;
     right: 15%;
     top: 12%;
+    background: ${offBlack};
+  }
+
+  .card__artwork__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .card__baseLayer,

@@ -19,7 +19,7 @@ function cloneShadow(shadow) {
 
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
-  @property() currentProtoId = Math.floor(Math.random() * 100);
+  @property() currentProtoId = Math.floor(Math.random() * 99 + 1);
   @property() currentQuality = 1;
   @property() currentQualityInWords: string = qualities[1];
 
@@ -112,8 +112,9 @@ export class InteractiveDemo extends LitElement {
           <sup
             class="appHeader__title__sup"
             title="*UX and functionality in Safari/Edge might have some slight speed-bumps"
-            >BETA</sup
           >
+            BETA
+          </sup>
         </h3>
       </header>
 
@@ -132,8 +133,9 @@ export class InteractiveDemo extends LitElement {
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
             target="_blank"
-            >web component</a
           >
+            web component
+          </a>
           to facilitate the display of
           <a href="https://godsunchained.com" target="_blank">Gods Unchained</a>
           card&nbsp;element(s).
@@ -162,8 +164,9 @@ export class InteractiveDemo extends LitElement {
               <span
                 class="appContainer__controls__panel__label__quality quality--${this
                   .currentQualityInWords}"
-                >(${this.currentQualityInWords})</span
               >
+                (${this.currentQualityInWords})
+              </span>
             </label>
             <input
               type="range"
