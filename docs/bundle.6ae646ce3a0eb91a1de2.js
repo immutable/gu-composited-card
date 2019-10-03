@@ -410,13 +410,13 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   line-height: 1.1;
 `,En=ue`
   font-family: 'Open Sans', sans-serif;
-`,hn=ue`white`,wn=(ue`black`,ue`#f9f9f9`),fn=(ue`#f1f1f1`,ue`
+`,hn=ue`white`,wn=(ue`black`,ue`rgb(51, 51, 51)`),fn=ue`#f9f9f9`,Cn=(ue`#f1f1f1`,ue`
   ${gn}
   font-weight: 700;
   line-height: 0.8;
   text-align: center;
   color: ${hn};
-`),Cn=()=>ue`
+`),mn=()=>ue`
   :host {
     display: flex;
   }
@@ -445,7 +445,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
 
   .card__loading::before {
     content: '';
-    background: ${wn};
+    background: ${fn};
     width: 60%;
     padding-bottom: 60%;
     border-radius: 50%;
@@ -466,8 +466,18 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   .card__artwork {
     position: absolute;
     width: 64%;
+    padding-bottom: 64%;
     right: 15%;
     top: 12%;
+    background: ${wn};
+  }
+
+  .card__artwork__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .card__baseLayer,
@@ -499,7 +509,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   /* Text layers */
 
   .card__manaText {
-    ${fn}
+    ${Cn}
     position: absolute;
   }
 
@@ -507,7 +517,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     position: absolute;
     white-space: nowrap;
     display: flex;
-    ${fn}
+    ${Cn}
   }
 
   .card__nameText__inner {
@@ -529,25 +539,25 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
 
   .card__attackText {
     position: absolute;
-    ${fn}
+    ${Cn}
   }
 
   .card__healthText {
     position: absolute;
-    ${fn}
+    ${Cn}
   }
 
   .card__tribeText {
     position: absolute;
     text-transform: capitalize;
     display: flex;
-    ${fn}
+    ${Cn}
   }
 
   .card__tribeText__inner {
     margin: auto;
   }
-`;var mn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},Un=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const bn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],Qn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let vn=class extends pe{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return Cn()}connectedCallback(){super.connectedCallback(),Qn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),Qn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return Un(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return Un(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=bn[this.quality],n="mythic"===e;return S`
+`;var Un=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},bn=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const Qn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],vn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Tn=class extends pe{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return mn()}connectedCallback(){super.connectedCallback(),vn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),vn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return bn(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return bn(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=Qn[this.quality],n="mythic"===e;return S`
       <div class="card__innerRatioConstrainer">
         ${this.loading?(()=>S`
   <div class="card__loading">
@@ -862,26 +872,26 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData))}
             `}
       </div>
-    `}};mn([se({type:Number})],vn.prototype,"protoId",void 0),mn([se({type:Number})],vn.prototype,"quality",void 0),mn([se({type:Object})],vn.prototype,"inputProtoData",void 0),mn([se({type:String})],vn.prototype,"responsiveSrcsetSizes",void 0),vn=mn([ae("composited-card")],vn);var Tn=A(2),Fn=A.n(Tn),yn=A(3);const In=ue`
+    `}};Un([se({type:Number})],Tn.prototype,"protoId",void 0),Un([se({type:Number})],Tn.prototype,"quality",void 0),Un([se({type:Object})],Tn.prototype,"inputProtoData",void 0),Un([se({type:String})],Tn.prototype,"responsiveSrcsetSizes",void 0),Tn=Un([ae("composited-card")],Tn);var Fn=A(2),yn=A.n(Fn),In=A(3);const On=ue`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,On=ue`
+`,Pn=ue`
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
-`,Pn=ue`black`,Dn=ue`white`,Ln=ue`#f9f9f9`,Rn=(ue`#f1f1f1`,ue`65px`),xn=ue`100px`,Sn=ue`#282828`,Hn=ue`#333`,kn=ue`rgba(255,255,255,0.15)`,Mn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Nn=(e=0)=>ue`
+`,Dn=ue`black`,Ln=ue`white`,Rn=ue`#f9f9f9`,xn=(ue`#f1f1f1`,ue`65px`),Sn=ue`100px`,Hn=ue`#282828`,kn=ue`#333`,Mn=ue`rgba(255,255,255,0.15)`,Nn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Kn=(e=0)=>ue`
   width: 100%;
   cursor: pointer;
-  background: ${Sn};
-  border: 2px solid ${kn};
+  background: ${Hn};
+  border: 2px solid ${Mn};
   padding: 6px;
-`,Kn=(e=0)=>ue`
+`,Wn=(e=0)=>ue`
   height: 20px;
   width: 38px;
   border-radius: 28px;
-  background: ${Mn[e]};
+  background: ${Nn[e]};
   cursor: pointer;
   -webkit-appearance: none;
-`;var Wn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let zn=class extends pe{constructor(){super(),this.currentProtoId=Math.floor(100*Math.random()),this.currentQuality=1,this.currentQualityInWords=bn[1];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");null!==n&&(this.currentProtoId=parseInt(n,10)),null!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=bn[this.currentQuality])}static get styles(){return(()=>ue`
+`;var zn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Vn=class extends pe{constructor(){super(),this.currentProtoId=Math.floor(99*Math.random()+1),this.currentQuality=1,this.currentQualityInWords=Qn[1];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");null!==n&&(this.currentProtoId=parseInt(n,10)),null!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=Qn[this.currentQuality])}static get styles(){return(()=>ue`
   @keyframes floatCard {
     from {
       transform: translateY(2%);
@@ -904,7 +914,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     min-width: 640px;
     height: 100%;
     min-height: 760px;
-    ${On}
+    ${Pn}
   }
 
   .appHeader {
@@ -913,11 +923,11 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     left: 0;
     z-index: 1;
     width: 100%;
-    height: ${Rn};
+    height: ${xn};
     background: white;
-    border-bottom: 2px solid ${Ln};
+    border-bottom: 2px solid ${Rn};
     text-align: center;
-    line-height: calc(${Rn} - 3);
+    line-height: calc(${xn} - 3);
     display: flex;
     padding: 0 15px 0 5px;
   }
@@ -935,7 +945,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   }
 
   .appHeader__title {
-    ${On}
+    ${Pn}
     font-weight: 300;
     font-size: 20px;
     line-height: 1;
@@ -952,7 +962,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: ${Rn};
+    padding-top: ${xn};
   }
 
   .appContainer::before {
@@ -962,7 +972,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     left: 0;
     right: 0;
     height: 50vh;
-    background: ${Hn};
+    background: ${kn};
   }
 
   .appContainer__intro {
@@ -974,7 +984,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   }
 
   .appContainer__intro a {
-    color: ${Pn};
+    color: ${Dn};
     text-decoration: none;
   }
 
@@ -983,23 +993,23 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   }
 
   .appContainer__controls__title {
-    ${In}
+    ${On}
     font-size: 18px;
     text-transform: uppercase;
-    color: ${Dn};
+    color: ${Ln};
     position: absolute;
     left: 20px;
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
-    text-shadow: 0 1px 0 ${Hn}, 1px 0 0 ${Hn},
-      1px 1px 0 ${Hn}, -1px 0 0 ${Hn},
-      -1px -1px 0 ${Hn}, 0 -1px 0 ${Hn};
+    text-shadow: 0 1px 0 ${kn}, 1px 0 0 ${kn},
+      1px 1px 0 ${kn}, -1px 0 0 ${kn},
+      -1px -1px 0 ${kn}, 0 -1px 0 ${kn};
   }
 
   .appContainer__fab {
     position: fixed;
-    bottom: ${xn};
+    bottom: ${Sn};
     right: 25px;
     width: 80px;
     height: 80px;
@@ -1017,7 +1027,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   }
 
   .appContainer__fab:active {
-    background: ${Dn};
+    background: ${Ln};
   }
 
   .appContainer__fab:active .appContainer__fab__img {
@@ -1036,7 +1046,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     display: flex;
     flex: 1;
     position: relative;
-    margin-bottom: calc(${xn} + 30px);
+    margin-bottom: calc(${Sn} + 30px);
   }
 
   .appContainer__cardVisualisation__inner {
@@ -1110,9 +1120,9 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
     left: 0;
     bottom: 0;
     width: 100%;
-    height: ${xn};
+    height: ${Sn};
     z-index: 2;
-    background: ${Sn};
+    background: ${Hn};
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1127,7 +1137,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
 
   .appContainer__controls__panel__input {
     background: transparent;
-    border: 2px solid ${kn};
+    border: 2px solid ${Mn};
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 700;
@@ -1151,35 +1161,35 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
   }
 
   .quality--plain {
-    color: ${Mn[1]};
+    color: ${Nn[1]};
   }
 
   .quality--bronze {
-    color: ${Mn[2]};
+    color: ${Nn[2]};
   }
 
   .quality--iron {
-    color: ${Mn[3]};
+    color: ${Nn[3]};
   }
 
   .quality--meteorite {
-    color: ${Mn[4]};
+    color: ${Nn[4]};
   }
 
   .quality--shadow {
-    color: ${Mn[5]};
+    color: ${Nn[5]};
   }
 
   .quality--gold {
-    color: ${Mn[6]};
+    color: ${Nn[6]};
   }
 
   .quality--diamond {
-    color: ${Mn[7]};
+    color: ${Nn[7]};
   }
 
   .quality--mythic {
-    color: ${Mn[8]};
+    color: ${Nn[8]};
   }
 
   .appContainer__controls__panel__rangeSlider {
@@ -1193,107 +1203,107 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
 
   /* WEBKIT: */
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-runnable-track {
-    ${Nn(0)}
+    ${Kn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-runnable-track {
-    ${Nn(2)}
+    ${Kn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-runnable-track {
-    ${Nn(3)}
+    ${Kn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-runnable-track {
-    ${Nn(4)}
+    ${Kn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-runnable-track {
-    ${Nn(5)}
+    ${Kn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-runnable-track {
-    ${Nn(6)}
+    ${Kn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-runnable-track {
-    ${Nn(7)}
+    ${Kn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-runnable-track {
-    ${Nn(8)}
+    ${Kn(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-thumb {
-    ${Kn(0)}
+    ${Wn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-thumb {
-    ${Kn(2)}
+    ${Wn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-thumb {
-    ${Kn(3)}
+    ${Wn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-thumb {
-    ${Kn(4)}
+    ${Wn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-thumb {
-    ${Kn(5)}
+    ${Wn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-thumb {
-    ${Kn(6)}
+    ${Wn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-thumb {
-    ${Kn(7)}
+    ${Wn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-thumb {
-    ${Kn(8)}
+    ${Wn(8)}
   }
 
   /* FIREFOX: */
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-track {
-    ${Nn(0)}
+    ${Kn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-track {
-    ${Nn(2)}
+    ${Kn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-track {
-    ${Nn(3)}
+    ${Kn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-track {
-    ${Nn(4)}
+    ${Kn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-track {
-    ${Nn(5)}
+    ${Kn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-track {
-    ${Nn(6)}
+    ${Kn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-track {
-    ${Nn(7)}
+    ${Kn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-track {
-    ${Nn(8)}
+    ${Kn(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-thumb {
-    ${Kn(0)}
+    ${Wn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-thumb {
-    ${Kn(2)}
+    ${Wn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-thumb {
-    ${Kn(3)}
+    ${Wn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-thumb {
-    ${Kn(4)}
+    ${Wn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-thumb {
-    ${Kn(5)}
+    ${Wn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-thumb {
-    ${Kn(6)}
+    ${Wn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-thumb {
-    ${Kn(7)}
+    ${Wn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
-    ${Kn(8)}
+    ${Wn(8)}
   }
-`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||this.updateUrlParams()}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.replaceState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),Fn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{yn(e,`${this.currentProtoId}-${bn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return S`
+`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||this.updateUrlParams()}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.replaceState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),yn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{In(e,`${this.currentProtoId}-${Qn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return S`
       <header class="appHeader">
         <a href="https://immutable.com" class="appHeader__link" target="_blank">
           <img
@@ -1307,8 +1317,9 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
           <sup
             class="appHeader__title__sup"
             title="*UX and functionality in Safari/Edge might have some slight speed-bumps"
-            >BETA</sup
           >
+            BETA
+          </sup>
         </h3>
       </header>
 
@@ -1327,8 +1338,9 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/Web_Components"
             target="_blank"
-            >web component</a
           >
+            web component
+          </a>
           to facilitate the display of
           <a href="https://godsunchained.com" target="_blank">Gods Unchained</a>
           card&nbsp;element(s).
@@ -1356,8 +1368,9 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
               Quality
               <span
                 class="appContainer__controls__panel__label__quality quality--${this.currentQualityInWords}"
-                >(${this.currentQualityInWords})</span
               >
+                (${this.currentQualityInWords})
+              </span>
             </label>
             <input
               type="range"
@@ -1365,7 +1378,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
               max="8"
               class="appContainer__controls__panel__rangeSlider quality--${this.currentQualityInWords}"
               value=${this.currentQuality}
-              @change=${e=>{this.currentQuality=e.target.value,this.currentQualityInWords=bn[this.currentQuality]}}
+              @change=${e=>{this.currentQuality=e.target.value,this.currentQualityInWords=Qn[this.currentQuality]}}
             />
           </div>
         </footer>
@@ -1388,5 +1401,5 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof y||"style"!=
           </div>
         </div>
       </main>
-    `}};Wn([se()],zn.prototype,"currentProtoId",void 0),Wn([se()],zn.prototype,"currentQuality",void 0),Wn([se()],zn.prototype,"currentQualityInWords",void 0),zn=Wn([ae("demo-app")],zn);A(13);const Vn=document.createElement("style");Vn.innerHTML=Cn().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Vn)}]);
-//# sourceMappingURL=bundle.5218ba6f245583773b6a.js.map
+    `}};zn([se()],Vn.prototype,"currentProtoId",void 0),zn([se()],Vn.prototype,"currentQuality",void 0),zn([se()],Vn.prototype,"currentQualityInWords",void 0),Vn=zn([ae("demo-app")],Vn);A(13);const Xn=document.createElement("style");Xn.innerHTML=mn().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Xn)}]);
+//# sourceMappingURL=bundle.6ae646ce3a0eb91a1de2.js.map

@@ -167,13 +167,13 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
   line-height: 1.1;
 `,mt=le`
   font-family: 'Open Sans', sans-serif;
-`,gt=le`white`,ft=(le`black`,le`#f9f9f9`),yt=(le`#f1f1f1`,le`
+`,gt=le`white`,ft=(le`black`,le`rgb(51, 51, 51)`),yt=le`#f9f9f9`,wt=(le`#f1f1f1`,le`
   ${ut}
   font-weight: 700;
   line-height: 0.8;
   text-align: center;
   color: ${gt};
-`);s.d(t,"qualities",function(){return vt}),s.d(t,"CompositedCard",function(){return St});var wt=function(e,t,s,A){var r,n=arguments.length,i=n<3?t:null===A?A=Object.getOwnPropertyDescriptor(t,s):A;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)i=Reflect.decorate(e,t,s,A);else for(var o=e.length-1;o>=0;o--)(r=e[o])&&(i=(n<3?r(i):n>3?r(t,s,i):r(t,s))||i);return n>3&&i&&Object.defineProperty(t,s,i),i},bt=function(e,t,s,A){return new(s||(s=Promise))(function(r,n){function i(e){try{a(A.next(e))}catch(e){n(e)}}function o(e){try{a(A.throw(e))}catch(e){n(e)}}function a(e){e.done?r(e.value):new s(function(t){t(e.value)}).then(i,o)}a((A=A.apply(e,t||[])).next())})};const vt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],xt=new _e(e=>{e.forEach(e=>{e.target.handleResize(e)})});let St=class extends pe{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>le`
+`);s.d(t,"qualities",function(){return xt}),s.d(t,"CompositedCard",function(){return Et});var bt=function(e,t,s,A){var r,n=arguments.length,i=n<3?t:null===A?A=Object.getOwnPropertyDescriptor(t,s):A;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)i=Reflect.decorate(e,t,s,A);else for(var o=e.length-1;o>=0;o--)(r=e[o])&&(i=(n<3?r(i):n>3?r(t,s,i):r(t,s))||i);return n>3&&i&&Object.defineProperty(t,s,i),i},vt=function(e,t,s,A){return new(s||(s=Promise))(function(r,n){function i(e){try{a(A.next(e))}catch(e){n(e)}}function o(e){try{a(A.throw(e))}catch(e){n(e)}}function a(e){e.done?r(e.value):new s(function(t){t(e.value)}).then(i,o)}a((A=A.apply(e,t||[])).next())})};const xt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],St=new _e(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Et=class extends pe{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>le`
   :host {
     display: flex;
   }
@@ -202,7 +202,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
   .card__loading::before {
     content: '';
-    background: ${ft};
+    background: ${yt};
     width: 60%;
     padding-bottom: 60%;
     border-radius: 50%;
@@ -223,8 +223,18 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
   .card__artwork {
     position: absolute;
     width: 64%;
+    padding-bottom: 64%;
     right: 15%;
     top: 12%;
+    background: ${ft};
+  }
+
+  .card__artwork__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .card__baseLayer,
@@ -256,7 +266,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
   /* Text layers */
 
   .card__manaText {
-    ${yt}
+    ${wt}
     position: absolute;
   }
 
@@ -264,7 +274,7 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
     position: absolute;
     white-space: nowrap;
     display: flex;
-    ${yt}
+    ${wt}
   }
 
   .card__nameText__inner {
@@ -286,25 +296,25 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
 
   .card__attackText {
     position: absolute;
-    ${yt}
+    ${wt}
   }
 
   .card__healthText {
     position: absolute;
-    ${yt}
+    ${wt}
   }
 
   .card__tribeText {
     position: absolute;
     text-transform: capitalize;
     display: flex;
-    ${yt}
+    ${wt}
   }
 
   .card__tribeText__inner {
     margin: auto;
   }
-`)()}connectedCallback(){super.connectedCallback(),xt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),xt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"===t&&this.getProtoDataFromInput()})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return bt(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return bt(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:t,type:s,attack:A,health:r,effect:n,name:i,rarity:o,god:a,mana:c,set:d,tribe:l}=e;return this.protoCardData={id:t,type:s,attack:A.Int64,health:r.Int64,effect:n,name:i,rarity:o,god:a,mana:c,set:d,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=vt[this.quality],t="mythic"===e;return j`
+`)()}connectedCallback(){super.connectedCallback(),St.observe(this)}disconnectedCallback(){super.disconnectedCallback(),St.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"===t&&this.getProtoDataFromInput()})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return vt(this,void 0,void 0,function*(){return this.loading=!0,fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return vt(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:t,type:s,attack:A,health:r,effect:n,name:i,rarity:o,god:a,mana:c,set:d,tribe:l}=e;return this.protoCardData={id:t,type:s,attack:A.Int64,health:r.Int64,effect:n,name:i,rarity:o,god:a,mana:c,set:d,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=xt[this.quality],t="mythic"===e;return j`
       <div class="card__innerRatioConstrainer">
         ${this.loading?(()=>j`
   <div class="card__loading">
@@ -619,5 +629,5 @@ const $e=new WeakMap,et=r(e=>t=>{if(!(t instanceof C)||t instanceof k||"style"!=
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData))}
             `}
       </div>
-    `}};wt([oe({type:Number})],St.prototype,"protoId",void 0),wt([oe({type:Number})],St.prototype,"quality",void 0),wt([oe({type:Object})],St.prototype,"inputProtoData",void 0),wt([oe({type:String})],St.prototype,"responsiveSrcsetSizes",void 0),St=wt([(e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t))(e,t):((e,t)=>{const{kind:s,elements:A}=t;return{kind:s,elements:A,finisher(t){window.customElements.define(e,t)}}})(e,t))("composited-card")],St)}]);
+    `}};bt([oe({type:Number})],Et.prototype,"protoId",void 0),bt([oe({type:Number})],Et.prototype,"quality",void 0),bt([oe({type:Object})],Et.prototype,"inputProtoData",void 0),bt([oe({type:String})],Et.prototype,"responsiveSrcsetSizes",void 0),Et=bt([(e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t))(e,t):((e,t)=>{const{kind:s,elements:A}=t;return{kind:s,elements:A,finisher(t){window.customElements.define(e,t)}}})(e,t))("composited-card")],Et)}]);
 //# sourceMappingURL=composited-card.packed.js.map
