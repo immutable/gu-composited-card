@@ -30,6 +30,7 @@ const qualityColors = [
   css`#94E6FB`,
   css`white`,
 ];
+const themePurple = css`#9f78dd`;
 
 const sliderTrack = (quality = 0) => css`
   width: 100%;
@@ -104,14 +105,30 @@ export const getStyles = () => css`
   .appHeader__title {
     ${baseText}
     font-weight: 300;
-    font-size: 20px;
-    line-height: 1;
+    font-size: 22px;
+    letter-spacing: -0.8px;
+    line-height: 0.8;
     text-align: center;
     flex: 1;
   }
 
   .appHeader__title__sup {
-    font-size: 11px;
+    font-size: 9px;
+    letter-spacing: 0;
+    padding: 2px 3px;
+    border-radius: 4px;
+    border: 1px solid ${themePurple};
+    color: ${themePurple};
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -5px;
+    cursor: defualt;
+  }
+
+  .appHeader__title__sup:hover {
+    background-color: ${themePurple};
+    color: ${white};
   }
 
   .appContainer {
@@ -171,7 +188,7 @@ export const getStyles = () => css`
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #9f78dd;
+    background: ${themePurple};
     box-shadow: none;
     border: none;
     transform: translate(0, 50%);
