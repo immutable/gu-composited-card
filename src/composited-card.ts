@@ -146,7 +146,7 @@ export class CompositedCard extends LitElement {
    */
   private async fetchProtoData() {
     this.loading = true;
-    return fetch(`//api.godsunchained.com/v0/proto/${this.protoId}`).then(
+    return fetch(`https://api.godsunchained.com/v0/proto/${this.protoId}`).then(
       resp => resp.json(),
     );
   }
