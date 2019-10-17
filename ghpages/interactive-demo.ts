@@ -2,8 +2,7 @@ import { LitElement, html, customElement, property } from 'lit-element';
 import html2canvas from 'html2canvas';
 import * as saveAs from 'file-saver';
 
-import { qualities } from '../src/composited-card';
-
+import { qualities, ICardProtoData } from '../src/composited-card';
 import { getStyles } from './styles';
 
 function cloneShadow(shadow) {
@@ -22,6 +21,8 @@ export class InteractiveDemo extends LitElement {
   @property() currentProtoId = Math.floor(Math.random() * 99 + 1);
   @property() currentQuality = Math.floor(Math.random() * 8 + 1);
   @property() currentQualityInWords: string = qualities[this.currentQuality];
+  @property() currentProtoData: ICardProtoData;
+  @property() protosCollection: {};
 
   static get styles() {
     return getStyles();
@@ -39,6 +40,17 @@ export class InteractiveDemo extends LitElement {
       this.currentQuality = parseInt(quality, 10);
       this.currentQualityInWords = qualities[this.currentQuality];
     }
+    fetch('https://dev.godsunchained.com/proto?format=flat')
+      .then(resp => resp.json())
+      .then(protos => {
+        this.protosCollection = protos;
+        this.currentProtoData = {
+          ...protos[this.currentProtoId],
+          id: this.currentProtoId,
+        };
+        this.updatePageMetadata();
+      })
+      .catch(e => console.error(e));
   }
 
   updated(changes) {
@@ -47,7 +59,26 @@ export class InteractiveDemo extends LitElement {
       changes.get('currentQuality') !== undefined
     ) {
       this.updateUrlParams();
+      this.updatePageMetadata();
     }
+  }
+
+  private updatePageMetadata() {
+    document
+      .querySelector('meta[property="og:title"]')
+      .setAttribute('content', this.currentProtoData.name);
+    document
+      .querySelector('meta[property="og:description"]')
+      .setAttribute('content', this.currentProtoData.effect);
+    document
+      .querySelector('meta[property="og:url"]')
+      .setAttribute('content', location.href);
+    document
+      .querySelector('meta[property="og:image"]')
+      .setAttribute(
+        'content',
+        `https://godsunchained.com/images/card?protoId=${this.currentProtoId}&quality=${this.currentQuality}`,
+      );
   }
 
   private getUrlParams() {
@@ -58,7 +89,7 @@ export class InteractiveDemo extends LitElement {
     const params = this.getUrlParams();
     params.set('protoid', `${this.currentProtoId}`);
     params.set('quality', `${this.currentQuality}`);
-    window.history.replaceState(
+    window.history.pushState(
       {},
       '',
       decodeURIComponent(`${location.pathname}?${params}`),
@@ -152,7 +183,13 @@ export class InteractiveDemo extends LitElement {
               type="number"
               class="appContainer__controls__panel__input"
               value=${this.currentProtoId}
-              @keyup=${e => (this.currentProtoId = e.target.value)}
+              @keyup=${e => {
+                this.currentProtoId = e.target.value;
+                this.currentProtoData = {
+                  ...this.protosCollection[this.currentProtoId],
+                  id: this.currentProtoId,
+                };
+              }}
             />
           </div>
 
@@ -192,12 +229,16 @@ export class InteractiveDemo extends LitElement {
         <div class="appContainer__cardVisualisation">
           <div class="appContainer__cardVisualisation__inner">
             <i class="appContainer__cardVisualisation__shadow"></i>
-            <composited-card
-              protoId=${this.currentProtoId}
-              quality=${this.currentQuality}
-              responsiveSrcsetSizes="90vw"
-              class="appContainer__cardVisualisation__card"
-            ></composited-card>
+            ${this.currentProtoData
+              ? html`
+                  <composited-card
+                    inputProtoData=${JSON.stringify(this.currentProtoData)}
+                    quality=${this.currentQuality}
+                    responsiveSrcsetSizes="90vw"
+                    class="appContainer__cardVisualisation__card"
+                  ></composited-card>
+                `
+              : null}
           </div>
         </div>
       </main>
