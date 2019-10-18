@@ -40,6 +40,9 @@ export class InteractiveDemo extends LitElement {
       this.currentQuality = parseInt(quality, 10);
       this.currentQualityInWords = qualities[this.currentQuality];
     }
+    if (protoId !== null && quality !== null) {
+      this.updatePageImageMetadata();
+    }
     fetch('https://dev.godsunchained.com/proto?format=flat')
       .then(resp => resp.json())
       .then(protos => {
@@ -73,6 +76,10 @@ export class InteractiveDemo extends LitElement {
     document
       .querySelector('meta[property="og:url"]')
       .setAttribute('content', location.href);
+    this.updatePageImageMetadata();
+  }
+
+  private updatePageImageMetadata() {
     document
       .querySelector('meta[property="og:image"]')
       .setAttribute(
