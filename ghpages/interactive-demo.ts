@@ -77,7 +77,7 @@ export class InteractiveDemo extends LitElement {
       .querySelector('meta[property="og:image"]')
       .setAttribute(
         'content',
-        `https://godsunchained.com/images/card?protoId=${this.currentProtoId}&quality=${this.currentQuality}`,
+        `https://card.godsunchained.com/?id=${this.currentProtoId}&q=${this.currentQuality}&w=500`,
       );
   }
 
