@@ -89,7 +89,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Number }) quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveSrcsetSizes: string;
-  @property({ type: Boolean }) useNewQualitySystem: boolean = false;
+  @property({ type: Boolean }) useLegacyQualityMapping = false;
 
   public protoCardData: ICardProtoData = {
     type: '',
@@ -213,7 +213,9 @@ export class CompositedCard extends LitElement {
    * A `render` method to define the DOM structure of the component
    */
   render() {
-    const qualityName = qualities[this.quality];
+    const qualityName = this.useLegacyQualityMapping
+      ? legacyQualities[this.quality]
+      : qualities[this.quality];
     const isMythicCard = qualityName === 'mythic';
     return html`
       <div class="card__innerRatioConstrainer">

@@ -255,7 +255,7 @@ var factory;window,factory=function(){return function(e){var n={};function A(t){
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */const t=new WeakMap,r=e=>(...n)=>{const A=e(...n);return t.set(A,!0),A},a=e=>"function"==typeof e&&t.has(e),o=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,i=(e,n,A=null)=>{for(;n!==A;){const A=n.nextSibling;e.removeChild(n),n=A}},s={},_={},c=`{{lit-${String(Math.random()).slice(2)}}}`,l=`\x3c!--${c}--\x3e`,u=new RegExp(`${c}|${l}`),d="$lit$";class p{constructor(e,n){this.parts=[],this.element=n;const A=[],t=[],r=document.createTreeWalker(n.content,133,null,!1);let a=0,o=-1,i=0;const{strings:s,values:{length:_}}=e;for(;i<_;){const e=r.nextNode();if(null!==e){if(o++,1===e.nodeType){if(e.hasAttributes()){const n=e.attributes,{length:A}=n;let t=0;for(let e=0;e<A;e++)B(n[e].name,d)&&t++;for(;t-- >0;){const n=s[i],A=E.exec(n)[2],t=A.toLowerCase()+d,r=e.getAttribute(t);e.removeAttribute(t);const a=r.split(u);this.parts.push({type:"attribute",index:o,name:A,strings:a}),i+=a.length-1}}"TEMPLATE"===e.tagName&&(t.push(e),r.currentNode=e.content)}else if(3===e.nodeType){const n=e.data;if(n.indexOf(c)>=0){const t=e.parentNode,r=n.split(u),a=r.length-1;for(let n=0;n<a;n++){let A,a=r[n];if(""===a)A=h();else{const e=E.exec(a);null!==e&&B(e[2],d)&&(a=a.slice(0,e.index)+e[1]+e[2].slice(0,-d.length)+e[3]),A=document.createTextNode(a)}t.insertBefore(A,e),this.parts.push({type:"node",index:++o})}""===r[a]?(t.insertBefore(h(),e),A.push(e)):e.data=r[a],i+=a}}else if(8===e.nodeType)if(e.data===c){const n=e.parentNode;null!==e.previousSibling&&o!==a||(o++,n.insertBefore(h(),e)),a=o,this.parts.push({type:"node",index:o}),null===e.nextSibling?e.data="":(A.push(e),o--),i++}else{let n=-1;for(;-1!==(n=e.data.indexOf(c,n+1));)this.parts.push({type:"node",index:-1}),i++}}else r.currentNode=t.pop()}for(const e of A)e.parentNode.removeChild(e)}}const B=(e,n)=>{const A=e.length-n.length;return A>=0&&e.slice(A)===n},g=e=>-1!==e.index,h=()=>document.createComment(""),E=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=\/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;
+ */const t=new WeakMap,r=e=>(...n)=>{const A=e(...n);return t.set(A,!0),A},a=e=>"function"==typeof e&&t.has(e),o=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,i=(e,n,A=null)=>{for(;n!==A;){const A=n.nextSibling;e.removeChild(n),n=A}},s={},_={},c=`{{lit-${String(Math.random()).slice(2)}}}`,l=`\x3c!--${c}--\x3e`,u=new RegExp(`${c}|${l}`),d="$lit$";class p{constructor(e,n){this.parts=[],this.element=n;const A=[],t=[],r=document.createTreeWalker(n.content,133,null,!1);let a=0,o=-1,i=0;const{strings:s,values:{length:_}}=e;for(;i<_;){const e=r.nextNode();if(null!==e){if(o++,1===e.nodeType){if(e.hasAttributes()){const n=e.attributes,{length:A}=n;let t=0;for(let e=0;e<A;e++)B(n[e].name,d)&&t++;for(;t-- >0;){const n=s[i],A=E.exec(n)[2],t=A.toLowerCase()+d,r=e.getAttribute(t);e.removeAttribute(t);const a=r.split(u);this.parts.push({type:"attribute",index:o,name:A,strings:a}),i+=a.length-1}}"TEMPLATE"===e.tagName&&(t.push(e),r.currentNode=e.content)}else if(3===e.nodeType){const n=e.data;if(n.indexOf(c)>=0){const t=e.parentNode,r=n.split(u),a=r.length-1;for(let n=0;n<a;n++){let A,a=r[n];if(""===a)A=h();else{const e=E.exec(a);null!==e&&B(e[2],d)&&(a=a.slice(0,e.index)+e[1]+e[2].slice(0,-d.length)+e[3]),A=document.createTextNode(a)}t.insertBefore(A,e),this.parts.push({type:"node",index:++o})}""===r[a]?(t.insertBefore(h(),e),A.push(e)):e.data=r[a],i+=a}}else if(8===e.nodeType)if(e.data===c){const n=e.parentNode;null!==e.previousSibling&&o!==a||(o++,n.insertBefore(h(),e)),a=o,this.parts.push({type:"node",index:o}),null===e.nextSibling?e.data="":(A.push(e),o--),i++}else{let n=-1;for(;-1!==(n=e.data.indexOf(c,n+1));)this.parts.push({type:"node",index:-1}),i++}}else r.currentNode=t.pop()}for(const e of A)e.parentNode.removeChild(e)}}const B=(e,n)=>{const A=e.length-n.length;return A>=0&&e.slice(A)===n},g=e=>-1!==e.index,h=()=>document.createComment(""),E=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -557,7 +557,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   .card__tribeText__inner {
     margin: auto;
   }
-`;var Un=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},bn=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const Qn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],Tn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let vn=class extends pe{constructor(){super(),this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return mn()}connectedCallback(){super.connectedCallback(),Tn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),Tn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return bn(this,void 0,void 0,function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return bn(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=Qn[this.quality],n="mythic"===e;return S`
+`;var Un=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o},bn=function(e,n,A,t){return new(A||(A=Promise))(function(r,a){function o(e){try{s(t.next(e))}catch(e){a(e)}}function i(e){try{s(t.throw(e))}catch(e){a(e)}}function s(e){e.done?r(e.value):new A(function(n){n(e.value)}).then(o,i)}s((t=t.apply(e,n||[])).next())})};const Qn=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond","mythic"],Tn=["mythic","diamond","gold","shadow","meteorite","plain"],vn=new Ze(e=>{e.forEach(e=>{e.target.handleResize(e)})});let yn=class extends pe{constructor(){super(),this.useLegacyQualityMapping=!1,this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:null,id:null,attack:null,health:null,tribe:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return mn()}connectedCallback(){super.connectedCallback(),vn.observe(this)}disconnectedCallback(){super.disconnectedCallback(),vn.unobserve(this)}updated(e){e.forEach((e,n)=>{"protoId"===n?this.getProtoDataFromApi():"inputProtoData"===n&&this.getProtoDataFromInput()})}handleResize(e){const n=e.target.shadowRoot.children[0];this.ch=.01*n.offsetHeight,this.cw=.01*n.offsetWidth,this.requestUpdate()}fetchProtoData(){return bn(this,void 0,void 0,function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())})}getProtoDataFromApi(){return bn(this,void 0,void 0,function*(){return this.fetchProtoData().then(e=>{const{id:n,type:A,attack:t,health:r,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l}=e;return this.protoCardData={id:n,type:A,attack:t.Int64,health:r.Int64,effect:a,name:o,rarity:i,god:s,mana:_,set:c,tribe:l.String},this.loading=!1,this.requestUpdate(),e})})}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=this.useLegacyQualityMapping?Qn[this.quality]:Tn[this.quality],n="mythic"===e;return S`
       <div class="card__innerRatioConstrainer">
         ${this.loading?(()=>S`
   <div class="card__loading">
@@ -872,26 +872,26 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData))}
             `}
       </div>
-    `}};Un([se({type:Number})],vn.prototype,"protoId",void 0),Un([se({type:Number})],vn.prototype,"quality",void 0),Un([se({type:Object})],vn.prototype,"inputProtoData",void 0),Un([se({type:String})],vn.prototype,"responsiveSrcsetSizes",void 0),vn=Un([ae("composited-card")],vn);var yn=A(2),Fn=A.n(yn),In=A(3);const On=ue`
+    `}};Un([se({type:Number})],yn.prototype,"protoId",void 0),Un([se({type:Number})],yn.prototype,"quality",void 0),Un([se({type:Object})],yn.prototype,"inputProtoData",void 0),Un([se({type:String})],yn.prototype,"responsiveSrcsetSizes",void 0),Un([se({type:Boolean})],yn.prototype,"useLegacyQualityMapping",void 0),yn=Un([ae("composited-card")],yn);var Fn=A(2),In=A.n(Fn),On=A(3);const Pn=ue`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,Pn=ue`
+`,Dn=ue`
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
-`,Dn=ue`black`,Ln=ue`white`,Rn=ue`#f9f9f9`,xn=(ue`#f1f1f1`,ue`65px`),Sn=ue`100px`,Hn=ue`#282828`,kn=ue`#333`,Mn=ue`rgba(255,255,255,0.15)`,Nn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Kn=ue`#9f78dd`,Wn=(e=0)=>ue`
+`,Ln=ue`black`,Rn=ue`white`,xn=ue`#f9f9f9`,Sn=(ue`#f1f1f1`,ue`65px`),Hn=ue`100px`,kn=ue`#282828`,Mn=ue`#333`,Nn=ue`rgba(255,255,255,0.15)`,Kn=[ue`#8295A2`,ue`#8295A2`,ue`#6A8B35`,ue`#3D91B9`,ue`#84343E`,ue`#B461C5`,ue`#E5D93C`,ue`#94E6FB`,ue`white`],Wn=ue`#9f78dd`,zn=(e=0)=>ue`
   width: 100%;
   cursor: pointer;
-  background: ${Hn};
-  border: 2px solid ${Mn};
+  background: ${kn};
+  border: 2px solid ${Nn};
   padding: 6px;
-`,zn=(e=0)=>ue`
+`,Vn=(e=0)=>ue`
   height: 20px;
   width: 38px;
   border-radius: 28px;
-  background: ${Nn[e]};
+  background: ${Kn[e]};
   cursor: pointer;
   -webkit-appearance: none;
-`;var Vn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Gn=class extends pe{constructor(){super(),this.currentProtoId=Math.floor(99*Math.random()+1),this.currentQuality=Math.floor(8*Math.random()+1),this.currentQualityInWords=Qn[this.currentQuality];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");null!==n&&(this.currentProtoId=parseInt(n,10)),null!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=Qn[this.currentQuality]),null!==n&&null!==A&&this.updatePageImageMetadata(),fetch("https://dev.godsunchained.com/proto?format=flat").then(e=>e.json()).then(e=>{this.protosCollection=e,this.currentProtoData=Object.assign({},e[this.currentProtoId],{id:this.currentProtoId}),this.updatePageMetadata()}).catch(e=>console.error(e))}static get styles(){return(()=>ue`
+`;var Gn=function(e,n,A,t){var r,a=arguments.length,o=a<3?n:null===t?t=Object.getOwnPropertyDescriptor(n,A):t;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(e,n,A,t);else for(var i=e.length-1;i>=0;i--)(r=e[i])&&(o=(a<3?r(o):a>3?r(n,A,o):r(n,A))||o);return a>3&&o&&Object.defineProperty(n,A,o),o};let Xn=class extends pe{constructor(){super(),this.currentProtoId=Math.floor(99*Math.random()+1),this.currentQuality=Math.floor(5*Math.random()),this.currentQualityInWords=Tn[this.currentQuality];const e=this.getUrlParams(),n=e.get("protoid"),A=e.get("quality");null!==n&&(this.currentProtoId=parseInt(n,10)),null!==A&&(this.currentQuality=parseInt(A,10),this.currentQualityInWords=Tn[this.currentQuality]),null!==n&&null!==A&&this.updatePageImageMetadata(),fetch("https://dev.godsunchained.com/proto?format=flat").then(e=>e.json()).then(e=>{this.protosCollection=e,this.currentProtoData=Object.assign({},e[this.currentProtoId],{id:this.currentProtoId}),this.updatePageMetadata()}).catch(e=>console.error(e))}static get styles(){return(()=>ue`
   @keyframes floatCard {
     from {
       transform: translateY(2%);
@@ -914,7 +914,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     min-width: 640px;
     height: 100%;
     min-height: 760px;
-    ${Pn}
+    ${Dn}
   }
 
   .appHeader {
@@ -923,11 +923,11 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     left: 0;
     z-index: 1;
     width: 100%;
-    height: ${xn};
+    height: ${Sn};
     background: white;
-    border-bottom: 2px solid ${Rn};
+    border-bottom: 2px solid ${xn};
     text-align: center;
-    line-height: calc(${xn} - 3);
+    line-height: calc(${Sn} - 3);
     display: flex;
     padding: 0 15px 0 5px;
   }
@@ -945,7 +945,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   }
 
   .appHeader__title {
-    ${Pn}
+    ${Dn}
     font-weight: 300;
     font-size: 22px;
     letter-spacing: -0.8px;
@@ -959,8 +959,8 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     letter-spacing: 0;
     padding: 2px 3px;
     border-radius: 4px;
-    border: 1px solid ${Kn};
-    color: ${Kn};
+    border: 1px solid ${Wn};
+    color: ${Wn};
     font-weight: 400;
     display: inline-block;
     vertical-align: top;
@@ -969,8 +969,8 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   }
 
   .appHeader__title__sup:hover {
-    background-color: ${Kn};
-    color: ${Ln};
+    background-color: ${Wn};
+    color: ${Rn};
   }
 
   .appContainer {
@@ -978,7 +978,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: ${xn};
+    padding-top: ${Sn};
   }
 
   .appContainer::before {
@@ -988,7 +988,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     left: 0;
     right: 0;
     height: 50vh;
-    background: ${kn};
+    background: ${Mn};
   }
 
   .appContainer__intro {
@@ -1000,7 +1000,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   }
 
   .appContainer__intro a {
-    color: ${Dn};
+    color: ${Ln};
     text-decoration: none;
   }
 
@@ -1009,28 +1009,28 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   }
 
   .appContainer__controls__title {
-    ${On}
+    ${Pn}
     font-size: 18px;
     text-transform: uppercase;
-    color: ${Ln};
+    color: ${Rn};
     position: absolute;
     left: 20px;
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
-    text-shadow: 0 1px 0 ${kn}, 1px 0 0 ${kn},
-      1px 1px 0 ${kn}, -1px 0 0 ${kn},
-      -1px -1px 0 ${kn}, 0 -1px 0 ${kn};
+    text-shadow: 0 1px 0 ${Mn}, 1px 0 0 ${Mn},
+      1px 1px 0 ${Mn}, -1px 0 0 ${Mn},
+      -1px -1px 0 ${Mn}, 0 -1px 0 ${Mn};
   }
 
   .appContainer__fab {
     position: fixed;
-    bottom: ${Sn};
+    bottom: ${Hn};
     right: 25px;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: ${Kn};
+    background: ${Wn};
     box-shadow: none;
     border: none;
     transform: translate(0, 50%);
@@ -1043,7 +1043,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   }
 
   .appContainer__fab:active {
-    background: ${Ln};
+    background: ${Rn};
   }
 
   .appContainer__fab:active .appContainer__fab__img {
@@ -1062,7 +1062,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     display: flex;
     flex: 1;
     position: relative;
-    margin-bottom: calc(${Sn} + 30px);
+    margin-bottom: calc(${Hn} + 30px);
   }
 
   .appContainer__cardVisualisation__inner {
@@ -1136,9 +1136,9 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
     left: 0;
     bottom: 0;
     width: 100%;
-    height: ${Sn};
+    height: ${Hn};
     z-index: 2;
-    background: ${Hn};
+    background: ${kn};
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1153,7 +1153,7 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
 
   .appContainer__controls__panel__input {
     background: transparent;
-    border: 2px solid ${Mn};
+    border: 2px solid ${Nn};
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 700;
@@ -1177,35 +1177,35 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
   }
 
   .quality--plain {
-    color: ${Nn[1]};
+    color: ${Kn[1]};
   }
 
   .quality--bronze {
-    color: ${Nn[2]};
+    color: ${Kn[2]};
   }
 
   .quality--iron {
-    color: ${Nn[3]};
+    color: ${Kn[3]};
   }
 
   .quality--meteorite {
-    color: ${Nn[4]};
+    color: ${Kn[4]};
   }
 
   .quality--shadow {
-    color: ${Nn[5]};
+    color: ${Kn[5]};
   }
 
   .quality--gold {
-    color: ${Nn[6]};
+    color: ${Kn[6]};
   }
 
   .quality--diamond {
-    color: ${Nn[7]};
+    color: ${Kn[7]};
   }
 
   .quality--mythic {
-    color: ${Nn[8]};
+    color: ${Kn[8]};
   }
 
   .appContainer__controls__panel__rangeSlider {
@@ -1219,107 +1219,107 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
 
   /* WEBKIT: */
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-runnable-track {
-    ${Wn(0)}
+    ${zn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-runnable-track {
-    ${Wn(2)}
+    ${zn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-runnable-track {
-    ${Wn(3)}
+    ${zn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-runnable-track {
-    ${Wn(4)}
+    ${zn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-runnable-track {
-    ${Wn(5)}
+    ${zn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-runnable-track {
-    ${Wn(6)}
+    ${zn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-runnable-track {
-    ${Wn(7)}
+    ${zn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-runnable-track {
-    ${Wn(8)}
+    ${zn(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-thumb {
-    ${zn(0)}
+    ${Vn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-thumb {
-    ${zn(2)}
+    ${Vn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-thumb {
-    ${zn(3)}
+    ${Vn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-thumb {
-    ${zn(4)}
+    ${Vn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-thumb {
-    ${zn(5)}
+    ${Vn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-thumb {
-    ${zn(6)}
+    ${Vn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-thumb {
-    ${zn(7)}
+    ${Vn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-thumb {
-    ${zn(8)}
+    ${Vn(8)}
   }
 
   /* FIREFOX: */
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-track {
-    ${Wn(0)}
+    ${zn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-track {
-    ${Wn(2)}
+    ${zn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-track {
-    ${Wn(3)}
+    ${zn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-track {
-    ${Wn(4)}
+    ${zn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-track {
-    ${Wn(5)}
+    ${zn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-track {
-    ${Wn(6)}
+    ${zn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-track {
-    ${Wn(7)}
+    ${zn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-track {
-    ${Wn(8)}
+    ${zn(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-thumb {
-    ${zn(0)}
+    ${Vn(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-thumb {
-    ${zn(2)}
+    ${Vn(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-thumb {
-    ${zn(3)}
+    ${Vn(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-thumb {
-    ${zn(4)}
+    ${Vn(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-thumb {
-    ${zn(5)}
+    ${Vn(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-thumb {
-    ${zn(6)}
+    ${Vn(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-thumb {
-    ${zn(7)}
+    ${Vn(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
-    ${zn(8)}
+    ${Vn(8)}
   }
-`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||(this.updateUrlParams(),this.updatePageMetadata())}updatePageMetadata(){document.querySelector('meta[property="og:title"]').setAttribute("content",this.currentProtoData.name),document.querySelector('meta[property="og:description"]').setAttribute("content",this.currentProtoData.effect),document.querySelector('meta[property="og:url"]').setAttribute("content",location.href),this.updatePageImageMetadata()}updatePageImageMetadata(){document.querySelector('meta[property="og:image"]').setAttribute("content",`https://card.godsunchained.com/?id=${this.currentProtoId}&q=${this.currentQuality}&w=500`)}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.pushState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),Fn()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{In(e,`${this.currentProtoId}-${Qn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return S`
+`)()}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||(this.updateUrlParams(),this.updatePageMetadata())}updatePageMetadata(){document.querySelector('meta[property="og:title"]').setAttribute("content",this.currentProtoData.name),document.querySelector('meta[property="og:description"]').setAttribute("content",this.currentProtoData.effect),document.querySelector('meta[property="og:url"]').setAttribute("content",location.href),this.updatePageImageMetadata()}updatePageImageMetadata(){document.querySelector('meta[property="og:image"]').setAttribute("content",`https://card.godsunchained.com/?id=${this.currentProtoId}&q=${this.currentQuality}&w=500`)}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",`${this.currentProtoId}`),e.set("quality",`${this.currentQuality}`),window.history.pushState({},"",decodeURIComponent(`${location.pathname}?${e}`))}screenshot(e){e.preventDefault();const n=this.shadowRoot.querySelector(".appContainer__dummyCardContainer__dummyCard"),A=document.querySelector(".compositedCardDomRender");A.appendChild(function(e){const n=document.createDocumentFragment();return[...e.childNodes].forEach(A=>{A.remove(),n.appendChild(A.cloneNode(!0)),e.appendChild(A)}),n}(n.shadowRoot)),In()(A,{backgroundColor:"transparent",useCORS:!0,onclone:e=>{e.querySelector(".compositedCardDomRender").style.opacity=1}}).then(e=>{e.toBlob(e=>{On(e,`${this.currentProtoId}-${Tn[this.currentQuality]}.png`)},"image/png"),A.innerHTML=null})}render(){return S`
       <header class="appHeader">
         <a href="https://immutable.com" class="appHeader__link" target="_blank">
           <img
@@ -1390,11 +1390,11 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
             </label>
             <input
               type="range"
-              min="1"
-              max="8"
+              min="0"
+              max="5"
               class="appContainer__controls__panel__rangeSlider quality--${this.currentQualityInWords}"
               value=${this.currentQuality}
-              @change=${e=>{this.currentQuality=e.target.value,this.currentQualityInWords=Qn[this.currentQuality]}}
+              @change=${e=>{this.currentQuality=e.target.value,this.currentQualityInWords=Tn[this.currentQuality]}}
             />
           </div>
         </footer>
@@ -1419,5 +1419,5 @@ const en=new WeakMap,nn=r(e=>n=>{if(!(n instanceof Q)||n instanceof F||"style"!=
           </div>
         </div>
       </main>
-    `}};Vn([se()],Gn.prototype,"currentProtoId",void 0),Vn([se()],Gn.prototype,"currentQuality",void 0),Vn([se()],Gn.prototype,"currentQualityInWords",void 0),Vn([se()],Gn.prototype,"currentProtoData",void 0),Vn([se()],Gn.prototype,"protosCollection",void 0),Gn=Vn([ae("demo-app")],Gn);A(11);const Xn=document.createElement("style");Xn.innerHTML=mn().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Xn)}]);
-//# sourceMappingURL=bundle.3f1664ce54ede3b51c35.js.map
+    `}};Gn([se()],Xn.prototype,"currentProtoId",void 0),Gn([se()],Xn.prototype,"currentQuality",void 0),Gn([se()],Xn.prototype,"currentQualityInWords",void 0),Gn([se()],Xn.prototype,"currentProtoData",void 0),Gn([se()],Xn.prototype,"protosCollection",void 0),Xn=Gn([ae("demo-app")],Xn);A(11);const Yn=document.createElement("style");Yn.innerHTML=mn().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Yn)}]);
+//# sourceMappingURL=bundle.318643cfe4e68d4b24ff.js.map
