@@ -13,14 +13,14 @@ A card's id/proto number. Either a protoId or inputProtoData must be provided fo
 All the information needed to render a card. When this complete input is provided, the composited-card component will skip the card-data endpoint call.
 This input should contain the following fields:
 
-```
-type: string;
+```javascript
+type: string; // "creature" | "weapon" | "spell" | "god-power";
 effect: string;
 name: string;
-rarity: string;
-god: string;
-set: string;
-tribe: string;
+rarity: string; // "common" | "rare" | "epic" | "legendary" | "mythic";
+god: string; // "war" | "magic" | "death" | "deception" | "nature" | "light";
+set: string; // "genesis" | "core" | "etherbots"
+tribe: string; // "amazon" | "aether" | "nether" | "atlantean" | "anubian" | "mystic" | "viking" | "dragon" | "guild" | "olympian" | "structure" | "wild"
 mana: number;
 id: number;
 attack: number;
@@ -45,20 +45,20 @@ OPTIONAL: a sizes string to indicate to the browser, roughly how big images will
 
 ## To use in any web project
 
-```
+```bash
 $ yarn add composited-card
 ```
 then import it in your app's entry point eg:
-```
+```javascript
 import 'composited-card';
 ```
 or you can also simply embed the bundled web component script in any HTML page eg:
-```
+```html
 <script src="https://unpkg.com/composited-card@latest/dist/composited-card.packed.js"></script>
 ```
 and then use it inside any markup file by inserting the following web-component tag:
 
-```
+```html
 <composited-card
   protoId="584"
   quality="7"
@@ -71,7 +71,7 @@ and then use it inside any markup file by inserting the following web-component 
 
 load up a test page, with many different card types and sizes
 
-```
+```bash
 $ yarn dev:demo
 ```
 
@@ -79,18 +79,18 @@ $ yarn dev:demo
 
 ### Install dependencies
 
-```
+```bash
 $ yarn install
 ```
 
 ### Viewing/developing docs
 
-```
+```bash
 $ yarn dev:docs
 ```
 
 ### Building for prod
 
-```
+```bash
 $ yarn build
 ```
