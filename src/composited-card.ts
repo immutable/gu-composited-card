@@ -33,7 +33,7 @@ export interface ICardProtoData {
 
 // @TODO: these should really come from an endpoint call,
 // so that we can easily update them in the future...
-export const qualities = [
+export const legacyQualities = [
   'plain',
   // @NOTE: there may be "0" quality items in future, for now, these items
   // can use the plain layer imagery assets
@@ -44,7 +44,16 @@ export const qualities = [
   'shadow',
   'gold',
   'diamond',
+  'mythic'
+];
+
+export const qualities = [
   'mythic',
+  'diamond',
+  'gold',
+  'shadow',
+  'meteorite',
+  'plain',
 ];
 
 // Deploy a native ResizeOberver for this component instance:
@@ -80,6 +89,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Number }) quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveSrcsetSizes: string;
+  @property({ type: Boolean }) useNewQualitySystem: boolean = false;
 
   public protoCardData: ICardProtoData = {
     type: '',

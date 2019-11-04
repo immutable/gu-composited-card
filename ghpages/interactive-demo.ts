@@ -19,7 +19,7 @@ function cloneShadow(shadow) {
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
   @property() currentProtoId = Math.floor(Math.random() * 99 + 1);
-  @property() currentQuality = Math.floor(Math.random() * 8 + 1);
+  @property() currentQuality = Math.floor(Math.random() * 5 + 1);
   @property() currentQualityInWords: string = qualities[this.currentQuality];
   @property() currentProtoData: ICardProtoData;
   @property() protosCollection: {};

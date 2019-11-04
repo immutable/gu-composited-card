@@ -27,9 +27,17 @@ attack: number;
 health: number;
 ```
 
-### @property({ type: Number }) quality (0 - 8)
+### @property({ type: Boolean }) useLegacyQualityMapping
 
-OPTIONAL: a card's quality setting. When this input is missing, the a default quality setting of 0 will be used for all artwork/layers. 0 = bottom quality, 1 = plain quality, ... 8 = mythic/best quality
+OPTIONAL: A new kind of quality system has been developed in order to better support the on-chaining process for cards. This new system has a reduced number of qualities, in reversed order. We will be eventually deprecating the old quality system, but for now you can choose to use the old quality numbering system.
+
+
+### @property({ type: Number }) quality (5 - 0) | (0 - 8 for legacy)
+
+OPTIONAL: a card's quality setting. When this input is missing, the a default quality setting of 5 will be used for all artwork/layers. 5 = 'plain', ... 1 = 'diamond' and 0 = 'mythic'. 
+
+*NOTE: if you choose to use the legacy quality mappings, then 0 & 1 = 'plain' ... 8 = 'diamond' and 9 = 'mythic'.
+
 
 ### @property({ type: String }) responsiveSrcsetSizes
 
