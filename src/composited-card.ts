@@ -43,12 +43,10 @@ export const legacyQualities = [
   'meteorite',
   'shadow',
   'gold',
-  'diamond',
-  'mythic'
+  'diamond'
 ];
 
 export const qualities = [
-  'mythic',
   'diamond',
   'gold',
   'shadow',
@@ -215,8 +213,8 @@ export class CompositedCard extends LitElement {
   render() {
     const qualityName = this.useLegacyQualityMapping
       ? legacyQualities[this.quality]
-      : qualities[this.quality];
-    const isMythicCard = qualityName === 'mythic';
+      : qualities[this.quality - 1];
+    const isMythicCard = this.protoCardData.rarity === 'mythic';
     return html`
       <div class="card__innerRatioConstrainer">
         ${this.loading

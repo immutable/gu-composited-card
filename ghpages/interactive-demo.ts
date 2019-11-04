@@ -19,8 +19,8 @@ function cloneShadow(shadow) {
 @customElement('demo-app')
 export class InteractiveDemo extends LitElement {
   @property() currentProtoId = Math.floor(Math.random() * 99 + 1);
-  @property() currentQuality = Math.floor(Math.random() * 5);
-  @property() currentQualityInWords: string = qualities[this.currentQuality];
+  @property() currentQuality = Math.floor(Math.random() * 4 + 1);
+  @property() currentQualityInWords: string = qualities[this.currentQuality - 1];
   @property() currentProtoData: ICardProtoData;
   @property() protosCollection: {};
 
@@ -128,7 +128,7 @@ export class InteractiveDemo extends LitElement {
       canvas.toBlob(blob => {
         saveAs(
           blob,
-          `${this.currentProtoId}-${qualities[this.currentQuality]}.png`,
+          `${this.currentProtoId}-${qualities[this.currentQuality - 1]}.png`,
         );
       }, 'image/png');
       cardRenderContainer.innerHTML = null;
@@ -214,14 +214,14 @@ export class InteractiveDemo extends LitElement {
             </label>
             <input
               type="range"
-              min="0"
+              min="1"
               max="5"
               class="appContainer__controls__panel__rangeSlider quality--${this
                 .currentQualityInWords}"
               value=${this.currentQuality}
               @change=${e => {
                 this.currentQuality = e.target.value;
-                this.currentQualityInWords = qualities[this.currentQuality];
+                this.currentQualityInWords = qualities[this.currentQuality - 1];
               }}
             />
           </div>
