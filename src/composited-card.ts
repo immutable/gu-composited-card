@@ -77,6 +77,7 @@ const ro = new ResizeObserver(entries => {
  * @input quality
  * @input inputProtoData
  * @input responsiveSrcsetSizes
+ * @input useLegacyQualityMapping
  *
  * @author Tim Paul <tim.paul@immutable.com> <@glomotion>
  *
@@ -84,7 +85,7 @@ const ro = new ResizeObserver(entries => {
 @customElement('composited-card')
 export class CompositedCard extends LitElement {
   @property({ type: Number }) protoId: number;
-  @property({ type: Number }) quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+  @property({ type: Number }) quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 = 5;
   @property({ type: Object }) inputProtoData: ICardProtoData;
   @property({ type: String }) responsiveSrcsetSizes: string;
   @property({ type: Boolean }) useLegacyQualityMapping = false;
