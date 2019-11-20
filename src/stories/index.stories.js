@@ -11,7 +11,7 @@ storiesOf('composited-card', module).add(
 storiesOf('composited-card', module)
   .addDecorator(withKnobs)
   .add('add props', () => {
-    const num = number('increment value', 5);
-    const qual = number('increment value', 4);
-    return `<composited-card protoId="${num}" quality="${qual} />`;
+    const proto = number('proto', 5);
+    const qual = number('quality', 4);
+    return `<composited-card protoId="${proto}" quality="${qual}" />`;
   });
