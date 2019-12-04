@@ -61,7 +61,7 @@ and then use it inside any markup file by inserting the following web-component 
 ```html
 <composited-card
   protoId="584"
-  quality="7"
+  quality="4"
   responsiveSrcsetSizes="(min-width: 600px) 160px, 320px"
 ></composited-card>
 ```
