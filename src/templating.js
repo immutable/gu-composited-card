@@ -265,7 +265,7 @@ export const nonMythicImageLayersTemplate = ({
           </picture>
         `
       : null}
-    ${set === 'core'
+    ${set === 'core' && qualityName === 'plain'
       ? html`
           <picture class="card__lockIconLayer">
             <source
