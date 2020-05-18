@@ -484,10 +484,10 @@ export const textLayersTemplate = ({
           </div>
         `
       : null}
-    <gu-icon
+    <card-icon
       style=${setIconStyles}
       class="card__setIcon"
       iconLigature=${`set_${cardSet}`}
-    ></gu-icon>
+    ></card-icon>
   `;
 };

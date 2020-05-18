@@ -60,4 +60,4 @@ export class GuIcon extends LitElement {
   }
 }
 
-customElements.define('gu-icon', GuIcon);
+customElements.define('card-icon', GuIcon);
