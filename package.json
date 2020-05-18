@@ -3,7 +3,7 @@
   "main": "dist/composited-card.packed.js",
   "description": "A simple, framework agnostic web component to facilitate the display of Gods Unchained card element(s).",
   "license": "MIT",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "homepage": "https://immutable.github.io/gu-composited-card",
   "repository": {
     "type": "git",
