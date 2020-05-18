@@ -164,4 +164,9 @@ export const getStyles = () => css`
   .card__tribeText__inner {
     margin: auto;
   }
+
+  .card__setIcon {
+    position: absolute;
+    color: white;
+  }
 `;

@@ -240,6 +240,7 @@ export class CompositedCard extends LitElement {
                 ch: this.ch,
                 cw: this.cw,
                 ...this.protoCardData,
+                cardSet: this.protoCardData.set,
               })}
             `}
       </div>

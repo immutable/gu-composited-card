@@ -1,1 +1,10 @@
 @import 'https://images.godsunchained.com/fonts/css/gu-fonts.css';
+
+@font-face {
+  font-family: 'cardi-cons';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://images.godsunchained.com/fonts/cardi-cons/cardi-cons.woff')
+    format('woff');
+}

@@ -38,7 +38,7 @@ export class InteractiveDemo extends LitElement {
     }
     if (quality !== null) {
       this.currentQuality = parseInt(quality, 10);
-      this.currentQualityInWords = qualities[this.currentQuality];
+      this.currentQualityInWords = qualities[this.currentQuality - 1];
     }
     if (protoId !== null && quality !== null) {
       this.updatePageImageMetadata();

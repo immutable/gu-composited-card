@@ -2,6 +2,8 @@ import { html } from 'lit-element';
 import { styleMap } from 'lit-html/directives/style-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
+import './icon.component';
+
 const artQualities = {
   small: 250,
   normal: 375,
@@ -62,7 +64,9 @@ export const baseArtworkLayersTemplate = ({
       />
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/art2/${artQualities.normal}/${id}.jpg"
+        srcset="
+          https://images.godsunchained.com/art2/${artQualities.normal}/${id}.jpg
+        "
         class="card__artwork__img"
       />
     </picture>
@@ -99,7 +103,9 @@ export const mythicImageLayersTemplate = ({
 
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png"
+        srcset="
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png
+        "
         class="card__baseLayer__img"
       />
     </picture>
@@ -128,7 +134,9 @@ export const mythicImageLayersTemplate = ({
 
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_C408.png"
+        srcset="
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_C408.png
+        "
         class="card__manaLayer__img"
       />
     </picture>
@@ -169,7 +177,9 @@ export const nonMythicImageLayersTemplate = ({
       />
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png"
+        srcset="
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png
+        "
         class="card__baseLayer__img"
       />
     </picture>
@@ -197,7 +207,9 @@ export const nonMythicImageLayersTemplate = ({
       />
       <img
         crossorigin="Anonymous"
-        srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${god}_${qualityName}.png"
+        srcset="
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${god}_${qualityName}.png
+        "
         class="card__manaLayer__img"
       />
     </picture>
@@ -227,7 +239,9 @@ export const nonMythicImageLayersTemplate = ({
             />
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/rarity_${rarity}.png"
+              srcset="
+                https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/rarity_${rarity}.png
+              "
               class="card__rarityLayer__img"
             />
           </picture>
@@ -259,7 +273,9 @@ export const nonMythicImageLayersTemplate = ({
             />
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/wreath_${qualityName}.png"
+              srcset="
+                https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/wreath_${qualityName}.png
+              "
               class="card__wreathLayer__img"
             />
           </picture>
@@ -286,7 +302,9 @@ export const nonMythicImageLayersTemplate = ({
 
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers2/locks/lock_${qualityName}.png"
+              srcset="
+                https://images.godsunchained.com/card-layers2/locks/lock_${qualityName}.png
+              "
               class="card__lockIconLayer__img"
             />
           </picture>
@@ -318,7 +336,9 @@ export const nonMythicImageLayersTemplate = ({
 
             <img
               crossorigin="Anonymous"
-              srcset="https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/tribebar_${rarity}.png"
+              srcset="
+                https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/tribebar_${rarity}.png
+              "
               class="card__tribeBarLayer__img"
             />
           </picture>
@@ -334,6 +354,7 @@ export const textLayersTemplate = ({
   attack = '⃠',
   health = '⃠',
   tribe = '',
+  cardSet = '',
   ch = 0,
   cw = 0,
 }) => {
@@ -412,6 +433,11 @@ export const textLayersTemplate = ({
     right: `${cw * 23}px`,
     textShadow,
   });
+  const setIconStyles = styleMap({
+    fontSize: `${ch * 6}px`,
+    top: `${ch * 10}px`,
+    right: `${cw * 9}px`,
+  });
 
   return html`
     <div class="card__manaText" style=${manaTextStyles}>
@@ -458,5 +484,10 @@ export const textLayersTemplate = ({
           </div>
         `
       : null}
+    <gu-icon
+      style=${setIconStyles}
+      class="card__setIcon"
+      iconLigature=${`set_${cardSet}`}
+    ></gu-icon>
   `;
 };
