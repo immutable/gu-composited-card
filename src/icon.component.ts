@@ -45,11 +45,6 @@ export class GuIcon extends LitElement {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-
-      :host([fillGradient]) {
-        display: inline;
-        line-height: 0;
-      }
     `;
   }
 
