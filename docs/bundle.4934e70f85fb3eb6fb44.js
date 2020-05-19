@@ -426,11 +426,6 @@ const Ve=new WeakMap,Ge=r(e=>n=>{if(!(n instanceof b)||n instanceof y||"style"!=
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-
-      :host([fillGradient]) {
-        display: inline;
-        line-height: 0;
-      }
     `}render(){return S`
       <i class="icon">${this.iconLigature}</i>
     `}});const je=250,qe=375,$e=500,Je=720,Ze=1024,en=256,nn=512,An=720,tn=1024,rn=256,an=512;A(6);const on=te`
@@ -1476,4 +1471,4 @@ const Ve=new WeakMap,Ge=r(e=>n=>{if(!(n instanceof b)||n instanceof y||"style"!=
         </div>
       </main>
     `}};xn([Z()],Hn.prototype,"currentProtoId",void 0),xn([Z()],Hn.prototype,"currentQuality",void 0),xn([Z()],Hn.prototype,"currentQualityInWords",void 0),xn([Z()],Hn.prototype,"currentProtoData",void 0),xn([Z()],Hn.prototype,"protosCollection",void 0),Hn=xn([$("demo-app")],Hn);A(11);const kn=document.createElement("style");kn.innerHTML=dn().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(kn)}]);
-//# sourceMappingURL=bundle.a031316fd87276d74528.js.map
+//# sourceMappingURL=bundle.4934e70f85fb3eb6fb44.js.map

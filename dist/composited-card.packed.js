@@ -183,11 +183,6 @@ const We=new WeakMap,Le=A(e=>t=>{if(!(t instanceof S)||t instanceof T||"style"!=
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-
-      :host([fillGradient]) {
-        display: inline;
-        line-height: 0;
-      }
     `}render(){return Q`
       <i class="icon">${this.iconLigature}</i>
     `}});const Je=250,qe=375,Ke=500,Xe=720,_e=1024,$e=256,et=512,tt=720,st=1024,rt=256,At=512;s(1);const it=se`
