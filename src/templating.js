@@ -63,7 +63,6 @@ export const baseArtworkLayersTemplate = ({
         type="image/jpg"
       />
       <img
-        crossorigin="Anonymous"
         srcset="
           https://images.godsunchained.com/art2/${artQualities.normal}/${id}.jpg
         "
@@ -102,7 +101,6 @@ export const mythicImageLayersTemplate = ({
       />
 
       <img
-        crossorigin="Anonymous"
         srcset="
           https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png
         "
@@ -133,7 +131,6 @@ export const mythicImageLayersTemplate = ({
       />
 
       <img
-        crossorigin="Anonymous"
         srcset="
           https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_C408.png
         "
@@ -176,7 +173,6 @@ export const nonMythicImageLayersTemplate = ({
         type="image/png"
       />
       <img
-        crossorigin="Anonymous"
         srcset="
           https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png
         "
@@ -206,7 +202,6 @@ export const nonMythicImageLayersTemplate = ({
         type="image/png"
       />
       <img
-        crossorigin="Anonymous"
         srcset="
           https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${god}_${qualityName}.png
         "
@@ -238,7 +233,6 @@ export const nonMythicImageLayersTemplate = ({
               type="image/png"
             />
             <img
-              crossorigin="Anonymous"
               srcset="
                 https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/rarity_${rarity}.png
               "
@@ -272,7 +266,6 @@ export const nonMythicImageLayersTemplate = ({
               type="image/png"
             />
             <img
-              crossorigin="Anonymous"
               srcset="
                 https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/wreath_${qualityName}.png
               "
@@ -301,7 +294,6 @@ export const nonMythicImageLayersTemplate = ({
             />
 
             <img
-              crossorigin="Anonymous"
               srcset="
                 https://images.godsunchained.com/card-layers2/locks/lock_${qualityName}.png
               "
@@ -335,7 +327,6 @@ export const nonMythicImageLayersTemplate = ({
             />
 
             <img
-              crossorigin="Anonymous"
               srcset="
                 https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/tribebar_${rarity}.png
               "
