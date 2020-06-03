@@ -8,7 +8,7 @@ import { getStyles } from './styles';
 function cloneShadow(shadow) {
   const frag = document.createDocumentFragment();
   var nodes = [...shadow.childNodes];
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     node.remove();
     frag.appendChild(node.cloneNode(true));
     shadow.appendChild(node);
@@ -20,7 +20,8 @@ function cloneShadow(shadow) {
 export class InteractiveDemo extends LitElement {
   @property() currentProtoId = Math.floor(Math.random() * 99 + 1);
   @property() currentQuality = Math.floor(Math.random() * 4 + 1);
-  @property() currentQualityInWords: string = qualities[this.currentQuality - 1];
+  @property() currentQualityInWords: string =
+    qualities[this.currentQuality - 1];
   @property() currentProtoData: ICardProtoData;
   @property() protosCollection: {};
 
@@ -44,16 +45,17 @@ export class InteractiveDemo extends LitElement {
       this.updatePageImageMetadata();
     }
     fetch('https://dev.godsunchained.com/proto?format=flat')
-      .then(resp => resp.json())
-      .then(protos => {
+      .then((resp) => resp.json())
+      .then((protos) => {
         this.protosCollection = protos;
         this.currentProtoData = {
           ...protos[this.currentProtoId],
           id: this.currentProtoId,
         };
+        console.log('!!!!!!!!!!!!', protos);
         this.updatePageMetadata();
       })
-      .catch(e => console.error(e));
+      .catch((e) => console.error(e));
   }
 
   updated(changes) {
@@ -79,13 +81,14 @@ export class InteractiveDemo extends LitElement {
     this.updatePageImageMetadata();
   }
 
+  private get currentImageUrl() {
+    return `https://card.godsunchained.com?id=${this.currentProtoId}&q=${this.currentQuality}&w=`;
+  }
+
   private updatePageImageMetadata() {
     document
       .querySelector('meta[property="og:image"]')
-      .setAttribute(
-        'content',
-        `https://card.godsunchained.com/?id=${this.currentProtoId}&q=${this.currentQuality}&w=500`,
-      );
+      .setAttribute('content', `${this.currentImageUrl}256`);
   }
 
   private getUrlParams() {
@@ -103,36 +106,9 @@ export class InteractiveDemo extends LitElement {
     );
   }
 
-  private screenshot($ev) {
+  private getScreenShot($ev) {
     $ev.preventDefault();
-    const shadowDomCard = this.shadowRoot.querySelector(
-      '.appContainer__dummyCardContainer__dummyCard',
-    ) as HTMLElement;
-    // const tempRenderHolder = document.querySelector('.tempRenderHolder');
-
-    // @NOTE: Html2canvas doesnt currently support piercing the shadowdom.
-    // Thus, we have to temporarily re-render the web component into the dom,
-    // so that it can be screen-captured
-    const cardRenderContainer = document.querySelector(
-      '.compositedCardDomRender',
-    ) as HTMLElement;
-    cardRenderContainer.appendChild(cloneShadow(shadowDomCard.shadowRoot));
-    html2canvas(cardRenderContainer, {
-      backgroundColor: 'transparent',
-      useCORS: true,
-      onclone: dom => {
-        const cardRender = dom.querySelector('.compositedCardDomRender');
-        cardRender.style.opacity = 1;
-      },
-    }).then(canvas => {
-      canvas.toBlob(blob => {
-        saveAs(
-          blob,
-          `${this.currentProtoId}-${qualities[this.currentQuality - 1]}.png`,
-        );
-      }, 'image/png');
-      cardRenderContainer.innerHTML = null;
-    });
+    window.open();
   }
 
   render() {
@@ -157,15 +133,6 @@ export class InteractiveDemo extends LitElement {
       </header>
 
       <main class="appContainer">
-        <div class="appContainer__dummyCardContainer">
-          <composited-card
-            protoId=${this.currentProtoId}
-            quality=${this.currentQuality}
-            responsiveSrcsetSizes="90vw"
-            class="appContainer__dummyCardContainer__dummyCard"
-          ></composited-card>
-        </div>
-
         <div class="appContainer__intro">
           A simple, framework agnostic
           <a
@@ -180,17 +147,20 @@ export class InteractiveDemo extends LitElement {
         </div>
 
         <footer class="appContainer__controls">
-          <h3 class="appContainer__controls__title">Display Controls</h3>
+          <h3 class="appContainer__controls__title">
+            Display Controls
+          </h3>
           <div class="appContainer__controls__panel">
             <label for="#protoId" class="appContainer__controls__panel__label">
               Card ID
             </label>
+
             <input
               id="#protoId"
               type="number"
               class="appContainer__controls__panel__input"
               value=${this.currentProtoId}
-              @keyup=${e => {
+              @keyup=${(e) => {
                 this.currentProtoId = e.target.value;
                 this.currentProtoData = {
                   ...this.protosCollection[this.currentProtoId],
@@ -219,7 +189,7 @@ export class InteractiveDemo extends LitElement {
               class="appContainer__controls__panel__rangeSlider quality--${this
                 .currentQualityInWords}"
               value=${this.currentQuality}
-              @change=${e => {
+              @change=${(e) => {
                 this.currentQuality = e.target.value;
                 this.currentQualityInWords = qualities[this.currentQuality - 1];
               }}
@@ -227,12 +197,17 @@ export class InteractiveDemo extends LitElement {
           </div>
         </footer>
 
-        <button class="appContainer__fab" @click="${this.screenshot}">
+        <a
+          class="appContainer__fab"
+          href=${`${this.currentImageUrl}1024`}
+          target="_blank"
+        >
           <img
             class="appContainer__fab__img"
             src="${require('./assets/img/icon--download.svg')}"
           />
-        </button>
+        </a>
+
         <div class="appContainer__cardVisualisation">
           <div class="appContainer__cardVisualisation__inner">
             <i class="appContainer__cardVisualisation__shadow"></i>
