@@ -99,29 +99,30 @@ export const baseArtworkLayersTemplate = ({
 export const mythicImageLayersTemplate = ({
   responsiveSrcsetSizes = `${layerQualities.normal}px`,
   art_id,
+  type,
 }) => {
   return html`
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/creature_${art_id}.webp ${layerQualities.small}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/creature_${art_id}.webp ${layerQualities.normal}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/creature_${art_id}.webp ${layerQualities.large}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/creature_${art_id}.webp ${layerQualities.xLarge}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/creature_${art_id}.webp ${layerQualities.xxLarge}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/creature_${art_id}.webp ${layerQualities.xxxLarge}w
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/${type}_${art_id}.webp ${layerQualities.small}w,
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/${type}_${art_id}.webp ${layerQualities.normal}w,
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/${type}_${art_id}.webp ${layerQualities.large}w,
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/${type}_${art_id}.webp ${layerQualities.xLarge}w,
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/${type}_${art_id}.webp ${layerQualities.xxLarge}w,
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/${type}_${art_id}.webp ${layerQualities.xxxLarge}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-        https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/creature_${art_id}.png ${layerQualities.small}w,
-        https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/creature_${art_id}.png ${layerQualities.normal}w,
-        https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/creature_${art_id}.png ${layerQualities.large}w,
-        https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/creature_${art_id}.png ${layerQualities.xLarge}w,
-        https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/creature_${art_id}.png ${layerQualities.xxLarge}w,
-        https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/creature_${art_id}.png ${layerQualities.xxxLarge}w
+        https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/${type}_${art_id}.png ${layerQualities.small}w,
+        https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/${type}_${art_id}.png ${layerQualities.normal}w,
+        https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/${type}_${art_id}.png ${layerQualities.large}w,
+        https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/${type}_${art_id}.png ${layerQualities.xLarge}w,
+        https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/${type}_${art_id}.png ${layerQualities.xxLarge}w,
+        https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/${type}_${art_id}.png ${layerQualities.xxxLarge}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/png"
@@ -129,45 +130,50 @@ export const mythicImageLayersTemplate = ({
 
       <img
         srcset="
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.small}/creature_${art_id}.png
+          https://images.godsunchained.com/border-layers/layers/${layerQualities.small}/${type}_${art_id}.png
         "
         class="card__baseLayer__img"
       />
     </picture>
 
-    <picture class="card__manaLayer">
-      <source
-        srcset="
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/mythic_${art_id}.webp ${layerQualities.small}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/mythic_${art_id}.webp ${layerQualities.normal}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/mythic_${art_id}.webp ${layerQualities.large}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/mythic_${art_id}.webp ${layerQualities.xLarge}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/mythic_${art_id}.webp ${layerQualities.xxLarge}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/mythic_${art_id}.webp ${layerQualities.xxxLarge}w
-        "
-        sizes="${responsiveSrcsetSizes}"
-        type="image/webp"
-      />
-      <source
-        srcset="
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/mythic_${art_id}.png ${layerQualities.small}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/mythic_${art_id}.png ${layerQualities.normal}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/mythic_${art_id}.png ${layerQualities.large}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/mythic_${art_id}.png ${layerQualities.xLarge}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/mythic_${art_id}.png ${layerQualities.xxLarge}w,
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/mythic_${art_id}.png ${layerQualities.xxxLarge}w
-        "
-        sizes="${responsiveSrcsetSizes}"
-        type="image/png"
-      />
+    ${type === 'creature'
+      ? html`
+        <picture class="card__manaLayer">
+          <source
+            srcset="
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/mythic_${art_id}.webp ${layerQualities.small}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/mythic_${art_id}.webp ${layerQualities.normal}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/mythic_${art_id}.webp ${layerQualities.large}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/mythic_${art_id}.webp ${layerQualities.xLarge}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/mythic_${art_id}.webp ${layerQualities.xxLarge}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/mythic_${art_id}.webp ${layerQualities.xxxLarge}w
+            "
+            sizes="${responsiveSrcsetSizes}"
+            type="image/webp"
+          />
+          <source
+            srcset="
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.normal}/mythic_${art_id}.png ${layerQualities.small}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.large}/mythic_${art_id}.png ${layerQualities.normal}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.xLarge}/mythic_${art_id}.png ${layerQualities.large}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.xxLarge}/mythic_${art_id}.png ${layerQualities.xLarge}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.xxxLarge}/mythic_${art_id}.png ${layerQualities.xxLarge}w,
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.best}/mythic_${art_id}.png ${layerQualities.xxxLarge}w
+            "
+            sizes="${responsiveSrcsetSizes}"
+            type="image/png"
+          />
 
-      <img
-        srcset="
-          https://images.godsunchained.com/border-layers/layers/${layerQualities.small}/mythic_${art_id}.png
-        "
-        class="card__manaLayer__img card__manaLayer__img--mythic"
-      />
-    </picture>
+          <img
+            srcset="
+              https://images.godsunchained.com/border-layers/layers/${layerQualities.small}/mythic_${art_id}.png
+            "
+            class="card__manaLayer__img card__manaLayer__img--mythic"
+          />
+        </picture>
+      `
+      : null
+    }
   `;
 };
 

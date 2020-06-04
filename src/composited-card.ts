@@ -11,6 +11,7 @@ import {
 
 import './assets/fonts.css';
 import { getStyles } from './styles';
+import { type } from 'os';
 
 export interface IResolutionSettings {
   lowDpi: number;
@@ -227,6 +228,7 @@ export class CompositedCard extends LitElement {
                 ? mythicImageLayersTemplate({
                     responsiveSrcsetSizes: this.responsiveSrcsetSizes,
                     art_id: this.protoCardData.art_id,
+                    type: this.protoCardData.type,
                   })
                 : nonMythicImageLayersTemplate({
                     qualityName: qualityName,

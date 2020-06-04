@@ -6,21 +6,24 @@ import { bodyText } from './styles';
 
 /**
  *
- * GU Composited Card Web Component
+ * Autofit description text Web Component
  * -----------------------------------------------------------------
  *
- * A simple, framework agnostic web component to facilitate the
- * display of Gods Unchained card element(s).
+ * A component designed to handle the complicated text wrapping needs 
+ * of the effect text area inside all GU Cards...
  *
  * @customElement
  *
  * @input text
  * @input ch
  * @input cw
+ * @input type
+ * @input tribe
  *
  * @author Tim Paul <tim.paul@immutable.com> <@glomotion>
  *
  */
+
 
 @customElement('autofit-description-text')
 export class CompositedCard extends LitElement {
@@ -55,21 +58,27 @@ export class CompositedCard extends LitElement {
    */
   render() {
     const { text, ch, cw, tribe, type } = this;
-    const widowProofEffect = text.replace(/ ([^ ]*)$/, '&nbsp;$1');
+    const widowProofText = text.replace(/ ([^ ]*)$/, '&nbsp;$1');
     const textLength = text.split('').length;
     let textSize = ch * 3.8;
     let lineHeight = 1.25;
     let textMode = 'normal';
 
     if (textLength >= 150) {
-      textSize = ch * 3.1;
-      lineHeight = 1.05;
+      textSize = ch * 2.8;
+      lineHeight = 1.1;
       textMode = 'extraSquishy';
     } else if (textLength >= 90) {
       textSize = ch * 3.4;
       lineHeight = 1.1;
       textMode = 'squishy';
     }
+
+    console.log(`
+      DESCRIPTION TEXT:
+      length: ${textLength},
+      mode: ${textMode},
+    `);
 
     const hostStyles = !!tribe
       ? `
@@ -92,7 +101,7 @@ export class CompositedCard extends LitElement {
         }
       </style>
       <div class="centered" data-text-mode=${textMode}>
-        ${unsafeHTML(widowProofEffect)}
+        ${unsafeHTML(widowProofText)}
       </div>
     `;
   }
