@@ -40,7 +40,7 @@ export const loadingTemplate = () => html`
   </div>
 `;
 
-// @NOTE: Due to the dsesire to not crop card layer images down to a rectangle, 
+// @NOTE: Due to the dsesire to not crop card layer images down to a rectangle,
 // we need to load slightly bigger images than what the browser thinks we do,
 // and this is why for example:
 // we loading the "normal" asset size, and tell the browser it's actually the "small" size
@@ -404,25 +404,11 @@ export const textLayersTemplate = ({
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
-  const effectTextLength = effect.split('').length;
-  let effectTextSize = ch * 3.8;
-  let effectLineHeight = 1.2;
-  let effectTextMode = 'normal';
-  if (effectTextLength >= 150) {
-    effectTextSize = ch * 3.1;
-    effectLineHeight = 1.05;
-    effectTextMode = 'extraSquishy';
-  } else if (effectTextLength >= 90) {
-    effectTextSize = ch * 3.4;
-    effectLineHeight = 1.1;
-    effectTextMode = 'squishy';
-  }
-
   const shadowSize = Math.floor(ch * 0.5);
   const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
   const black = 'rgba(0, 0, 0, 1)';
   const textShadow = `0 0 ${onePx} ${black}, 0 0 ${onePx} ${black}, 0 0 ${onePx} ${black}`;
-  const widowProofEffect = effect.replace(/ ([^ ]*)$/, '&nbsp;$1');
+  
   const manaTextStyles = styleMap({
     fontSize: `${ch * 10.5}px`,
     top: `${ch * 6.85}px`,
@@ -438,23 +424,6 @@ export const textLayersTemplate = ({
     right: `${cw * 5.3}px`,
     textShadow,
   });
-  const descriptionTextStyles = !!tribe
-    ? styleMap({
-        fontSize: `${effectTextSize}px`,
-        lineHeight: `${effectLineHeight}`,
-        bottom: `${ch * 8.6}px`,
-        height: `${ch * 22.2}px`,
-        left: `${cw * 21}px`,
-        right: `${cw * 13}px`,
-      })
-    : styleMap({
-        fontSize: `${effectTextSize}px`,
-        lineHeight: `${effectLineHeight}`,
-        bottom: `${ch * 7.3}px`,
-        height: `${ch * 23.4}px`,
-        left: `${cw * 21}px`,
-        right: `${cw * 13}px`,
-      });
   const attackTextStyles = styleMap({
     fontSize: `${ch * 9.5}px`,
     bottom: `${ch * 4.5}px`,
@@ -499,14 +468,13 @@ export const textLayersTemplate = ({
       </div>
     </div>
 
-    <div
-      class="card__descriptionText ${effectTextMode}"
-      style=${descriptionTextStyles}
-    >
-      <div class="card__descriptionText__inner">
-        ${unsafeHTML(widowProofEffect)}
-      </div>
-    </div>
+    <autofit-description-text
+      text=${effect}
+      ch=${ch}
+      cw=${cw}
+      type=${type}
+      tribe=${tribe}
+    ></autofit-description-text>
 
     ${isACreatureOrWeapon
       ? html`

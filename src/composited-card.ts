@@ -9,6 +9,7 @@ import {
   textLayersTemplate,
 } from './templating';
 
+import './autofit-description-text.component';
 import './assets/fonts.css';
 import { getStyles } from './styles';
 

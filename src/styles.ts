@@ -5,7 +5,7 @@ const headingText = css`
   line-height: 1.1;
 `;
 
-const bodyText = css`
+export const bodyText = css`
   font-family: 'Open Sans', sans-serif;
 `;
 
@@ -148,19 +148,6 @@ export const getStyles = () => css`
   }
 
   .card__nameText__inner {
-    margin: auto;
-  }
-
-  .card__descriptionText {
-    ${headingText}
-    position: absolute;
-    text-align: center;
-    color: black;
-    display: flex;
-  }
-
-  .card__descriptionText__inner {
-    ${bodyText}
     margin: auto;
   }
 
