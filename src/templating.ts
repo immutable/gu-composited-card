@@ -406,7 +406,7 @@ export const textLayersTemplate = ({
   const nameCrammedTextMode = name.split('').length >= 20;
   const effectTextLength = effect.split('').length;
   let effectTextSize = ch * 3.8;
-  let effectLineHeight = 1.3;
+  let effectLineHeight = 1.2;
   let effectTextMode = 'normal';
   if (effectTextLength >= 150) {
     effectTextSize = ch * 3.1;

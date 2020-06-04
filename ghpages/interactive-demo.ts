@@ -52,7 +52,6 @@ export class InteractiveDemo extends LitElement {
           ...protos[this.currentProtoId],
           id: this.currentProtoId,
         };
-        console.log('!!!!!!!!!!!!', protos);
         this.updatePageMetadata();
       })
       .catch((e) => console.error(e));
