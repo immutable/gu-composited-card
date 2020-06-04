@@ -108,6 +108,16 @@ export const getStyles = () => css`
     height: 100%;
   }
 
+  .card__baseLayer__img,
+  .card__manaLayer__img,
+  .card__wreathLayer__img,
+  .card__rarityLayer__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(4.3%, 0.2%);
+  }
+
   .card__lockIconLayer {
     position: absolute;
     left: 54%;
