@@ -73,28 +73,27 @@ export const baseArtworkLayersTemplate = ({
 };
 
 export const mythicImageLayersTemplate = ({
-  type,
-  qualityName,
   responsiveSrcsetSizes = `${layerQualities.normal}px`,
+  art_id,
 }) => {
   return html`
     <picture class="card__baseLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/creature_C408.webp ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/creature_C408.webp ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/creature_C408.webp ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/creature_C408.webp ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/creature_${art_id}.webp ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/creature_${art_id}.webp ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/creature_${art_id}.webp ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/creature_${art_id}.webp ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/creature_C408.png ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/creature_C408.png ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/creature_C408.png ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/creature_C408.png ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/creature_${art_id}.png ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/creature_${art_id}.png ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/creature_${art_id}.png ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/creature_${art_id}.png ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/png"
@@ -102,7 +101,7 @@ export const mythicImageLayersTemplate = ({
 
       <img
         srcset="
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/${type}_${qualityName}.png
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/creature_${art_id}.png
         "
         class="card__baseLayer__img"
       />
@@ -111,20 +110,20 @@ export const mythicImageLayersTemplate = ({
     <picture class="card__manaLayer">
       <source
         srcset="
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_C408.webp ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/mythic_C408.webp ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/mythic_C408.webp ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/mythic_C408.webp ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_${art_id}.webp ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/mythic_${art_id}.webp ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/mythic_${art_id}.webp ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/mythic_${art_id}.webp ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_C408.png ${layerQualities.normal}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/mythic_C408.png ${layerQualities.high}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/mythic_C408.png ${layerQualities.xHigh}w,
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/mythic_C408.png ${layerQualities.best}w
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_${art_id}.png ${layerQualities.normal}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.high}/mythic_${art_id}.png ${layerQualities.high}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.xHigh}/mythic_${art_id}.png ${layerQualities.xHigh}w,
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.best}/mythic_${art_id}.png ${layerQualities.best}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/png"
@@ -132,7 +131,7 @@ export const mythicImageLayersTemplate = ({
 
       <img
         srcset="
-          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_C408.png
+          https://images.godsunchained.com/card-layers2/layers/${layerQualities.normal}/mythic_${art_id}.png
         "
         class="card__manaLayer__img"
       />
@@ -475,10 +474,14 @@ export const textLayersTemplate = ({
           </div>
         `
       : null}
-    <card-icon
-      style=${setIconStyles}
-      class="card__setIcon"
-      iconLigature=${`set_${cardSet}`}
-    ></card-icon>
+    ${cardSet !== 'mythic'
+      ? html`
+          <card-icon
+            style=${setIconStyles}
+            class="card__setIcon"
+            iconLigature=${`set_${cardSet}`}
+          ></card-icon>
+        `
+      : null}
   `;
 };

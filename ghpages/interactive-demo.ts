@@ -44,7 +44,7 @@ export class InteractiveDemo extends LitElement {
     if (protoId !== null && quality !== null) {
       this.updatePageImageMetadata();
     }
-    fetch('https://api.godsunchained.com/proto?format=flat')
+    fetch('https://dev.godsunchained.com/proto?format=flat')
       .then((resp) => resp.json())
       .then((protos) => {
         this.protosCollection = protos;

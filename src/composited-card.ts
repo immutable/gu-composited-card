@@ -29,6 +29,7 @@ export interface ICardProtoData {
   id: number;
   attack: number;
   health: number;
+  art_id: string;
 }
 
 // @TODO: these should really come from an endpoint call,
@@ -43,20 +44,14 @@ export const legacyQualities = [
   'meteorite',
   'shadow',
   'gold',
-  'diamond'
+  'diamond',
 ];
 
-export const qualities = [
-  'diamond',
-  'gold',
-  'shadow',
-  'meteorite',
-  'plain',
-];
+export const qualities = ['diamond', 'gold', 'shadow', 'meteorite', 'plain'];
 
 // Deploy a native ResizeOberver for this component instance:
-const ro = new ResizeObserver(entries => {
-  entries.forEach(entry => {
+const ro = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
     const el = entry.target as CompositedCard;
     el.handleResize(entry);
   });
@@ -102,6 +97,7 @@ export class CompositedCard extends LitElement {
     attack: null,
     health: null,
     tribe: '',
+    art_id: '',
   };
   public ch: number;
   public cw: number;
@@ -155,9 +151,9 @@ export class CompositedCard extends LitElement {
    */
   private async fetchProtoData() {
     this.loading = true;
-    return fetch(`https://api.godsunchained.com/v0/proto/${this.protoId}`).then(
-      resp => resp.json(),
-    );
+    return fetch(
+      `https://api.godsunchained.com/v0/proto/${this.protoId}`,
+    ).then((resp) => resp.json());
   }
 
   /**
@@ -165,7 +161,7 @@ export class CompositedCard extends LitElement {
    * of proto card data
    */
   private async getProtoDataFromApi() {
-    return this.fetchProtoData().then(data => {
+    return this.fetchProtoData().then((data) => {
       const {
         id,
         type,
@@ -178,6 +174,7 @@ export class CompositedCard extends LitElement {
         mana,
         set,
         tribe,
+        art_id,
       } = data;
       this.protoCardData = {
         id,
@@ -191,6 +188,7 @@ export class CompositedCard extends LitElement {
         mana,
         set,
         tribe: tribe.String,
+        art_id,
       };
       this.loading = false;
       this.requestUpdate();
@@ -230,6 +228,7 @@ export class CompositedCard extends LitElement {
                     type: this.protoCardData.type,
                     qualityName: qualityName,
                     responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                    art_id: this.protoCardData.art_id,
                   })
                 : nonMythicImageLayersTemplate({
                     qualityName: qualityName,
