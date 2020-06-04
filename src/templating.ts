@@ -347,6 +347,17 @@ export const textLayersTemplate = ({
   cardSet = '',
   ch = 0,
   cw = 0,
+}: {
+  type: string;
+  name: string;
+  effect: string;
+  mana: string;
+  attack: string | number;
+  health: string | number;
+  tribe: string;
+  cardSet: string;
+  ch: number;
+  cw: number;
 }) => {
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
@@ -387,7 +398,7 @@ export const textLayersTemplate = ({
   const descriptionTextStyles = !!tribe
     ? styleMap({
         fontSize: `${effectTextSize}px`,
-        lineHeight: effectLineHeight,
+        lineHeight: `${effectLineHeight}`,
         bottom: `${ch * 8.6}px`,
         height: `${ch * 22.2}px`,
         left: `${cw * 21}px`,
@@ -395,7 +406,7 @@ export const textLayersTemplate = ({
       })
     : styleMap({
         fontSize: `${effectTextSize}px`,
-        lineHeight: effectLineHeight,
+        lineHeight: `${effectLineHeight}`,
         bottom: `${ch * 7.3}px`,
         height: `${ch * 23.4}px`,
         left: `${cw * 21}px`,

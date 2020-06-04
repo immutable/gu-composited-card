@@ -25,8 +25,8 @@ export interface ICardProtoData {
   god: string;
   set: string;
   tribe: string;
-  mana: number;
-  id: number;
+  mana: string;
+  id: string;
   attack: number;
   health: number;
   art_id: string;
@@ -92,8 +92,8 @@ export class CompositedCard extends LitElement {
     rarity: '',
     god: '',
     set: '',
-    mana: null,
-    id: null,
+    mana: '',
+    id: '',
     attack: null,
     health: null,
     tribe: '',
@@ -225,8 +225,6 @@ export class CompositedCard extends LitElement {
               })}
               ${isMythicCard
                 ? mythicImageLayersTemplate({
-                    type: this.protoCardData.type,
-                    qualityName: qualityName,
                     responsiveSrcsetSizes: this.responsiveSrcsetSizes,
                     art_id: this.protoCardData.art_id,
                   })

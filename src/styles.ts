@@ -15,6 +15,16 @@ export const offBlack = css`rgb(51, 51, 51)`;
 const offWhiteLight = css`#f9f9f9`;
 const offWhiteDark = css`#f1f1f1`;
 
+// @NOTE: This is pulled from the GU Design System, would be nice to find a 
+// good way for this repo to inherit from gu-cerberus
+export const dark = {
+  100: '#7F7F7F',
+  300: '#646464',
+  500: '#464646',
+  700: '#272727',
+  900: '#0A0A0A',
+};
+
 const boldOutlinedText = css`
   ${headingText}
   font-weight: 700;
