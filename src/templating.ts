@@ -30,6 +30,14 @@ const lockQualities = {
   large: 512,
 };
 
+// @NOTE: Per the ticket:
+// https://immutable.atlassian.net/browse/GUG-6156
+// There is no such type as "god power" for now. 
+// So simply change these cards to simply be type = "power"
+export function correctGodPowerType(type) {
+  return type === 'god power' ? 'power' : type;
+}
+
 export const loadingTemplate = () => html`
   <div class="card__loading">
     <img
@@ -170,8 +178,10 @@ export const nonMythicImageLayersTemplate = ({
   god,
   set,
   tribe,
-}) =>
-  html`
+}) => {
+  type = correctGodPowerType(type);
+
+  return html`
     <picture class="card__baseLayer">
       <source
         srcset="
@@ -378,6 +388,7 @@ export const nonMythicImageLayersTemplate = ({
         `
       : null}
   `;
+}
 
 export const textLayersTemplate = ({
   type = '',
@@ -402,6 +413,7 @@ export const textLayersTemplate = ({
   ch: number;
   cw: number;
 }) => {
+  type = correctGodPowerType(type);
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
   const shadowSize = Math.floor(ch * 0.5);
