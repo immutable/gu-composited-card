@@ -3,6 +3,7 @@ import { styleMap } from 'lit-html/directives/style-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 import './icon.component';
+import './autofit-description-text.component';
 
 const artQualities = {
   small: 250,
@@ -34,7 +35,7 @@ const lockQualities = {
 // https://immutable.atlassian.net/browse/GUG-6156
 // There is no such type as "god power" for now. 
 // So simply change these cards to simply be type = "power"
-export function correctGodPowerType(type) {
+export function validateTypeField(type: string) {
   return type === 'god power' ? 'power' : type;
 }
 
@@ -179,7 +180,7 @@ export const nonMythicImageLayersTemplate = ({
   set,
   tribe,
 }) => {
-  type = correctGodPowerType(type);
+  type = validateTypeField(type);
 
   return html`
     <picture class="card__baseLayer">
@@ -413,7 +414,7 @@ export const textLayersTemplate = ({
   ch: number;
   cw: number;
 }) => {
-  type = correctGodPowerType(type);
+  type = validateTypeField(type);
   const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
   const nameCrammedTextMode = name.split('').length >= 20;
   const shadowSize = Math.floor(ch * 0.5);

@@ -58,7 +58,7 @@ export class CompositedCard extends LitElement {
     const widowProofEffect = text.replace(/ ([^ ]*)$/, '&nbsp;$1');
     const textLength = text.split('').length;
     let textSize = ch * 3.8;
-    let lineHeight = 1.2;
+    let lineHeight = 1.25;
     let textMode = 'normal';
 
     if (textLength >= 150) {
@@ -72,17 +72,13 @@ export class CompositedCard extends LitElement {
     }
 
     const hostStyles = !!tribe
-      ? css`
+      ? `
           height: ${ch * 22.2}px;
           bottom: ${ch * 8.6}px;
-          left: ${cw * 21}px;
-          right: ${cw * 13}px;
         `
-      : css`
+      : `
           height: ${ch * 23.4}px;
           bottom: ${ch * 7.3}px;
-          left: ${cw * 21}px;
-          right: ${cw * 13}px;
         `;
 
     return html`
@@ -90,10 +86,12 @@ export class CompositedCard extends LitElement {
         :host {
           font-size: ${textSize}px;
           line-height: ${lineHeight};
+          left: ${cw * 21}px;
+          right: ${cw * 13}px;
           ${hostStyles}
         }
       </style>
-      <div class="centered">
+      <div class="centered" data-text-mode=${textMode}>
         ${unsafeHTML(widowProofEffect)}
       </div>
     `;
