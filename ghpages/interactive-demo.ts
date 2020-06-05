@@ -1,6 +1,4 @@
 import { LitElement, html, customElement, property } from 'lit-element';
-import html2canvas from 'html2canvas';
-import * as saveAs from 'file-saver';
 
 import { qualities, ICardProtoData } from '../src/composited-card';
 import { getStyles } from './styles';
