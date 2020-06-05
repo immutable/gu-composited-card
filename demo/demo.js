@@ -1,1 +1,1 @@
-import '../src/composited-card';
+import '../src/composited-card.component';

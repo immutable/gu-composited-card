@@ -2,7 +2,7 @@
 import '@webcomponents/webcomponentsjs/webcomponents-loader';
 
 // Import demo files:
-import '../src/composited-card';
+import '../src/composited-card.component';
 import './interactive-demo';
 import './assets/styles/global.css';
 

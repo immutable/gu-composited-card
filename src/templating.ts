@@ -89,9 +89,7 @@ export const baseArtworkLayersTemplate = ({
         type="image/jpg"
       />
       <img
-        srcset="
-          ${guImagesUrl}/art2/${artQualities.small}/${id}.jpg
-        "
+        srcset="${guImagesUrl}/art2/${artQualities.small}/${id}.jpg"
         class="card__artwork__img"
       />
     </picture>
@@ -102,6 +100,7 @@ export const mythicImageLayersTemplate = ({
   responsiveSrcsetSizes = `${layerQualities.normal}px`,
   art_id,
   type,
+  god,
 }) => {
   return html`
     <picture class="card__baseLayer">
@@ -131,7 +130,9 @@ export const mythicImageLayersTemplate = ({
       />
 
       <img
-        srcset="${guImagesUrl}/border-layers/types/${type}/${layerQualities.small}/${type}_${art_id}.png"
+        srcset="
+          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.small}/${type}_${art_id}.png
+        "
         class="card__baseLayer__img"
       />
     </picture>
@@ -139,31 +140,33 @@ export const mythicImageLayersTemplate = ({
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.normal}/mythic_${art_id}.webp ${layerQualities.small}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.large}/mythic_${art_id}.webp ${layerQualities.normal}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.xLarge}/mythic_${art_id}.webp ${layerQualities.large}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.xxLarge}/mythic_${art_id}.webp ${layerQualities.xLarge}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.xxxLarge}/mythic_${art_id}.webp ${layerQualities.xxLarge}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.best}/mythic_${art_id}.webp ${layerQualities.xxxLarge}w
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.normal}/mythic_${art_id}.webp ${layerQualities.small}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.large}/mythic_${art_id}.webp ${layerQualities.normal}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.xLarge}/mythic_${art_id}.webp ${layerQualities.large}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.xxLarge}/mythic_${art_id}.webp ${layerQualities.xLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.xxxLarge}/mythic_${art_id}.webp ${layerQualities.xxLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.best}/mythic_${art_id}.webp ${layerQualities.xxxLarge}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/webp"
       />
       <source
         srcset="
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.normal}/mythic_${art_id}.png ${layerQualities.small}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.large}/mythic_${art_id}.png ${layerQualities.normal}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.xLarge}/mythic_${art_id}.png ${layerQualities.large}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.xxLarge}/mythic_${art_id}.png ${layerQualities.xLarge}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.xxxLarge}/mythic_${art_id}.png ${layerQualities.xxLarge}w,
-          ${guImagesUrl}/border-layers/types/${type}/${layerQualities.best}/mythic_${art_id}.png ${layerQualities.xxxLarge}w
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.normal}/mythic_${art_id}.png ${layerQualities.small}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.large}/mythic_${art_id}.png ${layerQualities.normal}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.xLarge}/mythic_${art_id}.png ${layerQualities.large}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.xxLarge}/mythic_${art_id}.png ${layerQualities.xLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.xxxLarge}/mythic_${art_id}.png ${layerQualities.xxLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/mythics/${layerQualities.best}/mythic_${art_id}.png ${layerQualities.xxxLarge}w
         "
         sizes="${responsiveSrcsetSizes}"
         type="image/png"
       />
 
       <img
-        srcset="${guImagesUrl}/border-layers/types/${type}/${layerQualities.normal}/mythic_${art_id}.png"
+        srcset="
+          ${guImagesUrl}/border-layers/rosettes/${god}/${layerQualities.normal}/mythic_${art_id}.png
+        "
         class="card__manaLayer__img card__manaLayer__img--mythic"
       />
     </picture>
@@ -355,24 +358,24 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__tribeBarLayer">
             <source
               srcset="
-                ${guImagesUrl}/border-layers/layers/${layerQualities.normal}/tribebar_${qualityName}.webp ${layerQualities.normal}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.large}/tribebar_${qualityName}.webp ${layerQualities.large}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.xLarge}/tribebar_${qualityName}.webp ${layerQualities.xLarge}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.xxLarge}/tribebar_${qualityName}.webp ${layerQualities.xxLarge}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.xxxLarge}/tribebar_${qualityName}.webp ${layerQualities.xxxLarge}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.best}/tribebar_${qualityName}.webp ${layerQualities.best}w
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.normal}/tribebar_${qualityName}.webp ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.large}/tribebar_${qualityName}.webp ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xLarge}/tribebar_${qualityName}.webp ${layerQualities.xLarge}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxLarge}/tribebar_${qualityName}.webp ${layerQualities.xxLarge}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxxLarge}/tribebar_${qualityName}.webp ${layerQualities.xxxLarge}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.best}/tribebar_${qualityName}.webp ${layerQualities.best}w
               "
               sizes="${responsiveSrcsetSizes}"
               type="image/webp"
             />
             <source
               srcset="
-                ${guImagesUrl}/border-layers/layers/${layerQualities.normal}/tribebar_${qualityName}.png ${layerQualities.normal}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.large}/tribebar_${qualityName}.png ${layerQualities.large}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.xLarge}/tribebar_${qualityName}.png ${layerQualities.xLarge}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.xxLarge}/tribebar_${qualityName}.png ${layerQualities.xxLarge}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.xxxLarge}/tribebar_${qualityName}.png ${layerQualities.xxxLarge}w,
-                ${guImagesUrl}/border-layers/layers/${layerQualities.best}/tribebar_${qualityName}.png ${layerQualities.best}w
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.normal}/tribebar_${qualityName}.png ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.large}/tribebar_${qualityName}.png ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xLarge}/tribebar_${qualityName}.png ${layerQualities.xLarge}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxLarge}/tribebar_${qualityName}.png ${layerQualities.xxLarge}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxxLarge}/tribebar_${qualityName}.png ${layerQualities.xxxLarge}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.best}/tribebar_${qualityName}.png ${layerQualities.best}w
               "
               sizes="${responsiveSrcsetSizes}"
               type="image/png"
@@ -380,7 +383,7 @@ export const nonMythicImageLayersTemplate = ({
 
             <img
               srcset="
-                ${guImagesUrl}/border-layers/layers/${layerQualities.best}/tribebar_${rarity}.png
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.best}/tribebar_${rarity}.png
               "
               class="card__tribeBarLayer__img"
             />

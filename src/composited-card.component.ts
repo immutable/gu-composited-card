@@ -227,8 +227,7 @@ export class CompositedCard extends LitElement {
               ${isMythicCard
                 ? mythicImageLayersTemplate({
                     responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                    art_id: this.protoCardData.art_id,
-                    type: this.protoCardData.type,
+                    ...this.protoCardData,
                   })
                 : nonMythicImageLayersTemplate({
                     qualityName: qualityName,

@@ -86,8 +86,8 @@ export class CompositedCard extends LitElement {
           bottom: ${ch * 8.6}px;
         `
       : `
-          height: ${ch * 23.4}px;
-          bottom: ${ch * 7.3}px;
+          height: ${ch * 23.5}px;
+          bottom: ${ch * 6.8}px;
         `;
 
     return html`

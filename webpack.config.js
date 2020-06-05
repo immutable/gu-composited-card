@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: './src/composited-card.ts',
+  entry: './src/composited-card.component.ts',
   output: {
     filename: 'composited-card.packed.js',
     path: path.resolve(__dirname, 'dist'),

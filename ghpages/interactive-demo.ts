@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, property } from 'lit-element';
 
-import { qualities, ICardProtoData } from '../src/composited-card';
+import { qualities, ICardProtoData } from '../src/composited-card.component';
 import { getStyles } from './styles';
 
 function cloneShadow(shadow) {
