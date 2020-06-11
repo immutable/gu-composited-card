@@ -1,6 +1,5 @@
 import { html } from 'lit-element';
 import { styleMap } from 'lit-html/directives/style-map';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 import './icon.component';
 import './autofit-description-text.component';
