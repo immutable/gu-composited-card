@@ -572,6 +572,7 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
           <picture class="card__rarityLayer">
             <source
               srcset="
+              ${Nt}/border-layers/gems/${wt}/rarity_${n}.webp ${wt}w,
                 ${Nt}/border-layers/gems/${vt}/rarity_${n}.webp ${vt}w,
                 ${Nt}/border-layers/gems/${xt}/rarity_${n}.webp ${xt}w,
                 ${Nt}/border-layers/gems/${St}/rarity_${n}.webp ${St}w,
@@ -584,6 +585,7 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
             />
             <source
               srcset="
+              ${Nt}/border-layers/gems/${wt}/rarity_${n}.png ${wt}w,
                 ${Nt}/border-layers/gems/${vt}/rarity_${n}.png ${vt}w,
                 ${Nt}/border-layers/gems/${xt}/rarity_${n}.png ${xt}w,
                 ${Nt}/border-layers/gems/${St}/rarity_${n}.png ${St}w,
@@ -606,6 +608,7 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
           <picture class="card__wreathLayer">
             <source
               srcset="
+                ${Nt}/border-layers/wreaths/${wt}/wreath_${r}.webp ${wt}w,
                 ${Nt}/border-layers/wreaths/${vt}/wreath_${r}.webp ${vt}w,
                 ${Nt}/border-layers/wreaths/${xt}/wreath_${r}.webp ${xt}w,
                 ${Nt}/border-layers/wreaths/${St}/wreath_${r}.webp ${St}w,
@@ -619,6 +622,7 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
 
             <source
               srcset="
+              ${Nt}/border-layers/wreaths/${wt}/wreath_${r}.png ${wt}w,
                 ${Nt}/border-layers/wreaths/${vt}/wreath_${r}.png ${vt}w,
                 ${Nt}/border-layers/wreaths/${xt}/wreath_${r}.png ${xt}w,
                 ${Nt}/border-layers/wreaths/${St}/wreath_${r}.png ${St}w,
@@ -667,24 +671,20 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
           <picture class="card__tribeBarLayer">
             <source
               srcset="
+                ${Nt}/border-layers/tribe_bars/${wt}/tribebar_${r}.webp ${wt}w,
                 ${Nt}/border-layers/tribe_bars/${vt}/tribebar_${r}.webp ${vt}w,
                 ${Nt}/border-layers/tribe_bars/${xt}/tribebar_${r}.webp ${xt}w,
                 ${Nt}/border-layers/tribe_bars/${St}/tribebar_${r}.webp ${St}w,
-                ${Nt}/border-layers/tribe_bars/${Ct}/tribebar_${r}.webp ${Ct}w,
-                ${Nt}/border-layers/tribe_bars/${kt}/tribebar_${r}.webp ${kt}w,
-                ${Nt}/border-layers/tribe_bars/${Pt}/tribebar_${r}.webp ${Pt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
+                ${Nt}/border-layers/tribe_bars/${wt}/tribebar_${r}.png ${wt}w,
                 ${Nt}/border-layers/tribe_bars/${vt}/tribebar_${r}.png ${vt}w,
                 ${Nt}/border-layers/tribe_bars/${xt}/tribebar_${r}.png ${xt}w,
                 ${Nt}/border-layers/tribe_bars/${St}/tribebar_${r}.png ${St}w,
-                ${Nt}/border-layers/tribe_bars/${Ct}/tribebar_${r}.png ${Ct}w,
-                ${Nt}/border-layers/tribe_bars/${kt}/tribebar_${r}.png ${kt}w,
-                ${Nt}/border-layers/tribe_bars/${Pt}/tribebar_${r}.png ${Pt}w
               "
               sizes="${e}"
               type="image/png"
@@ -1294,4 +1294,4 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
         </div>
       </main>
     `}};Kt([le()],Zt.prototype,"currentProtoId",void 0),Kt([le()],Zt.prototype,"currentQuality",void 0),Kt([le()],Zt.prototype,"currentQualityInWords",void 0),Kt([le()],Zt.prototype,"currentProtoData",void 0),Kt([le()],Zt.prototype,"protosCollection",void 0),Zt=Kt([oe("demo-app")],Zt);r(8);const er=document.createElement("style");er.innerHTML=pt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(er)}]);
-//# sourceMappingURL=bundle.23174aee9caeeb2767a4.js.map
+//# sourceMappingURL=bundle.cb60f0db0c89a94cb3a9.js.map

@@ -257,6 +257,7 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__rarityLayer">
             <source
               srcset="
+              ${guImagesUrl}/border-layers/gems/${layerQualities.small}/rarity_${rarity}.webp ${layerQualities.small}w,
                 ${guImagesUrl}/border-layers/gems/${layerQualities.normal}/rarity_${rarity}.webp ${layerQualities.normal}w,
                 ${guImagesUrl}/border-layers/gems/${layerQualities.large}/rarity_${rarity}.webp ${layerQualities.large}w,
                 ${guImagesUrl}/border-layers/gems/${layerQualities.xLarge}/rarity_${rarity}.webp ${layerQualities.xLarge}w,
@@ -269,6 +270,7 @@ export const nonMythicImageLayersTemplate = ({
             />
             <source
               srcset="
+              ${guImagesUrl}/border-layers/gems/${layerQualities.small}/rarity_${rarity}.png ${layerQualities.small}w,
                 ${guImagesUrl}/border-layers/gems/${layerQualities.normal}/rarity_${rarity}.png ${layerQualities.normal}w,
                 ${guImagesUrl}/border-layers/gems/${layerQualities.large}/rarity_${rarity}.png ${layerQualities.large}w,
                 ${guImagesUrl}/border-layers/gems/${layerQualities.xLarge}/rarity_${rarity}.png ${layerQualities.xLarge}w,
@@ -293,6 +295,7 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__wreathLayer">
             <source
               srcset="
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.small}/wreath_${qualityName}.webp ${layerQualities.small}w,
                 ${guImagesUrl}/border-layers/wreaths/${layerQualities.normal}/wreath_${qualityName}.webp ${layerQualities.normal}w,
                 ${guImagesUrl}/border-layers/wreaths/${layerQualities.large}/wreath_${qualityName}.webp ${layerQualities.large}w,
                 ${guImagesUrl}/border-layers/wreaths/${layerQualities.xLarge}/wreath_${qualityName}.webp ${layerQualities.xLarge}w,
@@ -306,6 +309,7 @@ export const nonMythicImageLayersTemplate = ({
 
             <source
               srcset="
+              ${guImagesUrl}/border-layers/wreaths/${layerQualities.small}/wreath_${qualityName}.png ${layerQualities.small}w,
                 ${guImagesUrl}/border-layers/wreaths/${layerQualities.normal}/wreath_${qualityName}.png ${layerQualities.normal}w,
                 ${guImagesUrl}/border-layers/wreaths/${layerQualities.large}/wreath_${qualityName}.png ${layerQualities.large}w,
                 ${guImagesUrl}/border-layers/wreaths/${layerQualities.xLarge}/wreath_${qualityName}.png ${layerQualities.xLarge}w,
@@ -358,24 +362,20 @@ export const nonMythicImageLayersTemplate = ({
           <picture class="card__tribeBarLayer">
             <source
               srcset="
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.small}/tribebar_${qualityName}.webp ${layerQualities.small}w,
                 ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.normal}/tribebar_${qualityName}.webp ${layerQualities.normal}w,
                 ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.large}/tribebar_${qualityName}.webp ${layerQualities.large}w,
                 ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xLarge}/tribebar_${qualityName}.webp ${layerQualities.xLarge}w,
-                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxLarge}/tribebar_${qualityName}.webp ${layerQualities.xxLarge}w,
-                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxxLarge}/tribebar_${qualityName}.webp ${layerQualities.xxxLarge}w,
-                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.best}/tribebar_${qualityName}.webp ${layerQualities.best}w
               "
               sizes="${responsiveSrcsetSizes}"
               type="image/webp"
             />
             <source
               srcset="
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.small}/tribebar_${qualityName}.png ${layerQualities.small}w,
                 ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.normal}/tribebar_${qualityName}.png ${layerQualities.normal}w,
                 ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.large}/tribebar_${qualityName}.png ${layerQualities.large}w,
                 ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xLarge}/tribebar_${qualityName}.png ${layerQualities.xLarge}w,
-                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxLarge}/tribebar_${qualityName}.png ${layerQualities.xxLarge}w,
-                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xxxLarge}/tribebar_${qualityName}.png ${layerQualities.xxxLarge}w,
-                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.best}/tribebar_${qualityName}.png ${layerQualities.best}w
               "
               sizes="${responsiveSrcsetSizes}"
               type="image/png"
