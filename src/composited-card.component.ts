@@ -11,7 +11,6 @@ import {
 
 import './assets/fonts.css';
 import { getStyles } from './styles';
-import { type } from 'os';
 
 export interface IResolutionSettings {
   lowDpi: number;
@@ -149,7 +148,7 @@ export class CompositedCard extends LitElement {
   /**
    * Generic resize handling
    */
-  public handleResize(event: UIEvent) {
+  public handleResize(event: any) {
     const container = (event.target as HTMLElement).shadowRoot
       .children[0] as HTMLElement;
     this.ch = container.offsetHeight * 0.01;
