@@ -5,37 +5,14 @@ const BabelMultiTargetPlugin = require('webpack-babel-multi-target-plugin')
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: {
-    'main': './src/composited-card.component.ts'
-  },
+  entry: './src/composited-card.component.ts',
   output: {
-    filename: 'composited-card.packed.js',
-    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
+    sourceMapFilename: '[file].map',
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.js', '.ts', '.css'],
-    mainFields: [
-      // rxjs and Angular Package Format
-      // these are generally shipped as a higher ES language level than `module`
-      'es2015',
-      'esm2015',
-      'fesm2015',
-
-      // current leading de-facto standard - see https://github.com/rollup/rollup/wiki/pkg.module
-      'module',
-
-      // previous de-facto standard, superceded by `module`, but still in use by some packages
-      'jsnext:main',
-
-      // Angular Package Format - lower ES level
-      'esm5',
-      'fesm5',
-
-      // standard package.json fields
-      'browser',
-      'main',
-    ],
   },
   optimization: {
     splitChunks: {
