@@ -1294,4 +1294,4 @@ const rt=new WeakMap,nt=i(e=>t=>{if(!(t instanceof k))throw new Error("unsafeHTM
         </div>
       </main>
     `}};Kt([le()],Zt.prototype,"currentProtoId",void 0),Kt([le()],Zt.prototype,"currentQuality",void 0),Kt([le()],Zt.prototype,"currentQualityInWords",void 0),Kt([le()],Zt.prototype,"currentProtoData",void 0),Kt([le()],Zt.prototype,"protosCollection",void 0),Zt=Kt([oe("demo-app")],Zt);r(8);const er=document.createElement("style");er.innerHTML=pt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(er)}]);
-//# sourceMappingURL=bundle.cb60f0db0c89a94cb3a9.js.map
+//# sourceMappingURL=bundle.2d804dc773492be6ae68.js.map
