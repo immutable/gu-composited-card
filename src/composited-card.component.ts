@@ -122,13 +122,23 @@ export class CompositedCard extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     ro.observe(this);
+
+    // // Depending on the way that a composited-card is drawn - it may not always 
+    // // trigger an "updated" event with a valid propName... so in these cases, just 
+    // // trigger a one off data input:
+    // if (this.protoId !== undefined)  {
+    //   this.getProtoDataFromApi();
+    // } else if (this.protoCardData !== undefined) {
+    //   this.getProtoDataFromInput();
+    // }
   }
   disconnectedCallback() {
     super.disconnectedCallback();
     ro.unobserve(this);
   }
   updated(changedProps: any) {
-    changedProps.forEach((oldValue, propName) => {
+    console.log('@@@@@@@@@@@@@@ changedProps:', changedProps);
+    changedProps.forEach((oldValue: any, propName: string) => {
       if (propName === 'protoId') {
         this.getProtoDataFromApi();
       } else if (propName === 'inputProtoData') {

@@ -30,9 +30,12 @@ module.exports = {
             options: {
               presets: ['@babel/typescript', '@babel/preset-env'],
               plugins: [
-                ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                "@babel/plugin-proposal-class-properties",
-              ]
+                [
+                  '@babel/plugin-proposal-decorators',
+                  { decoratorsBeforeExport: true, legacy: false },
+                ],
+                '@babel/plugin-proposal-class-properties',
+              ],
             },
           },
         ],
@@ -60,5 +63,5 @@ module.exports = {
       normalizeModuleIds: true,
       doNotTarget: [/querystring-es3/],
     }),
-  ]
+  ],
 };
