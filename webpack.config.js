@@ -14,11 +14,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.css'],
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //   },
+  // },
   module: {
     rules: [
       {

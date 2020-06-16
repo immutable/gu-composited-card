@@ -1,6 +1,7 @@
 {
   "name": "composited-card",
-  "main": "dist/composited-card.packed.js",
+  "main": "dist/main.js",
+  "module": "dist/main.modern.js",
   "description": "A simple, framework agnostic web component to facilitate the display of Gods Unchained card element(s).",
   "license": "MIT",
   "version": "0.0.60",
