@@ -28,7 +28,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/typescript', '@babel/preset-env'],
+              presets: ['@babel/typescript'],
               plugins: [
                 [
                   '@babel/plugin-proposal-decorators',
