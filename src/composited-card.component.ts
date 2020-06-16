@@ -137,7 +137,6 @@ export class CompositedCard extends LitElement {
     ro.unobserve(this);
   }
   updated(changedProps: any) {
-    console.log('@@@@@@@@@@@@@@ changedProps:', changedProps);
     changedProps.forEach((oldValue: any, propName: string) => {
       if (propName === 'protoId') {
         this.getProtoDataFromApi();
@@ -172,7 +171,6 @@ export class CompositedCard extends LitElement {
    * of proto card data
    */
   private async getProtoDataFromApi() {
-    console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
     return this.fetchProtoData().then((data) => {
       const {
         id,
