@@ -1,7 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackBaseSettings = require('./webpack.config');
 
 module.exports = {
+  ...webpackBaseSettings,
   mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, 'demo'),
@@ -10,38 +12,10 @@ module.exports = {
     open: true,
   },
   entry: './demo/demo.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
-  },
-  resolve: {
-    extensions: ['.js', '.ts', '.css'],
-  },
   plugins: [
+    ...webpackBaseSettings.plugins,
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'demo/demo.html'),
     }),
   ],
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(woff2|png)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-          },
-        ],
-      },
-    ],
-  },
 };

@@ -86,7 +86,7 @@ export class CompositedCard extends LitElement {
   @property({ type: String }) responsiveSrcsetSizes: string;
   @property({ type: Boolean }) useLegacyQualityMapping = false;
 
-  public protoCardData: ICardProtoData = {
+  protoCardData: ICardProtoData = {
     type: '',
     effect: '',
     name: '',
@@ -100,9 +100,9 @@ export class CompositedCard extends LitElement {
     tribe: '',
     art_id: '',
   };
-  public ch: number;
-  public cw: number;
-  public loading: boolean;
+  ch: number;
+  cw: number;
+  loading: boolean;
 
   static get styles() {
     return getStyles();
@@ -127,7 +127,7 @@ export class CompositedCard extends LitElement {
     super.disconnectedCallback();
     ro.unobserve(this);
   }
-  updated(changedProps) {
+  updated(changedProps: any) {
     changedProps.forEach((oldValue, propName) => {
       if (propName === 'protoId') {
         this.getProtoDataFromApi();
@@ -140,8 +140,8 @@ export class CompositedCard extends LitElement {
   /**
    * Generic resize handling
    */
-  public handleResize(event) {
-    const container = event.target.shadowRoot.children[0];
+  public handleResize(event: UIEvent) {
+    const container = (event.target as HTMLElement).shadowRoot.children[0] as HTMLElement;
     this.ch = container.offsetHeight * 0.01;
     this.cw = container.offsetWidth * 0.01;
     this.requestUpdate();
@@ -162,6 +162,7 @@ export class CompositedCard extends LitElement {
    * of proto card data
    */
   private async getProtoDataFromApi() {
+    console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
     return this.fetchProtoData().then((data) => {
       const {
         id,

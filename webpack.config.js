@@ -58,6 +58,7 @@ module.exports = {
   plugins: [
     new BabelMultiTargetPlugin({
       normalizeModuleIds: true,
+      doNotTarget: [/querystring-es3/],
     }),
   ]
 };
