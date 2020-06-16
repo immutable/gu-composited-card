@@ -123,8 +123,8 @@ export class CompositedCard extends LitElement {
     super.connectedCallback();
     ro.observe(this);
 
-    // // Depending on the way that a composited-card is drawn - it may not always 
-    // // trigger an "updated" event with a valid propName... so in these cases, just 
+    // // Depending on the way that a composited-card is drawn - it may not always
+    // // trigger an "updated" event with a valid propName... so in these cases, just
     // // trigger a one off data input:
     // if (this.protoId !== undefined)  {
     //   this.getProtoDataFromApi();
@@ -150,7 +150,8 @@ export class CompositedCard extends LitElement {
    * Generic resize handling
    */
   public handleResize(event: UIEvent) {
-    const container = (event.target as HTMLElement).shadowRoot.children[0] as HTMLElement;
+    const container = (event.target as HTMLElement).shadowRoot
+      .children[0] as HTMLElement;
     this.ch = container.offsetHeight * 0.01;
     this.cw = container.offsetWidth * 0.01;
     this.requestUpdate();
