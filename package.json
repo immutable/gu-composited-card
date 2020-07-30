@@ -36,7 +36,7 @@
   "dependencies": {
     "@juggle/resize-observer": "^2.3.0",
     "@webcomponents/webcomponentsjs": "^2.3.0",
-    "lit-element": "2.2.1"
+    "lit-element": "2.3.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.2",
