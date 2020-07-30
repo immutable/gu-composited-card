@@ -74,11 +74,11 @@ export class CompositedCard extends LitElement {
       textMode = 'squishy';
     }
 
-    console.log(`
-      DESCRIPTION TEXT:
-      length: ${textLength},
-      mode: ${textMode},
-    `);
+    // console.log(`
+    //   DESCRIPTION TEXT:
+    //   length: ${textLength},
+    //   mode: ${textMode},
+    // `);
 
     const hostStyles = !!tribe
       ? `

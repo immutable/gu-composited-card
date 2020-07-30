@@ -1,5 +1,18 @@
 import { LitElement, html, css } from 'lit-element';
 
+/**
+ *
+ * GU Icon Web Component
+ * -----------------------------------------------------------------
+ *
+ * Simple Icon component
+ *
+ * @customElement
+ *
+ * @author Tim Paul <tim.paul@immutable.com> <@glomotion>
+ *
+ */
+
 // @customElement('gu-icon')
 export class GuIcon extends LitElement {
 
