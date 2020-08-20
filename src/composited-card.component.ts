@@ -1,5 +1,5 @@
 import { LitElement, html, customElement, property } from 'lit-element';
-import ResizeObserver from '@juggle/resize-observer';
+import { ResizeObserver } from '@juggle/resize-observer';
 
 import {
   loadingTemplate,

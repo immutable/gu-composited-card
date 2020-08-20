@@ -34,7 +34,7 @@
     "dev:demo": "webpack-dev-server --config ./webpack.demo.config.js"
   },
   "dependencies": {
-    "@juggle/resize-observer": "^2.3.0",
+    "@juggle/resize-observer": "^3.2.0",
     "@webcomponents/webcomponentsjs": "^2.3.0",
     "lit-element": "2.3.1"
   },
