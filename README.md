@@ -89,8 +89,13 @@ $ yarn install
 $ yarn dev:docs
 ```
 
+#### Deploying docs
+
+The github pages site hosts a demo page where you can play with the component. You must build the project following the below steps and commit the final webpack bundles before pushing it to the master branch which will trigger a github pages deployment.
+
 ### Building for prod
 
 ```bash
 $ yarn build
 ```
+
