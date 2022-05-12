@@ -12,7 +12,7 @@
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const s="undefined"!=typeof window&&null!=window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,A=(e,t,r=null)=>{for(;t!==r;){const r=t.nextSibling;e.removeChild(t),t=r}},i=`{{lit-${String(Math.random()).slice(2)}}}`,n=`\x3c!--${i}--\x3e`,o=new RegExp(`${i}|${n}`),a="$lit$";class c{constructor(e,t){this.parts=[],this.element=t;const r=[],s=[],A=document.createTreeWalker(t.content,133,null,!1);let n=0,c=-1,d=0;const{strings:u,values:{length:f}}=e;for(;d<f;){const e=A.nextNode();if(null!==e){if(c++,1===e.nodeType){if(e.hasAttributes()){const t=e.attributes,{length:r}=t;let s=0;for(let e=0;e<r;e++)l(t[e].name,a)&&s++;for(;s-- >0;){const t=u[d],r=h.exec(t)[2],s=r.toLowerCase()+a,A=e.getAttribute(s);e.removeAttribute(s);const i=A.split(o);this.parts.push({type:"attribute",index:c,name:r,strings:i}),d+=i.length-1}}"TEMPLATE"===e.tagName&&(s.push(e),A.currentNode=e.content)}else if(3===e.nodeType){const t=e.data;if(t.indexOf(i)>=0){const s=e.parentNode,A=t.split(o),i=A.length-1;for(let t=0;t<i;t++){let r,i=A[t];if(""===i)r=p();else{const e=h.exec(i);null!==e&&l(e[2],a)&&(i=i.slice(0,e.index)+e[1]+e[2].slice(0,-a.length)+e[3]),r=document.createTextNode(i)}s.insertBefore(r,e),this.parts.push({type:"node",index:++c})}""===A[i]?(s.insertBefore(p(),e),r.push(e)):e.data=A[i],d+=i}}else if(8===e.nodeType)if(e.data===i){const t=e.parentNode;null!==e.previousSibling&&c!==n||(c++,t.insertBefore(p(),e)),n=c,this.parts.push({type:"node",index:c}),null===e.nextSibling?e.data="":(r.push(e),c--),d++}else{let t=-1;for(;-1!==(t=e.data.indexOf(i,t+1));)this.parts.push({type:"node",index:-1}),d++}}else A.currentNode=s.pop()}for(const e of r)e.parentNode.removeChild(e)}}const l=(e,t)=>{const r=e.length-t.length;return r>=0&&e.slice(r)===t},d=e=>-1!==e.index,p=()=>document.createComment(""),h=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/,u=133;function f(e,t){const{element:{content:r},parts:s}=e,A=document.createTreeWalker(r,u,null,!1);let i=y(s),n=s[i],o=-1,a=0;const c=[];let l=null;for(;A.nextNode();){o++;const e=A.currentNode;for(e.previousSibling===l&&(l=null),t.has(e)&&(c.push(e),null===l&&(l=e)),null!==l&&a++;void 0!==n&&n.index===o;)n.index=null!==l?-1:n.index-a,i=y(s,i),n=s[i]}c.forEach(e=>e.parentNode.removeChild(e))}const m=e=>{let t=11===e.nodeType?0:1;const r=document.createTreeWalker(e,u,null,!1);for(;r.nextNode();)t++;return t},y=(e,t=-1)=>{for(let r=t+1;r<e.length;r++){const t=e[r];if(d(t))return r}return-1};
+const s="undefined"!=typeof window&&null!=window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,A=(e,t,r=null)=>{for(;t!==r;){const r=t.nextSibling;e.removeChild(t),t=r}},i=`{{lit-${String(Math.random()).slice(2)}}}`,n=`\x3c!--${i}--\x3e`,o=new RegExp(`${i}|${n}`);class a{constructor(e,t){this.parts=[],this.element=t;const r=[],s=[],A=document.createTreeWalker(t.content,133,null,!1);let n=0,a=-1,l=0;const{strings:h,values:{length:u}}=e;for(;l<u;){const e=A.nextNode();if(null!==e){if(a++,1===e.nodeType){if(e.hasAttributes()){const t=e.attributes,{length:r}=t;let s=0;for(let e=0;e<r;e++)c(t[e].name,"$lit$")&&s++;for(;s-- >0;){const t=h[l],r=p.exec(t)[2],s=r.toLowerCase()+"$lit$",A=e.getAttribute(s);e.removeAttribute(s);const i=A.split(o);this.parts.push({type:"attribute",index:a,name:r,strings:i}),l+=i.length-1}}"TEMPLATE"===e.tagName&&(s.push(e),A.currentNode=e.content)}else if(3===e.nodeType){const t=e.data;if(t.indexOf(i)>=0){const s=e.parentNode,A=t.split(o),i=A.length-1;for(let t=0;t<i;t++){let r,i=A[t];if(""===i)r=d();else{const e=p.exec(i);null!==e&&c(e[2],"$lit$")&&(i=i.slice(0,e.index)+e[1]+e[2].slice(0,-"$lit$".length)+e[3]),r=document.createTextNode(i)}s.insertBefore(r,e),this.parts.push({type:"node",index:++a})}""===A[i]?(s.insertBefore(d(),e),r.push(e)):e.data=A[i],l+=i}}else if(8===e.nodeType)if(e.data===i){const t=e.parentNode;null!==e.previousSibling&&a!==n||(a++,t.insertBefore(d(),e)),n=a,this.parts.push({type:"node",index:a}),null===e.nextSibling?e.data="":(r.push(e),a--),l++}else{let t=-1;for(;-1!==(t=e.data.indexOf(i,t+1));)this.parts.push({type:"node",index:-1}),l++}}else A.currentNode=s.pop()}for(const e of r)e.parentNode.removeChild(e)}}const c=(e,t)=>{const r=e.length-t.length;return r>=0&&e.slice(r)===t},l=e=>-1!==e.index,d=()=>document.createComment(""),p=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;function h(e,t){const{element:{content:r},parts:s}=e,A=document.createTreeWalker(r,133,null,!1);let i=f(s),n=s[i],o=-1,a=0;const c=[];let l=null;for(;A.nextNode();){o++;const e=A.currentNode;for(e.previousSibling===l&&(l=null),t.has(e)&&(c.push(e),null===l&&(l=e)),null!==l&&a++;void 0!==n&&n.index===o;)n.index=null!==l?-1:n.index-a,i=f(s,i),n=s[i]}c.forEach(e=>e.parentNode.removeChild(e))}const u=e=>{let t=11===e.nodeType?0:1;const r=document.createTreeWalker(e,133,null,!1);for(;r.nextNode();)t++;return t},f=(e,t=-1)=>{for(let r=t+1;r<e.length;r++){const t=e[r];if(l(t))return r}return-1};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -26,7 +26,7 @@ const s="undefined"!=typeof window&&null!=window.customElements&&void 0!==window
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const g=new WeakMap,b=e=>(...t)=>{const r=e(...t);return g.set(r,!0),r},w=e=>"function"==typeof e&&g.has(e),v={},x={};
+const m=new WeakMap,y=e=>(...t)=>{const r=e(...t);return m.set(r,!0),r},g=e=>"function"==typeof e&&m.has(e),b={},w={};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -40,7 +40,7 @@ const g=new WeakMap,b=e=>(...t)=>{const r=e(...t);return g.set(r,!0),r},w=e=>"fu
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-class E{constructor(e,t,r){this.__parts=[],this.template=e,this.processor=t,this.options=r}update(e){let t=0;for(const r of this.__parts)void 0!==r&&r.setValue(e[t]),t++;for(const e of this.__parts)void 0!==e&&e.commit()}_clone(){const e=s?this.template.element.content.cloneNode(!0):document.importNode(this.template.element.content,!0),t=[],r=this.template.parts,A=document.createTreeWalker(e,133,null,!1);let i,n=0,o=0,a=A.nextNode();for(;n<r.length;)if(i=r[n],d(i)){for(;o<i.index;)o++,"TEMPLATE"===a.nodeName&&(t.push(a),A.currentNode=a.content),null===(a=A.nextNode())&&(A.currentNode=t.pop(),a=A.nextNode());if("node"===i.type){const e=this.processor.handleTextExpression(this.options);e.insertAfterNode(a.previousSibling),this.__parts.push(e)}else this.__parts.push(...this.processor.handleAttributeExpressions(a,i.name,i.strings,this.options));n++}else this.__parts.push(void 0),n++;return s&&(document.adoptNode(e),customElements.upgrade(e)),e}}
+class v{constructor(e,t,r){this.__parts=[],this.template=e,this.processor=t,this.options=r}update(e){let t=0;for(const r of this.__parts)void 0!==r&&r.setValue(e[t]),t++;for(const e of this.__parts)void 0!==e&&e.commit()}_clone(){const e=s?this.template.element.content.cloneNode(!0):document.importNode(this.template.element.content,!0),t=[],r=this.template.parts,A=document.createTreeWalker(e,133,null,!1);let i,n=0,o=0,a=A.nextNode();for(;n<r.length;)if(i=r[n],l(i)){for(;o<i.index;)o++,"TEMPLATE"===a.nodeName&&(t.push(a),A.currentNode=a.content),null===(a=A.nextNode())&&(A.currentNode=t.pop(),a=A.nextNode());if("node"===i.type){const e=this.processor.handleTextExpression(this.options);e.insertAfterNode(a.previousSibling),this.__parts.push(e)}else this.__parts.push(...this.processor.handleAttributeExpressions(a,i.name,i.strings,this.options));n++}else this.__parts.push(void 0),n++;return s&&(document.adoptNode(e),customElements.upgrade(e)),e}}
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -53,47 +53,7 @@ class E{constructor(e,t,r){this.__parts=[],this.template=e,this.processor=t,this
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */const S=` ${i} `;class P{constructor(e,t,r,s){this.strings=e,this.values=t,this.type=r,this.processor=s}getHTML(){const e=this.strings.length-1;let t="",r=!1;for(let s=0;s<e;s++){const e=this.strings[s],A=e.lastIndexOf("\x3c!--");r=(A>-1||r)&&-1===e.indexOf("--\x3e",A+1);const o=h.exec(e);t+=null===o?e+(r?S:n):e.substr(0,o.index)+o[1]+o[2]+a+o[3]+i}return t+=this.strings[e],t}getTemplateElement(){const e=document.createElement("template");return e.innerHTML=this.getHTML(),e}}
-/**
- * @license
- * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at
- * http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at
- * http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at
- * http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at
- * http://polymer.github.io/PATENTS.txt
- */
-const B=e=>null===e||!("object"==typeof e||"function"==typeof e),R=e=>Array.isArray(e)||!(!e||!e[Symbol.iterator]);class T{constructor(e,t,r){this.dirty=!0,this.element=e,this.name=t,this.strings=r,this.parts=[];for(let e=0;e<r.length-1;e++)this.parts[e]=this._createPart()}_createPart(){return new M(this)}_getValue(){const e=this.strings,t=e.length-1;let r="";for(let s=0;s<t;s++){r+=e[s];const t=this.parts[s];if(void 0!==t){const e=t.value;if(B(e)||!R(e))r+="string"==typeof e?e:String(e);else for(const t of e)r+="string"==typeof t?t:String(t)}}return r+=e[t],r}commit(){this.dirty&&(this.dirty=!1,this.element.setAttribute(this.name,this._getValue()))}}class M{constructor(e){this.value=void 0,this.committer=e}setValue(e){e===v||B(e)&&e===this.value||(this.value=e,w(e)||(this.committer.dirty=!0))}commit(){for(;w(this.value);){const e=this.value;this.value=v,e(this)}this.value!==v&&this.committer.commit()}}class H{constructor(e){this.value=void 0,this.__pendingValue=void 0,this.options=e}appendInto(e){this.startNode=e.appendChild(p()),this.endNode=e.appendChild(p())}insertAfterNode(e){this.startNode=e,this.endNode=e.nextSibling}appendIntoPart(e){e.__insert(this.startNode=p()),e.__insert(this.endNode=p())}insertAfterPart(e){e.__insert(this.startNode=p()),this.endNode=e.endNode,e.endNode=this.startNode}setValue(e){this.__pendingValue=e}commit(){if(null===this.startNode.parentNode)return;for(;w(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=v,e(this)}const e=this.__pendingValue;e!==v&&(B(e)?e!==this.value&&this.__commitText(e):e instanceof P?this.__commitTemplateResult(e):e instanceof Node?this.__commitNode(e):R(e)?this.__commitIterable(e):e===x?(this.value=x,this.clear()):this.__commitText(e))}__insert(e){this.endNode.parentNode.insertBefore(e,this.endNode)}__commitNode(e){this.value!==e&&(this.clear(),this.__insert(e),this.value=e)}__commitText(e){const t=this.startNode.nextSibling,r="string"==typeof(e=null==e?"":e)?e:String(e);t===this.endNode.previousSibling&&3===t.nodeType?t.data=r:this.__commitNode(document.createTextNode(r)),this.value=e}__commitTemplateResult(e){const t=this.options.templateFactory(e);if(this.value instanceof E&&this.value.template===t)this.value.update(e.values);else{const r=new E(t,e.processor,this.options),s=r._clone();r.update(e.values),this.__commitNode(s),this.value=r}}__commitIterable(e){Array.isArray(this.value)||(this.value=[],this.clear());const t=this.value;let r,s=0;for(const A of e)r=t[s],void 0===r&&(r=new H(this.options),t.push(r),0===s?r.appendIntoPart(this):r.insertAfterPart(t[s-1])),r.setValue(A),r.commit(),s++;s<t.length&&(t.length=s,this.clear(r&&r.endNode))}clear(e=this.startNode){A(this.startNode.parentNode,e.nextSibling,this.endNode)}}class C{constructor(e,t,r){if(this.value=void 0,this.__pendingValue=void 0,2!==r.length||""!==r[0]||""!==r[1])throw new Error("Boolean attributes can only contain a single expression");this.element=e,this.name=t,this.strings=r}setValue(e){this.__pendingValue=e}commit(){for(;w(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=v,e(this)}if(this.__pendingValue===v)return;const e=!!this.__pendingValue;this.value!==e&&(e?this.element.setAttribute(this.name,""):this.element.removeAttribute(this.name),this.value=e),this.__pendingValue=v}}class N extends T{constructor(e,t,r){super(e,t,r),this.single=2===r.length&&""===r[0]&&""===r[1]}_createPart(){return new z(this)}_getValue(){return this.single?this.parts[0].value:super._getValue()}commit(){this.dirty&&(this.dirty=!1,this.element[this.name]=this._getValue())}}class z extends M{}let k=!1;(()=>{try{const e={get capture(){return k=!0,!1}};window.addEventListener("test",e,e),window.removeEventListener("test",e,e)}catch(e){}})();class j{constructor(e,t,r){this.value=void 0,this.__pendingValue=void 0,this.element=e,this.eventName=t,this.eventContext=r,this.__boundHandleEvent=e=>this.handleEvent(e)}setValue(e){this.__pendingValue=e}commit(){for(;w(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=v,e(this)}if(this.__pendingValue===v)return;const e=this.__pendingValue,t=this.value,r=null==e||null!=t&&(e.capture!==t.capture||e.once!==t.once||e.passive!==t.passive),s=null!=e&&(null==t||r);r&&this.element.removeEventListener(this.eventName,this.__boundHandleEvent,this.__options),s&&(this.__options=F(e),this.element.addEventListener(this.eventName,this.__boundHandleEvent,this.__options)),this.value=e,this.__pendingValue=v}handleEvent(e){"function"==typeof this.value?this.value.call(this.eventContext||this.element,e):this.value.handleEvent(e)}}const F=e=>e&&(k?{capture:e.capture,passive:e.passive,once:e.once}:e.capture);
-/**
- * @license
- * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at
- * http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at
- * http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at
- * http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at
- * http://polymer.github.io/PATENTS.txt
- */function Q(e){let t=I.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},I.set(e.type,t));let r=t.stringsArray.get(e.strings);if(void 0!==r)return r;const s=e.strings.join(i);return r=t.keyString.get(s),void 0===r&&(r=new c(e,e.getTemplateElement()),t.keyString.set(s,r)),t.stringsArray.set(e.strings,r),r}const I=new Map,O=new WeakMap;
-/**
- * @license
- * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at
- * http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at
- * http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at
- * http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at
- * http://polymer.github.io/PATENTS.txt
- */const U=new
+ */const x=window.trustedTypes&&trustedTypes.createPolicy("lit-html",{createHTML:e=>e}),E=` ${i} `;class S{constructor(e,t,r,s){this.strings=e,this.values=t,this.type=r,this.processor=s}getHTML(){const e=this.strings.length-1;let t="",r=!1;for(let s=0;s<e;s++){const e=this.strings[s],A=e.lastIndexOf("\x3c!--");r=(A>-1||r)&&-1===e.indexOf("--\x3e",A+1);const o=p.exec(e);t+=null===o?e+(r?E:n):e.substr(0,o.index)+o[1]+o[2]+"$lit$"+o[3]+i}return t+=this.strings[e],t}getTemplateElement(){const e=document.createElement("template");let t=this.getHTML();return void 0!==x&&(t=x.createHTML(t)),e.innerHTML=t,e}}
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -107,7 +67,7 @@ const B=e=>null===e||!("object"==typeof e||"function"==typeof e),R=e=>Array.isAr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-class{handleAttributeExpressions(e,t,r,s){const A=t[0];if("."===A){return new N(e,t.slice(1),r).parts}return"@"===A?[new j(e,t.slice(1),s.eventContext)]:"?"===A?[new C(e,t.slice(1),r)]:new T(e,t,r).parts}handleTextExpression(e){return new H(e)}};
+const P=e=>null===e||!("object"==typeof e||"function"==typeof e),T=e=>Array.isArray(e)||!(!e||!e[Symbol.iterator]);class B{constructor(e,t,r){this.dirty=!0,this.element=e,this.name=t,this.strings=r,this.parts=[];for(let e=0;e<r.length-1;e++)this.parts[e]=this._createPart()}_createPart(){return new R(this)}_getValue(){const e=this.strings,t=e.length-1,r=this.parts;if(1===t&&""===e[0]&&""===e[1]){const e=r[0].value;if("symbol"==typeof e)return String(e);if("string"==typeof e||!T(e))return e}let s="";for(let A=0;A<t;A++){s+=e[A];const t=r[A];if(void 0!==t){const e=t.value;if(P(e)||!T(e))s+="string"==typeof e?e:String(e);else for(const t of e)s+="string"==typeof t?t:String(t)}}return s+=e[t],s}commit(){this.dirty&&(this.dirty=!1,this.element.setAttribute(this.name,this._getValue()))}}class R{constructor(e){this.value=void 0,this.committer=e}setValue(e){e===b||P(e)&&e===this.value||(this.value=e,g(e)||(this.committer.dirty=!0))}commit(){for(;g(this.value);){const e=this.value;this.value=b,e(this)}this.value!==b&&this.committer.commit()}}class M{constructor(e){this.value=void 0,this.__pendingValue=void 0,this.options=e}appendInto(e){this.startNode=e.appendChild(d()),this.endNode=e.appendChild(d())}insertAfterNode(e){this.startNode=e,this.endNode=e.nextSibling}appendIntoPart(e){e.__insert(this.startNode=d()),e.__insert(this.endNode=d())}insertAfterPart(e){e.__insert(this.startNode=d()),this.endNode=e.endNode,e.endNode=this.startNode}setValue(e){this.__pendingValue=e}commit(){if(null===this.startNode.parentNode)return;for(;g(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=b,e(this)}const e=this.__pendingValue;e!==b&&(P(e)?e!==this.value&&this.__commitText(e):e instanceof S?this.__commitTemplateResult(e):e instanceof Node?this.__commitNode(e):T(e)?this.__commitIterable(e):e===w?(this.value=w,this.clear()):this.__commitText(e))}__insert(e){this.endNode.parentNode.insertBefore(e,this.endNode)}__commitNode(e){this.value!==e&&(this.clear(),this.__insert(e),this.value=e)}__commitText(e){const t=this.startNode.nextSibling,r="string"==typeof(e=null==e?"":e)?e:String(e);t===this.endNode.previousSibling&&3===t.nodeType?t.data=r:this.__commitNode(document.createTextNode(r)),this.value=e}__commitTemplateResult(e){const t=this.options.templateFactory(e);if(this.value instanceof v&&this.value.template===t)this.value.update(e.values);else{const r=new v(t,e.processor,this.options),s=r._clone();r.update(e.values),this.__commitNode(s),this.value=r}}__commitIterable(e){Array.isArray(this.value)||(this.value=[],this.clear());const t=this.value;let r,s=0;for(const A of e)r=t[s],void 0===r&&(r=new M(this.options),t.push(r),0===s?r.appendIntoPart(this):r.insertAfterPart(t[s-1])),r.setValue(A),r.commit(),s++;s<t.length&&(t.length=s,this.clear(r&&r.endNode))}clear(e=this.startNode){A(this.startNode.parentNode,e.nextSibling,this.endNode)}}class H{constructor(e,t,r){if(this.value=void 0,this.__pendingValue=void 0,2!==r.length||""!==r[0]||""!==r[1])throw new Error("Boolean attributes can only contain a single expression");this.element=e,this.name=t,this.strings=r}setValue(e){this.__pendingValue=e}commit(){for(;g(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=b,e(this)}if(this.__pendingValue===b)return;const e=!!this.__pendingValue;this.value!==e&&(e?this.element.setAttribute(this.name,""):this.element.removeAttribute(this.name),this.value=e),this.__pendingValue=b}}class C extends B{constructor(e,t,r){super(e,t,r),this.single=2===r.length&&""===r[0]&&""===r[1]}_createPart(){return new z(this)}_getValue(){return this.single?this.parts[0].value:super._getValue()}commit(){this.dirty&&(this.dirty=!1,this.element[this.name]=this._getValue())}}class z extends R{}let N=!1;(()=>{try{const e={get capture(){return N=!0,!1}};window.addEventListener("test",e,e),window.removeEventListener("test",e,e)}catch(e){}})();class k{constructor(e,t,r){this.value=void 0,this.__pendingValue=void 0,this.element=e,this.eventName=t,this.eventContext=r,this.__boundHandleEvent=e=>this.handleEvent(e)}setValue(e){this.__pendingValue=e}commit(){for(;g(this.__pendingValue);){const e=this.__pendingValue;this.__pendingValue=b,e(this)}if(this.__pendingValue===b)return;const e=this.__pendingValue,t=this.value,r=null==e||null!=t&&(e.capture!==t.capture||e.once!==t.once||e.passive!==t.passive),s=null!=e&&(null==t||r);r&&this.element.removeEventListener(this.eventName,this.__boundHandleEvent,this.__options),s&&(this.__options=j(e),this.element.addEventListener(this.eventName,this.__boundHandleEvent,this.__options)),this.value=e,this.__pendingValue=b}handleEvent(e){"function"==typeof this.value?this.value.call(this.eventContext||this.element,e):this.value.handleEvent(e)}}const j=e=>e&&(N?{capture:e.capture,passive:e.passive,once:e.once}:e.capture)
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -120,7 +80,20 @@ class{handleAttributeExpressions(e,t,r,s){const A=t[0];if("."===A){return new N(
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.2.1");const Z=(e,...t)=>new P(e,t,"html",U),V=(e,t)=>`${e}--${t}`;let Y=!0;void 0===window.ShadyCSS?Y=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),Y=!1);const L=e=>t=>{const r=V(t.type,e);let s=I.get(r);void 0===s&&(s={stringsArray:new WeakMap,keyString:new Map},I.set(r,s));let A=s.stringsArray.get(t.strings);if(void 0!==A)return A;const n=t.strings.join(i);if(A=s.keyString.get(n),void 0===A){const r=t.getTemplateElement();Y&&window.ShadyCSS.prepareTemplateDom(r,e),A=new c(t,r),s.keyString.set(n,A)}return s.stringsArray.set(t.strings,A),A},W=["html","svg"],D=new Set,G=(e,t,r)=>{D.add(e);const s=r?r.element:document.createElement("template"),A=t.querySelectorAll("style"),{length:i}=A;if(0===i)return void window.ShadyCSS.prepareTemplateStyles(s,e);const n=document.createElement("style");for(let e=0;e<i;e++){const t=A[e];t.parentNode.removeChild(t),n.textContent+=t.textContent}(e=>{W.forEach(t=>{const r=I.get(V(t,e));void 0!==r&&r.keyString.forEach(e=>{const{element:{content:t}}=e,r=new Set;Array.from(t.querySelectorAll("style")).forEach(e=>{r.add(e)}),f(e,r)})})})(e);const o=s.content;r?function(e,t,r=null){const{element:{content:s},parts:A}=e;if(null==r)return void s.appendChild(t);const i=document.createTreeWalker(s,u,null,!1);let n=y(A),o=0,a=-1;for(;i.nextNode();){for(a++,i.currentNode===r&&(o=m(t),r.parentNode.insertBefore(t,r));-1!==n&&A[n].index===a;){if(o>0){for(;-1!==n;)A[n].index+=o,n=y(A,n);return}n=y(A,n)}}}(r,n,o.firstChild):o.insertBefore(n,o.firstChild),window.ShadyCSS.prepareTemplateStyles(s,e);const a=o.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==a)t.insertBefore(a.cloneNode(!0),t.firstChild);else if(r){o.insertBefore(n,o.firstChild);const e=new Set;e.add(n),f(r,e)}};window.JSCompiler_renameProperty=(e,t)=>e;const J={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},q=(e,t)=>t!==e&&(t==t||e==e),K={attribute:!0,type:String,converter:J,reflect:!1,hasChanged:q},X=1,$=4,_=8,ee=16,te="finalized";class re extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=new Promise(e=>this._enableUpdatingResolver=e),this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((t,r)=>{const s=this._attributeNameForProperty(r,t);void 0!==s&&(this._attributeToPropertyMap.set(s,r),e.push(s))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,t)=>this._classProperties.set(t,e))}}static createProperty(e,t=K){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const r="symbol"==typeof e?Symbol():`__${e}`,s=this.getPropertyDescriptor(e,r,t);void 0!==s&&Object.defineProperty(this.prototype,e,s)}static getPropertyDescriptor(e,t,r){return{get(){return this[t]},set(r){const s=this[e];this[t]=r,this._requestUpdate(e,s)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this._classProperties&&this._classProperties.get(e)||K}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty(te)||e.finalize(),this[te]=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const r of t)this.createProperty(r,e[r])}}static _attributeNameForProperty(e,t){const r=t.attribute;return!1===r?void 0:"string"==typeof r?r:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,r=q){return r(e,t)}static _propertyValueFromAttribute(e,t){const r=t.type,s=t.converter||J,A="function"==typeof s?s:s.fromAttribute;return A?A(e,r):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const r=t.type,s=t.converter;return(s&&s.toAttribute||J.toAttribute)(e,r)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,t)=>this[t]=e),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,r){t!==r&&this._attributeToProperty(e,r)}_propertyToAttribute(e,t,r=K){const s=this.constructor,A=s._attributeNameForProperty(e,r);if(void 0!==A){const e=s._propertyValueToAttribute(t,r);if(void 0===e)return;this._updateState=this._updateState|_,null==e?this.removeAttribute(A):this.setAttribute(A,e),this._updateState=this._updateState&~_}}_attributeToProperty(e,t){if(this._updateState&_)return;const r=this.constructor,s=r._attributeToPropertyMap.get(e);if(void 0!==s){const e=r.getPropertyOptions(s);this._updateState=this._updateState|ee,this[s]=r._propertyValueFromAttribute(t,e),this._updateState=this._updateState&~ee}}_requestUpdate(e,t){let r=!0;if(void 0!==e){const s=this.constructor,A=s.getPropertyOptions(e);s._valueHasChanged(this[e],t,A.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==A.reflect||this._updateState&ee||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,A))):r=!1}!this._hasRequestedUpdate&&r&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(e,t){return this._requestUpdate(e,t),this.updateComplete}async _enqueueUpdate(){this._updateState=this._updateState|$;try{await this._updatePromise}catch(e){}const e=this.performUpdate();return null!=e&&await e,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return this._updateState&$}get hasUpdated(){return this._updateState&X}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{e=this.shouldUpdate(t),e?this.update(t):this._markUpdated()}catch(t){throw e=!1,this._markUpdated(),t}e&&(this._updateState&X||(this._updateState=this._updateState|X,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=this._updateState&~$}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,t)=>this._propertyToAttribute(t,this[t],e)),this._reflectingProperties=void 0),this._markUpdated()}updated(e){}firstUpdated(e){}}re[te]=!0;
+ */;function F(e){let t=Q.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},Q.set(e.type,t));let r=t.stringsArray.get(e.strings);if(void 0!==r)return r;const s=e.strings.join(i);return r=t.keyString.get(s),void 0===r&&(r=new a(e,e.getTemplateElement()),t.keyString.set(s,r)),t.stringsArray.set(e.strings,r),r}const Q=new Map,I=new WeakMap;
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */const O=new
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -134,7 +107,34 @@ class{handleAttributeExpressions(e,t,r,s){const A=t[0];if("."===A){return new N(
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const se=e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t))(e,t):((e,t)=>{const{kind:r,elements:s}=t;return{kind:r,elements:s,finisher(t){window.customElements.define(e,t)}}})(e,t),Ae=(e,t)=>"method"!==t.kind||!t.descriptor||"value"in t.descriptor?{kind:"field",key:Symbol(),placement:"own",descriptor:{},initializer(){"function"==typeof t.initializer&&(this[t.key]=t.initializer.call(this))},finisher(r){r.createProperty(t.key,e)}}:Object.assign(Object.assign({},t),{finisher(r){r.createProperty(t.key,e)}}),ie=(e,t,r)=>{t.constructor.createProperty(r,e)};function ne(e){return(t,r)=>void 0!==r?ie(e,t,r):Ae(e,t)}
+class{handleAttributeExpressions(e,t,r,s){const A=t[0];if("."===A){return new C(e,t.slice(1),r).parts}if("@"===A)return[new k(e,t.slice(1),s.eventContext)];if("?"===A)return[new H(e,t.slice(1),r)];return new B(e,t,r).parts}handleTextExpression(e){return new M(e)}};
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.4.1");const U=(e,...t)=>new S(e,t,"html",O),Z=(e,t)=>`${e}--${t}`;let V=!0;void 0===window.ShadyCSS?V=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),V=!1);const Y=e=>t=>{const r=Z(t.type,e);let s=Q.get(r);void 0===s&&(s={stringsArray:new WeakMap,keyString:new Map},Q.set(r,s));let A=s.stringsArray.get(t.strings);if(void 0!==A)return A;const n=t.strings.join(i);if(A=s.keyString.get(n),void 0===A){const r=t.getTemplateElement();V&&window.ShadyCSS.prepareTemplateDom(r,e),A=new a(t,r),s.keyString.set(n,A)}return s.stringsArray.set(t.strings,A),A},L=["html","svg"],W=new Set,D=(e,t,r)=>{W.add(e);const s=r?r.element:document.createElement("template"),A=t.querySelectorAll("style"),{length:i}=A;if(0===i)return void window.ShadyCSS.prepareTemplateStyles(s,e);const n=document.createElement("style");for(let e=0;e<i;e++){const t=A[e];t.parentNode.removeChild(t),n.textContent+=t.textContent}(e=>{L.forEach(t=>{const r=Q.get(Z(t,e));void 0!==r&&r.keyString.forEach(e=>{const{element:{content:t}}=e,r=new Set;Array.from(t.querySelectorAll("style")).forEach(e=>{r.add(e)}),h(e,r)})})})(e);const o=s.content;r?function(e,t,r=null){const{element:{content:s},parts:A}=e;if(null==r)return void s.appendChild(t);const i=document.createTreeWalker(s,133,null,!1);let n=f(A),o=0,a=-1;for(;i.nextNode();){a++;for(i.currentNode===r&&(o=u(t),r.parentNode.insertBefore(t,r));-1!==n&&A[n].index===a;){if(o>0){for(;-1!==n;)A[n].index+=o,n=f(A,n);return}n=f(A,n)}}}(r,n,o.firstChild):o.insertBefore(n,o.firstChild),window.ShadyCSS.prepareTemplateStyles(s,e);const a=o.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==a)t.insertBefore(a.cloneNode(!0),t.firstChild);else if(r){o.insertBefore(n,o.firstChild);const e=new Set;e.add(n),h(r,e)}};window.JSCompiler_renameProperty=(e,t)=>e;const G={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},J=(e,t)=>t!==e&&(t==t||e==e),q={attribute:!0,type:String,converter:G,reflect:!1,hasChanged:J};class K extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=new Promise(e=>this._enableUpdatingResolver=e),this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((t,r)=>{const s=this._attributeNameForProperty(r,t);void 0!==s&&(this._attributeToPropertyMap.set(s,r),e.push(s))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,t)=>this._classProperties.set(t,e))}}static createProperty(e,t=q){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const r="symbol"==typeof e?Symbol():"__"+e,s=this.getPropertyDescriptor(e,r,t);void 0!==s&&Object.defineProperty(this.prototype,e,s)}static getPropertyDescriptor(e,t,r){return{get(){return this[t]},set(r){const s=this[e];this[t]=r,this._requestUpdate(e,s)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this._classProperties&&this._classProperties.get(e)||q}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty("finalized")||e.finalize(),this.finalized=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const r of t)this.createProperty(r,e[r])}}static _attributeNameForProperty(e,t){const r=t.attribute;return!1===r?void 0:"string"==typeof r?r:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,r=J){return r(e,t)}static _propertyValueFromAttribute(e,t){const r=t.type,s=t.converter||G,A="function"==typeof s?s:s.fromAttribute;return A?A(e,r):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const r=t.type,s=t.converter;return(s&&s.toAttribute||G.toAttribute)(e,r)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,t)=>this[t]=e),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,r){t!==r&&this._attributeToProperty(e,r)}_propertyToAttribute(e,t,r=q){const s=this.constructor,A=s._attributeNameForProperty(e,r);if(void 0!==A){const e=s._propertyValueToAttribute(t,r);if(void 0===e)return;this._updateState=8|this._updateState,null==e?this.removeAttribute(A):this.setAttribute(A,e),this._updateState=-9&this._updateState}}_attributeToProperty(e,t){if(8&this._updateState)return;const r=this.constructor,s=r._attributeToPropertyMap.get(e);if(void 0!==s){const e=r.getPropertyOptions(s);this._updateState=16|this._updateState,this[s]=r._propertyValueFromAttribute(t,e),this._updateState=-17&this._updateState}}_requestUpdate(e,t){let r=!0;if(void 0!==e){const s=this.constructor,A=s.getPropertyOptions(e);s._valueHasChanged(this[e],t,A.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==A.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,A))):r=!1}!this._hasRequestedUpdate&&r&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(e,t){return this._requestUpdate(e,t),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(e){}const e=this.performUpdate();return null!=e&&await e,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{e=this.shouldUpdate(t),e?this.update(t):this._markUpdated()}catch(t){throw e=!1,this._markUpdated(),t}e&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,t)=>this._propertyToAttribute(t,this[t],e)),this._reflectingProperties=void 0),this._markUpdated()}updated(e){}firstUpdated(e){}}K.finalized=!0;
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const X=e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t))(e,t):((e,t)=>{const{kind:r,elements:s}=t;return{kind:r,elements:s,finisher(t){window.customElements.define(e,t)}}})(e,t),$=(e,t)=>"method"===t.kind&&t.descriptor&&!("value"in t.descriptor)?Object.assign(Object.assign({},t),{finisher(r){r.createProperty(t.key,e)}}):{kind:"field",key:Symbol(),placement:"own",descriptor:{},initializer(){"function"==typeof t.initializer&&(this[t.key]=t.initializer.call(this))},finisher(r){r.createProperty(t.key,e)}};function _(e){return(t,r)=>void 0!==r?((e,t,r)=>{t.constructor.createProperty(r,e)})(e,t,r):$(e,t)}
 /**
 @license
 Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -145,7 +145,7 @@ found at http://polymer.github.io/CONTRIBUTORS.txt Code distributed by Google as
 part of the polymer project is also subject to an additional IP rights grant
 found at http://polymer.github.io/PATENTS.txt
 */
-const oe="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,ae=Symbol();class ce{constructor(e,t){if(t!==ae)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e}get styleSheet(){return void 0===this._styleSheet&&(oe?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}const le=(e,...t)=>{const r=t.reduce((t,r,s)=>t+(e=>{if(e instanceof ce)return e.cssText;if("number"==typeof e)return e;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${e}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(r)+e[s+1],e[0]);return new ce(r,ae)};
+const ee="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,te=Symbol();class re{constructor(e,t){if(t!==te)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e}get styleSheet(){return void 0===this._styleSheet&&(ee?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}const se=(e,...t)=>{const r=t.reduce((t,r,s)=>t+(e=>{if(e instanceof re)return e.cssText;if("number"==typeof e)return e;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${e}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(r)+e[s+1],e[0]);return new re(r,te)};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -159,7 +159,7 @@ const oe="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.pr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");const de={};class pe extends re{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const e=this.getStyles();if(void 0===e)this._styles=[];else if(Array.isArray(e)){const t=(e,r)=>e.reduceRight((e,r)=>Array.isArray(r)?t(r,e):(e.add(r),e),r),r=t(e,new Set),s=[];r.forEach(e=>s.unshift(e)),this._styles=s}else this._styles=[e]}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?oe?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){const t=this.render();super.update(e),t!==de&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)}))}render(){return de}}pe.finalized=!0,pe.render=(e,t,r)=>{if(!r||"object"!=typeof r||!r.scopeName)throw new Error("The `scopeName` option is required.");const s=r.scopeName,i=O.has(t),n=Y&&11===t.nodeType&&!!t.host,o=n&&!D.has(s),a=o?document.createDocumentFragment():t;if(((e,t,r)=>{let s=O.get(t);void 0===s&&(A(t,t.firstChild),O.set(t,s=new H(Object.assign({templateFactory:Q},r))),s.appendInto(t)),s.setValue(e),s.commit()})(e,a,Object.assign({templateFactory:L(s)},r)),o){const e=O.get(a);O.delete(a);const r=e.value instanceof E?e.value.template:void 0;G(s,a,r),A(t,t.firstChild),t.appendChild(a),O.set(t,e)}!i&&n&&window.ShadyCSS.styleElement(t.host)};var he,ue=[],fe="ResizeObserver loop completed with undelivered notifications.";!function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box",e.DEVICE_PIXEL_CONTENT_BOX="device-pixel-content-box"}(he||(he={}));var me,ye=function(){function e(e,t,r,s){return this.x=e,this.y=t,this.width=r,this.height=s,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,Object.freeze(this)}return e.prototype.toJSON=function(){var e=this;return{x:e.x,y:e.y,top:e.top,right:e.right,bottom:e.bottom,left:e.left,width:e.width,height:e.height}},e.fromRect=function(t){return new e(t.x,t.y,t.width,t.height)},e}(),ge=function(e){return e instanceof SVGElement&&"getBBox"in e},be=function(e){if(ge(e)){var t=e.getBBox(),r=t.width,s=t.height;return!r&&!s}var A=e,i=A.offsetWidth,n=A.offsetHeight;return!(i||n||e.getClientRects().length)},we=function(e){var t,r,s=null===(r=null===(t=e)||void 0===t?void 0:t.ownerDocument)||void 0===r?void 0:r.defaultView;return!!(s&&e instanceof s.Element)},ve="undefined"!=typeof window?window:{},xe=new WeakMap,Ee=/auto|scroll/,Se=/^tb|vertical/,Pe=/msie|trident/i.test(ve.navigator&&ve.navigator.userAgent),Be=function(e){return parseFloat(e||"0")},Re=function(e,t,r){return void 0===e&&(e=0),void 0===t&&(t=0),void 0===r&&(r=!1),Object.freeze({inlineSize:(r?t:e)||0,blockSize:(r?e:t)||0})},Te=Object.freeze({devicePixelContentBoxSize:Re(),borderBoxSize:Re(),contentBoxSize:Re(),contentRect:new ye(0,0,0,0)}),Me=function(e,t){if(void 0===t&&(t=!1),xe.has(e)&&!t)return xe.get(e);if(be(e))return xe.set(e,Te),Te;var r=getComputedStyle(e),s=ge(e)&&e.ownerSVGElement&&e.getBBox(),A=!Pe&&"border-box"===r.boxSizing,i=Se.test(r.writingMode||""),n=!s&&Ee.test(r.overflowY||""),o=!s&&Ee.test(r.overflowX||""),a=s?0:Be(r.paddingTop),c=s?0:Be(r.paddingRight),l=s?0:Be(r.paddingBottom),d=s?0:Be(r.paddingLeft),p=s?0:Be(r.borderTopWidth),h=s?0:Be(r.borderRightWidth),u=s?0:Be(r.borderBottomWidth),f=d+c,m=a+l,y=(s?0:Be(r.borderLeftWidth))+h,g=p+u,b=o?e.offsetHeight-g-e.clientHeight:0,w=n?e.offsetWidth-y-e.clientWidth:0,v=A?f+y:0,x=A?m+g:0,E=s?s.width:Be(r.width)-v-w,S=s?s.height:Be(r.height)-x-b,P=E+f+w+y,B=S+m+b+g,R=Object.freeze({devicePixelContentBoxSize:Re(Math.round(E*devicePixelRatio),Math.round(S*devicePixelRatio),i),borderBoxSize:Re(P,B,i),contentBoxSize:Re(E,S,i),contentRect:new ye(d,a,E,S)});return xe.set(e,R),R},He=function(e,t,r){var s=Me(e,r),A=s.borderBoxSize,i=s.contentBoxSize,n=s.devicePixelContentBoxSize;switch(t){case he.DEVICE_PIXEL_CONTENT_BOX:return n;case he.BORDER_BOX:return A;default:return i}},Ce=function(e){var t=Me(e);this.target=e,this.contentRect=t.contentRect,this.borderBoxSize=[t.borderBoxSize],this.contentBoxSize=[t.contentBoxSize],this.devicePixelContentBoxSize=[t.devicePixelContentBoxSize]},Ne=function(e){if(be(e))return 1/0;for(var t=0,r=e.parentNode;r;)t+=1,r=r.parentNode;return t},ze=function(){var e=1/0,t=[];ue.forEach((function(r){if(0!==r.activeTargets.length){var s=[];r.activeTargets.forEach((function(t){var r=new Ce(t.target),A=Ne(t.target);s.push(r),t.lastReportedSize=He(t.target,t.observedBox),A<e&&(e=A)})),t.push((function(){r.callback.call(r.observer,s,r.observer)})),r.activeTargets.splice(0,r.activeTargets.length)}}));for(var r=0,s=t;r<s.length;r++){(0,s[r])()}return e},ke=function(e){ue.forEach((function(t){t.activeTargets.splice(0,t.activeTargets.length),t.skippedTargets.splice(0,t.skippedTargets.length),t.observationTargets.forEach((function(r){r.isActive()&&(Ne(r.target)>e?t.activeTargets.push(r):t.skippedTargets.push(r))}))}))},je=function(){var e,t=0;for(ke(t);ue.some((function(e){return e.activeTargets.length>0}));)t=ze(),ke(t);return ue.some((function(e){return e.skippedTargets.length>0}))&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:fe}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=fe),window.dispatchEvent(e)),t>0},Fe=[],Qe=function(e){if(!me){var t=0,r=document.createTextNode("");new MutationObserver((function(){return Fe.splice(0).forEach((function(e){return e()}))})).observe(r,{characterData:!0}),me=function(){r.textContent=""+(t?t--:t++)}}Fe.push(e),me()},Ie=0,Oe={attributes:!0,characterData:!0,childList:!0,subtree:!0},Ue=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Ze=function(e){return void 0===e&&(e=0),Date.now()+e},Ve=!1,Ye=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var t=this;if(void 0===e&&(e=250),!Ve){Ve=!0;var r,s=Ze(e);r=function(){var r=!1;try{r=je()}finally{if(Ve=!1,e=s-Ze(),!Ie)return;r?t.run(1e3):e>0?t.run(e):t.start()}},Qe((function(){requestAnimationFrame(r)}))}},e.prototype.schedule=function(){this.stop(),this.run()},e.prototype.observe=function(){var e=this,t=function(){return e.observer&&e.observer.observe(document.body,Oe)};document.body?t():ve.addEventListener("DOMContentLoaded",t)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,this.observer=new MutationObserver(this.listener),this.observe(),Ue.forEach((function(t){return ve.addEventListener(t,e.listener,!0)})))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),Ue.forEach((function(t){return ve.removeEventListener(t,e.listener,!0)})),this.stopped=!0)},e}()),Le=function(e){!Ie&&e>0&&Ye.start(),!(Ie+=e)&&Ye.stop()},We=function(){function e(e,t){this.target=e,this.observedBox=t||he.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,t=He(this.target,this.observedBox,!0);return e=this.target,ge(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=t),this.lastReportedSize.inlineSize!==t.inlineSize||this.lastReportedSize.blockSize!==t.blockSize},e}(),De=function(e,t){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=t},Ge=new WeakMap,Je=function(e,t){for(var r=0;r<e.length;r+=1)if(e[r].target===t)return r;return-1},qe=function(){function e(){}return e.connect=function(e,t){var r=new De(e,t);Ge.set(e,r)},e.observe=function(e,t,r){var s=Ge.get(e),A=0===s.observationTargets.length;Je(s.observationTargets,t)<0&&(A&&ue.push(s),s.observationTargets.push(new We(t,r&&r.box)),Le(1),Ye.schedule())},e.unobserve=function(e,t){var r=Ge.get(e),s=Je(r.observationTargets,t),A=1===r.observationTargets.length;s>=0&&(A&&ue.splice(ue.indexOf(r),1),r.observationTargets.splice(s,1),Le(-1))},e.disconnect=function(e){var t=this,r=Ge.get(e);r.observationTargets.slice().forEach((function(r){return t.unobserve(e,r.target)})),r.activeTargets.splice(0,r.activeTargets.length)},e}(),Ke=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");qe.connect(this,e)}return e.prototype.observe=function(e,t){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!we(e))throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");qe.observe(this,e,t)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!we(e))throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");qe.unobserve(this,e)},e.prototype.disconnect=function(){qe.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
+(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");const Ae={};class ie extends K{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const e=this.getStyles();if(void 0===e)this._styles=[];else if(Array.isArray(e)){const t=(e,r)=>e.reduceRight((e,r)=>Array.isArray(r)?t(r,e):(e.add(r),e),r),r=t(e,new Set),s=[];r.forEach(e=>s.unshift(e)),this._styles=s}else this._styles=[e]}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?ee?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){const t=this.render();super.update(e),t!==Ae&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)}))}render(){return Ae}}ie.finalized=!0,ie.render=(e,t,r)=>{if(!r||"object"!=typeof r||!r.scopeName)throw new Error("The `scopeName` option is required.");const s=r.scopeName,i=I.has(t),n=V&&11===t.nodeType&&!!t.host,o=n&&!W.has(s),a=o?document.createDocumentFragment():t;if(((e,t,r)=>{let s=I.get(t);void 0===s&&(A(t,t.firstChild),I.set(t,s=new M(Object.assign({templateFactory:F},r))),s.appendInto(t)),s.setValue(e),s.commit()})(e,a,Object.assign({templateFactory:Y(s)},r)),o){const e=I.get(a);I.delete(a);const r=e.value instanceof v?e.value.template:void 0;D(s,a,r),A(t,t.firstChild),t.appendChild(a),I.set(t,e)}!i&&n&&window.ShadyCSS.styleElement(t.host)};var ne,oe=[],ae="ResizeObserver loop completed with undelivered notifications.";!function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box",e.DEVICE_PIXEL_CONTENT_BOX="device-pixel-content-box"}(ne||(ne={}));var ce,le=function(){function e(e,t,r,s){return this.x=e,this.y=t,this.width=r,this.height=s,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,Object.freeze(this)}return e.prototype.toJSON=function(){var e=this;return{x:e.x,y:e.y,top:e.top,right:e.right,bottom:e.bottom,left:e.left,width:e.width,height:e.height}},e.fromRect=function(t){return new e(t.x,t.y,t.width,t.height)},e}(),de=function(e){return e instanceof SVGElement&&"getBBox"in e},pe=function(e){if(de(e)){var t=e.getBBox(),r=t.width,s=t.height;return!r&&!s}var A=e,i=A.offsetWidth,n=A.offsetHeight;return!(i||n||e.getClientRects().length)},he=function(e){var t,r,s=null===(r=null===(t=e)||void 0===t?void 0:t.ownerDocument)||void 0===r?void 0:r.defaultView;return!!(s&&e instanceof s.Element)},ue="undefined"!=typeof window?window:{},fe=new WeakMap,me=/auto|scroll/,ye=/^tb|vertical/,ge=/msie|trident/i.test(ue.navigator&&ue.navigator.userAgent),be=function(e){return parseFloat(e||"0")},we=function(e,t,r){return void 0===e&&(e=0),void 0===t&&(t=0),void 0===r&&(r=!1),Object.freeze({inlineSize:(r?t:e)||0,blockSize:(r?e:t)||0})},ve=Object.freeze({devicePixelContentBoxSize:we(),borderBoxSize:we(),contentBoxSize:we(),contentRect:new le(0,0,0,0)}),xe=function(e,t){if(void 0===t&&(t=!1),fe.has(e)&&!t)return fe.get(e);if(pe(e))return fe.set(e,ve),ve;var r=getComputedStyle(e),s=de(e)&&e.ownerSVGElement&&e.getBBox(),A=!ge&&"border-box"===r.boxSizing,i=ye.test(r.writingMode||""),n=!s&&me.test(r.overflowY||""),o=!s&&me.test(r.overflowX||""),a=s?0:be(r.paddingTop),c=s?0:be(r.paddingRight),l=s?0:be(r.paddingBottom),d=s?0:be(r.paddingLeft),p=s?0:be(r.borderTopWidth),h=s?0:be(r.borderRightWidth),u=s?0:be(r.borderBottomWidth),f=d+c,m=a+l,y=(s?0:be(r.borderLeftWidth))+h,g=p+u,b=o?e.offsetHeight-g-e.clientHeight:0,w=n?e.offsetWidth-y-e.clientWidth:0,v=A?f+y:0,x=A?m+g:0,E=s?s.width:be(r.width)-v-w,S=s?s.height:be(r.height)-x-b,P=E+f+w+y,T=S+m+b+g,B=Object.freeze({devicePixelContentBoxSize:we(Math.round(E*devicePixelRatio),Math.round(S*devicePixelRatio),i),borderBoxSize:we(P,T,i),contentBoxSize:we(E,S,i),contentRect:new le(d,a,E,S)});return fe.set(e,B),B},Ee=function(e,t,r){var s=xe(e,r),A=s.borderBoxSize,i=s.contentBoxSize,n=s.devicePixelContentBoxSize;switch(t){case ne.DEVICE_PIXEL_CONTENT_BOX:return n;case ne.BORDER_BOX:return A;default:return i}},Se=function(e){var t=xe(e);this.target=e,this.contentRect=t.contentRect,this.borderBoxSize=[t.borderBoxSize],this.contentBoxSize=[t.contentBoxSize],this.devicePixelContentBoxSize=[t.devicePixelContentBoxSize]},Pe=function(e){if(pe(e))return 1/0;for(var t=0,r=e.parentNode;r;)t+=1,r=r.parentNode;return t},Te=function(){var e=1/0,t=[];oe.forEach((function(r){if(0!==r.activeTargets.length){var s=[];r.activeTargets.forEach((function(t){var r=new Se(t.target),A=Pe(t.target);s.push(r),t.lastReportedSize=Ee(t.target,t.observedBox),A<e&&(e=A)})),t.push((function(){r.callback.call(r.observer,s,r.observer)})),r.activeTargets.splice(0,r.activeTargets.length)}}));for(var r=0,s=t;r<s.length;r++){(0,s[r])()}return e},Be=function(e){oe.forEach((function(t){t.activeTargets.splice(0,t.activeTargets.length),t.skippedTargets.splice(0,t.skippedTargets.length),t.observationTargets.forEach((function(r){r.isActive()&&(Pe(r.target)>e?t.activeTargets.push(r):t.skippedTargets.push(r))}))}))},Re=function(){var e,t=0;for(Be(t);oe.some((function(e){return e.activeTargets.length>0}));)t=Te(),Be(t);return oe.some((function(e){return e.skippedTargets.length>0}))&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:ae}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=ae),window.dispatchEvent(e)),t>0},Me=[],He=function(e){if(!ce){var t=0,r=document.createTextNode("");new MutationObserver((function(){return Me.splice(0).forEach((function(e){return e()}))})).observe(r,{characterData:!0}),ce=function(){r.textContent=""+(t?t--:t++)}}Me.push(e),ce()},Ce=0,ze={attributes:!0,characterData:!0,childList:!0,subtree:!0},Ne=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],ke=function(e){return void 0===e&&(e=0),Date.now()+e},je=!1,Fe=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var t=this;if(void 0===e&&(e=250),!je){je=!0;var r,s=ke(e);r=function(){var r=!1;try{r=Re()}finally{if(je=!1,e=s-ke(),!Ce)return;r?t.run(1e3):e>0?t.run(e):t.start()}},He((function(){requestAnimationFrame(r)}))}},e.prototype.schedule=function(){this.stop(),this.run()},e.prototype.observe=function(){var e=this,t=function(){return e.observer&&e.observer.observe(document.body,ze)};document.body?t():ue.addEventListener("DOMContentLoaded",t)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,this.observer=new MutationObserver(this.listener),this.observe(),Ne.forEach((function(t){return ue.addEventListener(t,e.listener,!0)})))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),Ne.forEach((function(t){return ue.removeEventListener(t,e.listener,!0)})),this.stopped=!0)},e}()),Qe=function(e){!Ce&&e>0&&Fe.start(),!(Ce+=e)&&Fe.stop()},Ie=function(){function e(e,t){this.target=e,this.observedBox=t||ne.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,t=Ee(this.target,this.observedBox,!0);return e=this.target,de(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=t),this.lastReportedSize.inlineSize!==t.inlineSize||this.lastReportedSize.blockSize!==t.blockSize},e}(),Oe=function(e,t){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=t},Ue=new WeakMap,Ze=function(e,t){for(var r=0;r<e.length;r+=1)if(e[r].target===t)return r;return-1},Ve=function(){function e(){}return e.connect=function(e,t){var r=new Oe(e,t);Ue.set(e,r)},e.observe=function(e,t,r){var s=Ue.get(e),A=0===s.observationTargets.length;Ze(s.observationTargets,t)<0&&(A&&oe.push(s),s.observationTargets.push(new Ie(t,r&&r.box)),Qe(1),Fe.schedule())},e.unobserve=function(e,t){var r=Ue.get(e),s=Ze(r.observationTargets,t),A=1===r.observationTargets.length;s>=0&&(A&&oe.splice(oe.indexOf(r),1),r.observationTargets.splice(s,1),Qe(-1))},e.disconnect=function(e){var t=this,r=Ue.get(e);r.observationTargets.slice().forEach((function(r){return t.unobserve(e,r.target)})),r.activeTargets.splice(0,r.activeTargets.length)},e}(),Ye=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");Ve.connect(this,e)}return e.prototype.observe=function(e,t){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!he(e))throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");Ve.observe(this,e,t)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!he(e))throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");Ve.unobserve(this,e)},e.prototype.disconnect=function(){Ve.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
 /**
  * @license
  * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
@@ -173,7 +173,7 @@ const oe="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.pr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const Xe=new WeakMap,$e=b(e=>t=>{if(!(t instanceof M)||t instanceof z||"style"!==t.committer.name||t.committer.parts.length>1)throw new Error("The `styleMap` directive must be used in the style attribute and must be the only part in the attribute.");const{committer:r}=t,{style:s}=r.element;let A=Xe.get(t);void 0===A&&(s.cssText=r.strings.join(" "),Xe.set(t,A=new Set)),A.forEach(t=>{t in e||(A.delete(t),-1===t.indexOf("-")?s[t]=null:s.removeProperty(t))});for(const t in e)A.add(t),-1===t.indexOf("-")?s[t]=e[t]:s.setProperty(t,e[t])});customElements.define("card-icon",class extends pe{constructor(){super(...arguments),this.iconLigature="",this.fillGradientTarget="top"}static get properties(){return{iconLigature:{type:String},fillColor:{type:String},fillGradient:{type:String},fillGradientTarget:{type:String}}}static get styles(){return le`
+const Le=new WeakMap,We=y(e=>t=>{if(!(t instanceof R)||t instanceof z||"style"!==t.committer.name||t.committer.parts.length>1)throw new Error("The `styleMap` directive must be used in the style attribute and must be the only part in the attribute.");const{committer:r}=t,{style:s}=r.element;let A=Le.get(t);void 0===A&&(s.cssText=r.strings.join(" "),Le.set(t,A=new Set)),A.forEach(t=>{t in e||(A.delete(t),-1===t.indexOf("-")?s[t]=null:s.removeProperty(t))});for(const t in e)A.add(t),-1===t.indexOf("-")?s[t]=e[t]:s.setProperty(t,e[t])});customElements.define("card-icon",class extends ie{constructor(){super(...arguments),this.iconLigature="",this.fillGradientTarget="top"}static get properties(){return{iconLigature:{type:String},fillColor:{type:String},fillGradient:{type:String},fillGradientTarget:{type:String}}}static get styles(){return se`
       :host {
         display: inline-flex;
       }
@@ -194,7 +194,7 @@ const Xe=new WeakMap,$e=b(e=>t=>{if(!(t instanceof M)||t instanceof z||"style"!=
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-    `}render(){return Z`
+    `}render(){return U`
       <i class="icon">${this.iconLigature}</i>
     `}});
 /**
@@ -210,18 +210,18 @@ const Xe=new WeakMap,$e=b(e=>t=>{if(!(t instanceof M)||t instanceof z||"style"!=
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTML can only be used in text bindings");const r=_e.get(t);if(void 0!==r&&B(e)&&e===r.value&&t.value===r.fragment)return;const s=document.createElement("template");s.innerHTML=e;const A=document.importNode(s.content,!0);t.setValue(A),_e.set(t,{value:e,fragment:A})}),tt=le`
+const De=new WeakMap,Ge=y(e=>t=>{if(!(t instanceof M))throw new Error("unsafeHTML can only be used in text bindings");const r=De.get(t);if(void 0!==r&&P(e)&&e===r.value&&t.value===r.fragment)return;const s=document.createElement("template");s.innerHTML=e;const A=document.importNode(s.content,!0);t.setValue(A),De.set(t,{value:e,fragment:A})}),Je=se`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,rt=le`
+`,qe=se`
   font-family: 'Open Sans', sans-serif;
-`,st=le`white`,At=(le`black`,le`rgb(51, 51, 51)`),it=le`#f9f9f9`,nt=(le`#f1f1f1`,le`
-  ${tt}
+`,Ke=se`white`,Xe=(se`black`,se`rgb(51, 51, 51)`),$e=se`#f9f9f9`,_e=(se`#f1f1f1`,se`
+  ${Je}
   font-weight: 700;
   line-height: 0.8;
   text-align: center;
-  color: ${st};
-`);var ot=function(e,t,r,s){var A,i=arguments.length,n=i<3?t:null===s?s=Object.getOwnPropertyDescriptor(t,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)n=Reflect.decorate(e,t,r,s);else for(var o=e.length-1;o>=0;o--)(A=e[o])&&(n=(i<3?A(n):i>3?A(t,r,n):A(t,r))||n);return i>3&&n&&Object.defineProperty(t,r,n),n};let at=class extends pe{static get styles(){return le`
+  color: ${Ke};
+`);var et=function(e,t,r,s){var A,i=arguments.length,n=i<3?t:null===s?s=Object.getOwnPropertyDescriptor(t,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)n=Reflect.decorate(e,t,r,s);else for(var o=e.length-1;o>=0;o--)(A=e[o])&&(n=(i<3?A(n):i>3?A(t,r,n):A(t,r))||n);return i>3&&n&&Object.defineProperty(t,r,n),n};let tt=class extends ie{static get styles(){return se`
       :host {
         position: absolute;
         text-align: center;
@@ -231,9 +231,9 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
       .centered {
         margin: auto;
-        ${rt}
+        ${qe}
       }
-    `}updated(e){}render(){const{text:e,ch:t,cw:r,tribe:s,type:A}=this,i=e.replace(/ ([^ ]*)$/,"&nbsp;$1"),n=e.split("").length;let o=3.8*t,a=1.25,c="normal";return n>=150?(o=2.8*t,a=1.1,c="extraSquishy"):n>=90&&(o=3.4*t,a=1.1,c="squishy"),Z`
+    `}updated(e){}render(){const{text:e,ch:t,cw:r,tribe:s,type:A}=this,i=e.replace(/ ([^ ]*)$/,"&nbsp;$1"),n=e.split("").length;let o=3.8*t,a=1.25,c="normal";n>=150?(o=2.8*t,a=1.1,c="extraSquishy"):n>=90&&(o=3.4*t,a=1.1,c="squishy");return U`
       <style>
         :host {
           font-size: ${o}px;
@@ -244,9 +244,9 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
         }
       </style>
       <div class="centered" data-text-mode=${c}>
-        ${et(i)}
+        ${Ge(i)}
       </div>
-    `}};ot([ne({type:String})],at.prototype,"text",void 0),ot([ne({type:String})],at.prototype,"tribe",void 0),ot([ne({type:String})],at.prototype,"type",void 0),ot([ne({type:Number})],at.prototype,"ch",void 0),ot([ne({type:Number})],at.prototype,"cw",void 0),at=ot([se("autofit-description-text")],at);const ct=250,lt=375,dt=500,pt=720,ht=1024,ut=1280,ft=1440,mt=1920,yt=256,gt=512,bt=720,wt=1024,vt=1280,xt=1440,Et=1920,St=256,Pt=512;function Bt(e){return"god power"===e?"power":e}const Rt="https://images.godsunchained.com";r(1);r.d(t,"legacyQualities",(function(){return Ht})),r.d(t,"qualities",(function(){return Ct})),r.d(t,"CompositedCard",(function(){return zt}));var Tt=function(e,t,r,s){var A,i=arguments.length,n=i<3?t:null===s?s=Object.getOwnPropertyDescriptor(t,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)n=Reflect.decorate(e,t,r,s);else for(var o=e.length-1;o>=0;o--)(A=e[o])&&(n=(i<3?A(n):i>3?A(t,r,n):A(t,r))||n);return i>3&&n&&Object.defineProperty(t,r,n),n},Mt=function(e,t,r,s){return new(r||(r=Promise))((function(A,i){function n(e){try{a(s.next(e))}catch(e){i(e)}}function o(e){try{a(s.throw(e))}catch(e){i(e)}}function a(e){e.done?A(e.value):new r((function(t){t(e.value)})).then(n,o)}a((s=s.apply(e,t||[])).next())}))};const Ht=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],Ct=["diamond","gold","shadow","meteorite","plain"],Nt=new Ke(e=>{e.forEach(e=>{e.target.handleResize(e)})});let zt=class extends pe{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return(()=>le`
+    `}};et([_({type:String})],tt.prototype,"text",void 0),et([_({type:String})],tt.prototype,"tribe",void 0),et([_({type:String})],tt.prototype,"type",void 0),et([_({type:Number})],tt.prototype,"ch",void 0),et([_({type:Number})],tt.prototype,"cw",void 0),tt=et([X("autofit-description-text")],tt);const rt=250,st=375,At=500,it=720,nt=1024,ot=1280,at=1440,ct=1920,lt=256,dt=512,pt=720,ht=1024,ut=1280,ft=1440,mt=1920,yt=256,gt=512;function bt(e){return"god power"===e?"power":e}const wt="https://images.godsunchained.com";r(1);r.d(t,"legacyQualities",(function(){return Et})),r.d(t,"qualities",(function(){return St})),r.d(t,"CompositedCard",(function(){return Tt}));var vt=function(e,t,r,s){var A,i=arguments.length,n=i<3?t:null===s?s=Object.getOwnPropertyDescriptor(t,r):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)n=Reflect.decorate(e,t,r,s);else for(var o=e.length-1;o>=0;o--)(A=e[o])&&(n=(i<3?A(n):i>3?A(t,r,n):A(t,r))||n);return i>3&&n&&Object.defineProperty(t,r,n),n},xt=function(e,t,r,s){return new(r||(r=Promise))((function(A,i){function n(e){try{a(s.next(e))}catch(e){i(e)}}function o(e){try{a(s.throw(e))}catch(e){i(e)}}function a(e){e.done?A(e.value):new r((function(t){t(e.value)})).then(n,o)}a((s=s.apply(e,t||[])).next())}))};const Et=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],St=["diamond","gold","shadow","meteorite","plain"],Pt=new Ye(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Tt=class extends ie{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.protoCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:""},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return se`
   :host {
     display: flex;
   }
@@ -275,7 +275,7 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
   .card__loading::before {
     content: '';
-    background: ${it};
+    background: ${$e};
     width: 60%;
     padding-bottom: 60%;
     border-radius: 50%;
@@ -299,7 +299,7 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
     padding-bottom: 64%;
     right: 15%;
     top: 12%;
-    background: ${At};
+    background: ${Xe};
   }
 
   .card__artwork__img {
@@ -349,7 +349,7 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
   /* Text layers */
 
   .card__manaText {
-    ${nt}
+    ${_e}
     position: absolute;
   }
 
@@ -357,7 +357,7 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
     position: absolute;
     white-space: nowrap;
     display: flex;
-    ${nt}
+    ${_e}
   }
 
   .card__nameText__inner {
@@ -366,19 +366,19 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
   .card__attackText {
     position: absolute;
-    ${nt}
+    ${_e}
   }
 
   .card__healthText {
     position: absolute;
-    ${nt}
+    ${_e}
   }
 
   .card__tribeText {
     position: absolute;
     text-transform: capitalize;
     display: flex;
-    ${nt}
+    ${_e}
   }
 
   .card__tribeText__inner {
@@ -389,9 +389,9 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
     position: absolute;
     color: white;
   }
-`)()}connectedCallback(){super.connectedCallback(),Nt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),Nt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"===t&&this.getProtoDataFromInput()})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return Mt(this,void 0,void 0,(function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/proto/${this.protoId}`).then(e=>e.json())}))}getProtoDataFromApi(){return Mt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{const{id:t,type:r,attack:s,health:A,effect:i,name:n,rarity:o,god:a,mana:c,set:l,tribe:d,art_id:p}=e;return this.protoCardData={id:t,type:r,attack:s.Int64,health:A.Int64,effect:i,name:n,rarity:o,god:a,mana:c,set:l,tribe:d.String,art_id:p},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=this.useLegacyQualityMapping?Ht[this.quality]:Ct[this.quality-1],t="mythic"===this.protoCardData.rarity;return Z`
+`}connectedCallback(){super.connectedCallback(),Pt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),Pt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"===t&&this.getProtoDataFromInput()})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return xt(this,void 0,void 0,(function*(){return this.loading=!0,fetch("https://api.godsunchained.com/v0/proto/"+this.protoId).then(e=>e.json())}))}getProtoDataFromApi(){return xt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{const{id:t,type:r,attack:s,health:A,effect:i,name:n,rarity:o,god:a,mana:c,set:l,tribe:d,art_id:p}=e;return this.protoCardData={id:t,type:r,attack:s.Int64,health:A.Int64,effect:i,name:n,rarity:o,god:a,mana:c,set:l,tribe:d.String,art_id:p},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(){this.protoCardData=Object.assign({},this.inputProtoData),this.loading=!1,this.requestUpdate()}render(){const e=this.useLegacyQualityMapping?Et[this.quality]:St[this.quality-1],t="mythic"===this.protoCardData.rarity;return U`
       <div class="card__innerRatioConstrainer">
-        ${this.loading?(()=>Z`
+        ${this.loading?U`
   <div class="card__loading">
     <img
       class="card__loading__img"
@@ -399,63 +399,63 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
       alt="immutable loading spinner"
     />
   </div>
-`)():Z`
-              ${(({id:e,responsiveSrcsetSizes:t=`${lt}px`})=>Z`
+`:U`
+              ${(({id:e,responsiveSrcsetSizes:t=st+"px"})=>U`
     <picture class="card__artwork">
       <source
         srcset="
-          ${Rt}/art2/${lt}/${e}.webp ${ct}w,
-          ${Rt}/art2/${dt}/${e}.webp ${lt}w,
-          ${Rt}/art2/${pt}/${e}.webp ${dt}w,
-          ${Rt}/art2/${ht}/${e}.webp ${pt}w,
-          ${Rt}/art2/${ut}/${e}.webp ${ht}w,
-          ${Rt}/art2/${ft}/${e}.webp ${ut}w,
-          ${Rt}/art2/${mt}/${e}.webp ${ft}w
+          ${wt}/art2/${st}/${e}.webp ${rt}w,
+          ${wt}/art2/${At}/${e}.webp ${st}w,
+          ${wt}/art2/${it}/${e}.webp ${At}w,
+          ${wt}/art2/${nt}/${e}.webp ${it}w,
+          ${wt}/art2/${ot}/${e}.webp ${nt}w,
+          ${wt}/art2/${at}/${e}.webp ${ot}w,
+          ${wt}/art2/${ct}/${e}.webp ${at}w
         "
         sizes="${t}"
         type="image/webp"
       />
       <source
         srcset="
-          ${Rt}/art2/${lt}/${e}.jpg ${ct}w,
-          ${Rt}/art2/${dt}/${e}.jpg ${lt}w,
-          ${Rt}/art2/${pt}/${e}.jpg ${dt}w,
-          ${Rt}/art2/${ht}/${e}.jpg ${pt}w,
-          ${Rt}/art2/${ut}/${e}.jpg ${ht}w,
-          ${Rt}/art2/${ft}/${e}.jpg ${ut}w,
-          ${Rt}/art2/${mt}/${e}.jpg ${ft}w
+          ${wt}/art2/${st}/${e}.jpg ${rt}w,
+          ${wt}/art2/${At}/${e}.jpg ${st}w,
+          ${wt}/art2/${it}/${e}.jpg ${At}w,
+          ${wt}/art2/${nt}/${e}.jpg ${it}w,
+          ${wt}/art2/${ot}/${e}.jpg ${nt}w,
+          ${wt}/art2/${at}/${e}.jpg ${ot}w,
+          ${wt}/art2/${ct}/${e}.jpg ${at}w
         "
         sizes="${t}"
         type="image/jpg"
       />
       <img
-        srcset="${Rt}/art2/${ct}/${e}.jpg"
+        srcset="${wt}/art2/${rt}/${e}.jpg"
         class="card__artwork__img"
       />
     </picture>
   `)({id:this.protoCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
-              ${t?(({responsiveSrcsetSizes:e=`${gt}px`,art_id:t,type:r,god:s})=>Z`
+              ${t?(({responsiveSrcsetSizes:e=dt+"px",art_id:t,type:r,god:s})=>U`
     <picture class="card__baseLayer">
       <source
         srcset="
-          ${Rt}/border-layers/types/${r}/${gt}/${r}_${t}.webp ${yt}w,
-          ${Rt}/border-layers/types/${r}/${bt}/${r}_${t}.webp ${gt}w,
-          ${Rt}/border-layers/types/${r}/${wt}/${r}_${t}.webp ${bt}w,
-          ${Rt}/border-layers/types/${r}/${vt}/${r}_${t}.webp ${wt}w,
-          ${Rt}/border-layers/types/${r}/${xt}/${r}_${t}.webp ${vt}w,
-          ${Rt}/border-layers/types/${r}/${Et}/${r}_${t}.webp ${xt}w
+          ${wt}/border-layers/types/${r}/${dt}/${r}_${t}.webp ${lt}w,
+          ${wt}/border-layers/types/${r}/${pt}/${r}_${t}.webp ${dt}w,
+          ${wt}/border-layers/types/${r}/${ht}/${r}_${t}.webp ${pt}w,
+          ${wt}/border-layers/types/${r}/${ut}/${r}_${t}.webp ${ht}w,
+          ${wt}/border-layers/types/${r}/${ft}/${r}_${t}.webp ${ut}w,
+          ${wt}/border-layers/types/${r}/${mt}/${r}_${t}.webp ${ft}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${Rt}/border-layers/types/${r}/${gt}/${r}_${t}.png ${yt}w,
-          ${Rt}/border-layers/types/${r}/${bt}/${r}_${t}.png ${gt}w,
-          ${Rt}/border-layers/types/${r}/${wt}/${r}_${t}.png ${bt}w,
-          ${Rt}/border-layers/types/${r}/${vt}/${r}_${t}.png ${wt}w,
-          ${Rt}/border-layers/types/${r}/${xt}/${r}_${t}.png ${vt}w,
-          ${Rt}/border-layers/types/${r}/${Et}/${r}_${t}.png ${xt}w
+          ${wt}/border-layers/types/${r}/${dt}/${r}_${t}.png ${lt}w,
+          ${wt}/border-layers/types/${r}/${pt}/${r}_${t}.png ${dt}w,
+          ${wt}/border-layers/types/${r}/${ht}/${r}_${t}.png ${pt}w,
+          ${wt}/border-layers/types/${r}/${ut}/${r}_${t}.png ${ht}w,
+          ${wt}/border-layers/types/${r}/${ft}/${r}_${t}.png ${ut}w,
+          ${wt}/border-layers/types/${r}/${mt}/${r}_${t}.png ${ft}w
         "
         sizes="${e}"
         type="image/png"
@@ -463,7 +463,7 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
       <img
         srcset="
-          ${Rt}/border-layers/types/${r}/${yt}/${r}_${t}.png
+          ${wt}/border-layers/types/${r}/${lt}/${r}_${t}.png
         "
         class="card__baseLayer__img"
       />
@@ -472,24 +472,24 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${Rt}/border-layers/rosettes/mythics/${gt}/mythic_${t}.webp ${yt}w,
-          ${Rt}/border-layers/rosettes/mythics/${bt}/mythic_${t}.webp ${gt}w,
-          ${Rt}/border-layers/rosettes/mythics/${wt}/mythic_${t}.webp ${bt}w,
-          ${Rt}/border-layers/rosettes/mythics/${vt}/mythic_${t}.webp ${wt}w,
-          ${Rt}/border-layers/rosettes/mythics/${xt}/mythic_${t}.webp ${vt}w,
-          ${Rt}/border-layers/rosettes/mythics/${Et}/mythic_${t}.webp ${xt}w
+          ${wt}/border-layers/rosettes/mythics/${dt}/mythic_${t}.webp ${lt}w,
+          ${wt}/border-layers/rosettes/mythics/${pt}/mythic_${t}.webp ${dt}w,
+          ${wt}/border-layers/rosettes/mythics/${ht}/mythic_${t}.webp ${pt}w,
+          ${wt}/border-layers/rosettes/mythics/${ut}/mythic_${t}.webp ${ht}w,
+          ${wt}/border-layers/rosettes/mythics/${ft}/mythic_${t}.webp ${ut}w,
+          ${wt}/border-layers/rosettes/mythics/${mt}/mythic_${t}.webp ${ft}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${Rt}/border-layers/rosettes/mythics/${gt}/mythic_${t}.png ${yt}w,
-          ${Rt}/border-layers/rosettes/mythics/${bt}/mythic_${t}.png ${gt}w,
-          ${Rt}/border-layers/rosettes/mythics/${wt}/mythic_${t}.png ${bt}w,
-          ${Rt}/border-layers/rosettes/mythics/${vt}/mythic_${t}.png ${wt}w,
-          ${Rt}/border-layers/rosettes/mythics/${xt}/mythic_${t}.png ${vt}w,
-          ${Rt}/border-layers/rosettes/mythics/${Et}/mythic_${t}.png ${xt}w
+          ${wt}/border-layers/rosettes/mythics/${dt}/mythic_${t}.png ${lt}w,
+          ${wt}/border-layers/rosettes/mythics/${pt}/mythic_${t}.png ${dt}w,
+          ${wt}/border-layers/rosettes/mythics/${ht}/mythic_${t}.png ${pt}w,
+          ${wt}/border-layers/rosettes/mythics/${ut}/mythic_${t}.png ${ht}w,
+          ${wt}/border-layers/rosettes/mythics/${ft}/mythic_${t}.png ${ut}w,
+          ${wt}/border-layers/rosettes/mythics/${mt}/mythic_${t}.png ${ft}w
         "
         sizes="${e}"
         type="image/png"
@@ -497,21 +497,21 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
       <img
         srcset="
-          ${Rt}/border-layers/rosettes/${s}/${gt}/mythic_${t}.png
+          ${wt}/border-layers/rosettes/${s}/${dt}/mythic_${t}.png
         "
         class="card__manaLayer__img card__manaLayer__img--mythic"
       />
     </picture>
-  `)(Object.assign({responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData)):(({responsiveSrcsetSizes:e=`${gt}px`,type:t,qualityName:r,rarity:s,god:A,set:i,tribe:n})=>(t=Bt(t),Z`
+  `)(Object.assign({responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData)):(({responsiveSrcsetSizes:e=dt+"px",type:t,qualityName:r,rarity:s,god:A,set:i,tribe:n})=>(t=bt(t),U`
     <picture class="card__baseLayer">
       <source
         srcset="
-          ${Rt}/border-layers/types/${t}/${gt}/${t}_${r}.webp ${yt}w,
-          ${Rt}/border-layers/types/${t}/${bt}/${t}_${r}.webp ${gt}w,
-          ${Rt}/border-layers/types/${t}/${wt}/${t}_${r}.webp ${bt}w,
-          ${Rt}/border-layers/types/${t}/${vt}/${t}_${r}.webp ${wt}w,
-          ${Rt}/border-layers/types/${t}/${xt}/${t}_${r}.webp ${vt}w,
-          ${Rt}/border-layers/types/${t}/${Et}/${t}_${r}.webp ${xt}w
+          ${wt}/border-layers/types/${t}/${dt}/${t}_${r}.webp ${lt}w,
+          ${wt}/border-layers/types/${t}/${pt}/${t}_${r}.webp ${dt}w,
+          ${wt}/border-layers/types/${t}/${ht}/${t}_${r}.webp ${pt}w,
+          ${wt}/border-layers/types/${t}/${ut}/${t}_${r}.webp ${ht}w,
+          ${wt}/border-layers/types/${t}/${ft}/${t}_${r}.webp ${ut}w,
+          ${wt}/border-layers/types/${t}/${mt}/${t}_${r}.webp ${ft}w
         "
         sizes="${e}"
         type="image/webp"
@@ -519,19 +519,19 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
       <source
         srcset="
-          ${Rt}/border-layers/types/${t}/${gt}/${t}_${r}.png ${yt}w,
-          ${Rt}/border-layers/types/${t}/${bt}/${t}_${r}.png ${gt}w,
-          ${Rt}/border-layers/types/${t}/${wt}/${t}_${r}.png ${bt}w,
-          ${Rt}/border-layers/types/${t}/${vt}/${t}_${r}.png ${wt}w,
-          ${Rt}/border-layers/types/${t}/${xt}/${t}_${r}.png ${vt}w,
-          ${Rt}/border-layers/types/${t}/${Et}/${t}_${r}.png ${xt}w
+          ${wt}/border-layers/types/${t}/${dt}/${t}_${r}.png ${lt}w,
+          ${wt}/border-layers/types/${t}/${pt}/${t}_${r}.png ${dt}w,
+          ${wt}/border-layers/types/${t}/${ht}/${t}_${r}.png ${pt}w,
+          ${wt}/border-layers/types/${t}/${ut}/${t}_${r}.png ${ht}w,
+          ${wt}/border-layers/types/${t}/${ft}/${t}_${r}.png ${ut}w,
+          ${wt}/border-layers/types/${t}/${mt}/${t}_${r}.png ${ft}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${Rt}/border-layers/types/${t}/${yt}/${t}_${r}.png
+          ${wt}/border-layers/types/${t}/${lt}/${t}_${r}.png
         "
         class="card__baseLayer__img"
       />
@@ -540,83 +540,83 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${Rt}/border-layers/rosettes/${A}/${gt}/${A}_${r}.webp ${yt}w,
-          ${Rt}/border-layers/rosettes/${A}/${bt}/${A}_${r}.webp ${gt}w,
-          ${Rt}/border-layers/rosettes/${A}/${wt}/${A}_${r}.webp ${bt}w,
-          ${Rt}/border-layers/rosettes/${A}/${vt}/${A}_${r}.webp ${wt}w,
-          ${Rt}/border-layers/rosettes/${A}/${xt}/${A}_${r}.webp ${vt}w,
-          ${Rt}/border-layers/rosettes/${A}/${Et}/${A}_${r}.webp ${xt}w
+          ${wt}/border-layers/rosettes/${A}/${dt}/${A}_${r}.webp ${lt}w,
+          ${wt}/border-layers/rosettes/${A}/${pt}/${A}_${r}.webp ${dt}w,
+          ${wt}/border-layers/rosettes/${A}/${ht}/${A}_${r}.webp ${pt}w,
+          ${wt}/border-layers/rosettes/${A}/${ut}/${A}_${r}.webp ${ht}w,
+          ${wt}/border-layers/rosettes/${A}/${ft}/${A}_${r}.webp ${ut}w,
+          ${wt}/border-layers/rosettes/${A}/${mt}/${A}_${r}.webp ${ft}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${Rt}/border-layers/rosettes/${A}/${gt}/${A}_${r}.png ${yt}w,
-          ${Rt}/border-layers/rosettes/${A}/${bt}/${A}_${r}.png ${gt}w,
-          ${Rt}/border-layers/rosettes/${A}/${wt}/${A}_${r}.png ${bt}w,
-          ${Rt}/border-layers/rosettes/${A}/${vt}/${A}_${r}.png ${wt}w,
-          ${Rt}/border-layers/rosettes/${A}/${xt}/${A}_${r}.png ${vt}w,
-          ${Rt}/border-layers/rosettes/${A}/${Et}/${A}_${r}.png ${xt}w
+          ${wt}/border-layers/rosettes/${A}/${dt}/${A}_${r}.png ${lt}w,
+          ${wt}/border-layers/rosettes/${A}/${pt}/${A}_${r}.png ${dt}w,
+          ${wt}/border-layers/rosettes/${A}/${ht}/${A}_${r}.png ${pt}w,
+          ${wt}/border-layers/rosettes/${A}/${ut}/${A}_${r}.png ${ht}w,
+          ${wt}/border-layers/rosettes/${A}/${ft}/${A}_${r}.png ${ut}w,
+          ${wt}/border-layers/rosettes/${A}/${mt}/${A}_${r}.png ${ft}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${Rt}/border-layers/rosettes/${A}/${yt}/${A}_${r}.png
+          ${wt}/border-layers/rosettes/${A}/${lt}/${A}_${r}.png
         "
         class="card__manaLayer__img"
       />
     </picture>
 
-    ${"common"!==s?Z`
+    ${"common"!==s?U`
           <picture class="card__rarityLayer">
             <source
               srcset="
-              ${Rt}/border-layers/gems/${yt}/rarity_${s}.webp ${yt}w,
-                ${Rt}/border-layers/gems/${gt}/rarity_${s}.webp ${gt}w,
-                ${Rt}/border-layers/gems/${bt}/rarity_${s}.webp ${bt}w,
-                ${Rt}/border-layers/gems/${wt}/rarity_${s}.webp ${wt}w,
-                ${Rt}/border-layers/gems/${vt}/rarity_${s}.webp ${vt}w,
-                ${Rt}/border-layers/gems/${xt}/rarity_${s}.webp ${xt}w,
-                ${Rt}/border-layers/gems/${Et}/rarity_${s}.webp ${Et}w
+              ${wt}/border-layers/gems/${lt}/rarity_${s}.webp ${lt}w,
+                ${wt}/border-layers/gems/${dt}/rarity_${s}.webp ${dt}w,
+                ${wt}/border-layers/gems/${pt}/rarity_${s}.webp ${pt}w,
+                ${wt}/border-layers/gems/${ht}/rarity_${s}.webp ${ht}w,
+                ${wt}/border-layers/gems/${ut}/rarity_${s}.webp ${ut}w,
+                ${wt}/border-layers/gems/${ft}/rarity_${s}.webp ${ft}w,
+                ${wt}/border-layers/gems/${mt}/rarity_${s}.webp ${mt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-              ${Rt}/border-layers/gems/${yt}/rarity_${s}.png ${yt}w,
-                ${Rt}/border-layers/gems/${gt}/rarity_${s}.png ${gt}w,
-                ${Rt}/border-layers/gems/${bt}/rarity_${s}.png ${bt}w,
-                ${Rt}/border-layers/gems/${wt}/rarity_${s}.png ${wt}w,
-                ${Rt}/border-layers/gems/${vt}/rarity_${s}.webp ${vt}w,
-                ${Rt}/border-layers/gems/${xt}/rarity_${s}.webp ${xt}w,
-                ${Rt}/border-layers/gems/${Et}/rarity_${s}.png ${Et}w
+              ${wt}/border-layers/gems/${lt}/rarity_${s}.png ${lt}w,
+                ${wt}/border-layers/gems/${dt}/rarity_${s}.png ${dt}w,
+                ${wt}/border-layers/gems/${pt}/rarity_${s}.png ${pt}w,
+                ${wt}/border-layers/gems/${ht}/rarity_${s}.png ${ht}w,
+                ${wt}/border-layers/gems/${ut}/rarity_${s}.webp ${ut}w,
+                ${wt}/border-layers/gems/${ft}/rarity_${s}.webp ${ft}w,
+                ${wt}/border-layers/gems/${mt}/rarity_${s}.png ${mt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${Rt}/border-layers/gems/${yt}/rarity_${s}.png
+                ${wt}/border-layers/gems/${lt}/rarity_${s}.png
               "
               class="card__rarityLayer__img"
             />
           </picture>
         `:null}
-    ${"legendary"===s?Z`
+    ${"legendary"===s?U`
           <picture class="card__wreathLayer">
             <source
               srcset="
-                ${Rt}/border-layers/wreaths/${yt}/wreath_${r}.webp ${yt}w,
-                ${Rt}/border-layers/wreaths/${gt}/wreath_${r}.webp ${gt}w,
-                ${Rt}/border-layers/wreaths/${bt}/wreath_${r}.webp ${bt}w,
-                ${Rt}/border-layers/wreaths/${wt}/wreath_${r}.webp ${wt}w,
-                ${Rt}/border-layers/wreaths/${vt}/wreath_${r}.webp ${vt}w,
-                ${Rt}/border-layers/wreaths/${xt}/wreath_${r}.webp ${xt}w,
-                ${Rt}/border-layers/wreaths/${Et}/wreath_${r}.webp ${Et}w
+                ${wt}/border-layers/wreaths/${lt}/wreath_${r}.webp ${lt}w,
+                ${wt}/border-layers/wreaths/${dt}/wreath_${r}.webp ${dt}w,
+                ${wt}/border-layers/wreaths/${pt}/wreath_${r}.webp ${pt}w,
+                ${wt}/border-layers/wreaths/${ht}/wreath_${r}.webp ${ht}w,
+                ${wt}/border-layers/wreaths/${ut}/wreath_${r}.webp ${ut}w,
+                ${wt}/border-layers/wreaths/${ft}/wreath_${r}.webp ${ft}w,
+                ${wt}/border-layers/wreaths/${mt}/wreath_${r}.webp ${mt}w
               "
               sizes="${e}"
               type="image/webp"
@@ -624,69 +624,69 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
             <source
               srcset="
-              ${Rt}/border-layers/wreaths/${yt}/wreath_${r}.png ${yt}w,
-                ${Rt}/border-layers/wreaths/${gt}/wreath_${r}.png ${gt}w,
-                ${Rt}/border-layers/wreaths/${bt}/wreath_${r}.png ${bt}w,
-                ${Rt}/border-layers/wreaths/${wt}/wreath_${r}.png ${wt}w,
-                ${Rt}/border-layers/wreaths/${vt}/wreath_${r}.png ${vt}w,
-                ${Rt}/border-layers/wreaths/${xt}/wreath_${r}.png ${xt}w,
-                ${Rt}/border-layers/wreaths/${Et}/wreath_${r}.png ${Et}w
+              ${wt}/border-layers/wreaths/${lt}/wreath_${r}.png ${lt}w,
+                ${wt}/border-layers/wreaths/${dt}/wreath_${r}.png ${dt}w,
+                ${wt}/border-layers/wreaths/${pt}/wreath_${r}.png ${pt}w,
+                ${wt}/border-layers/wreaths/${ht}/wreath_${r}.png ${ht}w,
+                ${wt}/border-layers/wreaths/${ut}/wreath_${r}.png ${ut}w,
+                ${wt}/border-layers/wreaths/${ft}/wreath_${r}.png ${ft}w,
+                ${wt}/border-layers/wreaths/${mt}/wreath_${r}.png ${mt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${Rt}/border-layers/wreaths/${yt}/wreath_${r}.png
+                ${wt}/border-layers/wreaths/${lt}/wreath_${r}.png
               "
               class="card__wreathLayer__img"
             />
           </picture>
         `:null}
-    ${"core"===i&&"plain"===r?Z`
+    ${"core"===i&&"plain"===r?U`
           <picture class="card__lockIconLayer">
             <source
               srcset="
-                ${Rt}/border-layers/locks/${St}/lock_${r}.webp ${St}w,
-                ${Rt}/border-layers/locks/${Pt}/lock_${r}.webp ${Pt}w,
+                ${wt}/border-layers/locks/${yt}/lock_${r}.webp ${yt}w,
+                ${wt}/border-layers/locks/${gt}/lock_${r}.webp ${gt}w,
               "
               type="image/webp"
             />
 
             <source
               srcset="
-                ${Rt}/border-layers/locks/${St}/lock_${r}.png ${St}w,
-                ${Rt}/border-layers/locks/${Pt}/lock_${r}.png ${Pt}w,
+                ${wt}/border-layers/locks/${yt}/lock_${r}.png ${yt}w,
+                ${wt}/border-layers/locks/${gt}/lock_${r}.png ${gt}w,
               "
               type="image/png"
             />
 
             <img
               srcset="
-                ${Rt}/border-layers/locks/lock_${r}.png
+                ${wt}/border-layers/locks/lock_${r}.png
               "
               class="card__lockIconLayer__img"
             />
           </picture>
         `:null}
-    ${n?Z`
+    ${n?U`
           <picture class="card__tribeBarLayer">
             <source
               srcset="
-                ${Rt}/border-layers/tribe_bars/${yt}/tribebar_${r}.webp ${yt}w,
-                ${Rt}/border-layers/tribe_bars/${gt}/tribebar_${r}.webp ${gt}w,
-                ${Rt}/border-layers/tribe_bars/${bt}/tribebar_${r}.webp ${bt}w,
-                ${Rt}/border-layers/tribe_bars/${wt}/tribebar_${r}.webp ${wt}w,
+                ${wt}/border-layers/tribe_bars/${lt}/tribebar_${r}.webp ${lt}w,
+                ${wt}/border-layers/tribe_bars/${dt}/tribebar_${r}.webp ${dt}w,
+                ${wt}/border-layers/tribe_bars/${pt}/tribebar_${r}.webp ${pt}w,
+                ${wt}/border-layers/tribe_bars/${ht}/tribebar_${r}.webp ${ht}w,
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-                ${Rt}/border-layers/tribe_bars/${yt}/tribebar_${r}.png ${yt}w,
-                ${Rt}/border-layers/tribe_bars/${gt}/tribebar_${r}.png ${gt}w,
-                ${Rt}/border-layers/tribe_bars/${bt}/tribebar_${r}.png ${bt}w,
-                ${Rt}/border-layers/tribe_bars/${wt}/tribebar_${r}.png ${wt}w,
+                ${wt}/border-layers/tribe_bars/${lt}/tribebar_${r}.png ${lt}w,
+                ${wt}/border-layers/tribe_bars/${dt}/tribebar_${r}.png ${dt}w,
+                ${wt}/border-layers/tribe_bars/${pt}/tribebar_${r}.png ${pt}w,
+                ${wt}/border-layers/tribe_bars/${ht}/tribebar_${r}.png ${ht}w,
               "
               sizes="${e}"
               type="image/png"
@@ -694,14 +694,14 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
 
             <img
               srcset="
-                ${Rt}/border-layers/tribe_bars/${Et}/tribebar_${s}.png
+                ${wt}/border-layers/tribe_bars/${mt}/tribebar_${s}.png
               "
               class="card__tribeBarLayer__img"
             />
           </picture>
         `:null}
   `))(Object.assign({qualityName:e,responsiveSrcsetSizes:this.responsiveSrcsetSizes},this.protoCardData))}
-              ${(({type:e="",name:t="⃠",effect:r="⃠",mana:s="⃠",attack:A="⃠",health:i="⃠",tribe:n="",cardSet:o="",ch:a=0,cw:c=0})=>{e=Bt(e);const l=RegExp(/creature|weapon/).test(e),d=t.split("").length>=20,p=Math.floor(.5*a),h=`${0===p?1:p}px`,u="rgba(0, 0, 0, 1)",f=`0 0 ${h} ${u}, 0 0 ${h} ${u}, 0 0 ${h} ${u}`,m=$e({fontSize:`${10.5*a}px`,top:`${6.85*a}px`,left:`${9.5*c}px`,width:`${19*c}px`,textShadow:f}),y=$e({fontSize:`${d?3.9*a:4.93*a}px`,bottom:`${32.85*a}px`,height:`${9*a}px`,left:`${13.25*c}px`,right:`${5.3*c}px`,textShadow:f}),g=$e({fontSize:`${9.5*a}px`,bottom:`${4.5*a}px`,width:`${15*c}px`,left:`${10.5*c}px`,textShadow:f}),b=$e({fontSize:`${9.5*a}px`,width:`${16*c}px`,bottom:`${4.6*a}px`,right:`${2.5*c}px`,textShadow:f}),w=$e({fontSize:`${3.2*a}px`,bottom:`${3.1*a}px`,height:`${4.82*a}px`,left:`${30.5*c}px`,right:`${23*c}px`,textShadow:f}),v=$e({fontSize:`${6*a}px`,top:`${10*a}px`,right:`${9*c}px`});return Z`
+              ${(({type:e="",name:t="⃠",effect:r="⃠",mana:s="⃠",attack:A="⃠",health:i="⃠",tribe:n="",cardSet:o="",ch:a=0,cw:c=0})=>{e=bt(e);const l=RegExp(/creature|weapon/).test(e),d=t.split("").length>=20,p=Math.floor(.5*a),h=(0===p?1:p)+"px",u="rgba(0, 0, 0, 1)",f=`0 0 ${h} ${u}, 0 0 ${h} ${u}, 0 0 ${h} ${u}`,m=We({fontSize:10.5*a+"px",top:6.85*a+"px",left:9.5*c+"px",width:19*c+"px",textShadow:f}),y=We({fontSize:(d?3.9*a:4.93*a)+"px",bottom:32.85*a+"px",height:9*a+"px",left:13.25*c+"px",right:5.3*c+"px",textShadow:f}),g=We({fontSize:9.5*a+"px",bottom:4.5*a+"px",width:15*c+"px",left:10.5*c+"px",textShadow:f}),b=We({fontSize:9.5*a+"px",width:16*c+"px",bottom:4.6*a+"px",right:2.5*c+"px",textShadow:f}),w=We({fontSize:3.2*a+"px",bottom:3.1*a+"px",height:4.82*a+"px",left:30.5*c+"px",right:23*c+"px",textShadow:f}),v=We({fontSize:6*a+"px",top:10*a+"px",right:9*c+"px"});return U`
     <div class="card__manaText" style=${m}>
       ${s}
     </div>
@@ -723,7 +723,7 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
       tribe=${n}
     ></autofit-description-text>
 
-    ${l?Z`
+    ${l?U`
           <div class="card__attackText" style=${g}>
             ${A}
           </div>
@@ -732,22 +732,22 @@ const _e=new WeakMap,et=b(e=>t=>{if(!(t instanceof H))throw new Error("unsafeHTM
             ${i}
           </div>
         `:null}
-    ${n?Z`
+    ${n?U`
           <div class="card__tribeText" style=${w}>
             <div class="card__tribeText__inner">
               ${n}
             </div>
           </div>
         `:null}
-    ${"mythic"!==o?Z`
+    ${"mythic"!==o?U`
           <card-icon
             style=${v}
             class="card__setIcon"
-            iconLigature=${`set_${o}`}
+            iconLigature=${"set_"+o}
           ></card-icon>
         `:null}
   `})(Object.assign({ch:this.ch,cw:this.cw},this.protoCardData,{cardSet:this.protoCardData.set}))}
             `}
       </div>
-    `}};Tt([ne({type:Number})],zt.prototype,"protoId",void 0),Tt([ne({type:Number})],zt.prototype,"quality",void 0),Tt([ne({type:Object})],zt.prototype,"inputProtoData",void 0),Tt([ne({type:String})],zt.prototype,"responsiveSrcsetSizes",void 0),Tt([ne({type:Boolean})],zt.prototype,"useLegacyQualityMapping",void 0),zt=Tt([se("composited-card")],zt)}]);
+    `}};vt([_({type:Number})],Tt.prototype,"protoId",void 0),vt([_({type:Number})],Tt.prototype,"quality",void 0),vt([_({type:Object})],Tt.prototype,"inputProtoData",void 0),vt([_({type:String})],Tt.prototype,"responsiveSrcsetSizes",void 0),vt([_({type:Boolean})],Tt.prototype,"useLegacyQualityMapping",void 0),Tt=vt([X("composited-card")],Tt)}]);
 //# sourceMappingURL=composited-card.packed.js.map

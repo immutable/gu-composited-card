@@ -1,6 +1,6 @@
-import { LitElement, html, customElement, property, css } from 'lit-element';
-import { styleMap } from 'lit-html/directives/style-map';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { LitElement, html, css } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { property, customElement } from 'lit/decorators.js';
 
 import { bodyText } from './styles';
 
