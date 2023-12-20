@@ -7,6 +7,10 @@ import {
   nonMythicImageLayersTemplate,
   baseArtworkLayersTemplate,
   textLayersTemplate,
+
+  baseArtworkLayersCompositionTemplate,
+  imageLayersCompositionTemplate,
+  textLayersCompositionTemplate
 } from './templating';
 
 import './assets/fonts.css';
@@ -31,6 +35,21 @@ export interface ICardProtoData {
   attack: number;
   health: number;
   art_id: string;
+}
+
+export interface ICompsitionData {
+  illustration?: string[];
+  frame?: string[];
+  rosette?: string[];
+  gems?: string[];
+  wreath?: string[];
+  lock?: string[];
+  tribe_bar?: string[];
+  set?: string[];
+}
+
+export interface ICardCompsitionData extends ICardProtoData {
+  composition: ICompsitionData;
 }
 
 // @TODO: these should really come from an endpoint call,
@@ -74,6 +93,7 @@ const ro = new ResizeObserver((entries) => {
  * @input inputProtoData
  * @input responsiveSrcsetSizes
  * @input useLegacyQualityMapping
+ * @input useLegacyComposition
  *
  * @author Tim Paul <tim.paul@immutable.com> <@glomotion>
  *
@@ -81,12 +101,14 @@ const ro = new ResizeObserver((entries) => {
 @customElement('composited-card')
 export class CompositedCard extends LitElement {
   @property({ type: Number }) protoId: number;
-  @property({ type: Number }) quality: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 = 5;
+  @property({ type: Number }) quality: number = 5;
   @property({ type: Object }) inputProtoData: ICardProtoData;
+  @property({ type: Object }) inputCompositionData: ICardCompsitionData;
   @property({ type: String }) responsiveSrcsetSizes: string;
   @property({ type: Boolean }) useLegacyQualityMapping = false;
+  @property({ type: Boolean }) useLegacyComposition = true;
 
-  public protoCardData: ICardProtoData = {
+  public compositionCardData: ICardCompsitionData = {
     type: '',
     effect: '',
     name: '',
@@ -99,7 +121,17 @@ export class CompositedCard extends LitElement {
     health: null,
     tribe: '',
     art_id: '',
+    composition: {
+      illustration: [],
+      frame: [],
+      rosette: [],
+      gems: [],
+      wreath: [],
+      lock: [],
+      tribe_bar: [],
+    }
   };
+
   public ch: number;
   public cw: number;
   public loading: boolean;
@@ -131,9 +163,9 @@ export class CompositedCard extends LitElement {
     changedProps.forEach((oldValue, propName) => {
       if (propName === 'protoId') {
         this.getProtoDataFromApi();
-      } else if (propName === 'inputProtoData') {
-        this.getProtoDataFromInput();
-      }
+      } else if (propName === 'inputProtoData' || propName === 'inputCompositionData') {
+        this.getProtoDataFromInput(propName);
+      } 
     });
   }
 
@@ -153,7 +185,7 @@ export class CompositedCard extends LitElement {
   private async fetchProtoData() {
     this.loading = true;
     return fetch(
-      `https://api.godsunchained.com/v0/proto/${this.protoId}`,
+      `https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`,
     ).then((resp) => resp.json());
   }
 
@@ -163,6 +195,7 @@ export class CompositedCard extends LitElement {
    */
   private async getProtoDataFromApi() {
     return this.fetchProtoData().then((data) => {
+      if(data.error) return null
       const {
         id,
         type,
@@ -176,8 +209,9 @@ export class CompositedCard extends LitElement {
         set,
         tribe,
         art_id,
-      } = data;
-      this.protoCardData = {
+        composition,
+      } = data[0];
+      this.compositionCardData = {
         id,
         type,
         attack: attack.Int64,
@@ -190,6 +224,7 @@ export class CompositedCard extends LitElement {
         set,
         tribe: tribe.String,
         art_id,
+        composition,
       };
       this.loading = false;
       this.requestUpdate();
@@ -201,8 +236,17 @@ export class CompositedCard extends LitElement {
    * A method for Injesting of proto card data that is manually
    * input into the component
    */
-  private getProtoDataFromInput() {
-    this.protoCardData = { ...this.inputProtoData };
+  private getProtoDataFromInput(dataType : string) {
+    if(dataType == 'inputProtoData') {
+      this.compositionCardData = { ...(this.inputProtoData as ICardCompsitionData) };
+    } else {
+      this.compositionCardData = { ...this.inputCompositionData };
+    }
+
+    if(!this.compositionCardData.composition && !this.useLegacyComposition) {
+      this.useLegacyComposition = true
+    }
+    
     this.loading = false;
     this.requestUpdate();
   }
@@ -211,37 +255,68 @@ export class CompositedCard extends LitElement {
    * A `render` method to define the DOM structure of the component
    */
   render() {
-    const qualityName = this.useLegacyQualityMapping
-      ? legacyQualities[this.quality]
-      : qualities[this.quality - 1];
-    const isMythicCard = this.protoCardData.rarity === 'mythic';
-    return html`
-      <div class="card__innerRatioConstrainer">
-        ${this.loading
-          ? loadingTemplate()
-          : html`
-              ${baseArtworkLayersTemplate({
-                id: this.protoCardData.id,
+
+    if (this.useLegacyComposition) {
+      const qualityName = this.useLegacyQualityMapping ? legacyQualities[this.quality] : qualities[this.quality - 1];
+      const isMythicCard = this.compositionCardData.rarity === 'mythic';
+      return html`
+        <div class="card__innerRatioConstrainer">
+          ${this.loading
+            ? loadingTemplate()
+            : html`
+                ${baseArtworkLayersTemplate({
+                  id: this.compositionCardData.id,
+                  responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                })}
+                ${isMythicCard
+                  ? mythicImageLayersTemplate({
+                      responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                      ...this.compositionCardData,
+                    })
+                  : nonMythicImageLayersTemplate({
+                      qualityName: qualityName,
+                      responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                      ...this.compositionCardData,
+                    })}
+                ${textLayersTemplate({
+                  ch: this.ch,
+                  cw: this.cw,
+                  ...this.compositionCardData,
+                  cardSet: this.compositionCardData.set,
+                })}
+              `}
+        </div>
+      `;
+    } else {
+      return html`
+        <div class="card__innerRatioConstrainer">
+          ${this.loading
+            ? loadingTemplate()
+            : html`
+              ${baseArtworkLayersCompositionTemplate({
+                illustration: this.compositionCardData.composition.illustration,
                 responsiveSrcsetSizes: this.responsiveSrcsetSizes,
               })}
-              ${isMythicCard
-                ? mythicImageLayersTemplate({
-                    responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                    ...this.protoCardData,
-                  })
-                : nonMythicImageLayersTemplate({
-                    qualityName: qualityName,
-                    responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                    ...this.protoCardData,
-                  })}
-              ${textLayersTemplate({
+              ${imageLayersCompositionTemplate({
+                frame: this.compositionCardData.composition.frame,
+                rosette: this.compositionCardData.composition.rosette,
+                gems: this.compositionCardData.composition.gems,
+                wreath: this.compositionCardData.composition.wreath,
+                lock: this.compositionCardData.composition.lock,
+                tribe: this.compositionCardData.composition.tribe_bar,
+                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+              })}
+              ${textLayersCompositionTemplate({
                 ch: this.ch,
                 cw: this.cw,
-                ...this.protoCardData,
-                cardSet: this.protoCardData.set,
+                ...this.compositionCardData,
+                cardSet: this.compositionCardData.composition.set,
               })}
             `}
-      </div>
-    `;
+        </div>
+      `;
+    }
+
+    
   }
 }

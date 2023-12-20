@@ -8,7 +8,7 @@ A simple, framework agnostic [web component](https://developer.mozilla.org/en-US
 
 A card's id/proto number. Either a protoId or inputProtoData must be provided for a card to render.
 
-### @property({ type: Object }) inputProtoData
+### [Depreciated] @property({ type: Object }) inputProtoData
 
 All the information needed to render a card. When this complete input is provided, the composited-card component will skip the card-data endpoint call.
 This input should contain the following fields:
@@ -27,12 +27,44 @@ attack: number;
 health: number;
 ```
 
+### @property({ type: Object }) inputCompositionData
+
+All the information needed to render a card. When this complete input is provided, the composited-card component will skip the card-data endpoint call. 
+This input should contain the following fields:
+
+```javascript
+type: string; // "creature" | "weapon" | "spell" | "god-power";
+effect: string;
+name: string;
+rarity: string; // "common" | "rare" | "epic" | "legendary" | "mythic";
+god: string; // "war" | "magic" | "death" | "deception" | "nature" | "light";
+set: string; // "genesis" | "core" | "etherbots"
+tribe: string; // "amazon" | "aether" | "nether" | "atlantean" | "anubian" | "mystic" | "viking" | "dragon" | "guild" | "olympian" | "structure" | "wild"
+mana: number;
+id: number;
+attack: number;
+health: number;
+composition: object {
+  illustration: []string,
+  frame: []string,
+  rosette: []string,
+  gems: []string,
+  wreath: []string,
+  lock: []string,
+  tribe_bar: []string,
+  set: []string,
+}
+```
+
 ### @property({ type: Boolean }) useLegacyQualityMapping
 
 OPTIONAL: A new kind of quality system has been developed in order to better support the on-chaining process for cards. This new system has a reduced number of qualities, in reversed order. We will be eventually deprecating the old quality system, but for now you can choose to use the old quality numbering system.
 
+### @property({ type: Boolean }) useLegacyComposition
 
-### @property({ type: Number }) quality (5 - 1) | (0 - 7 for legacy)
+OPTIONAL: When true this will use the original card composition without support for card Variants.
+
+### @property({ type: Number }) quality (5 - 1) | (0 - 7 for legacy) | (>10 for Variants)
 
 OPTIONAL: a card's quality setting. When this input is missing, the a default quality setting of 5 will be used for all artwork/layers. 5 = 'plain', ... 1 = 'diamond'. 
 
