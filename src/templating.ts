@@ -521,3 +521,392 @@ export const textLayersTemplate = ({
       : null}
   `;
 };
+
+export const baseArtworkLayersCompositionTemplate = ({
+  illustration,
+  responsiveSrcsetSizes = `${artQualities.normal}px`,
+}) => {
+  return html`
+    <picture class="card__artwork">
+      <source
+        srcset="
+          ${guImagesUrl}/art2/${artQualities.normal}/${illustration[0]}.webp ${artQualities.small}w,
+          ${guImagesUrl}/art2/${artQualities.large}/${illustration[0]}.webp ${artQualities.normal}w,
+          ${guImagesUrl}/art2/${artQualities.xLarge}/${illustration[0]}.webp ${artQualities.large}w,
+          ${guImagesUrl}/art2/${artQualities.xxLarge}/${illustration[0]}.webp ${artQualities.xLarge}w,
+          ${guImagesUrl}/art2/${artQualities.xxxLarge}/${illustration[0]}.webp ${artQualities.xxLarge}w,
+          ${guImagesUrl}/art2/${artQualities.xxxxLarge}/${illustration[0]}.webp ${artQualities.xxxLarge}w,
+          ${guImagesUrl}/art2/${artQualities.best}/${illustration[0]}.webp ${artQualities.xxxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/webp"
+      />
+      <source
+        srcset="
+          ${guImagesUrl}/art2/${artQualities.normal}/${illustration[0]}.jpg ${artQualities.small}w,
+          ${guImagesUrl}/art2/${artQualities.large}/${illustration[0]}.jpg ${artQualities.normal}w,
+          ${guImagesUrl}/art2/${artQualities.xLarge}/${illustration[0]}.jpg ${artQualities.large}w,
+          ${guImagesUrl}/art2/${artQualities.xxLarge}/${illustration[0]}.jpg ${artQualities.xLarge}w,
+          ${guImagesUrl}/art2/${artQualities.xxxLarge}/${illustration[0]}.jpg ${artQualities.xxLarge}w,
+          ${guImagesUrl}/art2/${artQualities.xxxxLarge}/${illustration[0]}.jpg ${artQualities.xxxLarge}w,
+          ${guImagesUrl}/art2/${artQualities.best}/${illustration[0]}.jpg ${artQualities.xxxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/jpg"
+      />
+      <img
+        srcset="${guImagesUrl}/art2/${artQualities.small}/${illustration[0]}.jpg"
+        class="card__artwork__img"
+      />
+    </picture>
+  `;
+};
+
+export const imageLayersCompositionTemplate = ({
+  responsiveSrcsetSizes = `${layerQualities.normal}px`,
+  frame,
+  rosette,
+  gems,
+  wreath,
+  lock,
+  tribe,
+}) => {
+
+  return html`
+    <picture class="card__baseLayer">
+      <source
+        srcset="
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.normal}/${frame[1]}.webp ${layerQualities.small}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.large}/${frame[1]}.webp ${layerQualities.normal}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.xLarge}/${frame[1]}.webp ${layerQualities.large}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.xxLarge}/${frame[1]}.webp ${layerQualities.xLarge}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.xxxLarge}/${frame[1]}.webp ${layerQualities.xxLarge}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.best}/${frame[1]}.webp ${layerQualities.xxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/webp"
+      />
+
+      <source
+        srcset="
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.normal}/${frame[1]}.png ${layerQualities.small}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.large}/${frame[1]}.png ${layerQualities.normal}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.xLarge}/${frame[1]}.png ${layerQualities.large}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.xxLarge}/${frame[1]}.png ${layerQualities.xLarge}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.xxxLarge}/${frame[1]}.png ${layerQualities.xxLarge}w,
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.best}/${frame[1]}.png ${layerQualities.xxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/png"
+      />
+      <img
+        srcset="
+          ${guImagesUrl}/border-layers/types/${frame[0]}/${layerQualities.small}/${frame[1]}.png
+        "
+        class="card__baseLayer__img"
+      />
+    </picture>
+
+    <picture class="card__manaLayer">
+      <source
+        srcset="
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.normal}/${rosette[1]}.webp ${layerQualities.small}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.large}/${rosette[1]}.webp ${layerQualities.normal}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.xLarge}/${rosette[1]}.webp ${layerQualities.large}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.xxLarge}/${rosette[1]}.webp ${layerQualities.xLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.xxxLarge}/${rosette[1]}.webp ${layerQualities.xxLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.best}/${rosette[1]}.webp ${layerQualities.xxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/webp"
+      />
+      <source
+        srcset="
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.normal}/${rosette[1]}.png ${layerQualities.small}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.large}/${rosette[1]}.png ${layerQualities.normal}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.xLarge}/${rosette[1]}.png ${layerQualities.large}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.xxLarge}/${rosette[1]}.png ${layerQualities.xLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.xxxLarge}/${rosette[1]}.png ${layerQualities.xxLarge}w,
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.best}/${rosette[1]}.png ${layerQualities.xxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/png"
+      />
+      <img
+        srcset="
+          ${guImagesUrl}/border-layers/rosettes/${rosette[0]}/${layerQualities.small}/${rosette[1]}.png
+        "
+        class="card__manaLayer__img"
+      />
+    </picture>
+
+    ${gems.length > 0
+      ? html`
+          <picture class="card__rarityLayer">
+            <source
+              srcset="
+              ${guImagesUrl}/border-layers/gems/${layerQualities.small}/${gems[0]}.webp ${layerQualities.small}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.normal}/${gems[0]}.webp ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.large}/${gems[0]}.webp ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.xLarge}/${gems[0]}.webp ${layerQualities.xLarge}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.xxLarge}/${gems[0]}.webp ${layerQualities.xxLarge}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.xxxLarge}/${gems[0]}.webp ${layerQualities.xxxLarge}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.best}/${gems[0]}.webp ${layerQualities.best}w
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/webp"
+            />
+            <source
+              srcset="
+              ${guImagesUrl}/border-layers/gems/${layerQualities.small}/${gems[0]}.png ${layerQualities.small}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.normal}/${gems[0]}.png ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.large}/${gems[0]}.png ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.xLarge}/${gems[0]}.png ${layerQualities.xLarge}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.xxLarge}/${gems[0]}.webp ${layerQualities.xxLarge}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.xxxLarge}/${gems[0]}.webp ${layerQualities.xxxLarge}w,
+                ${guImagesUrl}/border-layers/gems/${layerQualities.best}/${gems[0]}.png ${layerQualities.best}w
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/png"
+            />
+            <img
+              srcset="
+                ${guImagesUrl}/border-layers/gems/${layerQualities.small}/${gems[0]}.png
+              "
+              class="card__rarityLayer__img"
+            />
+          </picture>
+        `
+      : null}
+    ${wreath.length > 0
+      ? html`
+          <picture class="card__wreathLayer">
+            <source
+              srcset="
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.small}/${wreath[0]}.webp ${layerQualities.small}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.normal}/${wreath[0]}.webp ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.large}/${wreath[0]}.webp ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.xLarge}/${wreath[0]}.webp ${layerQualities.xLarge}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.xxLarge}/${wreath[0]}.webp ${layerQualities.xxLarge}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.xxxLarge}/${wreath[0]}.webp ${layerQualities.xxxLarge}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.best}/${wreath[0]}.webp ${layerQualities.best}w
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/webp"
+            />
+
+            <source
+              srcset="
+              ${guImagesUrl}/border-layers/wreaths/${layerQualities.small}/${wreath[0]}.png ${layerQualities.small}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.normal}/${wreath[0]}.png ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.large}/${wreath[0]}.png ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.xLarge}/${wreath[0]}.png ${layerQualities.xLarge}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.xxLarge}/${wreath[0]}.png ${layerQualities.xxLarge}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.xxxLarge}/${wreath[0]}.png ${layerQualities.xxxLarge}w,
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.best}/${wreath[0]}.png ${layerQualities.best}w
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/png"
+            />
+            <img
+              srcset="
+                ${guImagesUrl}/border-layers/wreaths/${layerQualities.small}/${wreath[0]}.png
+              "
+              class="card__wreathLayer__img"
+            />
+          </picture>
+        `
+      : null}
+    ${lock.length > 0
+      ? html`
+          <picture class="card__lockIconLayer">
+            <source
+              srcset="
+                ${guImagesUrl}/border-layers/locks/${lockQualities.normal}/${lock[0]}.webp ${lockQualities.normal}w,
+                ${guImagesUrl}/border-layers/locks/${lockQualities.large}/${lock[0]}.webp ${lockQualities.large}w,
+              "
+              type="image/webp"
+            />
+
+            <source
+              srcset="
+                ${guImagesUrl}/border-layers/locks/${lockQualities.normal}/${lock[0]}.png ${lockQualities.normal}w,
+                ${guImagesUrl}/border-layers/locks/${lockQualities.large}/${lock[0]}.png ${lockQualities.large}w,
+              "
+              type="image/png"
+            />
+
+            <img
+              srcset="
+                ${guImagesUrl}/border-layers/locks/${lock[0]}.png
+              "
+              class="card__lockIconLayer__img"
+            />
+          </picture>
+        `
+      : null}
+    ${tribe.length > 0
+      ? html`
+          <picture class="card__tribeBarLayer">
+            <source
+              srcset="
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.small}/${tribe[0]}.webp ${layerQualities.small}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.normal}/${tribe[0]}.webp ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.large}/${tribe[0]}.webp ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xLarge}/${tribe[0]}.webp ${layerQualities.xLarge}w,
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/webp"
+            />
+            <source
+              srcset="
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.small}/${tribe[0]}.png ${layerQualities.small}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.normal}/${tribe[0]}.png ${layerQualities.normal}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.large}/${tribe[0]}.png ${layerQualities.large}w,
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.xLarge}/${tribe[0]}.png ${layerQualities.xLarge}w,
+              "
+              sizes="${responsiveSrcsetSizes}"
+              type="image/png"
+            />
+
+            <img
+              srcset="
+                ${guImagesUrl}/border-layers/tribe_bars/${layerQualities.best}/${tribe[0]}.png
+              "
+              class="card__tribeBarLayer__img"
+            />
+          </picture>
+        `
+      : null}
+  `;
+};
+
+export const textLayersCompositionTemplate = ({
+  type = '',
+  name = '⃠',
+  effect = '⃠',
+  mana = '⃠',
+  attack = '⃠',
+  health = '⃠',
+  tribe = '',
+  cardSet = [],
+  ch = 0,
+  cw = 0,
+}: {
+  type: string;
+  name: string;
+  effect: string;
+  mana: string;
+  attack: string | number;
+  health: string | number;
+  tribe: string;
+  cardSet: string[];
+  ch: number;
+  cw: number;
+}) => {
+  type = validateTypeField(type);
+  const isACreatureOrWeapon = RegExp(/creature|weapon/).test(type);
+  const nameCrammedTextMode = name.split('').length >= 20;
+  const shadowSize = Math.floor(ch * 0.5);
+  const onePx = `${shadowSize === 0 ? 1 : shadowSize}px`;
+  const black = 'rgba(0, 0, 0, 1)';
+  const textShadow = `0 0 ${onePx} ${black}, 0 0 ${onePx} ${black}, 0 0 ${onePx} ${black}`;
+
+  const manaTextStyles = styleMap({
+    fontSize: `${ch * 10.5}px`,
+    top: `${ch * 6.85}px`,
+    left: `${cw * 9.5}px`,
+    width: `${cw * 19}px`,
+    textShadow,
+  });
+  const nameTextStyles = styleMap({
+    fontSize: `${nameCrammedTextMode ? ch * 3.9 : ch * 4.93}px`,
+    bottom: `${ch * 32.85}px`,
+    height: `${ch * 9}px`,
+    left: `${cw * 13.25}px`,
+    right: `${cw * 5.3}px`,
+    textShadow,
+  });
+  const attackTextStyles = styleMap({
+    fontSize: `${ch * 9.5}px`,
+    bottom: `${ch * 4.5}px`,
+    width: `${cw * 15}px`,
+    left: `${cw * 10.5}px`,
+    textShadow,
+  });
+  const healthTextStyles = styleMap({
+    fontSize: `${ch * 9.5}px`,
+    width: `${cw * 16}px`,
+    bottom: `${ch * 4.6}px`,
+    right: `${cw * 2.5}px`,
+    textShadow,
+  });
+  const tribeTextStyles = styleMap({
+    fontSize: `${ch * 3.2}px`,
+    bottom: `${ch * 3.1}px`,
+    height: `${ch * 4.82}px`,
+    left: `${cw * 30.5}px`,
+    right: `${cw * 23}px`,
+    textShadow,
+  });
+  const setIconStyles = styleMap({
+    fontSize: `${ch * 6}px`,
+    top: `${ch * 10}px`,
+    right: `${cw * 9}px`,
+  });
+
+  return html`
+    <div class="card__manaText" style=${manaTextStyles}>
+      ${mana}
+    </div>
+
+    <div
+      class="card__nameText ${nameCrammedTextMode
+        ? 'card__nameText--crammed'
+        : ''}"
+      style=${nameTextStyles}
+    >
+      <div class="card__nameText__inner">
+        ${name}
+      </div>
+    </div>
+
+    <autofit-description-text
+      text=${effect}
+      ch=${ch}
+      cw=${cw}
+      type=${type}
+      tribe=${tribe}
+    ></autofit-description-text>
+
+    ${isACreatureOrWeapon
+      ? html`
+          <div class="card__attackText" style=${attackTextStyles}>
+            ${attack}
+          </div>
+
+          <div class="card__healthText" style=${healthTextStyles}>
+            ${health}
+          </div>
+        `
+      : null}
+    ${tribe
+      ? html`
+          <div class="card__tribeText" style=${tribeTextStyles}>
+            <div class="card__tribeText__inner">
+              ${tribe}
+            </div>
+          </div>
+        `
+      : null}
+    ${cardSet.length > 0
+      ? html`
+          <card-icon
+            style=${setIconStyles}
+            class="card__setIcon"
+            iconLigature=${`set_${cardSet[0]}`}
+          ></card-icon>
+        `
+      : null}
+  `;
+};
