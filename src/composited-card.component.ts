@@ -37,7 +37,7 @@ export interface ICardProtoData {
   art_id: string;
 }
 
-export interface ICompsitionData {
+export interface ICompositionData {
   illustration?: string[];
   frame?: string[];
   rosette?: string[];
@@ -49,7 +49,7 @@ export interface ICompsitionData {
 }
 
 export interface ICardCompsitionData extends ICardProtoData {
-  composition: ICompsitionData;
+  composition: ICompositionData;
 }
 
 // @TODO: these should really come from an endpoint call,
@@ -93,7 +93,7 @@ const ro = new ResizeObserver((entries) => {
  * @input inputProtoData
  * @input responsiveSrcsetSizes
  * @input useLegacyQualityMapping
- * @input useLegacyComposition
+ * @input compositionVersion
  *
  * @author Tim Paul <tim.paul@immutable.com> <@glomotion>
  *
@@ -106,7 +106,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Object }) inputCompositionData: ICardCompsitionData;
   @property({ type: String }) responsiveSrcsetSizes: string;
   @property({ type: Boolean }) useLegacyQualityMapping = false;
-  @property({ type: Boolean }) useLegacyComposition = true;
+  @property({ type: Number }) compositionVersion: number = 1;
 
   public compositionCardData: ICardCompsitionData = {
     type: '',
@@ -185,7 +185,7 @@ export class CompositedCard extends LitElement {
   private async fetchProtoData() {
     this.loading = true;
     return fetch(
-      `https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`,
+      `https://gu-public-api.nonprod.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`,
     ).then((resp) => resp.json());
   }
 
@@ -243,8 +243,8 @@ export class CompositedCard extends LitElement {
       this.compositionCardData = { ...this.inputCompositionData };
     }
 
-    if(!this.compositionCardData.composition && !this.useLegacyComposition) {
-      this.useLegacyComposition = true
+    if(!this.compositionCardData.composition && this.compositionVersion != 1) {
+      this.compositionVersion = 1
     }
     
     this.loading = false;
@@ -255,8 +255,35 @@ export class CompositedCard extends LitElement {
    * A `render` method to define the DOM structure of the component
    */
   render() {
-
-    if (this.useLegacyComposition) {
+    if (this.compositionVersion == 2) {
+      return html`
+        <div class="card__innerRatioConstrainer">
+          ${this.loading
+            ? loadingTemplate()
+            : html`
+              ${baseArtworkLayersCompositionTemplate({
+                illustration: this.compositionCardData.composition.illustration,
+                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+              })}
+              ${imageLayersCompositionTemplate({
+                frame: this.compositionCardData.composition.frame,
+                rosette: this.compositionCardData.composition.rosette,
+                gems: this.compositionCardData.composition.gems,
+                wreath: this.compositionCardData.composition.wreath,
+                lock: this.compositionCardData.composition.lock,
+                tribe: this.compositionCardData.composition.tribe_bar,
+                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+              })}
+              ${textLayersCompositionTemplate({
+                ch: this.ch,
+                cw: this.cw,
+                ...this.compositionCardData,
+                cardSet: this.compositionCardData.composition.set,
+              })}
+            `}
+        </div>
+      `;
+    } else {
       const qualityName = this.useLegacyQualityMapping ? legacyQualities[this.quality] : qualities[this.quality - 1];
       const isMythicCard = this.compositionCardData.rarity === 'mythic';
       return html`
@@ -285,34 +312,6 @@ export class CompositedCard extends LitElement {
                   cardSet: this.compositionCardData.set,
                 })}
               `}
-        </div>
-      `;
-    } else {
-      return html`
-        <div class="card__innerRatioConstrainer">
-          ${this.loading
-            ? loadingTemplate()
-            : html`
-              ${baseArtworkLayersCompositionTemplate({
-                illustration: this.compositionCardData.composition.illustration,
-                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-              })}
-              ${imageLayersCompositionTemplate({
-                frame: this.compositionCardData.composition.frame,
-                rosette: this.compositionCardData.composition.rosette,
-                gems: this.compositionCardData.composition.gems,
-                wreath: this.compositionCardData.composition.wreath,
-                lock: this.compositionCardData.composition.lock,
-                tribe: this.compositionCardData.composition.tribe_bar,
-                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-              })}
-              ${textLayersCompositionTemplate({
-                ch: this.ch,
-                cw: this.cw,
-                ...this.compositionCardData,
-                cardSet: this.compositionCardData.composition.set,
-              })}
-            `}
         </div>
       `;
     }

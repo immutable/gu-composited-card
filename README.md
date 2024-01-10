@@ -60,9 +60,14 @@ composition: object {
 
 OPTIONAL: A new kind of quality system has been developed in order to better support the on-chaining process for cards. This new system has a reduced number of qualities, in reversed order. We will be eventually deprecating the old quality system, but for now you can choose to use the old quality numbering system.
 
-### @property({ type: Boolean }) useLegacyComposition
+### @property({ type: Number }) compositionVersion
 
-OPTIONAL: When true this will use the original card composition without support for card Variants.
+OPTIONAL: When set to 1 (the default) this will use the original card composition without support for card Variants.
+
+| Version        | Value          | Notes  |
+| :-------------: |:-------------:| :-----:|
+| ```V1``` | ![1](https://img.shields.io/badge/-1-lightgrey.svg) | [Default] original card composition without variants |
+| ```V2``` | ![2](https://img.shields.io/badge/-2-lightgrey.svg) | Uses the original card composition including variants support |
 
 ### @property({ type: Number }) quality (5 - 1) | (0 - 7 for legacy) | (>10 for Variants)
 
