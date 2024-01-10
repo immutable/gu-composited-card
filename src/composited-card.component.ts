@@ -185,7 +185,7 @@ export class CompositedCard extends LitElement {
   private async fetchProtoData() {
     this.loading = true;
     return fetch(
-      `https://gu-public-api.nonprod.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`,
+      `https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`,
     ).then((resp) => resp.json());
   }
 
