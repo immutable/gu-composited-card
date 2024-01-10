@@ -195,7 +195,7 @@ export class CompositedCard extends LitElement {
    */
   private async getProtoDataFromApi() {
     return this.fetchProtoData().then((data) => {
-      if(data.error) return null
+      if(!data || data.error || data.length != 1) return null
       const {
         id,
         type,
