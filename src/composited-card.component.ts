@@ -107,6 +107,7 @@ export class CompositedCard extends LitElement {
   @property({ type: String }) responsiveSrcsetSizes: string;
   @property({ type: Boolean }) useLegacyQualityMapping = false;
   @property({ type: Number }) compositionVersion: number = 1;
+  @property({ type: String }) illustrationSource: string;
 
   public compositionCardData: ICardCompsitionData = {
     type: '',
@@ -264,6 +265,7 @@ export class CompositedCard extends LitElement {
               ${baseArtworkLayersCompositionTemplate({
                 illustration: this.compositionCardData.composition.illustration,
                 responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                imageSrc: this.illustrationSource,
               })}
               ${imageLayersCompositionTemplate({
                 frame: this.compositionCardData.composition.frame,
@@ -294,6 +296,7 @@ export class CompositedCard extends LitElement {
                 ${baseArtworkLayersTemplate({
                   id: this.compositionCardData.id,
                   responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+                  imageSrc: this.illustrationSource,
                 })}
                 ${isMythicCard
                   ? mythicImageLayersTemplate({
