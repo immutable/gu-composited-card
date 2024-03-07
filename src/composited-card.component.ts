@@ -256,17 +256,22 @@ export class CompositedCard extends LitElement {
    * A `render` method to define the DOM structure of the component
    */
   render() {
+
     if (this.compositionVersion == 2) {
+
+      const baseArtworkLayersCompositionTemplateData = {
+        illustration: this.compositionCardData.composition.illustration,
+        responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+      }
+
+      if(this.illustrationSource?.length > 0) baseArtworkLayersCompositionTemplateData["imageSrc"] = this.illustrationSource
+
       return html`
         <div class="card__innerRatioConstrainer">
           ${this.loading
             ? loadingTemplate()
             : html`
-              ${baseArtworkLayersCompositionTemplate({
-                illustration: this.compositionCardData.composition.illustration,
-                responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                imageSrc: this.illustrationSource,
-              })}
+              ${baseArtworkLayersCompositionTemplate(baseArtworkLayersCompositionTemplateData)}
               ${imageLayersCompositionTemplate({
                 frame: this.compositionCardData.composition.frame,
                 rosette: this.compositionCardData.composition.rosette,
@@ -288,16 +293,19 @@ export class CompositedCard extends LitElement {
     } else {
       const qualityName = this.useLegacyQualityMapping ? legacyQualities[this.quality] : qualities[this.quality - 1];
       const isMythicCard = this.compositionCardData.rarity === 'mythic';
+      const baseArtworkLayersTemplateData = {
+        id: this.compositionCardData.id,
+        responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+      }
+
+      if(this.illustrationSource?.length > 0) baseArtworkLayersTemplateData["imageSrc"] = this.illustrationSource
+
       return html`
         <div class="card__innerRatioConstrainer">
           ${this.loading
             ? loadingTemplate()
             : html`
-                ${baseArtworkLayersTemplate({
-                  id: this.compositionCardData.id,
-                  responsiveSrcsetSizes: this.responsiveSrcsetSizes,
-                  imageSrc: this.illustrationSource,
-                })}
+                ${baseArtworkLayersTemplate(baseArtworkLayersTemplateData)}
                 ${isMythicCard
                   ? mythicImageLayersTemplate({
                       responsiveSrcsetSizes: this.responsiveSrcsetSizes,
