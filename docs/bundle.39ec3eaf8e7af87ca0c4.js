@@ -409,50 +409,50 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 `,St="https://images.godsunchained.com";r(4);var Ct=function(e,t,r,n){var i,o=arguments.length,s=o<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,r):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,n);else for(var a=e.length-1;a>=0;a--)(i=e[a])&&(s=(o<3?i(s):o>3?i(t,r,s):i(t,r))||s);return o>3&&s&&Object.defineProperty(t,r,s),s},kt=function(e,t,r,n){return new(r||(r=Promise))((function(i,o){function s(e){try{l(n.next(e))}catch(e){o(e)}}function a(e){try{l(n.throw(e))}catch(e){o(e)}}function l(e){var t;e.done?i(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(s,a)}l((n=n.apply(e,t||[])).next())}))};const Tt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],Pt=["diamond","gold","shadow","meteorite","plain"],zt=new He(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Et=class extends oe{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.compositionVersion=1,this.compositionCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:"",composition:{illustration:[],frame:[],rosette:[],gems:[],wreath:[],lock:[],tribe_bar:[]}},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return rt()}connectedCallback(){super.connectedCallback(),zt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),zt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"!==t&&"inputCompositionData"!==t||this.getProtoDataFromInput(t)})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return kt(this,void 0,void 0,(function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`).then(e=>e.json())}))}getProtoDataFromApi(){return kt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{if(!e||e.error||1!=e.length)return null;const{id:t,type:r,attack:n,health:i,effect:o,name:s,rarity:a,god:l,mana:c,set:p,tribe:d,art_id:u,composition:h}=e[0];return this.compositionCardData={id:t,type:r,attack:n.Int64,health:i.Int64,effect:o,name:s,rarity:a,god:l,mana:c,set:p,tribe:d.String,art_id:u,composition:h},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(e){this.compositionCardData="inputProtoData"==e?Object.assign({},this.inputProtoData):Object.assign({},this.inputCompositionData),this.compositionCardData.composition||1==this.compositionVersion||(this.compositionVersion=1),this.loading=!1,this.requestUpdate()}render(){if(2==this.compositionVersion)return I`
         <div class="card__innerRatioConstrainer">
           ${this.loading?xt():I`
-              ${(({illustration:e,responsiveSrcsetSizes:t=st+"px"})=>I`
+              ${(({illustration:e,responsiveSrcsetSizes:t=st+"px",imageSrc:r=St})=>I`
     <picture class="card__artwork">
       <source
         srcset="
-          ${St}/art2/${st}/${e[0]}.webp ${ot}w,
-          ${St}/art2/${at}/${e[0]}.webp ${st}w,
-          ${St}/art2/${lt}/${e[0]}.webp ${at}w,
-          ${St}/art2/${ct}/${e[0]}.webp ${lt}w,
-          ${St}/art2/${pt}/${e[0]}.webp ${ct}w,
-          ${St}/art2/${dt}/${e[0]}.webp ${pt}w,
-          ${St}/art2/${ut}/${e[0]}.webp ${dt}w
+          ${r}/art2/${st}/${e[0]}.webp ${ot}w,
+          ${r}/art2/${at}/${e[0]}.webp ${st}w,
+          ${r}/art2/${lt}/${e[0]}.webp ${at}w,
+          ${r}/art2/${ct}/${e[0]}.webp ${lt}w,
+          ${r}/art2/${pt}/${e[0]}.webp ${ct}w,
+          ${r}/art2/${dt}/${e[0]}.webp ${pt}w,
+          ${r}/art2/${ut}/${e[0]}.webp ${dt}w
         "
         sizes="${t}"
         type="image/webp"
       />
       <source
         srcset="
-          ${St}/art2/${st}/${e[0]}.jpg ${ot}w,
-          ${St}/art2/${at}/${e[0]}.jpg ${st}w,
-          ${St}/art2/${lt}/${e[0]}.jpg ${at}w,
-          ${St}/art2/${ct}/${e[0]}.jpg ${lt}w,
-          ${St}/art2/${pt}/${e[0]}.jpg ${ct}w,
-          ${St}/art2/${dt}/${e[0]}.jpg ${pt}w,
-          ${St}/art2/${ut}/${e[0]}.jpg ${dt}w
+          ${r}/art2/${st}/${e[0]}.jpg ${ot}w,
+          ${r}/art2/${at}/${e[0]}.jpg ${st}w,
+          ${r}/art2/${lt}/${e[0]}.jpg ${at}w,
+          ${r}/art2/${ct}/${e[0]}.jpg ${lt}w,
+          ${r}/art2/${pt}/${e[0]}.jpg ${ct}w,
+          ${r}/art2/${dt}/${e[0]}.jpg ${pt}w,
+          ${r}/art2/${ut}/${e[0]}.jpg ${dt}w
         "
         sizes="${t}"
         type="image/jpg"
       />
       <img
-        srcset="${St}/art2/${ot}/${e[0]}.jpg"
+        srcset="${r}/art2/${ot}/${e[0]}.jpg"
         class="card__artwork__img"
       />
     </picture>
-  `)({illustration:this.compositionCardData.composition.illustration,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
-              ${(({responsiveSrcsetSizes:e=$t+"px",frame:t,rosette:r,gems:n,wreath:i,lock:o,tribe:s})=>I`
+  `)({illustration:this.compositionCardData.composition.illustration,responsiveSrcsetSizes:this.responsiveSrcsetSizes,imageSrc:this.illustrationSource})}
+              ${(({responsiveSrcsetSizes:e=$t+"px",frame:t,rosette:r,gems:n,wreath:i,lock:o,tribe:s,imageSrc:a=St})=>I`
     <picture class="card__baseLayer">
       <source
         srcset="
-          ${St}/border-layers/types/${t[0]}/${$t}/${t[1]}.webp ${ht}w,
-          ${St}/border-layers/types/${t[0]}/${_t}/${t[1]}.webp ${$t}w,
-          ${St}/border-layers/types/${t[0]}/${gt}/${t[1]}.webp ${_t}w,
-          ${St}/border-layers/types/${t[0]}/${yt}/${t[1]}.webp ${gt}w,
-          ${St}/border-layers/types/${t[0]}/${bt}/${t[1]}.webp ${yt}w,
-          ${St}/border-layers/types/${t[0]}/${mt}/${t[1]}.webp ${bt}w
+          ${a}/border-layers/types/${t[0]}/${$t}/${t[1]}.webp ${ht}w,
+          ${a}/border-layers/types/${t[0]}/${_t}/${t[1]}.webp ${$t}w,
+          ${a}/border-layers/types/${t[0]}/${gt}/${t[1]}.webp ${_t}w,
+          ${a}/border-layers/types/${t[0]}/${yt}/${t[1]}.webp ${gt}w,
+          ${a}/border-layers/types/${t[0]}/${bt}/${t[1]}.webp ${yt}w,
+          ${a}/border-layers/types/${t[0]}/${mt}/${t[1]}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
@@ -460,19 +460,19 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
       <source
         srcset="
-          ${St}/border-layers/types/${t[0]}/${$t}/${t[1]}.png ${ht}w,
-          ${St}/border-layers/types/${t[0]}/${_t}/${t[1]}.png ${$t}w,
-          ${St}/border-layers/types/${t[0]}/${gt}/${t[1]}.png ${_t}w,
-          ${St}/border-layers/types/${t[0]}/${yt}/${t[1]}.png ${gt}w,
-          ${St}/border-layers/types/${t[0]}/${bt}/${t[1]}.png ${yt}w,
-          ${St}/border-layers/types/${t[0]}/${mt}/${t[1]}.png ${bt}w
+          ${a}/border-layers/types/${t[0]}/${$t}/${t[1]}.png ${ht}w,
+          ${a}/border-layers/types/${t[0]}/${_t}/${t[1]}.png ${$t}w,
+          ${a}/border-layers/types/${t[0]}/${gt}/${t[1]}.png ${_t}w,
+          ${a}/border-layers/types/${t[0]}/${yt}/${t[1]}.png ${gt}w,
+          ${a}/border-layers/types/${t[0]}/${bt}/${t[1]}.png ${yt}w,
+          ${a}/border-layers/types/${t[0]}/${mt}/${t[1]}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${St}/border-layers/types/${t[0]}/${ht}/${t[1]}.png
+          ${a}/border-layers/types/${t[0]}/${ht}/${t[1]}.png
         "
         class="card__baseLayer__img"
       />
@@ -481,31 +481,31 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${St}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.webp ${ht}w,
-          ${St}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.webp ${$t}w,
-          ${St}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.webp ${_t}w,
-          ${St}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.webp ${gt}w,
-          ${St}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.webp ${yt}w,
-          ${St}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.webp ${bt}w
+          ${a}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.webp ${ht}w,
+          ${a}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.webp ${$t}w,
+          ${a}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.webp ${_t}w,
+          ${a}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.webp ${gt}w,
+          ${a}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.webp ${yt}w,
+          ${a}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${St}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.png ${ht}w,
-          ${St}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.png ${$t}w,
-          ${St}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.png ${_t}w,
-          ${St}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.png ${gt}w,
-          ${St}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.png ${yt}w,
-          ${St}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.png ${bt}w
+          ${a}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.png ${ht}w,
+          ${a}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.png ${$t}w,
+          ${a}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.png ${_t}w,
+          ${a}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.png ${gt}w,
+          ${a}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.png ${yt}w,
+          ${a}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${St}/border-layers/rosettes/${r[0]}/${ht}/${r[1]}.png
+          ${a}/border-layers/rosettes/${r[0]}/${ht}/${r[1]}.png
         "
         class="card__manaLayer__img"
       />
@@ -515,33 +515,33 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
           <picture class="card__rarityLayer">
             <source
               srcset="
-              ${St}/border-layers/gems/${ht}/${n[0]}.webp ${ht}w,
-                ${St}/border-layers/gems/${$t}/${n[0]}.webp ${$t}w,
-                ${St}/border-layers/gems/${_t}/${n[0]}.webp ${_t}w,
-                ${St}/border-layers/gems/${gt}/${n[0]}.webp ${gt}w,
-                ${St}/border-layers/gems/${yt}/${n[0]}.webp ${yt}w,
-                ${St}/border-layers/gems/${bt}/${n[0]}.webp ${bt}w,
-                ${St}/border-layers/gems/${mt}/${n[0]}.webp ${mt}w
+              ${a}/border-layers/gems/${ht}/${n[0]}.webp ${ht}w,
+                ${a}/border-layers/gems/${$t}/${n[0]}.webp ${$t}w,
+                ${a}/border-layers/gems/${_t}/${n[0]}.webp ${_t}w,
+                ${a}/border-layers/gems/${gt}/${n[0]}.webp ${gt}w,
+                ${a}/border-layers/gems/${yt}/${n[0]}.webp ${yt}w,
+                ${a}/border-layers/gems/${bt}/${n[0]}.webp ${bt}w,
+                ${a}/border-layers/gems/${mt}/${n[0]}.webp ${mt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-              ${St}/border-layers/gems/${ht}/${n[0]}.png ${ht}w,
-                ${St}/border-layers/gems/${$t}/${n[0]}.png ${$t}w,
-                ${St}/border-layers/gems/${_t}/${n[0]}.png ${_t}w,
-                ${St}/border-layers/gems/${gt}/${n[0]}.png ${gt}w,
-                ${St}/border-layers/gems/${yt}/${n[0]}.webp ${yt}w,
-                ${St}/border-layers/gems/${bt}/${n[0]}.webp ${bt}w,
-                ${St}/border-layers/gems/${mt}/${n[0]}.png ${mt}w
+              ${a}/border-layers/gems/${ht}/${n[0]}.png ${ht}w,
+                ${a}/border-layers/gems/${$t}/${n[0]}.png ${$t}w,
+                ${a}/border-layers/gems/${_t}/${n[0]}.png ${_t}w,
+                ${a}/border-layers/gems/${gt}/${n[0]}.png ${gt}w,
+                ${a}/border-layers/gems/${yt}/${n[0]}.webp ${yt}w,
+                ${a}/border-layers/gems/${bt}/${n[0]}.webp ${bt}w,
+                ${a}/border-layers/gems/${mt}/${n[0]}.png ${mt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${St}/border-layers/gems/${ht}/${n[0]}.png
+                ${a}/border-layers/gems/${ht}/${n[0]}.png
               "
               class="card__rarityLayer__img"
             />
@@ -551,13 +551,13 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
           <picture class="card__wreathLayer">
             <source
               srcset="
-                ${St}/border-layers/wreaths/${ht}/${i[0]}.webp ${ht}w,
-                ${St}/border-layers/wreaths/${$t}/${i[0]}.webp ${$t}w,
-                ${St}/border-layers/wreaths/${_t}/${i[0]}.webp ${_t}w,
-                ${St}/border-layers/wreaths/${gt}/${i[0]}.webp ${gt}w,
-                ${St}/border-layers/wreaths/${yt}/${i[0]}.webp ${yt}w,
-                ${St}/border-layers/wreaths/${bt}/${i[0]}.webp ${bt}w,
-                ${St}/border-layers/wreaths/${mt}/${i[0]}.webp ${mt}w
+                ${a}/border-layers/wreaths/${ht}/${i[0]}.webp ${ht}w,
+                ${a}/border-layers/wreaths/${$t}/${i[0]}.webp ${$t}w,
+                ${a}/border-layers/wreaths/${_t}/${i[0]}.webp ${_t}w,
+                ${a}/border-layers/wreaths/${gt}/${i[0]}.webp ${gt}w,
+                ${a}/border-layers/wreaths/${yt}/${i[0]}.webp ${yt}w,
+                ${a}/border-layers/wreaths/${bt}/${i[0]}.webp ${bt}w,
+                ${a}/border-layers/wreaths/${mt}/${i[0]}.webp ${mt}w
               "
               sizes="${e}"
               type="image/webp"
@@ -565,20 +565,20 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
             <source
               srcset="
-              ${St}/border-layers/wreaths/${ht}/${i[0]}.png ${ht}w,
-                ${St}/border-layers/wreaths/${$t}/${i[0]}.png ${$t}w,
-                ${St}/border-layers/wreaths/${_t}/${i[0]}.png ${_t}w,
-                ${St}/border-layers/wreaths/${gt}/${i[0]}.png ${gt}w,
-                ${St}/border-layers/wreaths/${yt}/${i[0]}.png ${yt}w,
-                ${St}/border-layers/wreaths/${bt}/${i[0]}.png ${bt}w,
-                ${St}/border-layers/wreaths/${mt}/${i[0]}.png ${mt}w
+              ${a}/border-layers/wreaths/${ht}/${i[0]}.png ${ht}w,
+                ${a}/border-layers/wreaths/${$t}/${i[0]}.png ${$t}w,
+                ${a}/border-layers/wreaths/${_t}/${i[0]}.png ${_t}w,
+                ${a}/border-layers/wreaths/${gt}/${i[0]}.png ${gt}w,
+                ${a}/border-layers/wreaths/${yt}/${i[0]}.png ${yt}w,
+                ${a}/border-layers/wreaths/${bt}/${i[0]}.png ${bt}w,
+                ${a}/border-layers/wreaths/${mt}/${i[0]}.png ${mt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${St}/border-layers/wreaths/${ht}/${i[0]}.png
+                ${a}/border-layers/wreaths/${ht}/${i[0]}.png
               "
               class="card__wreathLayer__img"
             />
@@ -588,23 +588,23 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
           <picture class="card__lockIconLayer">
             <source
               srcset="
-                ${St}/border-layers/locks/${wt}/${o[0]}.webp ${wt}w,
-                ${St}/border-layers/locks/${ft}/${o[0]}.webp ${ft}w,
+                ${a}/border-layers/locks/${wt}/${o[0]}.webp ${wt}w,
+                ${a}/border-layers/locks/${ft}/${o[0]}.webp ${ft}w,
               "
               type="image/webp"
             />
 
             <source
               srcset="
-                ${St}/border-layers/locks/${wt}/${o[0]}.png ${wt}w,
-                ${St}/border-layers/locks/${ft}/${o[0]}.png ${ft}w,
+                ${a}/border-layers/locks/${wt}/${o[0]}.png ${wt}w,
+                ${a}/border-layers/locks/${ft}/${o[0]}.png ${ft}w,
               "
               type="image/png"
             />
 
             <img
               srcset="
-                ${St}/border-layers/locks/${o[0]}.png
+                ${a}/border-layers/locks/${o[0]}.png
               "
               class="card__lockIconLayer__img"
             />
@@ -614,20 +614,20 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
           <picture class="card__tribeBarLayer">
             <source
               srcset="
-                ${St}/border-layers/tribe_bars/${ht}/${s[0]}.webp ${ht}w,
-                ${St}/border-layers/tribe_bars/${$t}/${s[0]}.webp ${$t}w,
-                ${St}/border-layers/tribe_bars/${_t}/${s[0]}.webp ${_t}w,
-                ${St}/border-layers/tribe_bars/${gt}/${s[0]}.webp ${gt}w,
+                ${a}/border-layers/tribe_bars/${ht}/${s[0]}.webp ${ht}w,
+                ${a}/border-layers/tribe_bars/${$t}/${s[0]}.webp ${$t}w,
+                ${a}/border-layers/tribe_bars/${_t}/${s[0]}.webp ${_t}w,
+                ${a}/border-layers/tribe_bars/${gt}/${s[0]}.webp ${gt}w,
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-                ${St}/border-layers/tribe_bars/${ht}/${s[0]}.png ${ht}w,
-                ${St}/border-layers/tribe_bars/${$t}/${s[0]}.png ${$t}w,
-                ${St}/border-layers/tribe_bars/${_t}/${s[0]}.png ${_t}w,
-                ${St}/border-layers/tribe_bars/${gt}/${s[0]}.png ${gt}w,
+                ${a}/border-layers/tribe_bars/${ht}/${s[0]}.png ${ht}w,
+                ${a}/border-layers/tribe_bars/${$t}/${s[0]}.png ${$t}w,
+                ${a}/border-layers/tribe_bars/${_t}/${s[0]}.png ${_t}w,
+                ${a}/border-layers/tribe_bars/${gt}/${s[0]}.png ${gt}w,
               "
               sizes="${e}"
               type="image/png"
@@ -635,7 +635,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
             <img
               srcset="
-                ${St}/border-layers/tribe_bars/${mt}/${s[0]}.png
+                ${a}/border-layers/tribe_bars/${mt}/${s[0]}.png
               "
               class="card__tribeBarLayer__img"
             />
@@ -693,62 +693,62 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
       `;{const e=this.useLegacyQualityMapping?Tt[this.quality]:Pt[this.quality-1],t="mythic"===this.compositionCardData.rarity;return I`
         <div class="card__innerRatioConstrainer">
           ${this.loading?xt():I`
-                ${(({id:e,responsiveSrcsetSizes:t=st+"px"})=>I`
+                ${(({id:e,responsiveSrcsetSizes:t=st+"px",imageSrc:r=St})=>I`
     <picture class="card__artwork">
       <source
         srcset="
-          ${St}/art2/${st}/${e}.webp ${ot}w,
-          ${St}/art2/${at}/${e}.webp ${st}w,
-          ${St}/art2/${lt}/${e}.webp ${at}w,
-          ${St}/art2/${ct}/${e}.webp ${lt}w,
-          ${St}/art2/${pt}/${e}.webp ${ct}w,
-          ${St}/art2/${dt}/${e}.webp ${pt}w,
-          ${St}/art2/${ut}/${e}.webp ${dt}w
+          ${r}/art2/${st}/${e}.webp ${ot}w,
+          ${r}/art2/${at}/${e}.webp ${st}w,
+          ${r}/art2/${lt}/${e}.webp ${at}w,
+          ${r}/art2/${ct}/${e}.webp ${lt}w,
+          ${r}/art2/${pt}/${e}.webp ${ct}w,
+          ${r}/art2/${dt}/${e}.webp ${pt}w,
+          ${r}/art2/${ut}/${e}.webp ${dt}w
         "
         sizes="${t}"
         type="image/webp"
       />
       <source
         srcset="
-          ${St}/art2/${st}/${e}.jpg ${ot}w,
-          ${St}/art2/${at}/${e}.jpg ${st}w,
-          ${St}/art2/${lt}/${e}.jpg ${at}w,
-          ${St}/art2/${ct}/${e}.jpg ${lt}w,
-          ${St}/art2/${pt}/${e}.jpg ${ct}w,
-          ${St}/art2/${dt}/${e}.jpg ${pt}w,
-          ${St}/art2/${ut}/${e}.jpg ${dt}w
+          ${r}/art2/${st}/${e}.jpg ${ot}w,
+          ${r}/art2/${at}/${e}.jpg ${st}w,
+          ${r}/art2/${lt}/${e}.jpg ${at}w,
+          ${r}/art2/${ct}/${e}.jpg ${lt}w,
+          ${r}/art2/${pt}/${e}.jpg ${ct}w,
+          ${r}/art2/${dt}/${e}.jpg ${pt}w,
+          ${r}/art2/${ut}/${e}.jpg ${dt}w
         "
         sizes="${t}"
         type="image/jpg"
       />
       <img
-        srcset="${St}/art2/${ot}/${e}.jpg"
+        srcset="${r}/art2/${ot}/${e}.jpg"
         class="card__artwork__img"
       />
     </picture>
-  `)({id:this.compositionCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
-                ${t?(({responsiveSrcsetSizes:e=$t+"px",art_id:t,type:r,god:n})=>I`
+  `)({id:this.compositionCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes,imageSrc:this.illustrationSource})}
+                ${t?(({responsiveSrcsetSizes:e=$t+"px",imageSrc:t=St,art_id:r,type:n,god:i})=>I`
     <picture class="card__baseLayer">
       <source
         srcset="
-          ${St}/border-layers/types/${r}/${$t}/${r}_${t}.webp ${ht}w,
-          ${St}/border-layers/types/${r}/${_t}/${r}_${t}.webp ${$t}w,
-          ${St}/border-layers/types/${r}/${gt}/${r}_${t}.webp ${_t}w,
-          ${St}/border-layers/types/${r}/${yt}/${r}_${t}.webp ${gt}w,
-          ${St}/border-layers/types/${r}/${bt}/${r}_${t}.webp ${yt}w,
-          ${St}/border-layers/types/${r}/${mt}/${r}_${t}.webp ${bt}w
+          ${t}/border-layers/types/${n}/${$t}/${n}_${r}.webp ${ht}w,
+          ${t}/border-layers/types/${n}/${_t}/${n}_${r}.webp ${$t}w,
+          ${t}/border-layers/types/${n}/${gt}/${n}_${r}.webp ${_t}w,
+          ${t}/border-layers/types/${n}/${yt}/${n}_${r}.webp ${gt}w,
+          ${t}/border-layers/types/${n}/${bt}/${n}_${r}.webp ${yt}w,
+          ${t}/border-layers/types/${n}/${mt}/${n}_${r}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${St}/border-layers/types/${r}/${$t}/${r}_${t}.png ${ht}w,
-          ${St}/border-layers/types/${r}/${_t}/${r}_${t}.png ${$t}w,
-          ${St}/border-layers/types/${r}/${gt}/${r}_${t}.png ${_t}w,
-          ${St}/border-layers/types/${r}/${yt}/${r}_${t}.png ${gt}w,
-          ${St}/border-layers/types/${r}/${bt}/${r}_${t}.png ${yt}w,
-          ${St}/border-layers/types/${r}/${mt}/${r}_${t}.png ${bt}w
+          ${t}/border-layers/types/${n}/${$t}/${n}_${r}.png ${ht}w,
+          ${t}/border-layers/types/${n}/${_t}/${n}_${r}.png ${$t}w,
+          ${t}/border-layers/types/${n}/${gt}/${n}_${r}.png ${_t}w,
+          ${t}/border-layers/types/${n}/${yt}/${n}_${r}.png ${gt}w,
+          ${t}/border-layers/types/${n}/${bt}/${n}_${r}.png ${yt}w,
+          ${t}/border-layers/types/${n}/${mt}/${n}_${r}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
@@ -756,7 +756,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
       <img
         srcset="
-          ${St}/border-layers/types/${r}/${ht}/${r}_${t}.png
+          ${t}/border-layers/types/${n}/${ht}/${n}_${r}.png
         "
         class="card__baseLayer__img"
       />
@@ -765,24 +765,24 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${St}/border-layers/rosettes/mythics/${$t}/mythic_${t}.webp ${ht}w,
-          ${St}/border-layers/rosettes/mythics/${_t}/mythic_${t}.webp ${$t}w,
-          ${St}/border-layers/rosettes/mythics/${gt}/mythic_${t}.webp ${_t}w,
-          ${St}/border-layers/rosettes/mythics/${yt}/mythic_${t}.webp ${gt}w,
-          ${St}/border-layers/rosettes/mythics/${bt}/mythic_${t}.webp ${yt}w,
-          ${St}/border-layers/rosettes/mythics/${mt}/mythic_${t}.webp ${bt}w
+          ${t}/border-layers/rosettes/mythics/${$t}/mythic_${r}.webp ${ht}w,
+          ${t}/border-layers/rosettes/mythics/${_t}/mythic_${r}.webp ${$t}w,
+          ${t}/border-layers/rosettes/mythics/${gt}/mythic_${r}.webp ${_t}w,
+          ${t}/border-layers/rosettes/mythics/${yt}/mythic_${r}.webp ${gt}w,
+          ${t}/border-layers/rosettes/mythics/${bt}/mythic_${r}.webp ${yt}w,
+          ${t}/border-layers/rosettes/mythics/${mt}/mythic_${r}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${St}/border-layers/rosettes/mythics/${$t}/mythic_${t}.png ${ht}w,
-          ${St}/border-layers/rosettes/mythics/${_t}/mythic_${t}.png ${$t}w,
-          ${St}/border-layers/rosettes/mythics/${gt}/mythic_${t}.png ${_t}w,
-          ${St}/border-layers/rosettes/mythics/${yt}/mythic_${t}.png ${gt}w,
-          ${St}/border-layers/rosettes/mythics/${bt}/mythic_${t}.png ${yt}w,
-          ${St}/border-layers/rosettes/mythics/${mt}/mythic_${t}.png ${bt}w
+          ${t}/border-layers/rosettes/mythics/${$t}/mythic_${r}.png ${ht}w,
+          ${t}/border-layers/rosettes/mythics/${_t}/mythic_${r}.png ${$t}w,
+          ${t}/border-layers/rosettes/mythics/${gt}/mythic_${r}.png ${_t}w,
+          ${t}/border-layers/rosettes/mythics/${yt}/mythic_${r}.png ${gt}w,
+          ${t}/border-layers/rosettes/mythics/${bt}/mythic_${r}.png ${yt}w,
+          ${t}/border-layers/rosettes/mythics/${mt}/mythic_${r}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
@@ -790,21 +790,21 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
       <img
         srcset="
-          ${St}/border-layers/rosettes/${n}/${$t}/mythic_${t}.png
+          ${t}/border-layers/rosettes/${i}/${$t}/mythic_${r}.png
         "
         class="card__manaLayer__img card__manaLayer__img--mythic"
       />
     </picture>
-  `)({responsiveSrcsetSizes:this.responsiveSrcsetSizes,...this.compositionCardData}):(({responsiveSrcsetSizes:e=$t+"px",type:t,qualityName:r,rarity:n,god:i,set:o,tribe:s})=>(t=vt(t),I`
+  `)({responsiveSrcsetSizes:this.responsiveSrcsetSizes,...this.compositionCardData}):(({responsiveSrcsetSizes:e=$t+"px",imageSrc:t=St,type:r,qualityName:n,rarity:i,god:o,set:s,tribe:a})=>(r=vt(r),I`
     <picture class="card__baseLayer">
       <source
         srcset="
-          ${St}/border-layers/types/${t}/${$t}/${t}_${r}.webp ${ht}w,
-          ${St}/border-layers/types/${t}/${_t}/${t}_${r}.webp ${$t}w,
-          ${St}/border-layers/types/${t}/${gt}/${t}_${r}.webp ${_t}w,
-          ${St}/border-layers/types/${t}/${yt}/${t}_${r}.webp ${gt}w,
-          ${St}/border-layers/types/${t}/${bt}/${t}_${r}.webp ${yt}w,
-          ${St}/border-layers/types/${t}/${mt}/${t}_${r}.webp ${bt}w
+          ${t}/border-layers/types/${r}/${$t}/${r}_${n}.webp ${ht}w,
+          ${t}/border-layers/types/${r}/${_t}/${r}_${n}.webp ${$t}w,
+          ${t}/border-layers/types/${r}/${gt}/${r}_${n}.webp ${_t}w,
+          ${t}/border-layers/types/${r}/${yt}/${r}_${n}.webp ${gt}w,
+          ${t}/border-layers/types/${r}/${bt}/${r}_${n}.webp ${yt}w,
+          ${t}/border-layers/types/${r}/${mt}/${r}_${n}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
@@ -812,19 +812,19 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
       <source
         srcset="
-          ${St}/border-layers/types/${t}/${$t}/${t}_${r}.png ${ht}w,
-          ${St}/border-layers/types/${t}/${_t}/${t}_${r}.png ${$t}w,
-          ${St}/border-layers/types/${t}/${gt}/${t}_${r}.png ${_t}w,
-          ${St}/border-layers/types/${t}/${yt}/${t}_${r}.png ${gt}w,
-          ${St}/border-layers/types/${t}/${bt}/${t}_${r}.png ${yt}w,
-          ${St}/border-layers/types/${t}/${mt}/${t}_${r}.png ${bt}w
+          ${t}/border-layers/types/${r}/${$t}/${r}_${n}.png ${ht}w,
+          ${t}/border-layers/types/${r}/${_t}/${r}_${n}.png ${$t}w,
+          ${t}/border-layers/types/${r}/${gt}/${r}_${n}.png ${_t}w,
+          ${t}/border-layers/types/${r}/${yt}/${r}_${n}.png ${gt}w,
+          ${t}/border-layers/types/${r}/${bt}/${r}_${n}.png ${yt}w,
+          ${t}/border-layers/types/${r}/${mt}/${r}_${n}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${St}/border-layers/types/${t}/${ht}/${t}_${r}.png
+          ${t}/border-layers/types/${r}/${ht}/${r}_${n}.png
         "
         class="card__baseLayer__img"
       />
@@ -833,83 +833,83 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${St}/border-layers/rosettes/${i}/${$t}/${i}_${r}.webp ${ht}w,
-          ${St}/border-layers/rosettes/${i}/${_t}/${i}_${r}.webp ${$t}w,
-          ${St}/border-layers/rosettes/${i}/${gt}/${i}_${r}.webp ${_t}w,
-          ${St}/border-layers/rosettes/${i}/${yt}/${i}_${r}.webp ${gt}w,
-          ${St}/border-layers/rosettes/${i}/${bt}/${i}_${r}.webp ${yt}w,
-          ${St}/border-layers/rosettes/${i}/${mt}/${i}_${r}.webp ${bt}w
+          ${t}/border-layers/rosettes/${o}/${$t}/${o}_${n}.webp ${ht}w,
+          ${t}/border-layers/rosettes/${o}/${_t}/${o}_${n}.webp ${$t}w,
+          ${t}/border-layers/rosettes/${o}/${gt}/${o}_${n}.webp ${_t}w,
+          ${t}/border-layers/rosettes/${o}/${yt}/${o}_${n}.webp ${gt}w,
+          ${t}/border-layers/rosettes/${o}/${bt}/${o}_${n}.webp ${yt}w,
+          ${t}/border-layers/rosettes/${o}/${mt}/${o}_${n}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${St}/border-layers/rosettes/${i}/${$t}/${i}_${r}.png ${ht}w,
-          ${St}/border-layers/rosettes/${i}/${_t}/${i}_${r}.png ${$t}w,
-          ${St}/border-layers/rosettes/${i}/${gt}/${i}_${r}.png ${_t}w,
-          ${St}/border-layers/rosettes/${i}/${yt}/${i}_${r}.png ${gt}w,
-          ${St}/border-layers/rosettes/${i}/${bt}/${i}_${r}.png ${yt}w,
-          ${St}/border-layers/rosettes/${i}/${mt}/${i}_${r}.png ${bt}w
+          ${t}/border-layers/rosettes/${o}/${$t}/${o}_${n}.png ${ht}w,
+          ${t}/border-layers/rosettes/${o}/${_t}/${o}_${n}.png ${$t}w,
+          ${t}/border-layers/rosettes/${o}/${gt}/${o}_${n}.png ${_t}w,
+          ${t}/border-layers/rosettes/${o}/${yt}/${o}_${n}.png ${gt}w,
+          ${t}/border-layers/rosettes/${o}/${bt}/${o}_${n}.png ${yt}w,
+          ${t}/border-layers/rosettes/${o}/${mt}/${o}_${n}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${St}/border-layers/rosettes/${i}/${ht}/${i}_${r}.png
+          ${t}/border-layers/rosettes/${o}/${ht}/${o}_${n}.png
         "
         class="card__manaLayer__img"
       />
     </picture>
 
-    ${"common"!==n?I`
+    ${"common"!==i?I`
           <picture class="card__rarityLayer">
             <source
               srcset="
-              ${St}/border-layers/gems/${ht}/rarity_${n}.webp ${ht}w,
-                ${St}/border-layers/gems/${$t}/rarity_${n}.webp ${$t}w,
-                ${St}/border-layers/gems/${_t}/rarity_${n}.webp ${_t}w,
-                ${St}/border-layers/gems/${gt}/rarity_${n}.webp ${gt}w,
-                ${St}/border-layers/gems/${yt}/rarity_${n}.webp ${yt}w,
-                ${St}/border-layers/gems/${bt}/rarity_${n}.webp ${bt}w,
-                ${St}/border-layers/gems/${mt}/rarity_${n}.webp ${mt}w
+              ${t}/border-layers/gems/${ht}/rarity_${i}.webp ${ht}w,
+                ${t}/border-layers/gems/${$t}/rarity_${i}.webp ${$t}w,
+                ${t}/border-layers/gems/${_t}/rarity_${i}.webp ${_t}w,
+                ${t}/border-layers/gems/${gt}/rarity_${i}.webp ${gt}w,
+                ${t}/border-layers/gems/${yt}/rarity_${i}.webp ${yt}w,
+                ${t}/border-layers/gems/${bt}/rarity_${i}.webp ${bt}w,
+                ${t}/border-layers/gems/${mt}/rarity_${i}.webp ${mt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-              ${St}/border-layers/gems/${ht}/rarity_${n}.png ${ht}w,
-                ${St}/border-layers/gems/${$t}/rarity_${n}.png ${$t}w,
-                ${St}/border-layers/gems/${_t}/rarity_${n}.png ${_t}w,
-                ${St}/border-layers/gems/${gt}/rarity_${n}.png ${gt}w,
-                ${St}/border-layers/gems/${yt}/rarity_${n}.webp ${yt}w,
-                ${St}/border-layers/gems/${bt}/rarity_${n}.webp ${bt}w,
-                ${St}/border-layers/gems/${mt}/rarity_${n}.png ${mt}w
+              ${t}/border-layers/gems/${ht}/rarity_${i}.png ${ht}w,
+                ${t}/border-layers/gems/${$t}/rarity_${i}.png ${$t}w,
+                ${t}/border-layers/gems/${_t}/rarity_${i}.png ${_t}w,
+                ${t}/border-layers/gems/${gt}/rarity_${i}.png ${gt}w,
+                ${t}/border-layers/gems/${yt}/rarity_${i}.webp ${yt}w,
+                ${t}/border-layers/gems/${bt}/rarity_${i}.webp ${bt}w,
+                ${t}/border-layers/gems/${mt}/rarity_${i}.png ${mt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${St}/border-layers/gems/${ht}/rarity_${n}.png
+                ${t}/border-layers/gems/${ht}/rarity_${i}.png
               "
               class="card__rarityLayer__img"
             />
           </picture>
         `:null}
-    ${"legendary"===n?I`
+    ${"legendary"===i?I`
           <picture class="card__wreathLayer">
             <source
               srcset="
-                ${St}/border-layers/wreaths/${ht}/wreath_${r}.webp ${ht}w,
-                ${St}/border-layers/wreaths/${$t}/wreath_${r}.webp ${$t}w,
-                ${St}/border-layers/wreaths/${_t}/wreath_${r}.webp ${_t}w,
-                ${St}/border-layers/wreaths/${gt}/wreath_${r}.webp ${gt}w,
-                ${St}/border-layers/wreaths/${yt}/wreath_${r}.webp ${yt}w,
-                ${St}/border-layers/wreaths/${bt}/wreath_${r}.webp ${bt}w,
-                ${St}/border-layers/wreaths/${mt}/wreath_${r}.webp ${mt}w
+                ${t}/border-layers/wreaths/${ht}/wreath_${n}.webp ${ht}w,
+                ${t}/border-layers/wreaths/${$t}/wreath_${n}.webp ${$t}w,
+                ${t}/border-layers/wreaths/${_t}/wreath_${n}.webp ${_t}w,
+                ${t}/border-layers/wreaths/${gt}/wreath_${n}.webp ${gt}w,
+                ${t}/border-layers/wreaths/${yt}/wreath_${n}.webp ${yt}w,
+                ${t}/border-layers/wreaths/${bt}/wreath_${n}.webp ${bt}w,
+                ${t}/border-layers/wreaths/${mt}/wreath_${n}.webp ${mt}w
               "
               sizes="${e}"
               type="image/webp"
@@ -917,69 +917,69 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
             <source
               srcset="
-              ${St}/border-layers/wreaths/${ht}/wreath_${r}.png ${ht}w,
-                ${St}/border-layers/wreaths/${$t}/wreath_${r}.png ${$t}w,
-                ${St}/border-layers/wreaths/${_t}/wreath_${r}.png ${_t}w,
-                ${St}/border-layers/wreaths/${gt}/wreath_${r}.png ${gt}w,
-                ${St}/border-layers/wreaths/${yt}/wreath_${r}.png ${yt}w,
-                ${St}/border-layers/wreaths/${bt}/wreath_${r}.png ${bt}w,
-                ${St}/border-layers/wreaths/${mt}/wreath_${r}.png ${mt}w
+              ${t}/border-layers/wreaths/${ht}/wreath_${n}.png ${ht}w,
+                ${t}/border-layers/wreaths/${$t}/wreath_${n}.png ${$t}w,
+                ${t}/border-layers/wreaths/${_t}/wreath_${n}.png ${_t}w,
+                ${t}/border-layers/wreaths/${gt}/wreath_${n}.png ${gt}w,
+                ${t}/border-layers/wreaths/${yt}/wreath_${n}.png ${yt}w,
+                ${t}/border-layers/wreaths/${bt}/wreath_${n}.png ${bt}w,
+                ${t}/border-layers/wreaths/${mt}/wreath_${n}.png ${mt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${St}/border-layers/wreaths/${ht}/wreath_${r}.png
+                ${t}/border-layers/wreaths/${ht}/wreath_${n}.png
               "
               class="card__wreathLayer__img"
             />
           </picture>
         `:null}
-    ${"core"===o&&"plain"===r?I`
+    ${"core"===s&&"plain"===n?I`
           <picture class="card__lockIconLayer">
             <source
               srcset="
-                ${St}/border-layers/locks/${wt}/lock_${r}.webp ${wt}w,
-                ${St}/border-layers/locks/${ft}/lock_${r}.webp ${ft}w,
+                ${t}/border-layers/locks/${wt}/lock_${n}.webp ${wt}w,
+                ${t}/border-layers/locks/${ft}/lock_${n}.webp ${ft}w,
               "
               type="image/webp"
             />
 
             <source
               srcset="
-                ${St}/border-layers/locks/${wt}/lock_${r}.png ${wt}w,
-                ${St}/border-layers/locks/${ft}/lock_${r}.png ${ft}w,
+                ${t}/border-layers/locks/${wt}/lock_${n}.png ${wt}w,
+                ${t}/border-layers/locks/${ft}/lock_${n}.png ${ft}w,
               "
               type="image/png"
             />
 
             <img
               srcset="
-                ${St}/border-layers/locks/lock_${r}.png
+                ${t}/border-layers/locks/lock_${n}.png
               "
               class="card__lockIconLayer__img"
             />
           </picture>
         `:null}
-    ${s?I`
+    ${a?I`
           <picture class="card__tribeBarLayer">
             <source
               srcset="
-                ${St}/border-layers/tribe_bars/${ht}/tribebar_${r}.webp ${ht}w,
-                ${St}/border-layers/tribe_bars/${$t}/tribebar_${r}.webp ${$t}w,
-                ${St}/border-layers/tribe_bars/${_t}/tribebar_${r}.webp ${_t}w,
-                ${St}/border-layers/tribe_bars/${gt}/tribebar_${r}.webp ${gt}w,
+                ${t}/border-layers/tribe_bars/${ht}/tribebar_${n}.webp ${ht}w,
+                ${t}/border-layers/tribe_bars/${$t}/tribebar_${n}.webp ${$t}w,
+                ${t}/border-layers/tribe_bars/${_t}/tribebar_${n}.webp ${_t}w,
+                ${t}/border-layers/tribe_bars/${gt}/tribebar_${n}.webp ${gt}w,
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-                ${St}/border-layers/tribe_bars/${ht}/tribebar_${r}.png ${ht}w,
-                ${St}/border-layers/tribe_bars/${$t}/tribebar_${r}.png ${$t}w,
-                ${St}/border-layers/tribe_bars/${_t}/tribebar_${r}.png ${_t}w,
-                ${St}/border-layers/tribe_bars/${gt}/tribebar_${r}.png ${gt}w,
+                ${t}/border-layers/tribe_bars/${ht}/tribebar_${n}.png ${ht}w,
+                ${t}/border-layers/tribe_bars/${$t}/tribebar_${n}.png ${$t}w,
+                ${t}/border-layers/tribe_bars/${_t}/tribebar_${n}.png ${_t}w,
+                ${t}/border-layers/tribe_bars/${gt}/tribebar_${n}.png ${gt}w,
               "
               sizes="${e}"
               type="image/png"
@@ -987,7 +987,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
 
             <img
               srcset="
-                ${St}/border-layers/tribe_bars/${mt}/tribebar_${n}.png
+                ${t}/border-layers/tribe_bars/${mt}/tribebar_${i}.png
               "
               class="card__tribeBarLayer__img"
             />
@@ -1042,7 +1042,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
   `})({ch:this.ch,cw:this.cw,...this.compositionCardData,cardSet:this.compositionCardData.set})}
               `}
         </div>
-      `}}};Ct([Z({type:Number})],Et.prototype,"protoId",void 0),Ct([Z({type:Number})],Et.prototype,"quality",void 0),Ct([Z({type:Object})],Et.prototype,"inputProtoData",void 0),Ct([Z({type:Object})],Et.prototype,"inputCompositionData",void 0),Ct([Z({type:String})],Et.prototype,"responsiveSrcsetSizes",void 0),Ct([Z({type:Boolean})],Et.prototype,"useLegacyQualityMapping",void 0),Ct([Z({type:Number})],Et.prototype,"compositionVersion",void 0),Et=Ct([Y("composited-card")],Et);const Nt=ne`
+      `}}};Ct([Z({type:Number})],Et.prototype,"protoId",void 0),Ct([Z({type:Number})],Et.prototype,"quality",void 0),Ct([Z({type:Object})],Et.prototype,"inputProtoData",void 0),Ct([Z({type:Object})],Et.prototype,"inputCompositionData",void 0),Ct([Z({type:String})],Et.prototype,"responsiveSrcsetSizes",void 0),Ct([Z({type:Boolean})],Et.prototype,"useLegacyQualityMapping",void 0),Ct([Z({type:Number})],Et.prototype,"compositionVersion",void 0),Ct([Z({type:String})],Et.prototype,"illustrationSource",void 0),Et=Ct([Y("composited-card")],Et);const Nt=ne`
   font-family: 'Unchained', serif;
   line-height: 1.1;
 `,Lt=ne`
@@ -1589,4 +1589,4 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
         </div>
       </main>
     `}};Ht([Z()],Ft.prototype,"currentProtoId",void 0),Ht([Z()],Ft.prototype,"currentQuality",void 0),Ht([Z()],Ft.prototype,"currentQualityInWords",void 0),Ht([Z()],Ft.prototype,"currentProtoData",void 0),Ht([Z()],Ft.prototype,"protosCollection",void 0),Ft=Ht([Y("demo-app")],Ft);r(8);const Qt=document.createElement("style");Qt.innerHTML=rt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Qt)}]);
-//# sourceMappingURL=bundle.7ce023bc382ac61f26a5.js.map
+//# sourceMappingURL=bundle.39ec3eaf8e7af87ca0c4.js.map
