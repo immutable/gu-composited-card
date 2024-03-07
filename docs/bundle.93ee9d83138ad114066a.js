@@ -406,7 +406,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
       alt="immutable loading spinner"
     />
   </div>
-`,St="https://images.godsunchained.com";r(4);var Ct=function(e,t,r,n){var i,o=arguments.length,s=o<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,r):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,n);else for(var a=e.length-1;a>=0;a--)(i=e[a])&&(s=(o<3?i(s):o>3?i(t,r,s):i(t,r))||s);return o>3&&s&&Object.defineProperty(t,r,s),s},kt=function(e,t,r,n){return new(r||(r=Promise))((function(i,o){function s(e){try{l(n.next(e))}catch(e){o(e)}}function a(e){try{l(n.throw(e))}catch(e){o(e)}}function l(e){var t;e.done?i(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(s,a)}l((n=n.apply(e,t||[])).next())}))};const Tt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],Pt=["diamond","gold","shadow","meteorite","plain"],zt=new He(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Et=class extends oe{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.compositionVersion=1,this.compositionCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:"",composition:{illustration:[],frame:[],rosette:[],gems:[],wreath:[],lock:[],tribe_bar:[]}},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return rt()}connectedCallback(){super.connectedCallback(),zt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),zt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"!==t&&"inputCompositionData"!==t||this.getProtoDataFromInput(t)})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return kt(this,void 0,void 0,(function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`).then(e=>e.json())}))}getProtoDataFromApi(){return kt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{if(!e||e.error||1!=e.length)return null;const{id:t,type:r,attack:n,health:i,effect:o,name:s,rarity:a,god:l,mana:c,set:p,tribe:d,art_id:u,composition:h}=e[0];return this.compositionCardData={id:t,type:r,attack:n.Int64,health:i.Int64,effect:o,name:s,rarity:a,god:l,mana:c,set:p,tribe:d.String,art_id:u,composition:h},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(e){this.compositionCardData="inputProtoData"==e?Object.assign({},this.inputProtoData):Object.assign({},this.inputCompositionData),this.compositionCardData.composition||1==this.compositionVersion||(this.compositionVersion=1),this.loading=!1,this.requestUpdate()}render(){if(2==this.compositionVersion)return I`
+`,St="https://images.godsunchained.com";r(4);var Ct=function(e,t,r,n){var i,o=arguments.length,s=o<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,r):n;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,n);else for(var a=e.length-1;a>=0;a--)(i=e[a])&&(s=(o<3?i(s):o>3?i(t,r,s):i(t,r))||s);return o>3&&s&&Object.defineProperty(t,r,s),s},kt=function(e,t,r,n){return new(r||(r=Promise))((function(i,o){function s(e){try{l(n.next(e))}catch(e){o(e)}}function a(e){try{l(n.throw(e))}catch(e){o(e)}}function l(e){var t;e.done?i(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(s,a)}l((n=n.apply(e,t||[])).next())}))};const Tt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],Pt=["diamond","gold","shadow","meteorite","plain"],zt=new He(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Et=class extends oe{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.compositionVersion=1,this.compositionCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:"",composition:{illustration:[],frame:[],rosette:[],gems:[],wreath:[],lock:[],tribe_bar:[]}},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return rt()}connectedCallback(){super.connectedCallback(),zt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),zt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"!==t&&"inputCompositionData"!==t||this.getProtoDataFromInput(t)})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return kt(this,void 0,void 0,(function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`).then(e=>e.json())}))}getProtoDataFromApi(){return kt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{if(!e||e.error||1!=e.length)return null;const{id:t,type:r,attack:n,health:i,effect:o,name:s,rarity:a,god:l,mana:c,set:p,tribe:d,art_id:u,composition:h}=e[0];return this.compositionCardData={id:t,type:r,attack:n.Int64,health:i.Int64,effect:o,name:s,rarity:a,god:l,mana:c,set:p,tribe:d.String,art_id:u,composition:h},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(e){this.compositionCardData="inputProtoData"==e?Object.assign({},this.inputProtoData):Object.assign({},this.inputCompositionData),this.compositionCardData.composition||1==this.compositionVersion||(this.compositionVersion=1),this.loading=!1,this.requestUpdate()}render(){var e,t;if(2==this.compositionVersion){const t={illustration:this.compositionCardData.composition.illustration,responsiveSrcsetSizes:this.responsiveSrcsetSizes};return(null===(e=this.illustrationSource)||void 0===e?void 0:e.length)>0&&(t.imageSrc=this.illustrationSource),I`
         <div class="card__innerRatioConstrainer">
           ${this.loading?xt():I`
               ${(({illustration:e,responsiveSrcsetSizes:t=st+"px",imageSrc:r=St})=>I`
@@ -442,7 +442,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
         class="card__artwork__img"
       />
     </picture>
-  `)({illustration:this.compositionCardData.composition.illustration,responsiveSrcsetSizes:this.responsiveSrcsetSizes,imageSrc:this.illustrationSource})}
+  `)(t)}
               ${(({responsiveSrcsetSizes:e=$t+"px",frame:t,rosette:r,gems:n,wreath:i,lock:o,tribe:s,imageSrc:a=St})=>I`
     <picture class="card__baseLayer">
       <source
@@ -690,7 +690,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
   `})({ch:this.ch,cw:this.cw,...this.compositionCardData,cardSet:this.compositionCardData.composition.set})}
             `}
         </div>
-      `;{const e=this.useLegacyQualityMapping?Tt[this.quality]:Pt[this.quality-1],t="mythic"===this.compositionCardData.rarity;return I`
+      `}{const e=this.useLegacyQualityMapping?Tt[this.quality]:Pt[this.quality-1],r="mythic"===this.compositionCardData.rarity,n={id:this.compositionCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes};return(null===(t=this.illustrationSource)||void 0===t?void 0:t.length)>0&&(n.imageSrc=this.illustrationSource),I`
         <div class="card__innerRatioConstrainer">
           ${this.loading?xt():I`
                 ${(({id:e,responsiveSrcsetSizes:t=st+"px",imageSrc:r=St})=>I`
@@ -726,8 +726,8 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
         class="card__artwork__img"
       />
     </picture>
-  `)({id:this.compositionCardData.id,responsiveSrcsetSizes:this.responsiveSrcsetSizes,imageSrc:this.illustrationSource})}
-                ${t?(({responsiveSrcsetSizes:e=$t+"px",imageSrc:t=St,art_id:r,type:n,god:i})=>I`
+  `)(n)}
+                ${r?(({responsiveSrcsetSizes:e=$t+"px",imageSrc:t=St,art_id:r,type:n,god:i})=>I`
     <picture class="card__baseLayer">
       <source
         srcset="
@@ -1589,4 +1589,4 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
         </div>
       </main>
     `}};Ht([Z()],Ft.prototype,"currentProtoId",void 0),Ht([Z()],Ft.prototype,"currentQuality",void 0),Ht([Z()],Ft.prototype,"currentQualityInWords",void 0),Ht([Z()],Ft.prototype,"currentProtoData",void 0),Ht([Z()],Ft.prototype,"protosCollection",void 0),Ft=Ht([Y("demo-app")],Ft);r(8);const Qt=document.createElement("style");Qt.innerHTML=rt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Qt)}]);
-//# sourceMappingURL=bundle.39ec3eaf8e7af87ca0c4.js.map
+//# sourceMappingURL=bundle.93ee9d83138ad114066a.js.map
