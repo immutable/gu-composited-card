@@ -68,6 +68,10 @@ export class CompositedCard extends LitElement {
       textSize = ch * 2.8;
       lineHeight = 1.1;
       textMode = 'extraSquishy';
+    } else if (textLength >= 130) {
+      textSize = ch * 3.0;
+      lineHeight = 1.1;
+      textMode = 'extraSquishy';
     } else if (textLength >= 90) {
       textSize = ch * 3.4;
       lineHeight = 1.1;

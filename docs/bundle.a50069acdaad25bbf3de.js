@@ -385,7 +385,7 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
         margin: auto;
         ${Ye}
       }
-    `}updated(e){}render(){const{text:e,ch:t,cw:r,tribe:n,type:i}=this,o=e.replace(/ ([^ ]*)$/,"&nbsp;$1"),s=e.split("").length;let a=3.8*t,l=1.25,c="normal";s>=150?(a=2.8*t,l=1.1,c="extraSquishy"):s>=90&&(a=3.4*t,l=1.1,c="squishy");return I`
+    `}updated(e){}render(){const{text:e,ch:t,cw:r,tribe:n,type:i}=this,o=e.replace(/ ([^ ]*)$/,"&nbsp;$1"),s=e.split("").length;let a=3.8*t,l=1.25,c="normal";s>=150?(a=2.8*t,l=1.1,c="extraSquishy"):s>=130?(a=3*t,l=1.1,c="extraSquishy"):s>=90&&(a=3.4*t,l=1.1,c="squishy");return I`
       <style>
         :host {
           font-size: ${a}px;
@@ -1589,4 +1589,4 @@ const Je=new WeakMap,Xe=y(e=>t=>{if(!(t instanceof z))throw new Error("unsafeHTM
         </div>
       </main>
     `}};Ht([Z()],Ft.prototype,"currentProtoId",void 0),Ht([Z()],Ft.prototype,"currentQuality",void 0),Ht([Z()],Ft.prototype,"currentQualityInWords",void 0),Ht([Z()],Ft.prototype,"currentProtoData",void 0),Ht([Z()],Ft.prototype,"protosCollection",void 0),Ft=Ht([Y("demo-app")],Ft);r(8);const Qt=document.createElement("style");Qt.innerHTML=rt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Qt)}]);
-//# sourceMappingURL=bundle.93ee9d83138ad114066a.js.map
+//# sourceMappingURL=bundle.a50069acdaad25bbf3de.js.map

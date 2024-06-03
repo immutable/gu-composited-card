@@ -233,7 +233,7 @@ const Ge=new WeakMap,Je=b(e=>t=>{if(!(t instanceof B))throw new Error("unsafeHTM
         margin: auto;
         ${Ke}
       }
-    `}updated(e){}render(){const{text:e,ch:t,cw:r,tribe:s,type:i}=this,o=e.replace(/ ([^ ]*)$/,"&nbsp;$1"),A=e.split("").length;let n=3.8*t,a=1.25,c="normal";A>=150?(n=2.8*t,a=1.1,c="extraSquishy"):A>=90&&(n=3.4*t,a=1.1,c="squishy");return O`
+    `}updated(e){}render(){const{text:e,ch:t,cw:r,tribe:s,type:i}=this,o=e.replace(/ ([^ ]*)$/,"&nbsp;$1"),A=e.split("").length;let n=3.8*t,a=1.25,c="normal";A>=150?(n=2.8*t,a=1.1,c="extraSquishy"):A>=130?(n=3*t,a=1.1,c="extraSquishy"):A>=90&&(n=3.4*t,a=1.1,c="squishy");return O`
       <style>
         :host {
           font-size: ${n}px;
