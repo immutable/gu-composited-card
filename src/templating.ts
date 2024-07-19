@@ -915,3 +915,79 @@ export const textLayersCompositionTemplate = ({
       : null}
   `;
 };
+
+/* CARD PROFILE */
+
+export const profileArtworkLayersCompositionTemplate = ({
+  illustration,
+  profile,
+  responsiveSrcsetSizes = `${artQualities.normal}px`,
+  imageSrc = guImagesUrl,
+}) => {
+  return html`
+    <picture class="profile__artwork">
+      <source
+        srcset="
+          ${imageSrc}/art2/${artQualities.normal}/${illustration[0]}.webp ${artQualities.small}w,
+          ${imageSrc}/art2/${artQualities.large}/${illustration[0]}.webp ${artQualities.normal}w,
+          ${imageSrc}/art2/${artQualities.xLarge}/${illustration[0]}.webp ${artQualities.large}w,
+          ${imageSrc}/art2/${artQualities.xxLarge}/${illustration[0]}.webp ${artQualities.xLarge}w,
+          ${imageSrc}/art2/${artQualities.xxxLarge}/${illustration[0]}.webp ${artQualities.xxLarge}w,
+          ${imageSrc}/art2/${artQualities.xxxxLarge}/${illustration[0]}.webp ${artQualities.xxxLarge}w,
+          ${imageSrc}/art2/${artQualities.best}/${illustration[0]}.webp ${artQualities.xxxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/webp"
+      />
+      <source
+        srcset="
+          ${imageSrc}/art2/${artQualities.normal}/${illustration[0]}.jpg ${artQualities.small}w,
+          ${imageSrc}/art2/${artQualities.large}/${illustration[0]}.jpg ${artQualities.normal}w,
+          ${imageSrc}/art2/${artQualities.xLarge}/${illustration[0]}.jpg ${artQualities.large}w,
+          ${imageSrc}/art2/${artQualities.xxLarge}/${illustration[0]}.jpg ${artQualities.xLarge}w,
+          ${imageSrc}/art2/${artQualities.xxxLarge}/${illustration[0]}.jpg ${artQualities.xxLarge}w,
+          ${imageSrc}/art2/${artQualities.xxxxLarge}/${illustration[0]}.jpg ${artQualities.xxxLarge}w,
+          ${imageSrc}/art2/${artQualities.best}/${illustration[0]}.jpg ${artQualities.xxxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/jpg"
+      />
+      <img
+        srcset="${imageSrc}/art2/${artQualities.small}/${illustration[0]}.jpg"
+        class="profile__artwork__img"
+      />
+    </picture>
+    <picture class="profile__frame">
+      <source
+        srcset="
+          ${imageSrc}/profiles/${artQualities.normal}/${profile[0]}.webp ${artQualities.small}w,
+          ${imageSrc}/profiles/${artQualities.large}/${profile[0]}.webp ${artQualities.normal}w,
+          ${imageSrc}/profiles/${artQualities.xLarge}/${profile[0]}.webp ${artQualities.large}w,
+          ${imageSrc}/profiles/${artQualities.xxLarge}/${profile[0]}.webp ${artQualities.xLarge}w,
+          ${imageSrc}/profiles/${artQualities.xxxLarge}/${profile[0]}.webp ${artQualities.xxLarge}w,
+          ${imageSrc}/profiles/${artQualities.xxxxLarge}/${profile[0]}.webp ${artQualities.xxxLarge}w,
+          ${imageSrc}/profiles/${artQualities.best}/${profile[0]}.webp ${artQualities.xxxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/webp"
+      />
+      <source
+        srcset="
+          ${imageSrc}/profiles/${artQualities.normal}/${profile[0]}.jpg ${artQualities.small}w,
+          ${imageSrc}/profiles/${artQualities.large}/${profile[0]}.jpg ${artQualities.normal}w,
+          ${imageSrc}/profiles/${artQualities.xLarge}/${profile[0]}.jpg ${artQualities.large}w,
+          ${imageSrc}/profiles/${artQualities.xxLarge}/${profile[0]}.jpg ${artQualities.xLarge}w,
+          ${imageSrc}/profiles/${artQualities.xxxLarge}/${profile[0]}.jpg ${artQualities.xxLarge}w,
+          ${imageSrc}/profiles/${artQualities.xxxxLarge}/${profile[0]}.jpg ${artQualities.xxxLarge}w,
+          ${imageSrc}/profiles/${artQualities.best}/${profile[0]}.jpg ${artQualities.xxxxLarge}w
+        "
+        sizes="${responsiveSrcsetSizes}"
+        type="image/jpg"
+      />
+      <img
+        srcset="${imageSrc}/profiles/${artQualities.small}/${profile[0]}.jpg"
+        class="profile__frame__img"
+      />
+    </picture>
+  `;
+};

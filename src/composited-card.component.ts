@@ -10,7 +10,8 @@ import {
 
   baseArtworkLayersCompositionTemplate,
   imageLayersCompositionTemplate,
-  textLayersCompositionTemplate
+  textLayersCompositionTemplate,
+  profileArtworkLayersCompositionTemplate
 } from './templating';
 
 import './assets/fonts.css';
@@ -46,6 +47,7 @@ export interface ICompositionData {
   lock?: string[];
   tribe_bar?: string[];
   set?: string[];
+  profile?: string[];
 }
 
 export interface ICardCompsitionData extends ICardProtoData {
@@ -108,6 +110,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Boolean }) useLegacyQualityMapping = false;
   @property({ type: Number }) compositionVersion: number = 1;
   @property({ type: String }) illustrationSource: string;
+  @property({ type: String }) format = "card";
 
   public compositionCardData: ICardCompsitionData = {
     type: '',
@@ -130,6 +133,7 @@ export class CompositedCard extends LitElement {
       wreath: [],
       lock: [],
       tribe_bar: [],
+      profile: [],
     }
   };
 
@@ -259,6 +263,10 @@ export class CompositedCard extends LitElement {
 
     if (this.compositionVersion == 2) {
 
+      if(this.format == "profile") {
+        return this.renderProfile()
+      }
+
       const baseArtworkLayersCompositionTemplateData = {
         illustration: this.compositionCardData.composition.illustration,
         responsiveSrcsetSizes: this.responsiveSrcsetSizes,
@@ -328,5 +336,26 @@ export class CompositedCard extends LitElement {
     }
 
     
+  }
+
+  renderProfile() {
+
+    const baseArtworkLayersCompositionTemplateData = {
+      illustration: this.compositionCardData.composition.illustration,
+      profile: this.compositionCardData.composition.profile,
+      responsiveSrcsetSizes: this.responsiveSrcsetSizes,
+    }
+
+    if(this.illustrationSource?.length > 0) baseArtworkLayersCompositionTemplateData["imageSrc"] = this.illustrationSource
+
+    return html`
+        <div class="profile__ratioConstrainer">
+          ${this.loading
+            ? loadingTemplate()
+            : html`
+              ${profileArtworkLayersCompositionTemplate(baseArtworkLayersCompositionTemplateData)}
+            `}
+        </div>
+      `;
   }
 }
