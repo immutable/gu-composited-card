@@ -176,4 +176,49 @@ export const getStyles = () => css`
     position: absolute;
     color: white;
   }
+
+  .profile__ratioConstrainer {
+    margin: auto;
+    display: flex;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .profile__artwork {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: ${offBlack};
+  }
+
+  .profile__artwork__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .profile__frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: clear;
+  }
+
+  .profile__frame__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: clear;
+  }
+
+
 `;
