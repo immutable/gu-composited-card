@@ -111,6 +111,7 @@ export class CompositedCard extends LitElement {
   @property({ type: Number }) compositionVersion: number = 1;
   @property({ type: String }) illustrationSource: string;
   @property({ type: String }) format = "card";
+  @property({ type: String }) filter: string;
 
   public compositionCardData: ICardCompsitionData = {
     type: '',
@@ -265,6 +266,13 @@ export class CompositedCard extends LitElement {
 
       if(this.format == "profile") {
         return this.renderProfile()
+      }
+
+      if(this.filter && this.filter.length > 0) {
+        let filterVal = "-" + this.filter
+        if(this.compositionCardData.composition.illustration[0] != null && !this.compositionCardData.composition.illustration[0].includes(filterVal)) {
+          this.compositionCardData.composition.illustration[0] += filterVal //Apply filter to first value of illustration
+        }
       }
 
       const baseArtworkLayersCompositionTemplateData = {

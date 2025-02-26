@@ -75,6 +75,9 @@ OPTIONAL: a card's quality setting. When this input is missing, the a default qu
 
 *NOTE: if you choose to use the legacy quality mappings, then 0 & 1 = 'plain' ... 8 = 'diamond'.
 
+### @property({ type: String }) filter
+
+OPTIONAL: a filter to apply to card illustrations. Applies to pre-supported cards.
 
 ### @property({ type: String }) responsiveSrcsetSizes
 
