@@ -22,7 +22,7 @@
   "scripts": {
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",
-    "prepare": "yarn build:src",
+    "prepare": "NODE_OPTIONS=--openssl-legacy-provider yarn build:src",
     "prepublishOnly": "yarn build",
     "prebuild": "yarn clear:dist; yarn clear:docs;",
     "build": "yarn build:src; yarn build:docs",
