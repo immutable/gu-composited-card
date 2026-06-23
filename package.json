@@ -22,7 +22,8 @@
   "scripts": {
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",
-    "prepublish": "yarn build",
+    "prepare": "yarn build:src",
+    "prepublishOnly": "yarn build",
     "prebuild": "yarn clear:dist; yarn clear:docs;",
     "build": "yarn build:src; yarn build:docs",
     "prebuild:docs": "yarn clear:docs",
