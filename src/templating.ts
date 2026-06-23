@@ -574,6 +574,7 @@ export const imageLayersCompositionTemplate = ({
   wreath,
   lock,
   tribe,
+  rarity,
   imageSrc = guImagesUrl,
 }) => {
 
@@ -683,7 +684,7 @@ export const imageLayersCompositionTemplate = ({
           </picture>
         `
       : null}
-    ${wreath.length > 0
+    ${wreath.length > 0 && rarity === 'legendary'
       ? html`
           <picture class="card__wreathLayer">
             <source
