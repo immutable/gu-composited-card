@@ -295,6 +295,7 @@ export class CompositedCard extends LitElement {
                 wreath: this.compositionCardData.composition.wreath,
                 lock: this.compositionCardData.composition.lock,
                 tribe: this.compositionCardData.composition.tribe_bar,
+                rarity: this.compositionCardData.rarity,
                 responsiveSrcsetSizes: this.responsiveSrcsetSizes,
               })}
               ${textLayersCompositionTemplate({
