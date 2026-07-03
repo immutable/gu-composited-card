@@ -563,5 +563,57 @@
         quality="5"
       ></composited-card>
     </div>
+
+    <div
+      style="
+        display: grid;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+      "
+    >
+      <h2 style="text-align: center; grid-column: 1 / span 2;">
+        tribe bar regression check (composition v2) — left is a non-tribe
+        card whose composition data still returns a non-empty tribe_bar
+        (should render with NO tribe bar); right is a real tribe card for
+        comparison (should render WITH a tribe bar)
+      </h2>
+      <composited-card
+        compositionVersion="2"
+        inputCompositionData='{
+          "id": 3359,
+          "name": "Perpetual Victor",
+          "effect": "Blitz.<br>While this is in your void, once per turn after a friendly creature attacks another creature and survives, summon this.",
+          "god": "war",
+          "rarity": "epic",
+          "type": "creature",
+          "tribe": { "Valid": false, "String": ""},
+          "set": "promo",
+          "mana": 2,
+          "attack": 1,
+          "health": 1,
+          "art_id": "C4-059",
+          "composition": {
+            "illustration": ["3359"],
+            "frame": ["creature", "creature_meteorite"],
+            "rosette": ["war", "war_meteorite_animated"],
+            "gems": ["rarity_epic"],
+            "wreath": ["wreath_meteorite"],
+            "lock": [],
+            "tribe_bar": ["tribebar_meteorite"],
+            "set": ["promo"],
+            "profile": ["meteorite-animated"]
+          }
+        }'
+        responsiveSrcsetSizes="40vw"
+      ></composited-card>
+      <composited-card
+        protoId="3301"
+        compositionVersion="2"
+        quality="3"
+        responsiveSrcsetSizes="40vw"
+      ></composited-card>
+    </div>
   </body>
 </html>
