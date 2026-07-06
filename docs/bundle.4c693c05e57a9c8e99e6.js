@@ -89,7 +89,7 @@ const C=e=>null===e||!("object"==typeof e||"function"==typeof e),k=e=>Array.isAr
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */;function R(e){let t=M.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},M.set(e.type,t));let r=t.stringsArray.get(e.strings);if(void 0!==r)return r;const i=e.strings.join(n);return r=t.keyString.get(i),void 0===r&&(r=new l(e,e.getTemplateElement()),t.keyString.set(i,r)),t.stringsArray.set(e.strings,r),r}const M=new Map,D=new WeakMap;
+ */;function R(e){let t=D.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},D.set(e.type,t));let r=t.stringsArray.get(e.strings);if(void 0!==r)return r;const i=e.strings.join(n);return r=t.keyString.get(i),void 0===r&&(r=new l(e,e.getTemplateElement()),t.keyString.set(i,r)),t.stringsArray.set(e.strings,r),r}const D=new Map,M=new WeakMap;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -129,7 +129,7 @@ class{handleAttributeExpressions(e,t,r,i){const o=t[0];if("."===o){return new N(
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.4.1");const I=(e,...t)=>new S(e,t,"html",A),V=(e,t)=>`${e}--${t}`;let U=!0;void 0===window.ShadyCSS?U=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),U=!1);const B=e=>t=>{const r=V(t.type,e);let i=M.get(r);void 0===i&&(i={stringsArray:new WeakMap,keyString:new Map},M.set(r,i));let o=i.stringsArray.get(t.strings);if(void 0!==o)return o;const s=t.strings.join(n);if(o=i.keyString.get(s),void 0===o){const r=t.getTemplateElement();U&&window.ShadyCSS.prepareTemplateDom(r,e),o=new l(t,r),i.keyString.set(s,o)}return i.stringsArray.set(t.strings,o),o},W=["html","svg"],H=new Set,F=(e,t,r)=>{H.add(e);const i=r?r.element:document.createElement("template"),o=t.querySelectorAll("style"),{length:n}=o;if(0===n)return void window.ShadyCSS.prepareTemplateStyles(i,e);const s=document.createElement("style");for(let e=0;e<n;e++){const t=o[e];t.parentNode.removeChild(t),s.textContent+=t.textContent}(e=>{W.forEach(t=>{const r=M.get(V(t,e));void 0!==r&&r.keyString.forEach(e=>{const{element:{content:t}}=e,r=new Set;Array.from(t.querySelectorAll("style")).forEach(e=>{r.add(e)}),h(e,r)})})})(e);const a=i.content;r?function(e,t,r=null){const{element:{content:i},parts:o}=e;if(null==r)return void i.appendChild(t);const n=document.createTreeWalker(i,133,null,!1);let s=_(o),a=0,l=-1;for(;n.nextNode();){l++;for(n.currentNode===r&&(a=$(t),r.parentNode.insertBefore(t,r));-1!==s&&o[s].index===l;){if(a>0){for(;-1!==s;)o[s].index+=a,s=_(o,s);return}s=_(o,s)}}}(r,s,a.firstChild):a.insertBefore(s,a.firstChild),window.ShadyCSS.prepareTemplateStyles(i,e);const l=a.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==l)t.insertBefore(l.cloneNode(!0),t.firstChild);else if(r){a.insertBefore(s,a.firstChild);const e=new Set;e.add(s),h(r,e)}};window.JSCompiler_renameProperty=(e,t)=>e;const Q={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},J=(e,t)=>t!==e&&(t==t||e==e),X={attribute:!0,type:String,converter:Q,reflect:!1,hasChanged:J};class G extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=new Promise(e=>this._enableUpdatingResolver=e),this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((t,r)=>{const i=this._attributeNameForProperty(r,t);void 0!==i&&(this._attributeToPropertyMap.set(i,r),e.push(i))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,t)=>this._classProperties.set(t,e))}}static createProperty(e,t=X){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const r="symbol"==typeof e?Symbol():"__"+e,i=this.getPropertyDescriptor(e,r,t);void 0!==i&&Object.defineProperty(this.prototype,e,i)}static getPropertyDescriptor(e,t,r){return{get(){return this[t]},set(r){const i=this[e];this[t]=r,this._requestUpdate(e,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this._classProperties&&this._classProperties.get(e)||X}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty("finalized")||e.finalize(),this.finalized=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const r of t)this.createProperty(r,e[r])}}static _attributeNameForProperty(e,t){const r=t.attribute;return!1===r?void 0:"string"==typeof r?r:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,r=J){return r(e,t)}static _propertyValueFromAttribute(e,t){const r=t.type,i=t.converter||Q,o="function"==typeof i?i:i.fromAttribute;return o?o(e,r):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const r=t.type,i=t.converter;return(i&&i.toAttribute||Q.toAttribute)(e,r)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,t)=>this[t]=e),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,r){t!==r&&this._attributeToProperty(e,r)}_propertyToAttribute(e,t,r=X){const i=this.constructor,o=i._attributeNameForProperty(e,r);if(void 0!==o){const e=i._propertyValueToAttribute(t,r);if(void 0===e)return;this._updateState=8|this._updateState,null==e?this.removeAttribute(o):this.setAttribute(o,e),this._updateState=-9&this._updateState}}_attributeToProperty(e,t){if(8&this._updateState)return;const r=this.constructor,i=r._attributeToPropertyMap.get(e);if(void 0!==i){const e=r.getPropertyOptions(i);this._updateState=16|this._updateState,this[i]=r._propertyValueFromAttribute(t,e),this._updateState=-17&this._updateState}}_requestUpdate(e,t){let r=!0;if(void 0!==e){const i=this.constructor,o=i.getPropertyOptions(e);i._valueHasChanged(this[e],t,o.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==o.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,o))):r=!1}!this._hasRequestedUpdate&&r&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(e,t){return this._requestUpdate(e,t),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(e){}const e=this.performUpdate();return null!=e&&await e,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{e=this.shouldUpdate(t),e?this.update(t):this._markUpdated()}catch(t){throw e=!1,this._markUpdated(),t}e&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,t)=>this._propertyToAttribute(t,this[t],e)),this._reflectingProperties=void 0),this._markUpdated()}updated(e){}firstUpdated(e){}}G.finalized=!0;
+ */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.4.1");const I=(e,...t)=>new S(e,t,"html",A),V=(e,t)=>`${e}--${t}`;let U=!0;void 0===window.ShadyCSS?U=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),U=!1);const B=e=>t=>{const r=V(t.type,e);let i=D.get(r);void 0===i&&(i={stringsArray:new WeakMap,keyString:new Map},D.set(r,i));let o=i.stringsArray.get(t.strings);if(void 0!==o)return o;const s=t.strings.join(n);if(o=i.keyString.get(s),void 0===o){const r=t.getTemplateElement();U&&window.ShadyCSS.prepareTemplateDom(r,e),o=new l(t,r),i.keyString.set(s,o)}return i.stringsArray.set(t.strings,o),o},W=["html","svg"],H=new Set,F=(e,t,r)=>{H.add(e);const i=r?r.element:document.createElement("template"),o=t.querySelectorAll("style"),{length:n}=o;if(0===n)return void window.ShadyCSS.prepareTemplateStyles(i,e);const s=document.createElement("style");for(let e=0;e<n;e++){const t=o[e];t.parentNode.removeChild(t),s.textContent+=t.textContent}(e=>{W.forEach(t=>{const r=D.get(V(t,e));void 0!==r&&r.keyString.forEach(e=>{const{element:{content:t}}=e,r=new Set;Array.from(t.querySelectorAll("style")).forEach(e=>{r.add(e)}),h(e,r)})})})(e);const a=i.content;r?function(e,t,r=null){const{element:{content:i},parts:o}=e;if(null==r)return void i.appendChild(t);const n=document.createTreeWalker(i,133,null,!1);let s=_(o),a=0,l=-1;for(;n.nextNode();){l++;for(n.currentNode===r&&(a=$(t),r.parentNode.insertBefore(t,r));-1!==s&&o[s].index===l;){if(a>0){for(;-1!==s;)o[s].index+=a,s=_(o,s);return}s=_(o,s)}}}(r,s,a.firstChild):a.insertBefore(s,a.firstChild),window.ShadyCSS.prepareTemplateStyles(i,e);const l=a.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==l)t.insertBefore(l.cloneNode(!0),t.firstChild);else if(r){a.insertBefore(s,a.firstChild);const e=new Set;e.add(s),h(r,e)}};window.JSCompiler_renameProperty=(e,t)=>e;const Q={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},J=(e,t)=>t!==e&&(t==t||e==e),X={attribute:!0,type:String,converter:Q,reflect:!1,hasChanged:J};class G extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=new Promise(e=>this._enableUpdatingResolver=e),this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((t,r)=>{const i=this._attributeNameForProperty(r,t);void 0!==i&&(this._attributeToPropertyMap.set(i,r),e.push(i))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,t)=>this._classProperties.set(t,e))}}static createProperty(e,t=X){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const r="symbol"==typeof e?Symbol():"__"+e,i=this.getPropertyDescriptor(e,r,t);void 0!==i&&Object.defineProperty(this.prototype,e,i)}static getPropertyDescriptor(e,t,r){return{get(){return this[t]},set(r){const i=this[e];this[t]=r,this._requestUpdate(e,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this._classProperties&&this._classProperties.get(e)||X}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty("finalized")||e.finalize(),this.finalized=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const r of t)this.createProperty(r,e[r])}}static _attributeNameForProperty(e,t){const r=t.attribute;return!1===r?void 0:"string"==typeof r?r:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,r=J){return r(e,t)}static _propertyValueFromAttribute(e,t){const r=t.type,i=t.converter||Q,o="function"==typeof i?i:i.fromAttribute;return o?o(e,r):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const r=t.type,i=t.converter;return(i&&i.toAttribute||Q.toAttribute)(e,r)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,t)=>this[t]=e),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,r){t!==r&&this._attributeToProperty(e,r)}_propertyToAttribute(e,t,r=X){const i=this.constructor,o=i._attributeNameForProperty(e,r);if(void 0!==o){const e=i._propertyValueToAttribute(t,r);if(void 0===e)return;this._updateState=8|this._updateState,null==e?this.removeAttribute(o):this.setAttribute(o,e),this._updateState=-9&this._updateState}}_attributeToProperty(e,t){if(8&this._updateState)return;const r=this.constructor,i=r._attributeToPropertyMap.get(e);if(void 0!==i){const e=r.getPropertyOptions(i);this._updateState=16|this._updateState,this[i]=r._propertyValueFromAttribute(t,e),this._updateState=-17&this._updateState}}_requestUpdate(e,t){let r=!0;if(void 0!==e){const i=this.constructor,o=i.getPropertyOptions(e);i._valueHasChanged(this[e],t,o.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==o.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,o))):r=!1}!this._hasRequestedUpdate&&r&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(e,t){return this._requestUpdate(e,t),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(e){}const e=this.performUpdate();return null!=e&&await e,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{e=this.shouldUpdate(t),e?this.update(t):this._markUpdated()}catch(t){throw e=!1,this._markUpdated(),t}e&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,t)=>this._propertyToAttribute(t,this[t],e)),this._reflectingProperties=void 0),this._markUpdated()}updated(e){}firstUpdated(e){}}G.finalized=!0;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -168,7 +168,7 @@ const ee="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.pr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");const oe={};class ne extends G{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const e=this.getStyles();if(void 0===e)this._styles=[];else if(Array.isArray(e)){const t=(e,r)=>e.reduceRight((e,r)=>Array.isArray(r)?t(r,e):(e.add(r),e),r),r=t(e,new Set),i=[];r.forEach(e=>i.unshift(e)),this._styles=i}else this._styles=[e]}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?ee?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){const t=this.render();super.update(e),t!==oe&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)}))}render(){return oe}}ne.finalized=!0,ne.render=(e,t,r)=>{if(!r||"object"!=typeof r||!r.scopeName)throw new Error("The `scopeName` option is required.");const i=r.scopeName,n=D.has(t),s=U&&11===t.nodeType&&!!t.host,a=s&&!H.has(i),l=a?document.createDocumentFragment():t;if(((e,t,r)=>{let i=D.get(t);void 0===i&&(o(t,t.firstChild),D.set(t,i=new T(Object.assign({templateFactory:R},r))),i.appendInto(t)),i.setValue(e),i.commit()})(e,l,Object.assign({templateFactory:B(i)},r)),a){const e=D.get(l);D.delete(l);const r=e.value instanceof f?e.value.template:void 0;F(i,l,r),o(t,t.firstChild),t.appendChild(l),D.set(t,e)}!n&&s&&window.ShadyCSS.styleElement(t.host)};var se,ae=[],le="ResizeObserver loop completed with undelivered notifications.";!function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box",e.DEVICE_PIXEL_CONTENT_BOX="device-pixel-content-box"}(se||(se={}));var pe,ce=function(e){return Object.freeze(e)},de=function(e,t){this.inlineSize=e,this.blockSize=t,ce(this)},ue=function(){function e(e,t,r,i){return this.x=e,this.y=t,this.width=r,this.height=i,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,ce(this)}return e.prototype.toJSON=function(){var e=this;return{x:e.x,y:e.y,top:e.top,right:e.right,bottom:e.bottom,left:e.left,width:e.width,height:e.height}},e.fromRect=function(t){return new e(t.x,t.y,t.width,t.height)},e}(),he=function(e){return e instanceof SVGElement&&"getBBox"in e},$e=function(e){if(he(e)){var t=e.getBBox(),r=t.width,i=t.height;return!r&&!i}var o=e,n=o.offsetWidth,s=o.offsetHeight;return!(n||s||e.getClientRects().length)},_e=function(e){var t;if(e instanceof Element)return!0;var r=null===(t=null==e?void 0:e.ownerDocument)||void 0===t?void 0:t.defaultView;return!!(r&&e instanceof r.Element)},ge="undefined"!=typeof window?window:{},me=new WeakMap,be=/auto|scroll/,ye=/^tb|vertical/,we=/msie|trident/i.test(ge.navigator&&ge.navigator.userAgent),fe=function(e){return parseFloat(e||"0")},ve=function(e,t,r){return void 0===e&&(e=0),void 0===t&&(t=0),void 0===r&&(r=!1),new de((r?t:e)||0,(r?e:t)||0)},xe=ce({devicePixelContentBoxSize:ve(),borderBoxSize:ve(),contentBoxSize:ve(),contentRect:new ue(0,0,0,0)}),Se=function(e,t){if(void 0===t&&(t=!1),me.has(e)&&!t)return me.get(e);if($e(e))return me.set(e,xe),xe;var r=getComputedStyle(e),i=he(e)&&e.ownerSVGElement&&e.getBBox(),o=!we&&"border-box"===r.boxSizing,n=ye.test(r.writingMode||""),s=!i&&be.test(r.overflowY||""),a=!i&&be.test(r.overflowX||""),l=i?0:fe(r.paddingTop),p=i?0:fe(r.paddingRight),c=i?0:fe(r.paddingBottom),d=i?0:fe(r.paddingLeft),u=i?0:fe(r.borderTopWidth),h=i?0:fe(r.borderRightWidth),$=i?0:fe(r.borderBottomWidth),_=d+p,g=l+c,m=(i?0:fe(r.borderLeftWidth))+h,b=u+$,y=a?e.offsetHeight-b-e.clientHeight:0,w=s?e.offsetWidth-m-e.clientWidth:0,f=o?_+m:0,v=o?g+b:0,x=i?i.width:fe(r.width)-f-w,S=i?i.height:fe(r.height)-v-y,C=x+_+w+m,k=S+g+y+b,z=ce({devicePixelContentBoxSize:ve(Math.round(x*devicePixelRatio),Math.round(S*devicePixelRatio),n),borderBoxSize:ve(C,k,n),contentBoxSize:ve(x,S,n),contentRect:new ue(d,l,x,S)});return me.set(e,z),z},Ce=function(e,t,r){var i=Se(e,r),o=i.borderBoxSize,n=i.contentBoxSize,s=i.devicePixelContentBoxSize;switch(t){case se.DEVICE_PIXEL_CONTENT_BOX:return s;case se.BORDER_BOX:return o;default:return n}},ke=function(e){var t=Se(e);this.target=e,this.contentRect=t.contentRect,this.borderBoxSize=ce([t.borderBoxSize]),this.contentBoxSize=ce([t.contentBoxSize]),this.devicePixelContentBoxSize=ce([t.devicePixelContentBoxSize])},ze=function(e){if($e(e))return 1/0;for(var t=0,r=e.parentNode;r;)t+=1,r=r.parentNode;return t},Pe=function(){var e=1/0,t=[];ae.forEach((function(r){if(0!==r.activeTargets.length){var i=[];r.activeTargets.forEach((function(t){var r=new ke(t.target),o=ze(t.target);i.push(r),t.lastReportedSize=Ce(t.target,t.observedBox),o<e&&(e=o)})),t.push((function(){r.callback.call(r.observer,i,r.observer)})),r.activeTargets.splice(0,r.activeTargets.length)}}));for(var r=0,i=t;r<i.length;r++){(0,i[r])()}return e},Te=function(e){ae.forEach((function(t){t.activeTargets.splice(0,t.activeTargets.length),t.skippedTargets.splice(0,t.skippedTargets.length),t.observationTargets.forEach((function(r){r.isActive()&&(ze(r.target)>e?t.activeTargets.push(r):t.skippedTargets.push(r))}))}))},Ee=function(){var e,t=0;for(Te(t);ae.some((function(e){return e.activeTargets.length>0}));)t=Pe(),Te(t);return ae.some((function(e){return e.skippedTargets.length>0}))&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:le}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=le),window.dispatchEvent(e)),t>0},Ne=[],Le=function(e){if(!pe){var t=0,r=document.createTextNode("");new MutationObserver((function(){return Ne.splice(0).forEach((function(e){return e()}))})).observe(r,{characterData:!0}),pe=function(){r.textContent="".concat(t?t--:t++)}}Ne.push(e),pe()},Oe=0,je={attributes:!0,characterData:!0,childList:!0,subtree:!0},qe=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Re=function(e){return void 0===e&&(e=0),Date.now()+e},Me=!1,De=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var t=this;if(void 0===e&&(e=250),!Me){Me=!0;var r,i=Re(e);r=function(){var r=!1;try{r=Ee()}finally{if(Me=!1,e=i-Re(),!Oe)return;r?t.run(1e3):e>0?t.run(e):t.start()}},Le((function(){requestAnimationFrame(r)}))}},e.prototype.schedule=function(){this.stop(),this.run()},e.prototype.observe=function(){var e=this,t=function(){return e.observer&&e.observer.observe(document.body,je)};document.body?t():ge.addEventListener("DOMContentLoaded",t)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,this.observer=new MutationObserver(this.listener),this.observe(),qe.forEach((function(t){return ge.addEventListener(t,e.listener,!0)})))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),qe.forEach((function(t){return ge.removeEventListener(t,e.listener,!0)})),this.stopped=!0)},e}()),Ae=function(e){!Oe&&e>0&&De.start(),!(Oe+=e)&&De.stop()},Ie=function(){function e(e,t){this.target=e,this.observedBox=t||se.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,t=Ce(this.target,this.observedBox,!0);return e=this.target,he(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=t),this.lastReportedSize.inlineSize!==t.inlineSize||this.lastReportedSize.blockSize!==t.blockSize},e}(),Ve=function(e,t){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=t},Ue=new WeakMap,Be=function(e,t){for(var r=0;r<e.length;r+=1)if(e[r].target===t)return r;return-1},We=function(){function e(){}return e.connect=function(e,t){var r=new Ve(e,t);Ue.set(e,r)},e.observe=function(e,t,r){var i=Ue.get(e),o=0===i.observationTargets.length;Be(i.observationTargets,t)<0&&(o&&ae.push(i),i.observationTargets.push(new Ie(t,r&&r.box)),Ae(1),De.schedule())},e.unobserve=function(e,t){var r=Ue.get(e),i=Be(r.observationTargets,t),o=1===r.observationTargets.length;i>=0&&(o&&ae.splice(ae.indexOf(r),1),r.observationTargets.splice(i,1),Ae(-1))},e.disconnect=function(e){var t=this,r=Ue.get(e);r.observationTargets.slice().forEach((function(r){return t.unobserve(e,r.target)})),r.activeTargets.splice(0,r.activeTargets.length)},e}(),He=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");We.connect(this,e)}return e.prototype.observe=function(e,t){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!_e(e))throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");We.observe(this,e,t)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!_e(e))throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");We.unobserve(this,e)},e.prototype.disconnect=function(){We.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
+(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");const oe={};class ne extends G{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const e=this.getStyles();if(void 0===e)this._styles=[];else if(Array.isArray(e)){const t=(e,r)=>e.reduceRight((e,r)=>Array.isArray(r)?t(r,e):(e.add(r),e),r),r=t(e,new Set),i=[];r.forEach(e=>i.unshift(e)),this._styles=i}else this._styles=[e]}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?ee?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){const t=this.render();super.update(e),t!==oe&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)}))}render(){return oe}}ne.finalized=!0,ne.render=(e,t,r)=>{if(!r||"object"!=typeof r||!r.scopeName)throw new Error("The `scopeName` option is required.");const i=r.scopeName,n=M.has(t),s=U&&11===t.nodeType&&!!t.host,a=s&&!H.has(i),l=a?document.createDocumentFragment():t;if(((e,t,r)=>{let i=M.get(t);void 0===i&&(o(t,t.firstChild),M.set(t,i=new T(Object.assign({templateFactory:R},r))),i.appendInto(t)),i.setValue(e),i.commit()})(e,l,Object.assign({templateFactory:B(i)},r)),a){const e=M.get(l);M.delete(l);const r=e.value instanceof f?e.value.template:void 0;F(i,l,r),o(t,t.firstChild),t.appendChild(l),M.set(t,e)}!n&&s&&window.ShadyCSS.styleElement(t.host)};var se,ae=[],le="ResizeObserver loop completed with undelivered notifications.";!function(e){e.BORDER_BOX="border-box",e.CONTENT_BOX="content-box",e.DEVICE_PIXEL_CONTENT_BOX="device-pixel-content-box"}(se||(se={}));var pe,ce=function(e){return Object.freeze(e)},de=function(e,t){this.inlineSize=e,this.blockSize=t,ce(this)},ue=function(){function e(e,t,r,i){return this.x=e,this.y=t,this.width=r,this.height=i,this.top=this.y,this.left=this.x,this.bottom=this.top+this.height,this.right=this.left+this.width,ce(this)}return e.prototype.toJSON=function(){var e=this;return{x:e.x,y:e.y,top:e.top,right:e.right,bottom:e.bottom,left:e.left,width:e.width,height:e.height}},e.fromRect=function(t){return new e(t.x,t.y,t.width,t.height)},e}(),he=function(e){return e instanceof SVGElement&&"getBBox"in e},$e=function(e){if(he(e)){var t=e.getBBox(),r=t.width,i=t.height;return!r&&!i}var o=e,n=o.offsetWidth,s=o.offsetHeight;return!(n||s||e.getClientRects().length)},_e=function(e){var t;if(e instanceof Element)return!0;var r=null===(t=null==e?void 0:e.ownerDocument)||void 0===t?void 0:t.defaultView;return!!(r&&e instanceof r.Element)},ge="undefined"!=typeof window?window:{},me=new WeakMap,be=/auto|scroll/,ye=/^tb|vertical/,we=/msie|trident/i.test(ge.navigator&&ge.navigator.userAgent),fe=function(e){return parseFloat(e||"0")},ve=function(e,t,r){return void 0===e&&(e=0),void 0===t&&(t=0),void 0===r&&(r=!1),new de((r?t:e)||0,(r?e:t)||0)},xe=ce({devicePixelContentBoxSize:ve(),borderBoxSize:ve(),contentBoxSize:ve(),contentRect:new ue(0,0,0,0)}),Se=function(e,t){if(void 0===t&&(t=!1),me.has(e)&&!t)return me.get(e);if($e(e))return me.set(e,xe),xe;var r=getComputedStyle(e),i=he(e)&&e.ownerSVGElement&&e.getBBox(),o=!we&&"border-box"===r.boxSizing,n=ye.test(r.writingMode||""),s=!i&&be.test(r.overflowY||""),a=!i&&be.test(r.overflowX||""),l=i?0:fe(r.paddingTop),p=i?0:fe(r.paddingRight),c=i?0:fe(r.paddingBottom),d=i?0:fe(r.paddingLeft),u=i?0:fe(r.borderTopWidth),h=i?0:fe(r.borderRightWidth),$=i?0:fe(r.borderBottomWidth),_=d+p,g=l+c,m=(i?0:fe(r.borderLeftWidth))+h,b=u+$,y=a?e.offsetHeight-b-e.clientHeight:0,w=s?e.offsetWidth-m-e.clientWidth:0,f=o?_+m:0,v=o?g+b:0,x=i?i.width:fe(r.width)-f-w,S=i?i.height:fe(r.height)-v-y,C=x+_+w+m,k=S+g+y+b,z=ce({devicePixelContentBoxSize:ve(Math.round(x*devicePixelRatio),Math.round(S*devicePixelRatio),n),borderBoxSize:ve(C,k,n),contentBoxSize:ve(x,S,n),contentRect:new ue(d,l,x,S)});return me.set(e,z),z},Ce=function(e,t,r){var i=Se(e,r),o=i.borderBoxSize,n=i.contentBoxSize,s=i.devicePixelContentBoxSize;switch(t){case se.DEVICE_PIXEL_CONTENT_BOX:return s;case se.BORDER_BOX:return o;default:return n}},ke=function(e){var t=Se(e);this.target=e,this.contentRect=t.contentRect,this.borderBoxSize=ce([t.borderBoxSize]),this.contentBoxSize=ce([t.contentBoxSize]),this.devicePixelContentBoxSize=ce([t.devicePixelContentBoxSize])},ze=function(e){if($e(e))return 1/0;for(var t=0,r=e.parentNode;r;)t+=1,r=r.parentNode;return t},Pe=function(){var e=1/0,t=[];ae.forEach((function(r){if(0!==r.activeTargets.length){var i=[];r.activeTargets.forEach((function(t){var r=new ke(t.target),o=ze(t.target);i.push(r),t.lastReportedSize=Ce(t.target,t.observedBox),o<e&&(e=o)})),t.push((function(){r.callback.call(r.observer,i,r.observer)})),r.activeTargets.splice(0,r.activeTargets.length)}}));for(var r=0,i=t;r<i.length;r++){(0,i[r])()}return e},Te=function(e){ae.forEach((function(t){t.activeTargets.splice(0,t.activeTargets.length),t.skippedTargets.splice(0,t.skippedTargets.length),t.observationTargets.forEach((function(r){r.isActive()&&(ze(r.target)>e?t.activeTargets.push(r):t.skippedTargets.push(r))}))}))},Ee=function(){var e,t=0;for(Te(t);ae.some((function(e){return e.activeTargets.length>0}));)t=Pe(),Te(t);return ae.some((function(e){return e.skippedTargets.length>0}))&&("function"==typeof ErrorEvent?e=new ErrorEvent("error",{message:le}):((e=document.createEvent("Event")).initEvent("error",!1,!1),e.message=le),window.dispatchEvent(e)),t>0},Ne=[],Le=function(e){if(!pe){var t=0,r=document.createTextNode("");new MutationObserver((function(){return Ne.splice(0).forEach((function(e){return e()}))})).observe(r,{characterData:!0}),pe=function(){r.textContent="".concat(t?t--:t++)}}Ne.push(e),pe()},Oe=0,je={attributes:!0,characterData:!0,childList:!0,subtree:!0},qe=["resize","load","transitionend","animationend","animationstart","animationiteration","keyup","keydown","mouseup","mousedown","mouseover","mouseout","blur","focus"],Re=function(e){return void 0===e&&(e=0),Date.now()+e},De=!1,Me=new(function(){function e(){var e=this;this.stopped=!0,this.listener=function(){return e.schedule()}}return e.prototype.run=function(e){var t=this;if(void 0===e&&(e=250),!De){De=!0;var r,i=Re(e);r=function(){var r=!1;try{r=Ee()}finally{if(De=!1,e=i-Re(),!Oe)return;r?t.run(1e3):e>0?t.run(e):t.start()}},Le((function(){requestAnimationFrame(r)}))}},e.prototype.schedule=function(){this.stop(),this.run()},e.prototype.observe=function(){var e=this,t=function(){return e.observer&&e.observer.observe(document.body,je)};document.body?t():ge.addEventListener("DOMContentLoaded",t)},e.prototype.start=function(){var e=this;this.stopped&&(this.stopped=!1,this.observer=new MutationObserver(this.listener),this.observe(),qe.forEach((function(t){return ge.addEventListener(t,e.listener,!0)})))},e.prototype.stop=function(){var e=this;this.stopped||(this.observer&&this.observer.disconnect(),qe.forEach((function(t){return ge.removeEventListener(t,e.listener,!0)})),this.stopped=!0)},e}()),Ae=function(e){!Oe&&e>0&&Me.start(),!(Oe+=e)&&Me.stop()},Ie=function(){function e(e,t){this.target=e,this.observedBox=t||se.CONTENT_BOX,this.lastReportedSize={inlineSize:0,blockSize:0}}return e.prototype.isActive=function(){var e,t=Ce(this.target,this.observedBox,!0);return e=this.target,he(e)||function(e){switch(e.tagName){case"INPUT":if("image"!==e.type)break;case"VIDEO":case"AUDIO":case"EMBED":case"OBJECT":case"CANVAS":case"IFRAME":case"IMG":return!0}return!1}(e)||"inline"!==getComputedStyle(e).display||(this.lastReportedSize=t),this.lastReportedSize.inlineSize!==t.inlineSize||this.lastReportedSize.blockSize!==t.blockSize},e}(),Ve=function(e,t){this.activeTargets=[],this.skippedTargets=[],this.observationTargets=[],this.observer=e,this.callback=t},Ue=new WeakMap,Be=function(e,t){for(var r=0;r<e.length;r+=1)if(e[r].target===t)return r;return-1},We=function(){function e(){}return e.connect=function(e,t){var r=new Ve(e,t);Ue.set(e,r)},e.observe=function(e,t,r){var i=Ue.get(e),o=0===i.observationTargets.length;Be(i.observationTargets,t)<0&&(o&&ae.push(i),i.observationTargets.push(new Ie(t,r&&r.box)),Ae(1),Me.schedule())},e.unobserve=function(e,t){var r=Ue.get(e),i=Be(r.observationTargets,t),o=1===r.observationTargets.length;i>=0&&(o&&ae.splice(ae.indexOf(r),1),r.observationTargets.splice(i,1),Ae(-1))},e.disconnect=function(e){var t=this,r=Ue.get(e);r.observationTargets.slice().forEach((function(r){return t.unobserve(e,r.target)})),r.activeTargets.splice(0,r.activeTargets.length)},e}(),He=function(){function e(e){if(0===arguments.length)throw new TypeError("Failed to construct 'ResizeObserver': 1 argument required, but only 0 present.");if("function"!=typeof e)throw new TypeError("Failed to construct 'ResizeObserver': The callback provided as parameter 1 is not a function.");We.connect(this,e)}return e.prototype.observe=function(e,t){if(0===arguments.length)throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!_e(e))throw new TypeError("Failed to execute 'observe' on 'ResizeObserver': parameter 1 is not of type 'Element");We.observe(this,e,t)},e.prototype.unobserve=function(e){if(0===arguments.length)throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': 1 argument required, but only 0 present.");if(!_e(e))throw new TypeError("Failed to execute 'unobserve' on 'ResizeObserver': parameter 1 is not of type 'Element");We.unobserve(this,e)},e.prototype.disconnect=function(){We.disconnect(this)},e.toString=function(){return"function ResizeObserver () { [polyfill code] }"},e}();
 /**
  * @license
  * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
@@ -451,7 +451,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
       alt="immutable loading spinner"
     />
   </div>
-`,St="https://images.godsunchained.com";r(4);var Ct=function(e,t,r,i){var o,n=arguments.length,s=n<3?t:null===i?i=Object.getOwnPropertyDescriptor(t,r):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,i);else for(var a=e.length-1;a>=0;a--)(o=e[a])&&(s=(n<3?o(s):n>3?o(t,r,s):o(t,r))||s);return n>3&&s&&Object.defineProperty(t,r,s),s},kt=function(e,t,r,i){return new(r||(r=Promise))((function(o,n){function s(e){try{l(i.next(e))}catch(e){n(e)}}function a(e){try{l(i.throw(e))}catch(e){n(e)}}function l(e){var t;e.done?o(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(s,a)}l((i=i.apply(e,t||[])).next())}))};const zt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],Pt=["diamond","gold","shadow","meteorite","plain"],Tt=new He(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Et=class extends ne{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.compositionVersion=1,this.format="card",this.compositionCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:"",composition:{illustration:[],frame:[],rosette:[],gems:[],wreath:[],lock:[],tribe_bar:[],profile:[]}},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return rt()}connectedCallback(){super.connectedCallback(),Tt.observe(this)}disconnectedCallback(){super.disconnectedCallback(),Tt.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"!==t&&"inputCompositionData"!==t||this.getProtoDataFromInput(t)})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return kt(this,void 0,void 0,(function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`).then(e=>e.json())}))}getProtoDataFromApi(){return kt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{if(!e||e.error||1!=e.length)return null;const{id:t,type:r,attack:i,health:o,effect:n,name:s,rarity:a,god:l,mana:p,set:c,tribe:d,art_id:u,composition:h}=e[0];return this.compositionCardData={id:t,type:r,attack:i.Int64,health:o.Int64,effect:n,name:s,rarity:a,god:l,mana:p,set:c,tribe:d.String,art_id:u,composition:h},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(e){this.compositionCardData="inputProtoData"==e?Object.assign({},this.inputProtoData):Object.assign({},this.inputCompositionData),this.compositionCardData.composition||1==this.compositionVersion||(this.compositionVersion=1),this.loading=!1,this.requestUpdate()}render(){var e,t;if(2==this.compositionVersion){if("profile"==this.format)return this.renderProfile();if(this.filter&&this.filter.length>0){let e="-"+this.filter;null==this.compositionCardData.composition.illustration[0]||this.compositionCardData.composition.illustration[0].includes(e)||(this.compositionCardData.composition.illustration[0]+=e)}const t={illustration:this.compositionCardData.composition.illustration,responsiveSrcsetSizes:this.responsiveSrcsetSizes};return(null===(e=this.illustrationSource)||void 0===e?void 0:e.length)>0&&(t.imageSrc=this.illustrationSource),I`
+`,St="https://images.godsunchained.com";r(4);var Ct=function(e,t,r,i){var o,n=arguments.length,s=n<3?t:null===i?i=Object.getOwnPropertyDescriptor(t,r):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,i);else for(var a=e.length-1;a>=0;a--)(o=e[a])&&(s=(n<3?o(s):n>3?o(t,r,s):o(t,r))||s);return n>3&&s&&Object.defineProperty(t,r,s),s},kt=function(e,t,r,i){return new(r||(r=Promise))((function(o,n){function s(e){try{l(i.next(e))}catch(e){n(e)}}function a(e){try{l(i.throw(e))}catch(e){n(e)}}function l(e){var t;e.done?o(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(s,a)}l((i=i.apply(e,t||[])).next())}))};const zt=["plain","plain","bronze","iron","meteorite","shadow","gold","diamond"],Pt=["diamond","gold","shadow","meteorite","plain"];function Tt(e){if(e&&"object"==typeof e){const{Valid:t,String:r}=e;return t&&r?r:""}return e||""}const Et=new He(e=>{e.forEach(e=>{e.target.handleResize(e)})});let Nt=class extends ne{constructor(){super(),this.quality=5,this.useLegacyQualityMapping=!1,this.compositionVersion=1,this.format="card",this.compositionCardData={type:"",effect:"",name:"",rarity:"",god:"",set:"",mana:"",id:"",attack:null,health:null,tribe:"",art_id:"",composition:{illustration:[],frame:[],rosette:[],gems:[],wreath:[],lock:[],tribe_bar:[],profile:[]}},this.loading=!0,this.quality=0,this.ch=.01*this.offsetHeight,this.cw=.01*this.offsetWidth}static get styles(){return rt()}connectedCallback(){super.connectedCallback(),Et.observe(this)}disconnectedCallback(){super.disconnectedCallback(),Et.unobserve(this)}updated(e){e.forEach((e,t)=>{"protoId"===t?this.getProtoDataFromApi():"inputProtoData"!==t&&"inputCompositionData"!==t||this.getProtoDataFromInput(t)})}handleResize(e){const t=e.target.shadowRoot.children[0];this.ch=.01*t.offsetHeight,this.cw=.01*t.offsetWidth,this.requestUpdate()}fetchProtoData(){return kt(this,void 0,void 0,(function*(){return this.loading=!0,fetch(`https://api.godsunchained.com/v0/composition?pairs=${this.protoId}@${this.quality}`).then(e=>e.json())}))}getProtoDataFromApi(){return kt(this,void 0,void 0,(function*(){return this.fetchProtoData().then(e=>{if(!e||e.error||1!=e.length)return null;const{id:t,type:r,attack:i,health:o,effect:n,name:s,rarity:a,god:l,mana:p,set:c,tribe:d,art_id:u,composition:h}=e[0];return this.compositionCardData={id:t,type:r,attack:i.Int64,health:o.Int64,effect:n,name:s,rarity:a,god:l,mana:p,set:c,tribe:Tt(d),art_id:u,composition:h},this.loading=!1,this.requestUpdate(),e})}))}getProtoDataFromInput(e){this.compositionCardData="inputProtoData"==e?Object.assign({},this.inputProtoData):Object.assign({},this.inputCompositionData),this.compositionCardData.tribe=Tt(this.compositionCardData.tribe),this.compositionCardData.composition||1==this.compositionVersion||(this.compositionVersion=1),this.loading=!1,this.requestUpdate()}render(){var e,t;if(2==this.compositionVersion){if("profile"==this.format)return this.renderProfile();if(this.filter&&this.filter.length>0){let e="-"+this.filter;null==this.compositionCardData.composition.illustration[0]||this.compositionCardData.composition.illustration[0].includes(e)||(this.compositionCardData.composition.illustration[0]+=e)}const t={illustration:this.compositionCardData.composition.illustration,responsiveSrcsetSizes:this.responsiveSrcsetSizes};return(null===(e=this.illustrationSource)||void 0===e?void 0:e.length)>0&&(t.imageSrc=this.illustrationSource),I`
         <div class="card__innerRatioConstrainer">
           ${this.loading?xt():I`
               ${(({illustration:e,responsiveSrcsetSizes:t=st+"px",imageSrc:r=St})=>I`
@@ -488,16 +488,16 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
       />
     </picture>
   `)(t)}
-              ${(({responsiveSrcsetSizes:e=$t+"px",frame:t,rosette:r,gems:i,wreath:o,lock:n,tribe:s,imageSrc:a=St})=>I`
+              ${(({responsiveSrcsetSizes:e=$t+"px",frame:t,rosette:r,gems:i,wreath:o,lock:n,tribe:s,rarity:a,imageSrc:l=St})=>I`
     <picture class="card__baseLayer">
       <source
         srcset="
-          ${a}/border-layers/types/${t[0]}/${$t}/${t[1]}.webp ${ht}w,
-          ${a}/border-layers/types/${t[0]}/${_t}/${t[1]}.webp ${$t}w,
-          ${a}/border-layers/types/${t[0]}/${gt}/${t[1]}.webp ${_t}w,
-          ${a}/border-layers/types/${t[0]}/${mt}/${t[1]}.webp ${gt}w,
-          ${a}/border-layers/types/${t[0]}/${bt}/${t[1]}.webp ${mt}w,
-          ${a}/border-layers/types/${t[0]}/${yt}/${t[1]}.webp ${bt}w
+          ${l}/border-layers/types/${t[0]}/${$t}/${t[1]}.webp ${ht}w,
+          ${l}/border-layers/types/${t[0]}/${_t}/${t[1]}.webp ${$t}w,
+          ${l}/border-layers/types/${t[0]}/${gt}/${t[1]}.webp ${_t}w,
+          ${l}/border-layers/types/${t[0]}/${mt}/${t[1]}.webp ${gt}w,
+          ${l}/border-layers/types/${t[0]}/${bt}/${t[1]}.webp ${mt}w,
+          ${l}/border-layers/types/${t[0]}/${yt}/${t[1]}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
@@ -505,19 +505,19 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
 
       <source
         srcset="
-          ${a}/border-layers/types/${t[0]}/${$t}/${t[1]}.png ${ht}w,
-          ${a}/border-layers/types/${t[0]}/${_t}/${t[1]}.png ${$t}w,
-          ${a}/border-layers/types/${t[0]}/${gt}/${t[1]}.png ${_t}w,
-          ${a}/border-layers/types/${t[0]}/${mt}/${t[1]}.png ${gt}w,
-          ${a}/border-layers/types/${t[0]}/${bt}/${t[1]}.png ${mt}w,
-          ${a}/border-layers/types/${t[0]}/${yt}/${t[1]}.png ${bt}w
+          ${l}/border-layers/types/${t[0]}/${$t}/${t[1]}.png ${ht}w,
+          ${l}/border-layers/types/${t[0]}/${_t}/${t[1]}.png ${$t}w,
+          ${l}/border-layers/types/${t[0]}/${gt}/${t[1]}.png ${_t}w,
+          ${l}/border-layers/types/${t[0]}/${mt}/${t[1]}.png ${gt}w,
+          ${l}/border-layers/types/${t[0]}/${bt}/${t[1]}.png ${mt}w,
+          ${l}/border-layers/types/${t[0]}/${yt}/${t[1]}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${a}/border-layers/types/${t[0]}/${ht}/${t[1]}.png
+          ${l}/border-layers/types/${t[0]}/${ht}/${t[1]}.png
         "
         class="card__baseLayer__img"
       />
@@ -526,31 +526,31 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     <picture class="card__manaLayer">
       <source
         srcset="
-          ${a}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.webp ${ht}w,
-          ${a}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.webp ${$t}w,
-          ${a}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.webp ${_t}w,
-          ${a}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.webp ${gt}w,
-          ${a}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.webp ${mt}w,
-          ${a}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.webp ${bt}w
+          ${l}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.webp ${ht}w,
+          ${l}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.webp ${$t}w,
+          ${l}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.webp ${_t}w,
+          ${l}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.webp ${gt}w,
+          ${l}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.webp ${mt}w,
+          ${l}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.webp ${bt}w
         "
         sizes="${e}"
         type="image/webp"
       />
       <source
         srcset="
-          ${a}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.png ${ht}w,
-          ${a}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.png ${$t}w,
-          ${a}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.png ${_t}w,
-          ${a}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.png ${gt}w,
-          ${a}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.png ${mt}w,
-          ${a}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.png ${bt}w
+          ${l}/border-layers/rosettes/${r[0]}/${$t}/${r[1]}.png ${ht}w,
+          ${l}/border-layers/rosettes/${r[0]}/${_t}/${r[1]}.png ${$t}w,
+          ${l}/border-layers/rosettes/${r[0]}/${gt}/${r[1]}.png ${_t}w,
+          ${l}/border-layers/rosettes/${r[0]}/${mt}/${r[1]}.png ${gt}w,
+          ${l}/border-layers/rosettes/${r[0]}/${bt}/${r[1]}.png ${mt}w,
+          ${l}/border-layers/rosettes/${r[0]}/${yt}/${r[1]}.png ${bt}w
         "
         sizes="${e}"
         type="image/png"
       />
       <img
         srcset="
-          ${a}/border-layers/rosettes/${r[0]}/${ht}/${r[1]}.png
+          ${l}/border-layers/rosettes/${r[0]}/${ht}/${r[1]}.png
         "
         class="card__manaLayer__img"
       />
@@ -560,49 +560,49 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
           <picture class="card__rarityLayer">
             <source
               srcset="
-              ${a}/border-layers/gems/${ht}/${i[0]}.webp ${ht}w,
-                ${a}/border-layers/gems/${$t}/${i[0]}.webp ${$t}w,
-                ${a}/border-layers/gems/${_t}/${i[0]}.webp ${_t}w,
-                ${a}/border-layers/gems/${gt}/${i[0]}.webp ${gt}w,
-                ${a}/border-layers/gems/${mt}/${i[0]}.webp ${mt}w,
-                ${a}/border-layers/gems/${bt}/${i[0]}.webp ${bt}w,
-                ${a}/border-layers/gems/${yt}/${i[0]}.webp ${yt}w
+              ${l}/border-layers/gems/${ht}/${i[0]}.webp ${ht}w,
+                ${l}/border-layers/gems/${$t}/${i[0]}.webp ${$t}w,
+                ${l}/border-layers/gems/${_t}/${i[0]}.webp ${_t}w,
+                ${l}/border-layers/gems/${gt}/${i[0]}.webp ${gt}w,
+                ${l}/border-layers/gems/${mt}/${i[0]}.webp ${mt}w,
+                ${l}/border-layers/gems/${bt}/${i[0]}.webp ${bt}w,
+                ${l}/border-layers/gems/${yt}/${i[0]}.webp ${yt}w
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-              ${a}/border-layers/gems/${ht}/${i[0]}.png ${ht}w,
-                ${a}/border-layers/gems/${$t}/${i[0]}.png ${$t}w,
-                ${a}/border-layers/gems/${_t}/${i[0]}.png ${_t}w,
-                ${a}/border-layers/gems/${gt}/${i[0]}.png ${gt}w,
-                ${a}/border-layers/gems/${mt}/${i[0]}.webp ${mt}w,
-                ${a}/border-layers/gems/${bt}/${i[0]}.webp ${bt}w,
-                ${a}/border-layers/gems/${yt}/${i[0]}.png ${yt}w
+              ${l}/border-layers/gems/${ht}/${i[0]}.png ${ht}w,
+                ${l}/border-layers/gems/${$t}/${i[0]}.png ${$t}w,
+                ${l}/border-layers/gems/${_t}/${i[0]}.png ${_t}w,
+                ${l}/border-layers/gems/${gt}/${i[0]}.png ${gt}w,
+                ${l}/border-layers/gems/${mt}/${i[0]}.webp ${mt}w,
+                ${l}/border-layers/gems/${bt}/${i[0]}.webp ${bt}w,
+                ${l}/border-layers/gems/${yt}/${i[0]}.png ${yt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${a}/border-layers/gems/${ht}/${i[0]}.png
+                ${l}/border-layers/gems/${ht}/${i[0]}.png
               "
               class="card__rarityLayer__img"
             />
           </picture>
         `:null}
-    ${o.length>0?I`
+    ${o.length>0&&"legendary"===a?I`
           <picture class="card__wreathLayer">
             <source
               srcset="
-                ${a}/border-layers/wreaths/${ht}/${o[0]}.webp ${ht}w,
-                ${a}/border-layers/wreaths/${$t}/${o[0]}.webp ${$t}w,
-                ${a}/border-layers/wreaths/${_t}/${o[0]}.webp ${_t}w,
-                ${a}/border-layers/wreaths/${gt}/${o[0]}.webp ${gt}w,
-                ${a}/border-layers/wreaths/${mt}/${o[0]}.webp ${mt}w,
-                ${a}/border-layers/wreaths/${bt}/${o[0]}.webp ${bt}w,
-                ${a}/border-layers/wreaths/${yt}/${o[0]}.webp ${yt}w
+                ${l}/border-layers/wreaths/${ht}/${o[0]}.webp ${ht}w,
+                ${l}/border-layers/wreaths/${$t}/${o[0]}.webp ${$t}w,
+                ${l}/border-layers/wreaths/${_t}/${o[0]}.webp ${_t}w,
+                ${l}/border-layers/wreaths/${gt}/${o[0]}.webp ${gt}w,
+                ${l}/border-layers/wreaths/${mt}/${o[0]}.webp ${mt}w,
+                ${l}/border-layers/wreaths/${bt}/${o[0]}.webp ${bt}w,
+                ${l}/border-layers/wreaths/${yt}/${o[0]}.webp ${yt}w
               "
               sizes="${e}"
               type="image/webp"
@@ -610,20 +610,20 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
 
             <source
               srcset="
-              ${a}/border-layers/wreaths/${ht}/${o[0]}.png ${ht}w,
-                ${a}/border-layers/wreaths/${$t}/${o[0]}.png ${$t}w,
-                ${a}/border-layers/wreaths/${_t}/${o[0]}.png ${_t}w,
-                ${a}/border-layers/wreaths/${gt}/${o[0]}.png ${gt}w,
-                ${a}/border-layers/wreaths/${mt}/${o[0]}.png ${mt}w,
-                ${a}/border-layers/wreaths/${bt}/${o[0]}.png ${bt}w,
-                ${a}/border-layers/wreaths/${yt}/${o[0]}.png ${yt}w
+              ${l}/border-layers/wreaths/${ht}/${o[0]}.png ${ht}w,
+                ${l}/border-layers/wreaths/${$t}/${o[0]}.png ${$t}w,
+                ${l}/border-layers/wreaths/${_t}/${o[0]}.png ${_t}w,
+                ${l}/border-layers/wreaths/${gt}/${o[0]}.png ${gt}w,
+                ${l}/border-layers/wreaths/${mt}/${o[0]}.png ${mt}w,
+                ${l}/border-layers/wreaths/${bt}/${o[0]}.png ${bt}w,
+                ${l}/border-layers/wreaths/${yt}/${o[0]}.png ${yt}w
               "
               sizes="${e}"
               type="image/png"
             />
             <img
               srcset="
-                ${a}/border-layers/wreaths/${ht}/${o[0]}.png
+                ${l}/border-layers/wreaths/${ht}/${o[0]}.png
               "
               class="card__wreathLayer__img"
             />
@@ -633,23 +633,23 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
           <picture class="card__lockIconLayer">
             <source
               srcset="
-                ${a}/border-layers/locks/${wt}/${n[0]}.webp ${wt}w,
-                ${a}/border-layers/locks/${ft}/${n[0]}.webp ${ft}w,
+                ${l}/border-layers/locks/${wt}/${n[0]}.webp ${wt}w,
+                ${l}/border-layers/locks/${ft}/${n[0]}.webp ${ft}w,
               "
               type="image/webp"
             />
 
             <source
               srcset="
-                ${a}/border-layers/locks/${wt}/${n[0]}.png ${wt}w,
-                ${a}/border-layers/locks/${ft}/${n[0]}.png ${ft}w,
+                ${l}/border-layers/locks/${wt}/${n[0]}.png ${wt}w,
+                ${l}/border-layers/locks/${ft}/${n[0]}.png ${ft}w,
               "
               type="image/png"
             />
 
             <img
               srcset="
-                ${a}/border-layers/locks/${n[0]}.png
+                ${l}/border-layers/locks/${n[0]}.png
               "
               class="card__lockIconLayer__img"
             />
@@ -659,20 +659,20 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
           <picture class="card__tribeBarLayer">
             <source
               srcset="
-                ${a}/border-layers/tribe_bars/${ht}/${s[0]}.webp ${ht}w,
-                ${a}/border-layers/tribe_bars/${$t}/${s[0]}.webp ${$t}w,
-                ${a}/border-layers/tribe_bars/${_t}/${s[0]}.webp ${_t}w,
-                ${a}/border-layers/tribe_bars/${gt}/${s[0]}.webp ${gt}w,
+                ${l}/border-layers/tribe_bars/${ht}/${s[0]}.webp ${ht}w,
+                ${l}/border-layers/tribe_bars/${$t}/${s[0]}.webp ${$t}w,
+                ${l}/border-layers/tribe_bars/${_t}/${s[0]}.webp ${_t}w,
+                ${l}/border-layers/tribe_bars/${gt}/${s[0]}.webp ${gt}w,
               "
               sizes="${e}"
               type="image/webp"
             />
             <source
               srcset="
-                ${a}/border-layers/tribe_bars/${ht}/${s[0]}.png ${ht}w,
-                ${a}/border-layers/tribe_bars/${$t}/${s[0]}.png ${$t}w,
-                ${a}/border-layers/tribe_bars/${_t}/${s[0]}.png ${_t}w,
-                ${a}/border-layers/tribe_bars/${gt}/${s[0]}.png ${gt}w,
+                ${l}/border-layers/tribe_bars/${ht}/${s[0]}.png ${ht}w,
+                ${l}/border-layers/tribe_bars/${$t}/${s[0]}.png ${$t}w,
+                ${l}/border-layers/tribe_bars/${_t}/${s[0]}.png ${_t}w,
+                ${l}/border-layers/tribe_bars/${gt}/${s[0]}.png ${gt}w,
               "
               sizes="${e}"
               type="image/png"
@@ -680,13 +680,13 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
 
             <img
               srcset="
-                ${a}/border-layers/tribe_bars/${yt}/${s[0]}.png
+                ${l}/border-layers/tribe_bars/${yt}/${s[0]}.png
               "
               class="card__tribeBarLayer__img"
             />
           </picture>
         `:null}
-  `)({frame:this.compositionCardData.composition.frame,rosette:this.compositionCardData.composition.rosette,gems:this.compositionCardData.composition.gems,wreath:this.compositionCardData.composition.wreath,lock:this.compositionCardData.composition.lock,tribe:this.compositionCardData.composition.tribe_bar,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
+  `)({frame:this.compositionCardData.composition.frame,rosette:this.compositionCardData.composition.rosette,gems:this.compositionCardData.composition.gems,wreath:this.compositionCardData.composition.wreath,lock:this.compositionCardData.composition.lock,tribe:this.compositionCardData.tribe?this.compositionCardData.composition.tribe_bar:[],rarity:this.compositionCardData.rarity,responsiveSrcsetSizes:this.responsiveSrcsetSizes})}
               ${(({type:e="",name:t="⃠",effect:r="⃠",mana:i="⃠",attack:o="⃠",health:n="⃠",tribe:s="",cardSet:a=[],ch:l=0,cw:p=0})=>{e=vt(e);const c=RegExp(/creature|weapon/).test(e),d=t.split("").length>=20,u=Math.floor(.5*l),h=(0===u?1:u)+"px",$="rgba(0, 0, 0, 1)",_=`0 0 ${h} ${$}, 0 0 ${h} ${$}, 0 0 ${h} ${$}`,g=Qe({fontSize:10.5*l+"px",top:6.85*l+"px",left:9.5*p+"px",width:19*p+"px",textShadow:_}),m=Qe({fontSize:(d?3.9*l:4.93*l)+"px",bottom:32.85*l+"px",height:9*l+"px",left:13.25*p+"px",right:5.3*p+"px",textShadow:_}),b=Qe({fontSize:9.5*l+"px",bottom:4.5*l+"px",width:15*p+"px",left:10.5*p+"px",textShadow:_}),y=Qe({fontSize:9.5*l+"px",width:16*p+"px",bottom:4.6*l+"px",right:2.5*p+"px",textShadow:_}),w=Qe({fontSize:3.2*l+"px",bottom:3.1*l+"px",height:4.82*l+"px",left:30.5*p+"px",right:23*p+"px",textShadow:_}),f=Qe({fontSize:6*l+"px",top:10*l+"px",right:9*p+"px"});return I`
     <div class="card__manaText" style=${g}>
       ${i}
@@ -1158,26 +1158,26 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   `)(t)}
             `}
         </div>
-      `}};Ct([Z({type:Number})],Et.prototype,"protoId",void 0),Ct([Z({type:Number})],Et.prototype,"quality",void 0),Ct([Z({type:Object})],Et.prototype,"inputProtoData",void 0),Ct([Z({type:Object})],Et.prototype,"inputCompositionData",void 0),Ct([Z({type:String})],Et.prototype,"responsiveSrcsetSizes",void 0),Ct([Z({type:Boolean})],Et.prototype,"useLegacyQualityMapping",void 0),Ct([Z({type:Number})],Et.prototype,"compositionVersion",void 0),Ct([Z({type:String})],Et.prototype,"illustrationSource",void 0),Ct([Z({type:String})],Et.prototype,"format",void 0),Ct([Z({type:String})],Et.prototype,"filter",void 0),Et=Ct([Y("composited-card")],Et);const Nt=ie`
+      `}};Ct([Z({type:Number})],Nt.prototype,"protoId",void 0),Ct([Z({type:Number})],Nt.prototype,"quality",void 0),Ct([Z({type:Object})],Nt.prototype,"inputProtoData",void 0),Ct([Z({type:Object})],Nt.prototype,"inputCompositionData",void 0),Ct([Z({type:String})],Nt.prototype,"responsiveSrcsetSizes",void 0),Ct([Z({type:Boolean})],Nt.prototype,"useLegacyQualityMapping",void 0),Ct([Z({type:Number})],Nt.prototype,"compositionVersion",void 0),Ct([Z({type:String})],Nt.prototype,"illustrationSource",void 0),Ct([Z({type:String})],Nt.prototype,"format",void 0),Ct([Z({type:String})],Nt.prototype,"filter",void 0),Nt=Ct([Y("composited-card")],Nt);const Lt=ie`
   font-family: 'Unchained', serif;
   line-height: 1.1;
-`,Lt=ie`
+`,Ot=ie`
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
-`,Ot=ie`black`,jt=ie`white`,qt=ie`#f9f9f9`,Rt=(ie`#f1f1f1`,ie`65px`),Mt=ie`100px`,Dt=ie`#282828`,At=ie`#333`,It=ie`rgba(255,255,255,0.15)`,Vt=[ie`#8295A2`,ie`#8295A2`,ie`#6A8B35`,ie`#3D91B9`,ie`#84343E`,ie`#B461C5`,ie`#E5D93C`,ie`#94E6FB`,ie`white`],Ut=ie`#9f78dd`,Bt=(e=0)=>ie`
+`,jt=ie`black`,qt=ie`white`,Rt=ie`#f9f9f9`,Dt=(ie`#f1f1f1`,ie`65px`),Mt=ie`100px`,At=ie`#282828`,It=ie`#333`,Vt=ie`rgba(255,255,255,0.15)`,Ut=[ie`#8295A2`,ie`#8295A2`,ie`#6A8B35`,ie`#3D91B9`,ie`#84343E`,ie`#B461C5`,ie`#E5D93C`,ie`#94E6FB`,ie`white`],Bt=ie`#9f78dd`,Wt=(e=0)=>ie`
   width: 100%;
   cursor: pointer;
-  background: ${Dt};
-  border: 2px solid ${It};
+  background: ${At};
+  border: 2px solid ${Vt};
   padding: 6px;
-`,Wt=(e=0)=>ie`
+`,Ht=(e=0)=>ie`
   height: 20px;
   width: 38px;
   border-radius: 28px;
-  background: ${Vt[e]};
+  background: ${Ut[e]};
   cursor: pointer;
   -webkit-appearance: none;
-`;var Ht=function(e,t,r,i){var o,n=arguments.length,s=n<3?t:null===i?i=Object.getOwnPropertyDescriptor(t,r):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,i);else for(var a=e.length-1;a>=0;a--)(o=e[a])&&(s=(n<3?o(s):n>3?o(t,r,s):o(t,r))||s);return n>3&&s&&Object.defineProperty(t,r,s),s};let Ft=class extends ne{constructor(){super(),this.currentProtoId=Math.floor(99*Math.random()+1),this.currentQuality=Math.floor(4*Math.random()+1),this.currentQualityInWords=Pt[this.currentQuality-1];const e=this.getUrlParams(),t=e.get("protoid"),r=e.get("quality");null!==t&&(this.currentProtoId=parseInt(t,10)),null!==r&&(this.currentQuality=parseInt(r,10),this.currentQualityInWords=Pt[this.currentQuality-1]),null!==t&&null!==r&&this.updatePageImageMetadata(),fetch("https://api.godsunchained.com/v0/proto?format=flat").then(e=>e.json()).then(e=>{this.protosCollection=e,this.currentProtoData=Object.assign(Object.assign({},e[this.currentProtoId]),{id:this.currentProtoId}),this.updatePageMetadata()}).catch(e=>console.error(e))}static get styles(){return ie`
+`;var Ft=function(e,t,r,i){var o,n=arguments.length,s=n<3?t:null===i?i=Object.getOwnPropertyDescriptor(t,r):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)s=Reflect.decorate(e,t,r,i);else for(var a=e.length-1;a>=0;a--)(o=e[a])&&(s=(n<3?o(s):n>3?o(t,r,s):o(t,r))||s);return n>3&&s&&Object.defineProperty(t,r,s),s};let Qt=class extends ne{constructor(){super(),this.currentProtoId=Math.floor(99*Math.random()+1),this.currentQuality=Math.floor(4*Math.random()+1),this.currentQualityInWords=Pt[this.currentQuality-1];const e=this.getUrlParams(),t=e.get("protoid"),r=e.get("quality");null!==t&&(this.currentProtoId=parseInt(t,10)),null!==r&&(this.currentQuality=parseInt(r,10),this.currentQualityInWords=Pt[this.currentQuality-1]),null!==t&&null!==r&&this.updatePageImageMetadata(),fetch("https://api.godsunchained.com/v0/proto?format=flat").then(e=>e.json()).then(e=>{this.protosCollection=e,this.currentProtoData=Object.assign(Object.assign({},e[this.currentProtoId]),{id:this.currentProtoId}),this.updatePageMetadata()}).catch(e=>console.error(e))}static get styles(){return ie`
   @keyframes floatCard {
     from {
       transform: translateY(2%);
@@ -1200,7 +1200,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     min-width: 640px;
     height: 100%;
     min-height: 760px;
-    ${Lt}
+    ${Ot}
   }
 
   .appHeader {
@@ -1209,11 +1209,11 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     left: 0;
     z-index: 1;
     width: 100%;
-    height: ${Rt};
+    height: ${Dt};
     background: white;
-    border-bottom: 2px solid ${qt};
+    border-bottom: 2px solid ${Rt};
     text-align: center;
-    line-height: calc(${Rt} - 3);
+    line-height: calc(${Dt} - 3);
     display: flex;
     padding: 0 15px 0 5px;
   }
@@ -1231,7 +1231,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   }
 
   .appHeader__title {
-    ${Lt}
+    ${Ot}
     font-weight: 300;
     font-size: 22px;
     letter-spacing: -0.8px;
@@ -1245,8 +1245,8 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     letter-spacing: 0;
     padding: 2px 3px;
     border-radius: 4px;
-    border: 1px solid ${Ut};
-    color: ${Ut};
+    border: 1px solid ${Bt};
+    color: ${Bt};
     font-weight: 400;
     display: inline-block;
     vertical-align: top;
@@ -1255,8 +1255,8 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   }
 
   .appHeader__title__sup:hover {
-    background-color: ${Ut};
-    color: ${jt};
+    background-color: ${Bt};
+    color: ${qt};
   }
 
   .appContainer {
@@ -1264,7 +1264,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: ${Rt};
+    padding-top: ${Dt};
   }
 
   .appContainer::before {
@@ -1274,7 +1274,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     left: 0;
     right: 0;
     height: 50vh;
-    background: ${At};
+    background: ${It};
   }
 
   .appContainer__intro {
@@ -1286,7 +1286,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   }
 
   .appContainer__intro a {
-    color: ${Ot};
+    color: ${jt};
     text-decoration: none;
   }
 
@@ -1295,18 +1295,18 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   }
 
   .appContainer__controls__title {
-    ${Nt}
+    ${Lt}
     font-size: 18px;
     text-transform: uppercase;
-    color: ${jt};
+    color: ${qt};
     position: absolute;
     left: 20px;
     top: 0px;
     transform: translateY(-150%);
     margin: 0;
-    text-shadow: 0 1px 0 ${At}, 1px 0 0 ${At},
-      1px 1px 0 ${At}, -1px 0 0 ${At},
-      -1px -1px 0 ${At}, 0 -1px 0 ${At};
+    text-shadow: 0 1px 0 ${It}, 1px 0 0 ${It},
+      1px 1px 0 ${It}, -1px 0 0 ${It},
+      -1px -1px 0 ${It}, 0 -1px 0 ${It};
   }
 
   .appContainer__fab {
@@ -1316,7 +1316,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: ${Ut};
+    background: ${Bt};
     box-shadow: none;
     border: none;
     transform: translate(0, 50%);
@@ -1329,7 +1329,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   }
 
   .appContainer__fab:active {
-    background: ${jt};
+    background: ${qt};
   }
 
   .appContainer__fab:active .appContainer__fab__img {
@@ -1424,7 +1424,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
     width: 100%;
     height: ${Mt};
     z-index: 2;
-    background: ${Dt};
+    background: ${At};
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1439,7 +1439,7 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
 
   .appContainer__controls__panel__input {
     background: transparent;
-    border: 2px solid ${It};
+    border: 2px solid ${Vt};
     padding: 8px 10px;
     font-size: 12px;
     font-weight: 700;
@@ -1463,35 +1463,35 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
   }
 
   .quality--plain {
-    color: ${Vt[1]};
+    color: ${Ut[1]};
   }
 
   .quality--bronze {
-    color: ${Vt[2]};
+    color: ${Ut[2]};
   }
 
   .quality--iron {
-    color: ${Vt[3]};
+    color: ${Ut[3]};
   }
 
   .quality--meteorite {
-    color: ${Vt[4]};
+    color: ${Ut[4]};
   }
 
   .quality--shadow {
-    color: ${Vt[5]};
+    color: ${Ut[5]};
   }
 
   .quality--gold {
-    color: ${Vt[6]};
+    color: ${Ut[6]};
   }
 
   .quality--diamond {
-    color: ${Vt[7]};
+    color: ${Ut[7]};
   }
 
   .quality--mythic {
-    color: ${Vt[8]};
+    color: ${Ut[8]};
   }
 
   .appContainer__controls__panel__rangeSlider {
@@ -1505,105 +1505,105 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
 
   /* WEBKIT: */
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-runnable-track {
-    ${Bt(0)}
+    ${Wt(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-runnable-track {
-    ${Bt(2)}
+    ${Wt(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-runnable-track {
-    ${Bt(3)}
+    ${Wt(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-runnable-track {
-    ${Bt(4)}
+    ${Wt(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-runnable-track {
-    ${Bt(5)}
+    ${Wt(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-runnable-track {
-    ${Bt(6)}
+    ${Wt(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-runnable-track {
-    ${Bt(7)}
+    ${Wt(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-runnable-track {
-    ${Bt(8)}
+    ${Wt(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-webkit-slider-thumb {
-    ${Wt(0)}
+    ${Ht(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-webkit-slider-thumb {
-    ${Wt(2)}
+    ${Ht(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-webkit-slider-thumb {
-    ${Wt(3)}
+    ${Ht(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-webkit-slider-thumb {
-    ${Wt(4)}
+    ${Ht(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-webkit-slider-thumb {
-    ${Wt(5)}
+    ${Ht(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-webkit-slider-thumb {
-    ${Wt(6)}
+    ${Ht(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-webkit-slider-thumb {
-    ${Wt(7)}
+    ${Ht(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-webkit-slider-thumb {
-    ${Wt(8)}
+    ${Ht(8)}
   }
 
   /* FIREFOX: */
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-track {
-    ${Bt(0)}
+    ${Wt(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-track {
-    ${Bt(2)}
+    ${Wt(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-track {
-    ${Bt(3)}
+    ${Wt(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-track {
-    ${Bt(4)}
+    ${Wt(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-track {
-    ${Bt(5)}
+    ${Wt(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-track {
-    ${Bt(6)}
+    ${Wt(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-track {
-    ${Bt(7)}
+    ${Wt(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-track {
-    ${Bt(8)}
+    ${Wt(8)}
   }
 
   .appContainer__controls__panel__rangeSlider.quality--plain::-moz-range-thumb {
-    ${Wt(0)}
+    ${Ht(0)}
   }
   .appContainer__controls__panel__rangeSlider.quality--bronze::-moz-range-thumb {
-    ${Wt(2)}
+    ${Ht(2)}
   }
   .appContainer__controls__panel__rangeSlider.quality--iron::-moz-range-thumb {
-    ${Wt(3)}
+    ${Ht(3)}
   }
   .appContainer__controls__panel__rangeSlider.quality--meteorite::-moz-range-thumb {
-    ${Wt(4)}
+    ${Ht(4)}
   }
   .appContainer__controls__panel__rangeSlider.quality--shadow::-moz-range-thumb {
-    ${Wt(5)}
+    ${Ht(5)}
   }
   .appContainer__controls__panel__rangeSlider.quality--gold::-moz-range-thumb {
-    ${Wt(6)}
+    ${Ht(6)}
   }
   .appContainer__controls__panel__rangeSlider.quality--diamond::-moz-range-thumb {
-    ${Wt(7)}
+    ${Ht(7)}
   }
   .appContainer__controls__panel__rangeSlider.quality--mythic::-moz-range-thumb {
-    ${Wt(8)}
+    ${Ht(8)}
   }
 `}updated(e){void 0===e.get("currentProtoId")&&void 0===e.get("currentQuality")||(this.updateUrlParams(),this.updatePageMetadata())}updatePageMetadata(){document.querySelector('meta[property="og:title"]').setAttribute("content",this.currentProtoData.name),document.querySelector('meta[property="og:description"]').setAttribute("content",this.currentProtoData.effect),document.querySelector('meta[property="og:url"]').setAttribute("content",location.href),this.updatePageImageMetadata()}get currentImageUrl(){return`https://card.godsunchained.com?id=${this.currentProtoId}&q=${this.currentQuality}&w=`}updatePageImageMetadata(){document.querySelector('meta[property="og:image"]').setAttribute("content",this.currentImageUrl+"256")}getUrlParams(){return new URLSearchParams(window.location.search)}updateUrlParams(){const e=this.getUrlParams();e.set("protoid",""+this.currentProtoId),e.set("quality",""+this.currentQuality),window.history.pushState({},"",decodeURIComponent(`${location.pathname}?${e}`))}getScreenShot(e){e.preventDefault(),window.open()}render(){return I`
       <header class="appHeader">
@@ -1704,5 +1704,5 @@ const Je=new WeakMap,Xe=m(e=>t=>{if(!(t instanceof T))throw new Error("unsafeHTM
           </div>
         </div>
       </main>
-    `}};Ht([Z()],Ft.prototype,"currentProtoId",void 0),Ht([Z()],Ft.prototype,"currentQuality",void 0),Ht([Z()],Ft.prototype,"currentQualityInWords",void 0),Ht([Z()],Ft.prototype,"currentProtoData",void 0),Ht([Z()],Ft.prototype,"protosCollection",void 0),Ft=Ht([Y("demo-app")],Ft);r(8);const Qt=document.createElement("style");Qt.innerHTML=rt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Qt)}]);
-//# sourceMappingURL=bundle.ec9e997c54cb94d0ebe3.js.map
+    `}};Ft([Z()],Qt.prototype,"currentProtoId",void 0),Ft([Z()],Qt.prototype,"currentQuality",void 0),Ft([Z()],Qt.prototype,"currentQualityInWords",void 0),Ft([Z()],Qt.prototype,"currentProtoData",void 0),Ft([Z()],Qt.prototype,"protosCollection",void 0),Qt=Ft([Y("demo-app")],Qt);r(8);const Jt=document.createElement("style");Jt.innerHTML=rt().cssText.replace(":host",".compositedCardDomRender"),document.head.appendChild(Jt)}]);
+//# sourceMappingURL=bundle.4c693c05e57a9c8e99e6.js.map
