@@ -71,6 +71,18 @@ export const legacyQualities = [
 
 export const qualities = ['diamond', 'gold', 'shadow', 'meteorite', 'plain'];
 
+// Card data can arrive either pre-flattened to a plain string (eg. from
+// consumers that already resolved it) or as the raw backend shape
+// { String, Valid } (eg. raw composition API data passed straight into
+// inputCompositionData/inputProtoData) — normalize both to a plain string.
+function normalizeTribe(tribe: unknown): string {
+  if (tribe && typeof tribe === 'object') {
+    const { Valid, String: tribeString } = tribe as { Valid?: boolean; String?: string };
+    return Valid && tribeString ? tribeString : '';
+  }
+  return (tribe as string) || '';
+}
+
 // Deploy a native ResizeOberver for this component instance:
 const ro = new ResizeObserver((entries) => {
   entries.forEach((entry) => {
@@ -228,7 +240,7 @@ export class CompositedCard extends LitElement {
         god,
         mana,
         set,
-        tribe: tribe.String,
+        tribe: normalizeTribe(tribe),
         art_id,
         composition,
       };
@@ -248,6 +260,7 @@ export class CompositedCard extends LitElement {
     } else {
       this.compositionCardData = { ...this.inputCompositionData };
     }
+    this.compositionCardData.tribe = normalizeTribe(this.compositionCardData.tribe);
 
     if(!this.compositionCardData.composition && this.compositionVersion != 1) {
       this.compositionVersion = 1
@@ -294,7 +307,9 @@ export class CompositedCard extends LitElement {
                 gems: this.compositionCardData.composition.gems,
                 wreath: this.compositionCardData.composition.wreath,
                 lock: this.compositionCardData.composition.lock,
-                tribe: this.compositionCardData.composition.tribe_bar,
+                // tribe_bar can be a non-empty array even for non-tribe cards (bad upstream data) —
+                // only forward it once the card's own tribe name is actually valid.
+                tribe: this.compositionCardData.tribe ? this.compositionCardData.composition.tribe_bar : [],
                 rarity: this.compositionCardData.rarity,
                 responsiveSrcsetSizes: this.responsiveSrcsetSizes,
               })}

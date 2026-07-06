@@ -3,7 +3,7 @@
   "main": "dist/composited-card.packed.js",
   "description": "A simple, framework agnostic web component to facilitate the display of Gods Unchained card element(s).",
   "license": "MIT",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "homepage": "https://immutable.github.io/gu-composited-card",
   "repository": {
     "type": "git",
@@ -22,15 +22,15 @@
   "scripts": {
     "clear:dist": "rm -rf dist/",
     "clear:docs": "rm -rf docs/",
-    "prepare": "NODE_OPTIONS=--openssl-legacy-provider yarn build:src",
+    "prepare": "yarn build:src",
     "prepublishOnly": "yarn build",
     "prebuild": "yarn clear:dist; yarn clear:docs;",
     "build": "yarn build:src; yarn build:docs",
     "prebuild:docs": "yarn clear:docs",
     "prebuild:src": "yarn clear:dist",
-    "build:src": "webpack --config ./webpack.config.js",
-    "analyze:src": "webpack --config ./webpack.analyze.config.js",
-    "build:docs": "webpack --config ./webpack.ghpages.prod.config.js",
+    "build:src": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.config.js",
+    "analyze:src": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.analyze.config.js",
+    "build:docs": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.ghpages.prod.config.js",
     "dev:docs": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
     "dev:demo": "webpack-dev-server --config ./webpack.demo.config.js"
   },
