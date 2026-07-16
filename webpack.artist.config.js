@@ -5,6 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UPLOAD_DIR = path.resolve(__dirname, 'artist/uploads');
 const UPLOAD_PATH = path.join(UPLOAD_DIR, 'custom-art.jpg');
 
+// Assets composited-card pulls in (border layers, fonts) are hosted on
+// images.godsunchained.com with no CORS headers, so a browser <canvas>
+// can't read their pixels for PNG export without tainting. Node has no such
+// restriction, so this proxies just those hosts through our own origin —
+// browser then sees them as same-origin. Used only by the PNG export
+// feature, not by normal card rendering.
+const PROXY_ALLOWED_HOSTS = ['images.godsunchained.com', 'fonts.gstatic.com'];
+
 module.exports = {
   mode: 'development',
   devServer: {
@@ -45,6 +53,34 @@ module.exports = {
       app.delete('/api/upload-art', (req, res) => {
         if (fs.existsSync(UPLOAD_PATH)) fs.unlinkSync(UPLOAD_PATH);
         res.json({ ok: true });
+      });
+
+      app.get('/proxy', async (req, res) => {
+        const target = req.query.url;
+        let parsed;
+        try {
+          parsed = new URL(target);
+        } catch (err) {
+          res.status(400).json({ ok: false, error: 'invalid url' });
+          return;
+        }
+        if (!PROXY_ALLOWED_HOSTS.includes(parsed.hostname)) {
+          res.status(403).json({ ok: false, error: 'host not allowed' });
+          return;
+        }
+        try {
+          const upstream = await fetch(parsed.toString());
+          if (!upstream.ok) {
+            res.status(upstream.status).end();
+            return;
+          }
+          const buffer = Buffer.from(await upstream.arrayBuffer());
+          res.set('Cache-Control', 'public, max-age=3600');
+          res.set('Content-Type', upstream.headers.get('content-type') || 'application/octet-stream');
+          res.send(buffer);
+        } catch (err) {
+          res.status(502).json({ ok: false, error: err.message });
+        }
       });
     },
   },

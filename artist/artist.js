@@ -10,6 +10,7 @@ import {
   CUSTOM_ART_BASE_PATH,
 } from './config';
 import { resolveComposition } from './composition-resolver';
+import { exportCardAsSvg } from './export-card';
 
 const STORAGE_KEY = 'gu-artist-tool-form';
 const TEXT_FIELDS = ['quality', 'type', 'name', 'rarity', 'god', 'set', 'tribe', 'mana', 'attack', 'health', 'effect'];
@@ -27,6 +28,8 @@ const cardMount = document.getElementById('card-mount');
 const emptyState = document.getElementById('empty-state');
 const artPreview = document.getElementById('current-art-preview');
 const clearBtn = document.getElementById('clear-btn');
+const exportBtn = document.getElementById('export-btn');
+const exportStatus = document.getElementById('export-status');
 const bgColorText = document.getElementById('bg-color-text');
 const bgColorPicker = document.getElementById('bg-color-picker');
 const sizeSlider = document.getElementById('size-slider');
@@ -196,6 +199,32 @@ async function handleClear(event) {
   window.location.reload();
 }
 
+async function handleExport() {
+  if (!currentCard) {
+    exportStatus.textContent = 'Generate a card first.';
+    return;
+  }
+
+  exportBtn.disabled = true;
+  exportBtn.textContent = 'Exporting…';
+  exportStatus.textContent = '';
+
+  try {
+    const blob = await exportCardAsSvg(currentCard);
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${(form.elements.name.value || 'card').trim().replace(/\s+/g, '-')}.svg`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    exportStatus.textContent = `Export failed: ${err.message}`;
+  } finally {
+    exportBtn.disabled = false;
+    exportBtn.textContent = 'Export SVG';
+  }
+}
+
 function loadViewSettings() {
   const raw = localStorage.getItem(VIEW_STORAGE_KEY);
   return raw ? { ...DEFAULT_VIEW_SETTINGS, ...JSON.parse(raw) } : { ...DEFAULT_VIEW_SETTINGS };
@@ -259,6 +288,7 @@ async function init() {
   form.elements.type.addEventListener('change', toggleCreatureFields);
   form.addEventListener('submit', handleSubmit);
   clearBtn.addEventListener('click', handleClear);
+  exportBtn.addEventListener('click', handleExport);
 
   const hasArt = await checkArtExists();
   renderArtPreview(hasArt);
