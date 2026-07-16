@@ -1,15 +1,43 @@
 import qualityData from './data/quality.json';
 
-// Only the 5 basic qualities are wired up for now — the rest of
-// data/quality.json (variants, mythic, animated, 11-34) needs a composition
-// (v2) resolver that substitutes {type}/{god}/{id} into class_properties,
-// which doesn't exist yet. Kept the full source file copied in so that
-// resolver can be built later without re-sourcing the data.
-const BASIC_QUALITY_VALUES = ['1', '2', '3', '4', '5'];
+// Basic qualities render via compositionVersion=1 (unchanged, no comp-*
+// fields exist for these). Variant/image qualities render via
+// compositionVersion=2, resolved through composition-resolver.js.
+// "-animated" qualities (31-34) need real video assets we don't handle, and
+// "mythic" (15) needs a real pre-existing card's art_id to resolve its
+// frame/rosette/wreath — neither works generically for a prototype card, so
+// both are excluded here.
+const QUALITY_FAMILY = {
+  1: 'Basic',
+  2: 'Basic',
+  3: 'Basic',
+  4: 'Basic',
+  5: 'Basic',
+  11: 'Variant',
+  12: 'Variant',
+  13: 'Variant',
+  14: 'Variant',
+  16: 'Variant',
+  17: 'Variant',
+  18: 'Variant',
+  21: 'Image',
+  22: 'Image',
+  23: 'Image',
+  24: 'Image',
+};
 
 export const qualityOptions = qualityData
-  .filter((entry) => BASIC_QUALITY_VALUES.includes(entry.class_value))
-  .map((entry) => ({ value: entry.class_value, label: entry.class_properties.name }))
+  .filter((entry) => QUALITY_FAMILY[entry.class_value] !== undefined)
+  .map((entry) => {
+    const family = QUALITY_FAMILY[entry.class_value];
+    return {
+      value: entry.class_value,
+      label: entry.class_properties.name,
+      group: family,
+      compositionVersion: family === 'Basic' ? 1 : 2,
+      classProperties: family === 'Basic' ? null : entry.class_properties,
+    };
+  })
   .sort((a, b) => Number(a.value) - Number(b.value));
 
 export const typeOptions = [

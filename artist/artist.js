@@ -9,6 +9,7 @@ import {
   CUSTOM_ART_ID,
   CUSTOM_ART_BASE_PATH,
 } from './config';
+import { resolveComposition } from './composition-resolver';
 
 const STORAGE_KEY = 'gu-artist-tool-form';
 const TEXT_FIELDS = ['quality', 'type', 'name', 'rarity', 'god', 'set', 'tribe', 'mana', 'attack', 'health', 'effect'];
@@ -40,11 +41,28 @@ const selectFieldOptions = {
   tribe: tribeOptions,
 };
 
+function renderGroupedOptions(options) {
+  const groups = new Map();
+  options.forEach((opt) => {
+    if (!groups.has(opt.group)) groups.set(opt.group, []);
+    groups.get(opt.group).push(opt);
+  });
+  return Array.from(groups.entries())
+    .map(
+      ([group, opts]) => `
+        <optgroup label="${group}">
+          ${opts.map((opt) => `<option value="${opt.value}">${opt.label}</option>`).join('')}
+        </optgroup>
+      `,
+    )
+    .join('');
+}
+
 function populateSelects() {
   Object.entries(selectFieldOptions).forEach(([fieldName, options]) => {
-    form.elements[fieldName].innerHTML = options
-      .map((opt) => `<option value="${opt.value}">${opt.label}</option>`)
-      .join('');
+    form.elements[fieldName].innerHTML = options.length && options[0].group
+      ? renderGroupedOptions(options)
+      : options.map((opt) => `<option value="${opt.value}">${opt.label}</option>`).join('');
   });
 }
 
@@ -66,8 +84,17 @@ function applyDataToForm(data) {
   toggleCreatureFields();
 }
 
-function buildInputProtoData(data) {
-  const protoData = {
+function getQualityOption(value) {
+  return qualityOptions.find((opt) => opt.value === value);
+}
+
+// Basic qualities render via compositionVersion=1 (inputProtoData + quality
+// number), unchanged. Variant/image qualities render via
+// compositionVersion=2 — the composition object is resolved from
+// quality.json's class_properties (see composition-resolver.js).
+function buildCardProps(data) {
+  const qualityOption = getQualityOption(data.quality);
+  const cardData = {
     id: CUSTOM_ART_ID,
     type: data.type,
     name: data.name,
@@ -77,29 +104,52 @@ function buildInputProtoData(data) {
     mana: Number(data.mana),
     effect: data.effect,
   };
-  if (data.tribe && data.tribe !== 'none') protoData.tribe = data.tribe;
+  if (data.tribe && data.tribe !== 'none') cardData.tribe = data.tribe;
   if (data.type === 'creature') {
-    protoData.attack = Number(data.attack);
-    protoData.health = Number(data.health);
+    cardData.attack = Number(data.attack);
+    cardData.health = Number(data.health);
   }
-  return protoData;
+
+  if (!qualityOption || qualityOption.compositionVersion === 1) {
+    return { compositionVersion: 1, cardData };
+  }
+
+  return {
+    compositionVersion: 2,
+    cardData: { ...cardData, composition: resolveComposition(qualityOption.classProperties, cardData) },
+  };
 }
+
+// Kept so the size slider can update the already-mounted card's
+// responsiveSrcsetSizes live, instead of only applying on next Generate.
+let currentCard = null;
 
 function renderCard(data, hasArt) {
   cardMount.innerHTML = '';
+  currentCard = null;
   if (!data || !hasArt) {
     emptyState.style.display = 'block';
     return;
   }
   emptyState.style.display = 'none';
 
+  const { compositionVersion, cardData } = buildCardProps(data);
+
   const card = document.createElement('composited-card');
   card.style.width = '100%';
-  card.quality = Number(data.quality);
-  card.responsiveSrcsetSizes = '320px';
+  card.responsiveSrcsetSizes = `${loadViewSettings().size}px`;
   card.illustrationSource = `${window.location.origin}${CUSTOM_ART_BASE_PATH}`;
-  card.inputProtoData = buildInputProtoData(data);
+  card.compositionVersion = compositionVersion;
+
+  if (compositionVersion === 1) {
+    card.quality = Number(data.quality);
+    card.inputProtoData = cardData;
+  } else {
+    card.inputCompositionData = cardData;
+  }
+
   cardMount.appendChild(card);
+  currentCard = card;
 }
 
 function renderArtPreview(hasArt) {
@@ -194,6 +244,7 @@ function initViewSettings() {
     const value = Number(sizeSlider.value);
     applySize(value);
     saveViewSettings({ ...loadViewSettings(), size: value });
+    if (currentCard) currentCard.responsiveSrcsetSizes = `${value}px`;
   });
 }
 
