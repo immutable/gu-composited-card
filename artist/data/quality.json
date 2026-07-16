@@ -1,0 +1,670 @@
+[
+  {
+    "class_key": "quality",
+    "class_value": "1",
+    "class_properties": {
+      "name": "diamond",
+      "shine": 1
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "2",
+    "class_properties": {
+      "name": "gold",
+      "shine": 2
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.6,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 1.8,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.6,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "3",
+    "class_properties": {
+      "name": "shadow",
+      "shine": 3
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.8,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 2.4,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.8,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "4",
+    "class_properties": {
+      "name": "meteorite",
+      "shine": 4
+    },
+    "class_royalties": [
+      {
+        "percentage": 1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "5",
+    "class_properties": {
+      "name": "plain",
+      "shine": 5
+    },
+    "class_royalties": [],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "11",
+    "class_properties": {
+      "comp-frame": "variant_tides_1",
+      "comp-gems": [],
+      "comp-illustration": "tides",
+      "comp-profile": "tides",
+      "comp-rosette": [
+        "variants",
+        "variant_tides_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_tides_1",
+      "frame": "tides",
+      "illustration": "tides",
+      "meta-frame": "Tides",
+      "meta-quality_name": "Variant",
+      "name": "tides",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "16",
+    "class_properties": {
+      "comp-frame": "variant_ascent_1",
+      "comp-gems": [],
+      "comp-illustration": "ascent",
+      "comp-profile": "ascent",
+      "comp-rosette": [
+        "variants",
+        "variant_ascent_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_ascent_1",
+      "frame": "ascent",
+      "illustration": "ascent",
+      "meta-frame": "ascent",
+      "meta-quality_name": "Variant",
+      "name": "ascent",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "12",
+    "class_properties": {
+      "comp-frame": "variant_dread_1",
+      "comp-gems": [],
+      "comp-illustration": "dread",
+      "comp-profile": "dread",
+      "comp-rosette": [
+        "variants",
+        "variant_dread_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_dread_1",
+      "frame": "dread",
+      "illustration": "dread",
+      "meta-frame": "Dread",
+      "meta-quality_name": "Variant",
+      "name": "dread",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "21",
+    "class_properties": {
+      "comp-frame": "{type}_diamond",
+      "comp-illustration": "img1",
+      "comp-profile": "diamond",
+      "comp-rosette": "{god}_diamond",
+      "comp-tribe": "tribebar_diamond",
+      "comp-wreath": "wreath_diamond",
+      "frame": "diamond",
+      "illustration": "img1",
+      "meta-quality_name": "Diamond",
+      "name": "diamond-image",
+      "shine": 1
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "22",
+    "class_properties": {
+      "comp-frame": "{type}_gold",
+      "comp-illustration": "img1",
+      "comp-profile": "gold",
+      "comp-rosette": "{god}_gold",
+      "comp-tribe": "tribebar_gold",
+      "comp-wreath": "wreath_gold",
+      "frame": "gold",
+      "illustration": "img1",
+      "meta-quality_name": "Gold",
+      "name": "gold-image",
+      "shine": 2
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.6,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 1.8,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.6,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "23",
+    "class_properties": {
+      "comp-frame": "{type}_shadow",
+      "comp-illustration": "img1",
+      "comp-profile": "shadow",
+      "comp-rosette": "{god}_shadow",
+      "comp-tribe": "tribebar_shadow",
+      "comp-wreath": "wreath_shadow",
+      "frame": "shadow",
+      "illustration": "img1",
+      "meta-quality_name": "Shadow",
+      "name": "shadow-image",
+      "shine": 3
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.8,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 2.4,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.8,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "24",
+    "class_properties": {
+      "comp-frame": "{type}_meteorite",
+      "comp-illustration": "img1",
+      "comp-profile": "meteorite",
+      "comp-rosette": "{god}_meteorite",
+      "comp-tribe": "tribebar_meteorite",
+      "comp-wreath": "wreath_meteorite",
+      "frame": "meteorite",
+      "illustration": "img1",
+      "meta-quality_name": "Meteorite",
+      "name": "meteorite-image",
+      "shine": 4
+    },
+    "class_royalties": [
+      {
+        "percentage": 1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "17",
+    "class_properties": {
+      "comp-frame": "variant_root_1",
+      "comp-gems": [],
+      "comp-illustration": "root",
+      "comp-profile": "root",
+      "comp-rosette": [
+        "variants",
+        "variant_root_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_root_1",
+      "frame": "root",
+      "illustration": "root",
+      "meta-frame": "root",
+      "meta-quality_name": "Variant",
+      "name": "root",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "13",
+    "class_properties": {
+      "comp-frame": "variant_fallen_1",
+      "comp-gems": [],
+      "comp-illustration": "fallen",
+      "comp-profile": "fallen",
+      "comp-rosette": [
+        "variants",
+        "variant_fallen_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_fallen_1",
+      "frame": "fallen",
+      "illustration": "fallen",
+      "meta-frame": "Fallen",
+      "meta-quality_name": "Variant",
+      "name": "fallen",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "14",
+    "class_properties": {
+      "comp-frame": "variant_guardians_1",
+      "comp-gems": [],
+      "comp-illustration": "guardians",
+      "comp-profile": "guardians",
+      "comp-rosette": [
+        "variants",
+        "variant_guardians_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_guardians_1",
+      "frame": "guardians",
+      "illustration": "guardians",
+      "meta-frame": "guardians",
+      "meta-quality_name": "Variant",
+      "name": "guardians",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "15",
+    "class_properties": {
+      "comp-frame": "mythic_{id}",
+      "comp-gems": [],
+      "comp-illustration": "mythic",
+      "comp-profile": "mythic_{id}",
+      "comp-rosette": [
+        "mythic",
+        "mythic_{id}"
+      ],
+      "comp-set": [],
+      "comp-tribe": "mythic_{id}",
+      "comp-wreath": "mythic_{id}",
+      "frame": "",
+      "illustration": "",
+      "meta-frame": "Mythic",
+      "meta-quality_name": "Mythic",
+      "name": "mythic",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "18",
+    "class_properties": {
+      "comp-frame": "variant_plague_1",
+      "comp-gems": [],
+      "comp-illustration": "plague",
+      "comp-profile": "plague",
+      "comp-rosette": [
+        "variants",
+        "variant_plague_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_plague_1",
+      "frame": "plague",
+      "illustration": "plague",
+      "meta-frame": "plague",
+      "meta-quality_name": "Variant",
+      "name": "plague",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "31",
+    "class_properties": {
+      "comp-frame": "{type}_diamond",
+      "comp-rosette": "{god}_diamond_animated",
+      "comp-tribe": "tribebar_diamond",
+      "comp-wreath": "wreath_diamond",
+      "frame": "diamond",
+      "illustration": "animated",
+      "meta-quality_name": "Diamond",
+      "name": "diamond-animated",
+      "shine": 1
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "32",
+    "class_properties": {
+      "comp-frame": "{type}_gold",
+      "comp-rosette": "{god}_gold_animated",
+      "comp-tribe": "tribebar_gold",
+      "comp-wreath": "wreath_gold",
+      "frame": "gold",
+      "illustration": "animated",
+      "meta-quality_name": "Gold",
+      "name": "gold-animated",
+      "shine": 2
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.6,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 1.8,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.6,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "33",
+    "class_properties": {
+      "comp-frame": "{type}_shadow",
+      "comp-rosette": "{god}_shadow_animated",
+      "comp-tribe": "tribebar_shadow",
+      "comp-wreath": "wreath_shadow",
+      "frame": "shadow",
+      "illustration": "animated",
+      "meta-quality_name": "Shadow",
+      "name": "shadow-animated",
+      "shine": 3
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.8,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 2.4,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.8,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
+    "class_value": "34",
+    "class_properties": {
+      "comp-frame": "{type}_meteorite",
+      "comp-rosette": "{god}_meteorite_animated",
+      "comp-tribe": "tribebar_meteorite",
+      "comp-wreath": "wreath_meteorite",
+      "frame": "meteorite",
+      "illustration": "animated",
+      "meta-quality_name": "Meteorite",
+      "name": "meteorite-animated",
+      "shine": 4
+    },
+    "class_royalties": [
+      {
+        "percentage": 1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  }
+]
