@@ -1,32 +1,31 @@
-// Exports a rendered <composited-card> element to a self-contained,
-// transparent SVG file.
+// Exports a rendered <composited-card> element to native SVG (and PNG).
 //
-// The card is a Shadow DOM tree of several stacked <picture>/<img> layers
-// plus two nested custom elements (<autofit-description-text>,
-// <card-icon>), each with their own shadow root. None of that is visible to
-// a plain DOM serializer, so this recursively "flattens" every shadow root
-// into plain markup, inlines each element's own CSS (extracted from
-// adoptedStyleSheets, since that's how lit-element 2.x attaches styles in
-// browsers that support Constructable StyleSheets), and bakes every image
-// into a data: URI. The border-layer images and card fonts are hosted on
-// images.godsunchained.com with no CORS headers, so they're routed through
-// the /proxy endpoint (see webpack.artist.config.js) first.
+// Earlier versions used <foreignObject> to embed real HTML/CSS, reusing the
+// browser's own layout for free. That hit two hard walls:
+//  1. Any SVG containing foreignObject is treated as tainting a <canvas> on
+//     export, unconditionally — even with zero remaining external
+//     references, fully self-contained (confirmed empirically) — so PNG
+//     export via canvas.toBlob() was blocked outright.
+//  2. foreignObject's HTML content is only rendered by real browser
+//     engines. Figma, Inkscape, rsvg-convert etc. implement the *native*
+//     SVG paint model (rect/image/text/path) and either skip foreignObject
+//     entirely or render it blank — so the file was only ever viewable in
+//     a browser tab.
 //
-// This originally tried to rasterize the result to a PNG via
-// <canvas>.toBlob(), but browsers unconditionally treat any SVG containing
-// <foreignObject> as tainting the canvas on export, regardless of whether
-// its content is actually fully self-contained (verified empirically —
-// zero remaining external references, still tainted). That's a browser
-// security policy, not something fixable by inlining harder, so this
-// exports the SVG directly instead — same real transparency, no canvas
-// step, no tainting possible. Any browser can open it directly, and it can
-// be converted to PNG with a free tool (eg. Inkscape) if needed.
+// This version avoids foreignObject entirely: every image layer becomes a
+// native SVG <image>, every piece of text becomes a native SVG <text>,
+// positioned and styled by reading the already-rendered live DOM directly
+// (getBoundingClientRect + getComputedStyle) rather than re-implementing
+// CSS layout by hand. That's portable to any SVG-compliant tool, and since
+// the taint rule is specifically about foreignObject's presence rather than
+// content, it also unblocks real canvas-based PNG export again.
 //
 // Font fidelity: "Unchained" (name/mana/attack/health/tribe text) and
-// "cardi-cons" (the set-icon ligature) are embedded. "Open Sans" (effect
-// text) is not — it's dynamically subsetted per-browser by Google Fonts,
-// which isn't practical to replicate byte-for-byte here, so effect text
-// falls back to the CSS's own generic sans-serif fallback instead.
+// "cardi-cons" (the set-icon ligature) are embedded via a plain SVG
+// @font-face (not inside foreignObject, so it's part of the actual SVG
+// spec). "Open Sans" (effect text) is not — it's dynamically subsetted
+// per-browser by Google Fonts, impractical to replicate byte-for-byte, so
+// effect text uses the CSS's own generic sans-serif fallback instead.
 
 const FONT_URLS = {
   unchained: 'https://images.godsunchained.com/fonts/unchained/unchained.woff2',
@@ -80,126 +79,244 @@ async function buildFontFaceCss() {
   `;
 }
 
-// lit-element 2.x uses Constructable StyleSheets (shadowRoot.adoptedStyleSheets)
-// in browsers that support it, rather than a literal <style> child node —
-// so a plain childNodes walk won't find the CSS at all.
-function extractAdoptedCss(shadowRoot) {
-  const sheets = shadowRoot.adoptedStyleSheets || [];
-  if (sheets.length) {
-    return sheets
-      .map((sheet) => Array.from(sheet.cssRules).map((rule) => rule.cssText).join('\n'))
-      .join('\n');
-  }
-  return Array.from(shadowRoot.querySelectorAll('style'))
-    .map((style) => style.textContent)
+function escapeXmlText(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function escapeXmlAttr(str) {
+  return escapeXmlText(str).replace(/"/g, '&quot;');
+}
+
+function applyTextTransform(text, transform) {
+  if (transform === 'capitalize') return text.replace(/\b\w/g, (c) => c.toUpperCase());
+  if (transform === 'uppercase') return text.toUpperCase();
+  if (transform === 'lowercase') return text.toLowerCase();
+  return text;
+}
+
+// SVG <text> doesn't auto-wrap, so multi-line text (the effect/description
+// text) needs its actual browser-computed visual lines extracted, rather
+// than reimplementing word-wrap by hand. Splits into words (keeping a
+// widow-prevention &nbsp; glued to its neighbor, since it's not a regular
+// space), measures each word's rect via Range, then groups words sharing a
+// "top" into lines.
+function extractWrappedLines(el) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) textNodes.push(n);
+  if (!textNodes.length) return [];
+
+  const words = [];
+  textNodes.forEach((textNode) => {
+    const content = textNode.textContent;
+    let start = 0;
+    for (let i = 0; i <= content.length; i++) {
+      const atBoundary = i === content.length || content[i] === ' ';
+      if (atBoundary) {
+        if (i > start) words.push({ node: textNode, start, end: i, text: content.slice(start, i) });
+        start = i + 1;
+      }
+    }
+  });
+  if (!words.length) return [];
+
+  const range = document.createRange();
+  const wordRects = words.map((w) => {
+    range.setStart(w.node, w.start);
+    range.setEnd(w.node, w.end);
+    return { text: w.text, rect: range.getBoundingClientRect() };
+  });
+
+  const lines = [];
+  wordRects.forEach((w) => {
+    const line = lines.find((l) => Math.abs(l.top - w.rect.top) < 2);
+    if (line) {
+      line.words.push(w.text);
+      line.left = Math.min(line.left, w.rect.left);
+      line.right = Math.max(line.right, w.rect.right);
+      line.bottom = Math.max(line.bottom, w.rect.bottom);
+    } else {
+      lines.push({ top: w.rect.top, bottom: w.rect.bottom, left: w.rect.left, right: w.rect.right, words: [w.text] });
+    }
+  });
+
+  return lines
+    .sort((a, b) => a.top - b.top)
+    .map((l) => ({ top: l.top, bottom: l.bottom, left: l.left, right: l.right, text: l.words.join(' ') }));
+}
+
+// SVG's dominant-baseline="hanging" (used to align by the top of the line
+// rather than doing baseline math by hand) isn't reliably implemented —
+// it rendered noticeably higher than the glyphs' actual top edge. Instead,
+// measure the real font ascent via Canvas's TextMetrics (which reflects
+// the exact font/size actually used) and position by the standard
+// alphabetic baseline, which every SVG renderer supports correctly.
+//
+// Built from the individual longhand properties rather than the
+// getComputedStyle(...).font shorthand — that shorthand can silently
+// compute to an empty string for some elements (eg. card-icon's ligature
+// span) if not every sub-property cleanly round-trips, and ctx.font
+// silently no-ops on an empty string, leaving canvas at its 10px sans-serif
+// default and producing a wildly wrong ascent.
+let measureCanvasCtx = null;
+function getFontAscent(cs, fontSize) {
+  if (!measureCanvasCtx) measureCanvasCtx = document.createElement('canvas').getContext('2d');
+  const weight = cs.fontWeight && cs.fontWeight !== 'normal' ? `${cs.fontWeight} ` : '';
+  measureCanvasCtx.font = `${weight}${cs.fontSize} ${cs.fontFamily}`;
+  const metrics = measureCanvasCtx.measureText('Hg');
+  return metrics.fontBoundingBoxAscent || metrics.actualBoundingBoxAscent || fontSize * 0.8;
+}
+
+function emitTextElements(el, cardRect) {
+  const cs = getComputedStyle(el);
+  const fontSize = parseFloat(cs.fontSize);
+  if (!fontSize) return '';
+  const lines = extractWrappedLines(el);
+  if (!lines.length) return '';
+
+  const hasShadow = cs.textShadow && cs.textShadow !== 'none';
+  const strokeAttrs = hasShadow
+    ? ` stroke="black" stroke-width="${(fontSize * 0.09).toFixed(2)}" paint-order="stroke fill"`
+    : '';
+  const ascent = getFontAscent(cs, fontSize);
+
+  return lines
+    .map((line) => {
+      const text = applyTextTransform(line.text, cs.textTransform);
+      const x = (line.left + line.right) / 2 - cardRect.left;
+      const y = line.top - cardRect.top + ascent;
+      return `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" text-anchor="middle" font-family="${escapeXmlAttr(cs.fontFamily)}" font-size="${fontSize.toFixed(2)}" font-weight="${cs.fontWeight}" fill="${cs.color}"${strokeAttrs}>${escapeXmlText(text)}</text>`;
+    })
     .join('\n');
 }
 
-async function flattenElement(el, cssChunks) {
-  const clone = document.createElement(el.tagName.toLowerCase());
-  Array.from(el.attributes || []).forEach((attr) => {
-    if (attr.name === 'srcset' || attr.name === 'sizes') return;
-    clone.setAttribute(attr.name, attr.value);
-  });
+async function emitImageElement(img, cardRect) {
+  const rect = img.getBoundingClientRect();
+  if (!rect.width || !rect.height) return '';
+  const src = img.currentSrc || img.src;
+  if (!src) return '';
 
-  const childSource = el.shadowRoot ? el.shadowRoot.childNodes : el.childNodes;
-  // Once flattened there's no shadow boundary left for :host to mean
-  // anything — rewrite it to target this element by its own tag name.
-  // Applies both to adoptedStyleSheets CSS and to per-instance <style>
-  // tags rendered directly in a component's template (eg.
-  // autofit-description-text embeds its own :host {...} block that way,
-  // not via adoptedStyleSheets, for its dynamic per-render positioning).
-  const hostTagName = el.shadowRoot ? el.tagName.toLowerCase() : null;
+  let href;
+  try {
+    href = await urlToDataUri(src);
+  } catch (err) {
+    return '';
+  }
+
+  const cs = getComputedStyle(img);
+  // object-fit:cover crops-to-fill, matched by SVG's "slice"; the default
+  // (no object-fit, ie. CSS "fill") stretches, matched by "none".
+  const preserveAspectRatio = cs.objectFit === 'cover' ? 'xMidYMid slice' : 'none';
+  // NOTE: deliberately not copying cs.transform here — getBoundingClientRect()
+  // already reflects any CSS transform (eg. the frame layers' small
+  // translate(4.3%, 0.2%) crop nudge) in the rect below, so re-applying it
+  // via an SVG transform attribute would double the shift.
+
+  const x = rect.left - cardRect.left;
+  const y = rect.top - cardRect.top;
+  return `<image x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${rect.width.toFixed(2)}" height="${rect.height.toFixed(2)}" href="${href}" preserveAspectRatio="${preserveAspectRatio}"/>`;
+}
+
+// Walks the card's shadow tree (and nested shadow roots, eg.
+// autofit-description-text/card-icon) to collect paint-ordered SVG parts.
+// Generic by structure rather than hardcoded class names, since
+// compositionVersion 1 vs 2 produce different DOM shapes but the same
+// class names/leaf-text pattern either way.
+async function collectSvgParts(el, cardRect, parts) {
   if (el.shadowRoot) {
-    const css = extractAdoptedCss(el.shadowRoot);
-    if (css) cssChunks.push(css.replace(/:host/g, hostTagName));
-  }
-  for (const child of Array.from(childSource)) {
-    // eslint-disable-next-line no-await-in-loop
-    await appendFlattened(clone, child, cssChunks, hostTagName);
-  }
-
-  if (el.tagName === 'IMG') {
-    const src = el.currentSrc || el.src;
-    if (src) {
-      try {
-        clone.setAttribute('src', await urlToDataUri(src));
-      } catch (err) {
-        // leave this one image broken rather than fail the whole export
-      }
+    for (const child of Array.from(el.shadowRoot.children)) {
+      // eslint-disable-next-line no-await-in-loop
+      await collectSvgParts(child, cardRect, parts);
     }
+    return;
   }
 
-  return clone;
+  if (el.tagName === 'STYLE' || el.tagName === 'SCRIPT') return;
+
+  if (el.tagName === 'PICTURE') {
+    const img = el.querySelector('img');
+    if (img) parts.push(await emitImageElement(img, cardRect));
+    return;
+  }
+  if (el.tagName === 'IMG') {
+    parts.push(await emitImageElement(el, cardRect));
+    return;
+  }
+
+  const hasDirectText = Array.from(el.childNodes).some(
+    (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0,
+  );
+  const hasElementChildren = el.children.length > 0;
+
+  // A leaf with its own direct text (not just wrapping further elements) —
+  // eg. .card__manaText, .card__nameText__inner, the cardi-cons <i>, or
+  // autofit-description-text's .centered.
+  if (hasDirectText && !hasElementChildren) {
+    parts.push(emitTextElements(el, cardRect));
+    return;
+  }
+
+  for (const child of Array.from(el.children)) {
+    // eslint-disable-next-line no-await-in-loop
+    await collectSvgParts(child, cardRect, parts);
+  }
 }
 
-async function appendFlattened(parent, node, cssChunks, hostTagName) {
-  if (node.nodeType === Node.TEXT_NODE) {
-    parent.appendChild(document.createTextNode(node.textContent));
-    return;
-  }
-  if (node.nodeType !== Node.ELEMENT_NODE) return;
-
-  if (node.tagName === 'STYLE') {
-    const styleClone = document.createElement('style');
-    styleClone.textContent = hostTagName ? node.textContent.replace(/:host/g, hostTagName) : node.textContent;
-    parent.appendChild(styleClone);
-    return;
-  }
-
-  if (node.tagName === 'PICTURE') {
-    // Drop the <source> candidates — the exact resource is already baked
-    // in via currentSrc, no need to re-negotiate format/size for the
-    // export — but keep the <picture> element itself: its positioning CSS
-    // class (eg. "card__artwork") lives on the <picture>, not the <img>.
-    const img = node.querySelector('img');
-    const pictureClone = document.createElement('picture');
-    Array.from(node.attributes || []).forEach((attr) => pictureClone.setAttribute(attr.name, attr.value));
-    if (img) pictureClone.appendChild(await flattenElement(img, cssChunks));
-    parent.appendChild(pictureClone);
-    return;
-  }
-
-  parent.appendChild(await flattenElement(node, cssChunks));
-}
-
-export async function exportCardAsSvg(cardElement) {
-  const rect = cardElement.getBoundingClientRect();
-  const width = Math.round(rect.width);
-  const height = Math.round(rect.height);
+async function buildSvgMarkup(cardElement) {
+  const cardRect = cardElement.getBoundingClientRect();
+  const width = Math.round(cardRect.width);
+  const height = Math.round(cardRect.height);
   if (!width || !height) throw new Error('card has no rendered size to export');
 
-  const cssChunks = [];
-  const [flattenedCard, fontCss] = await Promise.all([
-    flattenElement(cardElement, cssChunks),
-    buildFontFaceCss(),
-  ]);
-  flattenedCard.setAttribute('style', `width:${width}px;height:${height}px;display:flex;`);
+  const parts = [];
+  await collectSvgParts(cardElement, cardRect, parts);
+  const fontCss = await buildFontFaceCss();
 
-  // outerHTML follows HTML serialization rules (void elements like <img>
-  // never self-close), which is invalid inside an XML/SVG document.
-  // XMLSerializer follows XML rules instead — self-closes empty elements,
-  // which foreignObject content requires.
-  const flattenedMarkup = new XMLSerializer().serializeToString(flattenedCard);
-  const styleEl = document.createElement('style');
-  styleEl.textContent = `${fontCss}\n${cssChunks.join('\n')}`;
-  const styleMarkup = new XMLSerializer().serializeToString(styleEl);
-
-  const svgMarkup = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-      <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;">
-          ${styleMarkup}
-          ${flattenedMarkup}
-        </div>
-      </foreignObject>
-    </svg>
-  `;
+  const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+  <style>${fontCss}</style>
+  ${parts.filter(Boolean).join('\n  ')}
+</svg>`;
 
   const parserErrorEl = new DOMParser().parseFromString(svgMarkup, 'image/svg+xml').querySelector('parsererror');
   if (parserErrorEl) {
     throw new Error(`generated SVG is not valid XML: ${parserErrorEl.textContent.slice(0, 300)}`);
   }
 
+  return { svgMarkup, width, height };
+}
+
+export async function exportCardAsSvg(cardElement) {
+  const { svgMarkup } = await buildSvgMarkup(cardElement);
   return new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+}
+
+export async function exportCardAsPng(cardElement) {
+  const { svgMarkup, width, height } = await buildSvgMarkup(cardElement);
+  const svgUrl = URL.createObjectURL(new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' }));
+
+  try {
+    const img = new Image();
+    img.width = width;
+    img.height = height;
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = () => reject(new Error('failed to rasterize the exported svg'));
+      img.src = svgUrl;
+    });
+
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+
+    return await new Promise((resolve, reject) => {
+      canvas.toBlob((blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error('canvas export failed (possibly a tainted canvas)'));
+      }, 'image/png');
+    });
+  } finally {
+    URL.revokeObjectURL(svgUrl);
+  }
 }

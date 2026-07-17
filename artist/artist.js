@@ -10,7 +10,7 @@ import {
   CUSTOM_ART_BASE_PATH,
 } from './config';
 import { resolveComposition } from './composition-resolver';
-import { exportCardAsSvg } from './export-card';
+import { exportCardAsSvg, exportCardAsPng } from './export-card';
 
 const STORAGE_KEY = 'gu-artist-tool-form';
 const TEXT_FIELDS = ['quality', 'type', 'name', 'rarity', 'god', 'set', 'tribe', 'mana', 'attack', 'health', 'effect'];
@@ -28,7 +28,8 @@ const cardMount = document.getElementById('card-mount');
 const emptyState = document.getElementById('empty-state');
 const artPreview = document.getElementById('current-art-preview');
 const clearBtn = document.getElementById('clear-btn');
-const exportBtn = document.getElementById('export-btn');
+const exportPngBtn = document.getElementById('export-png-btn');
+const exportSvgBtn = document.getElementById('export-svg-btn');
 const exportStatus = document.getElementById('export-status');
 const bgColorText = document.getElementById('bg-color-text');
 const bgColorPicker = document.getElementById('bg-color-picker');
@@ -199,29 +200,33 @@ async function handleClear(event) {
   window.location.reload();
 }
 
-async function handleExport() {
+async function handleExport(format) {
   if (!currentCard) {
     exportStatus.textContent = 'Generate a card first.';
     return;
   }
 
-  exportBtn.disabled = true;
-  exportBtn.textContent = 'Exporting…';
+  const btn = format === 'png' ? exportPngBtn : exportSvgBtn;
+  const originalLabel = btn.textContent;
+  exportPngBtn.disabled = true;
+  exportSvgBtn.disabled = true;
+  btn.textContent = 'Exporting…';
   exportStatus.textContent = '';
 
   try {
-    const blob = await exportCardAsSvg(currentCard);
+    const blob = format === 'png' ? await exportCardAsPng(currentCard) : await exportCardAsSvg(currentCard);
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${(form.elements.name.value || 'card').trim().replace(/\s+/g, '-')}.svg`;
+    a.download = `${(form.elements.name.value || 'card').trim().replace(/\s+/g, '-')}.${format}`;
     a.click();
     URL.revokeObjectURL(url);
   } catch (err) {
     exportStatus.textContent = `Export failed: ${err.message}`;
   } finally {
-    exportBtn.disabled = false;
-    exportBtn.textContent = 'Export SVG';
+    exportPngBtn.disabled = false;
+    exportSvgBtn.disabled = false;
+    btn.textContent = originalLabel;
   }
 }
 
@@ -288,7 +293,8 @@ async function init() {
   form.elements.type.addEventListener('change', toggleCreatureFields);
   form.addEventListener('submit', handleSubmit);
   clearBtn.addEventListener('click', handleClear);
-  exportBtn.addEventListener('click', handleExport);
+  exportPngBtn.addEventListener('click', () => handleExport('png'));
+  exportSvgBtn.addEventListener('click', () => handleExport('svg'));
 
   const hasArt = await checkArtExists();
   renderArtPreview(hasArt);

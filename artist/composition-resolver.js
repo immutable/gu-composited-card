@@ -10,8 +10,16 @@
 //    "comp-rosette": ["variants", "variant_tides_1"]) -> used as-is
 //  - a template string (eg. "comp-rosette": "{god}_diamond") -> substitute
 //    placeholders, then pair with the relevant folder value (type/god)
-//  - absent -> falls back to the normal (non-quality-specific) convention,
-//    or an empty array where there's no sensible fallback (eg. tribe_bar)
+//  - absent -> falls back to the normal (non-quality-specific) convention
+//
+// The Variant family (tides/dread/fallen/guardians/ascent/root/plague) has
+// no "comp-tribe" field at all in quality.json, which looks like a missing
+// asset at first — but border-layers/tribe_bars/<size>/tribebar_<name>.webp
+// (eg. tribebar_tides) actually exists on the CDN (verified directly,
+// 200 for all 7), just under the plain "tribebar_{name}" convention used by
+// basic qualities rather than the "variant_{name}_1" pattern frame/rosette/
+// wreath use for these qualities. So the tribe_bar fallback below isn't an
+// empty array — it's the same convention "comp-gems" already falls back to.
 
 function substitute(template, vars) {
   return template.replace(/\{(\w+)\}/g, (_, key) => vars[key] || '');
@@ -44,7 +52,7 @@ export function resolveComposition(classProperties, card) {
     gems: resolveFlatField(props['comp-gems'] !== undefined ? props['comp-gems'] : `rarity_${card.rarity}`, vars),
     wreath: resolveFlatField(props['comp-wreath'], vars),
     lock: [],
-    tribe_bar: resolveFlatField(props['comp-tribe'], vars),
+    tribe_bar: resolveFlatField(props['comp-tribe'] !== undefined ? props['comp-tribe'] : `tribebar_${props.name}`, vars),
     set: props['comp-set'] !== undefined ? props['comp-set'] : [card.set],
   };
 }

@@ -445,7 +445,7 @@ export const textLayersTemplate = ({
     fontSize: `${ch * 9.5}px`,
     bottom: `${ch * 4.5}px`,
     width: `${cw * 15}px`,
-    left: `${cw * 10.5}px`,
+    left: `${cw * 10.6}px`,
     textShadow,
   });
   const healthTextStyles = styleMap({
@@ -837,13 +837,13 @@ export const textLayersCompositionTemplate = ({
     fontSize: `${ch * 9.5}px`,
     bottom: `${ch * 4.5}px`,
     width: `${cw * 15}px`,
-    left: `${cw * 10.5}px`,
+    left: `${cw * 11.4}px`,
     textShadow,
   });
   const healthTextStyles = styleMap({
     fontSize: `${ch * 9.5}px`,
     width: `${cw * 16}px`,
-    bottom: `${ch * 4.6}px`,
+    bottom: `${ch * 4.3}px`,
     right: `${cw * 2.5}px`,
     textShadow,
   });
