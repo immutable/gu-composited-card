@@ -20,6 +20,7 @@ const QUALITY_FAMILY = {
   16: 'Variant',
   17: 'Variant',
   18: 'Variant',
+  19: 'Variant',
   21: 'Image',
   22: 'Image',
   23: 'Image',

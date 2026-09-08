@@ -545,6 +545,44 @@
   },
   {
     "class_key": "quality",
+    "class_value": "19",
+    "class_properties": {
+      "comp-frame": "variant_reckoning_1",
+      "comp-gems": [],
+      "comp-illustration": "reckoning",
+      "comp-profile": "reckoning",
+      "comp-rosette": [
+        "variants",
+        "variant_reckoning_1"
+      ],
+      "comp-set": [],
+      "comp-wreath": "variant_reckoning_1",
+      "frame": "reckoning",
+      "illustration": "reckoning",
+      "meta-frame": "reckoning",
+      "meta-quality_name": "Variant",
+      "name": "reckoning",
+      "shine": 0
+    },
+    "class_royalties": [
+      {
+        "percentage": 0.1,
+        "recipient": "starkware"
+      },
+      {
+        "percentage": 0.3,
+        "recipient": "gu"
+      },
+      {
+        "percentage": 0.1,
+        "recipient": "gu-staking"
+      }
+    ],
+    "class_type": "card",
+    "game_id": 1
+  },
+  {
+    "class_key": "quality",
     "class_value": "31",
     "class_properties": {
       "comp-frame": "{type}_diamond",
