@@ -115,6 +115,14 @@ load up a test page, with many different card types and sizes
 $ yarn dev:demo
 ```
 
+## Artist Tool
+
+A local tool for artists to preview a card's full frame/composition with their own custom illustration, without needing real card/proto data. Fill in the card data (type, name, rarity, set, tribe, mana, attack/health, effect, etc.) and upload a jpg to see it composited into an actual card — including background color and preview size controls. Inputs are saved to local storage, so they persist between reloads.
+
+```bash
+$ yarn dev:artist
+```
+
 ## For component contributers
 
 ### Install dependencies

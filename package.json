@@ -32,7 +32,8 @@
     "analyze:src": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.analyze.config.js",
     "build:docs": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./webpack.ghpages.prod.config.js",
     "dev:docs": "webpack-dev-server --config ./webpack.ghpages.dev.config.js",
-    "dev:demo": "webpack-dev-server --config ./webpack.demo.config.js"
+    "dev:demo": "webpack-dev-server --config ./webpack.demo.config.js",
+    "dev:artist": "webpack-dev-server --config ./webpack.artist.config.js"
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.2.0",

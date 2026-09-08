@@ -1,0 +1,217 @@
+<html>
+  <head>
+    <title>GU Card Artist Tool</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .layout {
+        display: flex;
+        min-height: 100vh;
+      }
+      .card-wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background: #202020;
+      }
+      #card-mount {
+        width: 400px;
+      }
+      #empty-state {
+        color: #999;
+        font-size: 14px;
+      }
+      .sidebar {
+        width: 360px;
+        flex-shrink: 0;
+        padding: 24px;
+        background: #f4f4f4;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+      .sidebar h2 {
+        margin-top: 0;
+        font-size: 16px;
+      }
+      .field {
+        display: block;
+        margin-bottom: 14px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        display: block;
+        width: 100%;
+        margin-top: 4px;
+        padding: 6px 8px;
+        font-size: 13px;
+        font-weight: normal;
+        box-sizing: border-box;
+      }
+      .field-row {
+        display: flex;
+        gap: 10px;
+      }
+      .field-row .field {
+        flex: 1;
+      }
+      #current-art-preview {
+        margin-top: 6px;
+        font-size: 12px;
+        color: #666;
+      }
+      #current-art-preview img {
+        max-width: 100%;
+        display: block;
+        margin-top: 4px;
+        border: 1px solid #ccc;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .actions button {
+        flex: 1;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .view-settings {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ddd;
+      }
+      .color-field {
+        display: flex;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .color-field input[type='text'] {
+        flex: 1;
+        margin-top: 0;
+      }
+      .color-field input[type='color'] {
+        width: 40px;
+        padding: 0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+      .slider-value {
+        font-weight: normal;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout">
+      <div class="card-wrapper" id="card-wrapper">
+        <div id="card-mount"></div>
+        <div id="empty-state">No card yet — fill in the form and click Generate.</div>
+      </div>
+
+      <aside class="sidebar">
+        <h2>View</h2>
+        <div class="view-settings">
+          <label class="field">
+            Background color
+            <div class="color-field">
+              <input type="text" id="bg-color-text" placeholder="#202020" />
+              <input type="color" id="bg-color-picker" />
+            </div>
+          </label>
+          <label class="field">
+            Size <span class="slider-value" id="size-value">400px</span>
+            <input type="range" id="size-slider" min="200" max="1500" value="400" />
+          </label>
+        </div>
+
+        <h2>Card Data</h2>
+        <form id="artist-form">
+          <label class="field">
+            Quality
+            <select name="quality" id="quality"></select>
+          </label>
+
+          <label class="field">
+            Type
+            <select name="type" id="type"></select>
+          </label>
+
+          <label class="field">
+            Name
+            <input type="text" name="name" id="name" />
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              Rarity
+              <select name="rarity" id="rarity"></select>
+            </label>
+            <label class="field">
+              God
+              <select name="god" id="god"></select>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              Set
+              <select name="set" id="set"></select>
+            </label>
+            <label class="field">
+              Tribe
+              <select name="tribe" id="tribe"></select>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              Mana
+              <input type="number" name="mana" id="mana" min="0" />
+            </label>
+            <label class="field">
+              Attack
+              <input type="number" name="attack" id="attack" min="0" />
+            </label>
+            <label class="field">
+              Health
+              <input type="number" name="health" id="health" min="0" />
+            </label>
+          </div>
+
+          <label class="field">
+            Effect
+            <textarea name="effect" id="effect" rows="4"></textarea>
+          </label>
+
+          <label class="field">
+            Art (jpg)
+            <input type="file" name="art" id="art" accept=".jpg,.jpeg,image/jpeg" />
+          </label>
+          <div id="current-art-preview"></div>
+
+          <div class="actions">
+            <button type="submit" id="submit-btn">Generate</button>
+            <button type="button" id="clear-btn">Clear</button>
+          </div>
+        </form>
+
+        <div class="actions" style="margin-top: 10px;">
+          <span style="line-height: 40px">Export</span>
+          <button type="button" id="export-png-btn">PNG</button>
+          <button type="button" id="export-svg-btn">SVG</button>
+        </div>
+        <div id="export-status"></div>
+      </aside>
+    </div>
+  </body>
+</html>

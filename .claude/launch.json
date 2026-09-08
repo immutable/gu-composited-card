@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "artist-tool",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["dev:artist"],
+      "port": 9001
+    }
+  ]
+}
